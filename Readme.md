@@ -7,7 +7,15 @@ MVP
 - Anyone can visit site
 - We add events or users personally request us for accounts to add events
 - Events can be clickable for more info
+- Database takes in event objects
+- Visualize objects in corresponding objects
 
+Implement
+- take either date object for each day or event object and conditionally check day
+- Start time, no end time
+
+Questions 
+- What type of framekwork?
 
 Next level 
 
