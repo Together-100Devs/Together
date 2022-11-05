@@ -1,11 +1,33 @@
-BRAINSTORM
+# My Awesome Project
+Together is a new app designed for 100devs. Together is a group calendar for public events, so you can see what's going on in your community. We're making it easier to find out about the events that are happening in Discord and let you know how much fun they'll be!
+
+**Link to project:** https://together.cyclic.app/
+
+![alt tag](https://ibb.co/djrPM50)
+
+## How It's Made:
+
+**Tech used:** HTML, Tailwind, JavaScript, MERN
+
+Work in progress
+
+## Optimizations
+*(optional)*
+
+Work in progress
+
+## Lessons Learned:
+
+Work in progress
+
+## BRAINSTORM
 
 tagged with hacktoberfest
 100devs classes and events are registered and displayed
 
-
-MVP (Task - Person Responsible - Status)
+## MVP (Task - Person Responsible - Status)
 - Anyone can visit site - @Caleb#9822 - Completed
+- import calendar (https://codepen.io/robstinson/pen/BaKOZry )
 - We add events or users personally request us for accounts to add events
 - Events can be clickable for more info
 - Database takes in event objects
@@ -20,24 +42,21 @@ Implement
 - take either date object for each day or event object and conditionally check day
 - Start time, no end time
 
-Questions 
-- What type of framework?
-
-Next level 
+## Next level 
 
 - users authenticate with discord oauth2 
 - oauth will check to see if they are in the 100devs guild(server)
 - users can add or delete events (two step delete process for confirmation)
 - (can have an event log tied to user name)
 
-Next next level stuff
+## Next next level stuff
 - users rsvp events and a total is displayed
 - events can have channels tagged that match the server channel emojis daily view. clicking on the day can bring up a day planner view just like google calendar
 - users can add event to their calendar through a click
 - users can share events to twitter
 - new event notification dots(easy mode might be to just highlight new events on each reload)
 
-thinking ahead
+## thinking ahead
 keep these in mind to prevent the project from being "caged"
 can integrate with slack or discord and work on other servers besides 100devs
 
