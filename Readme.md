@@ -12,6 +12,7 @@ MVP (Task - Person Responsible - Status)
 - Visualize objects in corresponding objects
 - Landing page design
 - How it works/description page
+- General design element changed. Remove BOB favicon, remove mention of BUB and 100 Devs social network.
 
 Implement
 - take either date object for each day or event object and conditionally check day
