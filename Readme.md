@@ -24,6 +24,7 @@ Work in progress
 
 tagged with hacktoberfest
 100devs classes and events are registered and displayed
+This section is used to assign tasks to collaborators for project completion.
 
 ## MVP (Task - Person Responsible - Status)
 - Anyone can visit site - @Caleb#9822 - Completed
