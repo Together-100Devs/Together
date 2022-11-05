@@ -31,7 +31,6 @@ This section is to assign tasks to collaborators for project completion.
 - Update readme to give a better description of what Together is - @Caleb#9822 - Completed
 - Update readme for tasklist - @Caleb#9822 - In Progress
 - Add contributing.md to give instructions on how to contribute
--
 - import calendar (https://codepen.io/robstinson/pen/BaKOZry )
 - We add events, or users personally request us for accounts to add events
 - Events can be clickable for more info
