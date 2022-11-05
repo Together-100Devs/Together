@@ -7,7 +7,7 @@ Together is a new app designed for 100devs. Together is a group calendar for pub
 
 ## How It's Made:
 
-**Tech used:** HTML, Tailwind, JavaScript, MERN
+**Tech used:** Tailwind, JavaScript, MERN
 
 Work in Progress
 
@@ -35,11 +35,12 @@ This section is to assign tasks to collaborators for project completion.
 - Update readme to give a better description of what Together is - @Caleb#9822 - Completed
 - Update readme for tasklist - @Caleb#9822 - In Progress
 - Add contributing.md to give instructions on how to contribute - @intelagense#1958 - Completed
-- import calendar (https://codepen.io/robstinson/pen/BaKOZry )
-- We add events, or users personally request us for accounts to add events
+- import calendar into views (https://codepen.io/robstinson/pen/BaKOZry )
+- Diagram for main view, event view and database - @intelagense#1958 - In Progress [here](https://cdn.discordapp.com/attachments/1038482732633825442/1038547318103867514/image.png)
+- Event Addition form to submit event event objects to database
 - Events can be clickable for more info
 - Database takes in event objects
-- Visualize objects in corresponding objects
+- Visualize event objects for corresponding days
 - Landing page design
 - How it works/description page
 - General design element changed. Remove the BOB favicon, and remove mention of BUB and 100 Devs social network.
