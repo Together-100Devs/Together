@@ -3,12 +3,15 @@ BRAINSTORM
 tagged with hacktoberfest
 100devs classes and events are registered and displayed
 
+(Task - Person Responsible - Status)
 MVP
-- Anyone can visit site
+- Anyone can visit site - @Caleb#9822 - Completed
 - We add events or users personally request us for accounts to add events
 - Events can be clickable for more info
 - Database takes in event objects
 - Visualize objects in corresponding objects
+- Landing page design
+- How it works/description page
 
 Implement
 - take either date object for each day or event object and conditionally check day
