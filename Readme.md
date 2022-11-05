@@ -20,17 +20,21 @@ Work in Progress
 
 Work in Progress
 
+## Want to Contribute?
+
+Look below to see what MVP tasks are currently open. We have instructions on how to contribute [here](https://github.com/Caleb-Cohen/Together/blob/main/CONTRIBUTING.md). To claim a task add your name and status to the specifc task as a PR. 
+
 ## BRAINSTORM
 
 tagged with hacktoberfest
 100devs classes and events are registered and displayed
 This section is to assign tasks to collaborators for project completion.
 
-## MVP (Task - Person Responsible - Status)
+## MVP Tasks (Task - Person Responsible - Status)
 - Anyone can visit the site - @Caleb#9822 - Completed
 - Update readme to give a better description of what Together is - @Caleb#9822 - Completed
 - Update readme for tasklist - @Caleb#9822 - In Progress
-- Add contributing.md to give instructions on how to contribute
+- Add contributing.md to give instructions on how to contribute - @intelagense#1958 - Completed
 - import calendar (https://codepen.io/robstinson/pen/BaKOZry )
 - We add events, or users personally request us for accounts to add events
 - Events can be clickable for more info
