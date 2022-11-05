@@ -3,7 +3,7 @@ Together is a new app designed for 100devs. Together is a group calendar for pub
 
 **Link to project:** https://together.cyclic.app/
 
-![alt tag](https://ibb.co/djrPM50)
+![alt tag](https://i.ibb.co/Nts9Cy6/Screen-Shot-2022-11-05-at-12-13-17-PM.png)
 
 ## How It's Made:
 
