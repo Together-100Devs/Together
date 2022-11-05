@@ -3,8 +3,8 @@ BRAINSTORM
 tagged with hacktoberfest
 100devs classes and events are registered and displayed
 
-(Task - Person Responsible - Status)
-MVP
+
+MVP (Task - Person Responsible - Status)
 - Anyone can visit site - @Caleb#9822 - Completed
 - We add events or users personally request us for accounts to add events
 - Events can be clickable for more info
