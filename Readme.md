@@ -13,6 +13,7 @@ MVP (Task - Person Responsible - Status)
 - Landing page design
 - How it works/description page
 - General design element changed. Remove BOB favicon, remove mention of BUB and 100 Devs social network.
+- Update readme to give a better description of what Together is - @Caleb#9822 - In Progress
 
 Implement
 - take either date object for each day or event object and conditionally check day
