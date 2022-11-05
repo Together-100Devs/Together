@@ -1,4 +1,4 @@
-# My Awesome Project
+# Together
 Together is a new app designed for 100devs. Together is a group calendar for public events, so you can see what's going on in your community. We're making it easier to find out about the events that are happening in Discord and let you know how much fun they'll be!
 
 **Link to project:** https://together.cyclic.app/
