@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require('path')
 const app = express();
 const mongoose = require("mongoose");
 const passport = require("passport");
@@ -45,6 +46,9 @@ app.use(
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
   })
 );
+
+// Render React as View
+app.use(express.static(path.join(__dirname, 'build')))
 
 // Passport middleware
 app.use(passport.initialize());
