@@ -37,7 +37,7 @@ This section is to assign tasks to collaborators for project completion.
 - Add contributing.md to give instructions on how to contribute - @intelagense#1958 - Completed
 - import calendar into views (https://codepen.io/robstinson/pen/BaKOZry )
 - Diagram for main view, event view and database - @intelagense#1958 - In Progress [here](https://cdn.discordapp.com/attachments/1038482732633825442/1038547318103867514/image.png)
-- Event Addition form to submit event event objects to database
+- Event Addition form to submit event objects to database
 - Events can be clickable for more info
 - Database takes in event objects
 - Visualize event objects for corresponding days
