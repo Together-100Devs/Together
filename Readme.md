@@ -53,7 +53,7 @@ Implement
 
 ## Next Level 
 
-- users authenticate with discord oauth2 
+- users authenticate with discord oauth2  - @BradC - In Progress
 - OAuth will check to see if they are in the 100devs guild(server)
 - users can add or delete events (two-step delete process for confirmation)
 - (can have an event log tied to the user name)
