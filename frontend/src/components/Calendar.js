@@ -28,7 +28,12 @@ const Calendar = () => {
   return (
     <div className="flex flex-grow w-screen h-screen overflow-auto text-gray-700">
       <div className="flex flex-col flex-grow">
-        <MonthAndYear month={date.month} year={date.year} />
+        <MonthAndYear 
+          month={date.month}
+          year={date.year}
+          handleNextMonth={date.getNextMonth}
+          handlePreviousMonth={date.getPreviousMonth}
+        />
         <AllDays />
         <DayCardList data={data} firstDayOfMonth={date.firstDay} />
       </div>
