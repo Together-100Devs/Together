@@ -35,12 +35,14 @@ This section is to assign tasks to collaborators for project completion.
 - Update readme to give a better description of what Together is - @Caleb#9822 - Completed
 - Update readme for tasklist - @Caleb#9822 - In Progress
 - Add contributing.md to give instructions on how to contribute - @intelagense#1958 - Completed
-- import calendar into views (https://codepen.io/robstinson/pen/BaKOZry )
+- import calendar into views (https://codepen.io/robstinson/pen/BaKOZry) - @KaKo#3766 - Completed
 - Diagram for main view, event view and database - @intelagense#1958 - In Progress [here](https://cdn.discordapp.com/attachments/1038482732633825442/1038547318103867514/image.png)
-- Event Addition form to submit event objects to database
-- Events can be clickable for more info
-- Database takes in event objects
+- Event Addition form to submit event objects to database - @InstincDev#9789 - In Progress
+- Event Schema added to models - @Caleb#9822 - In Progress
+- Database takes in event objects through form submit (may be mergeable with @InstincDev#9789 current task)
+- Calendar Views interactability (Shows current months and can click for future months)
 - Visualize event objects for corresponding days
+- Events can be clickable for more info
 - Landing page design
 - How it works/description page
 - General design element changed. Remove the BOB favicon, and remove mention of BUB and 100 Devs social network.
