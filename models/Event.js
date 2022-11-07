@@ -19,7 +19,7 @@ const EventSchema = new mongoose.Schema({
     type: Number,
     require: true,
   },
-  recurringDates: {
+  recurringDates: { //this is not going to be correct, need to discuss with InstinctDev on how to format to match her input form.
     type: String,
     required: true,
   },
