@@ -2,6 +2,10 @@ const LocalStrategy = require("passport-local").Strategy;
 const mongoose = require("mongoose");
 const User = require("../models/User");
 
+const DiscordStrategy = require('passport-discord').Strategy;
+// pulls discord username without email, and returns basic information about all the user's current guilds / servers. 
+const scopes = ['identify', 'guilds']
+
 module.exports = function (passport) {
   passport.use(
     new LocalStrategy({ usernameField: "email" }, (email, password, done) => {
@@ -38,4 +42,21 @@ module.exports = function (passport) {
   passport.deserializeUser((id, done) => {
     User.findById(id, (err, user) => done(err, user));
   });
+
+  //Discord authentication
+  passport.use(new DiscordStrategy({
+    //Get client ID and Secret from discord developer portal
+    clientID: process.env.DISCORD_CLIENT_ID,
+    clientSecret: process.env.DISCORD_CLIENT_SECRET,
+    callbackURL: 'localhost:3000',
+    scope: scopes
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    User.findOrCreate({ discordId: profile.id }, function(err, user) {
+        return cb(err, user);
+    });
+  }));
+
+
+
 };
