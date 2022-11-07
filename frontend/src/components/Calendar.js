@@ -1,14 +1,16 @@
 import React from 'react';
 
+import useDate from '../hooks/useDate';
 import MonthAndYear from './MonthAndYear';
 import AllDays from './AllDays';
 import DayCardList from './DayCardList';
 
 const Calendar = () => {
+  const date = useDate();
   // Dummy data
-  const data = Array.from({ length: 30 }, (_, i) => ({
+  const data = Array.from({ length: date.daysInMonth }, (_, i) => ({
     day: i + 1,
-    month: 'September',
+    month: date.month,
     events: [
       {
         time: '8:30am',
@@ -26,9 +28,9 @@ const Calendar = () => {
   return (
     <div className="flex flex-grow w-screen h-screen overflow-auto text-gray-700">
       <div className="flex flex-col flex-grow">
-        <MonthAndYear month="September" year="2020" />
+        <MonthAndYear month={date.month} year={date.year} />
         <AllDays />
-        <DayCardList data={data} />
+        <DayCardList data={data} firstDayOfMonth={date.firstDay} />
       </div>
     </div>
   );
