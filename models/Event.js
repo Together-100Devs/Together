@@ -12,8 +12,6 @@ const EventSchema = new mongoose.Schema({
   date: {
     type: Date,
     require: true,
-    min: `2022-01-01`,
-    max: `2022-12-31`
   },
   startTime: {
     type: Number,
