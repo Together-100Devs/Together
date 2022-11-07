@@ -29,10 +29,6 @@ const EventSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  discordUsername: {
-    type: String, //can pull from OATH once we got that going
-    required: true
-  },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
