@@ -37,10 +37,14 @@ This section is to assign tasks to collaborators for project completion.
 - [x] Add contributing.md to give instructions on how to contribute - @intelagense#1958 - Completed
 - [x] import calendar into views (https://codepen.io/robstinson/pen/BaKOZry) - @KaKo#3766 - Completed
 - [x] Diagram for main view, event view and database - @intelagense#1958 - [link to discussion page](https://github.com/Caleb-Cohen/Together/discussions/9#discussioncomment-4078602)
-- [x] Event Addition form to submit event objects to database - @InstincDev#9789 - In Progress
+- [ ] Event Addition form to submit event objects to database - @InstincDev#9789 - In Progress
 - [ ] Event Schema added to models - @Caleb#9822 - In Progress & Requested Review
 - [x] Database takes in event objects through form submit (may be mergeable with @InstincDev#9789 current task)
 - [x] Calendar Views interactability (Shows current months and can click for future months) - @KaKo#3766 - Completed
+- [x] users authenticate with discord oauth2  - @BradC - Completed
+- [ ] Fix for backend/frontend needing to run concurrently with two terminals. Login button does not show for production
+- [ ] create user schema
+- [ ] Have discord pass back the user data. Use schema to create user within database.
 - [ ] Visualize event objects for corresponding days
 - [ ] Events can be clickable for more info
 - [ ] Landing page design
@@ -53,7 +57,6 @@ Implement
 
 ## Next Level 
 
-- users authenticate with discord oauth2  - @BradC - In Progress
 - OAuth will check to see if they are in the 100devs guild(server)
 - users can add or delete events (two-step delete process for confirmation)
 - (can have an event log tied to the user name)
