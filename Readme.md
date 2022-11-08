@@ -43,7 +43,7 @@ This section is to assign tasks to collaborators for project completion.
 - [x] Calendar Views interactability (Shows current months and can click for future months) - @KaKo#3766 - Completed
 - [x] users authenticate with discord oauth2  - @BradC - Completed
 - [ ] Fix for backend/frontend needing to run concurrently with two terminals. Login button does not show for production
-- [ ] create user schema
+- [ ] create user schema - @Yuhwa#2642 - In Progress
 - [ ] Have discord pass back the user data. Use schema to create user within database.
 - [ ] Visualize event objects for corresponding days
 - [ ] Events can be clickable for more info
