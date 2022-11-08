@@ -7,6 +7,9 @@
     "start": "node server.js",
     "dev": "nodemon server.js",
     "build:ui": "rm -rf build && cd ./frontend && npm run build --prod && cp -r build ../",
+    "build": "npm --prefix frontend run build",
+    "postbuild": "rm -r frontend/node_modules",
+    "postinstall": "npm --prefix frontend install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
