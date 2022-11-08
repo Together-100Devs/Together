@@ -48,7 +48,7 @@ module.exports = function (passport) {
     //Get client ID and Secret from discord developer portal
     clientID: process.env.DISCORD_CLIENT_ID,
     clientSecret: process.env.DISCORD_CLIENT_SECRET,
-    callbackURL: 'localhost:3000',
+    callbackURL: 'https://together.cyclic.app',
     scope: scopes
   },
   function(accessToken, refreshToken, profile, cb) {
