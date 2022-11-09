@@ -65,6 +65,7 @@ Implement
 - users rsvp events, and a total is displayed
 - events can have channels tagged that match the server channel emojis' daily view. Clicking on the day can bring up a day planner view, just like the google calendar
 - users can add an event to their calendar through a click
+- users can filter events based on pre-determined tags (beginner-friendlt, networking, group learning)
 - users can share events on Twitter
 - new event notification dots(easy mode might be to just highlight new events on each reload)
 
