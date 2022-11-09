@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require('path')
 const app = express();
 const mongoose = require("mongoose");
 const passport = require("passport");
@@ -16,9 +17,6 @@ require("dotenv").config({ path: "./config/.env" });
 
 // Passport config
 require("./config/passport")(passport);
-
-//Connect To Database
-connectDB();
 
 //Using EJS for views
 app.set("view engine", "ejs");
@@ -46,6 +44,9 @@ app.use(
   })
 );
 
+// Render React as View
+app.use(express.static(path.join(__dirname, 'build')))
+
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
@@ -57,7 +58,10 @@ app.use(flash());
 app.use("/", mainRoutes);
 app.use("/post", postRoutes);
 
-//Server Running
-app.listen(process.env.PORT, () => {
-  console.log("Server is running, you better catch it!");
+//Connect To Database
+connectDB().then(() => {
+  //Server Running
+  app.listen(process.env.PORT, () => {
+      console.log("Server is running, you better catch it!");
+  });
 });
