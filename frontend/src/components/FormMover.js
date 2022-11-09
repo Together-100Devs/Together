@@ -8,8 +8,9 @@ const FormMover = ({steps, currentStep}) => {
     const updateStep = (stepNumber, steps) => {
         const newSteps = [...steps]
         let count = 0
-
+        
         while(count<newSteps.length){
+            // current step
             if(count === stepNumber){
                 newSteps[count] = {
                     ...newSteps[count],
@@ -73,11 +74,13 @@ const FormMover = ({steps, currentStep}) => {
                     {/* display description */}
                     {step.description}
                 </div>
-                <div className="flex-auto border-t-2 transition duration-500 ease-in-out">
+            </div>
+                <div className={`flex-auto border-t-2 transition duration-500 ease-in-out ${step.completed?
+                "border-teal-600" : "border-gray-300"}`}>
                     {/* display line */}
                 </div>
             </div> 
-            </div>
+            
         )
     });
 

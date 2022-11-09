@@ -29,7 +29,12 @@ const UserForm = () => {
          default:
       }
     }
-  
+  const handleClick = (direction) => {
+    let newStep = currentStep
+    direction === "next" ? newStep++ : newStep--
+    newStep > 0 && newStep <= steps.length-1 && setCurrentStep(newStep)
+  }
+
   return (
     <div>
         <div className="container horizontal mt-5">
@@ -39,68 +44,15 @@ const UserForm = () => {
           />
         </div>
         <div>
-          <FormMoverControl/>
+          <FormMoverControl
+          handleClick = {handleClick}
+          currentStep = {currentStep}
+          steps= {steps}
+          />
         </div>
       </div>
     
   )
-    //  state= {
-    //     step: 1,
-    //     title:'',
-    //     description: '',
-    //     discordName: '',
-    // }
-    
-//   // Move to next step
-//   nextStep = () =>{
-//     const {step} = this.state;
-//     this.setState({
-//         step: step + 1
-//     })
-//   }
-
-//   // Move to previous step
-//   prevStep = () =>{
-//     const {step} = this.state;
-//     this.setState({
-//         step: step - 1
-//     })
-//   }
-
-  // Handle input change
-//   handleChange = input => e => {
-//     this.setState({[input]: e.target.value})
-//   }
-
-//   const {step} = this.state;
-//   const {title, description, discordName} = this.state;
-//   const values = {title, description, discordName}
-   
-  
-//   switch(step){
-//     case 1:
-//         return (
-//             <FormCreateEvent
-               
-//                 handleChange={this.handleChange}
-//                 values={values}
-//             />
-//         )
-//     case 2:
-//         return <h1>FormScheduleEvent</h1>
-//     case 3: 
-//         <h1>Confirm</h1>
-//     case 4: 
-//         <h1>Success</h1>
-    
-//   }
-}
-
-// UserForm.PropTypes = {
-//     step: PropTypes.number,
-//     title:PropTypes.string,
-//     description: PropTypes.string,
-//     discordName: PropTypes.string,
-// }
+  }
 
 export default UserForm
