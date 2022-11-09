@@ -1,0 +1,45 @@
+<%- include('partials/header') -%>
+<div class=" m-5 bg-primary rounded">
+    <div class="row justify-content-center">
+        <h3 class="text-white text-center mt-3">Add New Test</h3>
+        <div class="card col-10 row m-5 justify-content-center align-self-center shadow">
+            <form action="/teacher/create_test" method="POST" class="row justify-content-center align-self-center text-center">
+                <div class="card col-10 row bg-info mx-5 mt-5 align-self-center text-center">
+                    <div class="row mt-3 input-field align-self-center justify-content-center">
+               
+                    <label for="title" >Title</label>
+                    <input type="text" id="title" name="title" class="col-6 text-center">
+                
+                </div>
+                <div class="row align-self-center
+            justify-content-center">
+                    <div class="row input-field justify-content-center">
+                    <label for="baseWords"> Base Words</label>
+                    <% for(let i = 0; i<10; i++){%>
+                    <input type="text" id="baseWords<%=i%>" name="baseWords" class="col-5 mt-1 mx-1 " >
+                    <%}%>
+                    </div>
+                </div>
+                <div class="row col justify-content-center align-self-center mb-3">
+                    <div class=" row input-field justify-content-center">
+                    <label for="challenge">Challenge</label>
+                    <% for(let i = 0; i<5; i++){%>
+                    <input type="text" id="challenge<%=i%>" name="challenge" class="col-5 mt-1 mx-1 " >
+                    <%}%>
+                    </div>
+                </div>
+                </div>
+                
+
+            <div class="row col-4 mt-3 mb-3 justify-content-center 
+            align-self-center text-center gap-2">
+                <input type="submit" value="Create" class="btn btn-sm btn-info col-md-5 ">
+                <a href="/teacher/profile" class="btn btn-sm btn-outline-info col-md-5">Cancel</a>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+
+<%- include('partials/footer') -%>
