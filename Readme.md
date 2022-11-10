@@ -54,23 +54,23 @@ This section is to assign tasks to collaborators for project completion.
 - [ ] How it works/description page
 - [ ] General design element changed. Remove the BOB favicon, and remove mention of BUB and 100 Devs social network.
 
-Implement
-- take either the date object for each day or the event object and conditionally check the day
-- Start time, no end time
-
 ## Next Level 
 
-- OAuth will check to see if they are in the 100devs guild(server)
-- users can add or delete events (two-step delete process for confirmation)
-- (can have an event log tied to the user name)
+- [ ] OAuth will check to see if they are in the 100devs guild(server)
+- [ ] users can add or delete events (two-step delete process for confirmation)
+- [ ] (can have an event log tied to the user name)
 
 ## Next next-level stuff
-- users rsvp events, and a total is displayed
-- events can have channels tagged that match the server channel emojis' daily view. Clicking on the day can bring up a day planner view, just like the google calendar
-- users can add an event to their calendar through a click
-- users can filter events based on pre-determined tags (beginner-friendlt, networking, group learning)
-- users can share events on Twitter
-- new event notification dots(easy mode might be to just highlight new events on each reload)
+- [ ] users rsvp events, and a total is displayed
+- [ ] discord bot that will message users for events they are rsvp'd in?
+- [ ] events can have channels tagged that match the server channel emojis' daily view. Clicking on the day can bring up a day planner view, just like the google calendar
+- [ ] users can add an event to their calendar through a click
+- [ ] users can filter events based on pre-determined tags (beginner-friendly, networking, group learning)
+- [ ] users can share events on Twitter
+- [ ] new event notification dots(easy mode might be to just highlight new events on each reload)
+
+$$ The Penultimate Goal
+- [ ] Discord guilds can create their own together calendar 
 
 ## thinking ahead,
 keep these in mind to prevent the project from being "caged."
