@@ -24,6 +24,8 @@ Work in Progress
 
 Look below to see what MVP tasks are currently open. We have instructions on how to contribute [here](https://github.com/Caleb-Cohen/Together/blob/main/CONTRIBUTING.md). To claim a task add your name and status to the specifc task as a PR. 
 
+We have setup loom located [here](https://www.loom.com/share/610009711e734f62890a548ecd0f1321)
+
 ## BRAINSTORM
 
 tagged with hacktoberfest
@@ -44,7 +46,8 @@ This section is to assign tasks to collaborators for project completion.
 - [x] users authenticate with discord oauth2  - @BradC - Completed
 - [ ] ~~Fix for backend/frontend needing to run concurrently with two terminals. Login button does not show for production~~ This is most likely the simplest way to keep things running. Per conversation with GC.
 - [x] create user schema - @Yuhwa#2642 - Completed
-- [ ] create a loom to show how to start frontend/backend in your local repo - @Caleb#9822 - In Progress
+- [x] create a loom to show how to start frontend/backend in your local repo - @Caleb#9822 - Completed
+- [x] update readme to have run instructions - @Caleb#9822 - Completed
 - [ ] complete event addition form 
 - [ ] have event addition form send object to database
 - [ ] Have discord pass back the user data. Use schema to create user within database.
@@ -81,7 +84,19 @@ https://codepen.io/robstinson/pen/BaKOZry
 
 # Install
 
-`npm install`
+- `npm install` in the root folder
+- `npm run build` in the root folder
+- Open second terminal in the frontend folder
+- `npm install` in the frontend folder
+- `npm run start` in the frontend folder
+- Switch back to root folder terminal
+- `npm run start` in the root folder terminal
+
+The backend will only serve the build folder. If you edit anything in your frontend folder, you must execute `npm run build` again, so the server has the proper views to send.
+
+Still having troubles? 
+
+We have a loom you can watch [here](https://www.loom.com/share/610009711e734f62890a548ecd0f1321). Additionally, you can join the discussion in the together discord channel [here](https://discord.com/channels/735923219315425401/1038482732633825442). You must be a part of the 100Devs discord to view the discussion.  
 
 ---
 
