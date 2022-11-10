@@ -2,9 +2,13 @@ const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
-  userName: { type: String, unique: true },
+  discordId: { type: String, unique: true },
+  discordAvatar: { type: String },
+  discordGuild: { type: String, unique: true },
   email: { type: String, unique: true },
-  password: String,
+  userLinks: [{ type: String }],
+  userBio: { type: String },
+  //password: String,
 });
 
 // Password hash middleware.
