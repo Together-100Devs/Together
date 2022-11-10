@@ -2,7 +2,6 @@ const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
-  userId: { type: String, unique: true },
   discordId: { type: String, unique: true },
   discordAvatar: { type: String },
   discordGuild: { type: String, unique: true },
