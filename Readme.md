@@ -44,6 +44,7 @@ This section is to assign tasks to collaborators for project completion.
 - [x] users authenticate with discord oauth2  - @BradC - Completed
 - [ ] ~~Fix for backend/frontend needing to run concurrently with two terminals. Login button does not show for production~~ This is most likely the simplest way to keep things running. Per conversation with GC.
 - [x] create user schema - @Yuhwa#2642 - Completed
+- [ ] create a loom to show how to start frontend/backend in your local repo - @Caleb#9822 - In Progress
 - [ ] complete event addition form 
 - [ ] have event addition form send object to database
 - [ ] Have discord pass back the user data. Use schema to create user within database.
