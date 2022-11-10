@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import {FormMoverContext} from './FormMoverContext'
 import FormMover from './FormMover'
 import FormMoverControl from './FormMoverControl'
 import FormCreateEvent from './FormCreateEvent'
@@ -9,6 +10,9 @@ import FormSuccess from './FormSuccess'
 const UserForm = () => {
     
   const [currentStep, setCurrentStep] = useState(1)
+
+    const [userData, setUserData] = useState('')
+    const [finalData, setFinalData] = useState([])
   const steps = [
       "Description",
       "Schedule",
@@ -42,6 +46,18 @@ const UserForm = () => {
             steps = {steps}
             currentStep = {currentStep}
           />
+
+          <div className="my-10 p-10 ">
+            <FormMoverContext.Provider value ={{
+              userData,
+              setUserData,
+              finalData,
+              setFinalData
+            }}>
+              {displayStep(currentStep)}
+            </FormMoverContext.Provider>
+          </div>
+
         </div>
         <div>
           <FormMoverControl
