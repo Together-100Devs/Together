@@ -69,7 +69,7 @@ This section is to assign tasks to collaborators for project completion.
 - [ ] users can share events on Twitter
 - [ ] new event notification dots(easy mode might be to just highlight new events on each reload)
 
-$$ The Penultimate Goal
+## The Penultimate Goal
 - [ ] Discord guilds can create their own together calendar 
 
 ## thinking ahead,
