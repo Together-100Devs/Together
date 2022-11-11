@@ -5,15 +5,6 @@ Together is a new app designed for 100devs. Together is a group calendar for pub
 
 ![alt tag](https://i.ibb.co/vVH3qjx/Screen-Shot-2022-11-05-at-12-13-17-PM.png)
 
-## How It's Made:
-
-**Tech used:** Tailwind, JavaScript, MERN
-
-Work in Progress
-
-Work in Progress
-
-
 # Things to add
 
 - Create a `.env` file in the config folder and add the following as `key = value.`
