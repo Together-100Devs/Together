@@ -11,20 +11,41 @@ Together is a new app designed for 100devs. Together is a group calendar for pub
 
 Work in Progress
 
-## Optimizations
-*(optional)*
-
 Work in Progress
 
-## Lessons Learned:
 
-Work in Progress
+# Things to add
 
-## Want to Contribute?
+- Create a `.env` file in the config folder and add the following as `key = value.`
+  - PORT = 2121 (can be any port example: 3000)
+  - DB_STRING = `your database URI`
+  - CLOUD_NAME = `your Cloudinary cloud name`
+  - API_KEY = `your Cloudinary API key`
+  - API_SECRET = `your Cloudinary API secret`
 
-Look below to see what MVP tasks are currently open. We have instructions on how to contribute [here](https://github.com/Caleb-Cohen/Together/blob/main/CONTRIBUTING.md). To claim a task add your name and status to the specifc task as a PR. 
+---
+# Install
 
-We have setup loom located [here](https://www.loom.com/share/610009711e734f62890a548ecd0f1321)
+- `npm install` in the root folder
+- `npm run build` in the root folder
+- Open second terminal in the frontend folder
+- `npm install` in the frontend folder
+- `npm run start` in the frontend folder
+- Switch back to root folder terminal
+- `npm run start` in the root folder terminal
+
+The backend will only serve the build folder. If you edit anything in your frontend folder, you must execute `npm run build` again, so the server has the proper views to send.
+
+Still having troubles? 
+
+We have a loom you can watch [here](https://www.loom.com/share/610009711e734f62890a548ecd0f1321). Additionally, you can join the discussion in the together discord channel [here](https://discord.com/channels/735923219315425401/1038482732633825442). You must be a part of the 100Devs discord to view the discussion.  
+
+---
+# Run
+
+`npm start`
+---
+
 
 ## BRAINSTORM
 
@@ -82,36 +103,14 @@ can integrate with slack or Discord and work on other servers besides 100devs
 Resources:
 https://codepen.io/robstinson/pen/BaKOZry 
 
-# Install
+## Optimizations
+*(optional)*
 
-- `npm install` in the root folder
-- `npm run build` in the root folder
-- Open second terminal in the frontend folder
-- `npm install` in the frontend folder
-- `npm run start` in the frontend folder
-- Switch back to root folder terminal
-- `npm run start` in the root folder terminal
 
-The backend will only serve the build folder. If you edit anything in your frontend folder, you must execute `npm run build` again, so the server has the proper views to send.
+## Want to Contribute?
 
-Still having troubles? 
+Look below to see what MVP tasks are currently open. We have instructions on how to contribute [here](https://github.com/Caleb-Cohen/Together/blob/main/CONTRIBUTING.md). To claim a task add your name and status to the specifc task as a PR. 
 
-We have a loom you can watch [here](https://www.loom.com/share/610009711e734f62890a548ecd0f1321). Additionally, you can join the discussion in the together discord channel [here](https://discord.com/channels/735923219315425401/1038482732633825442). You must be a part of the 100Devs discord to view the discussion.  
+We have setup loom located [here](https://www.loom.com/share/610009711e734f62890a548ecd0f1321)
 
----
-
-# Things to add
-
-- Create a `.env` file in the config folder and add the following as `key = value.`
-  - PORT = 2121 (can be any port example: 3000)
-  - DB_STRING = `your database URI`
-  - CLOUD_NAME = `your Cloudinary cloud name`
-  - API_KEY = `your Cloudinary API key`
-  - API_SECRET = `your Cloudinary API secret`
-
----
-
-# Run
-
-`npm start`
 
