@@ -33,7 +33,7 @@ tagged with hacktoberfest
 This section is to assign tasks to collaborators for project completion.
 
 ## MVP Tasks (Task - Person Responsible - Status)
-- [x] Anyone can visit the site - @Caleb#9822 - Completed
+- [x] Site setup/ Hosting on Cyclic - @Caleb#9822 - Completed
 - [x] Update readme to give a better description of what Together is - @Caleb#9822 - Completed
 - [x] Update readme for tasklist - @Caleb#9822 - In Progress
 - [x] Add contributing.md to give instructions on how to contribute - @intelagense#1958 - Completed
@@ -108,6 +108,8 @@ We have a loom you can watch [here](https://www.loom.com/share/610009711e734f628
   - CLOUD_NAME = `your Cloudinary cloud name`
   - API_KEY = `your Cloudinary API key`
   - API_SECRET = `your Cloudinary API secret`
+  - DISCORD_CLIENT_ID = `discord client ID`
+  - DISCORD_CLIENT_SECRET = `discord client secret`
 
 ---
 
