@@ -1,10 +1,6 @@
 const LocalStrategy = require("passport-local").Strategy;
-const mongoose = require("mongoose");
-const User = require("../models/User");
-
 const DiscordStrategy = require('passport-discord').Strategy;
-// pulls discord username without email, and returns basic information about all the user's current guilds / servers. 
-const scopes = ['identify', 'guilds']
+const User = require("../models/User");
 
 module.exports = function (passport) {
   passport.use(
@@ -48,15 +44,34 @@ module.exports = function (passport) {
     //Get client ID and Secret from discord developer portal
     clientID: process.env.DISCORD_CLIENT_ID,
     clientSecret: process.env.DISCORD_CLIENT_SECRET,
-    callbackURL: 'https://together.cyclic.app',
-    scope: scopes
+    callbackURL: '/auth/discord/callback',
+    // pulls discord username without email, and returns basic information about all the user's current guilds / servers. 
+    scope: ['identify', 'guilds']
   },
-  function(accessToken, refreshToken, profile, cb) {
-    User.findOrCreate({ discordId: profile.id }, function(err, user) {
-        return cb(err, user);
+  function (accessToken, refreshToken, profile, cb) {
+    const displayName = `${profile.username}#${profile.discriminator}`;
+    const is100Dever = profile.guilds.some(server => server.id === '735923219315425401');
+  
+    if (!is100Dever) return cb(null, false, {
+      msg: "You must be a member of the 100Devs Discord to use this application",
+    });
+
+    User.findById(profile.id, (err, user) => {
+      if (err) return cb(err, user);
+      // Create new user
+      if (!user) return User.create({
+        _id: profile.id,
+        displayName: displayName,
+        avatar: profile.avatar,
+        socials: [],
+        bio: '',
+      }).then((err, user) => cb(err, user));
+      // Update outdated info
+      user.displayName = displayName;
+      user.avatar = profile.avatar;
+      return user.save((err, user) => {
+        return cb(err, user)
+      })
     });
   }));
-
-
-
 };
