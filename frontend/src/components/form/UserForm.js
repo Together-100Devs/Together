@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState} from 'react'
 import {FormMoverContext} from './FormMoverContext'
 import FormMover from './FormMover'
 import FormMoverControl from './FormMoverControl'
