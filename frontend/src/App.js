@@ -1,16 +1,8 @@
 
-import React, {useEffect} from 'react'
+import React from 'react'
 import Calendar from './components/Calendar';
 import UserForm from './components/form/UserForm'
-import dataService from './services/dataService';
 function App() {
-
-  useEffect(() => {
-    dataService.ping().then((res) => {
-      console.log(res)
-    })
-  }, [])
-
   return (
     <div>
       <Calendar />

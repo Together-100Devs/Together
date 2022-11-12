@@ -6,6 +6,7 @@ import FormCreateEvent from './FormCreateEvent'
 import FormScheduleEvent from './FormScheduleEvent'
 import FormConfirm from './FormConfirm'
 import FormSuccess from './FormSuccess'
+import DataService from '../../services/dataService'
 
 const UserForm = () => {
     
@@ -39,6 +40,11 @@ const UserForm = () => {
     newStep > 0 && newStep <= steps.length-1 && setCurrentStep(newStep)
   }
 
+  const handleSubmit = async () => {
+    await DataService.create({data: userData})
+    setCurrentStep(4)
+  }
+
   return (
     <div>
         <div className="container horizontal mt-5">
@@ -61,7 +67,7 @@ const UserForm = () => {
         </div>
         <div>
           <FormMoverControl
-          handleClick = {handleClick}
+          handleClick = {currentStep === 3 ? handleSubmit : handleClick}
           currentStep = {currentStep}
           steps= {steps}
           />
