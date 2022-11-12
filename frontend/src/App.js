@@ -1,6 +1,16 @@
+
+import React, {useEffect} from 'react'
 import Calendar from './components/Calendar';
 import UserForm from './components/form/UserForm'
+import dataService from './services/dataService';
 function App() {
+
+  useEffect(() => {
+    dataService.ping().then((res) => {
+      console.log(res)
+    })
+  }, [])
+
   return (
     <div>
       <Calendar />
@@ -9,8 +19,6 @@ function App() {
      <div className ="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
       <UserForm/>
      </div>
-     
-      
     </div>
   )
 }

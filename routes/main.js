@@ -6,6 +6,7 @@ const postsController = require("../controllers/posts");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 const passport = require("passport")
 
+router.get("/ping", homeController.ping);
 //Main Routes - simplified for now
 router.get("/", homeController.getIndex);
 //router.get("/add_event", homeController.getAdd);
