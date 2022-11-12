@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors')
 const path = require('path')
 const app = express();
 const mongoose = require("mongoose");
@@ -11,12 +12,29 @@ const logger = require("morgan");
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const postRoutes = require("./routes/posts");
+const eventsRoutes = require("./routes/events");
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
 
 // Passport config
 require("./config/passport")(passport);
+
+const whitelist = ['http://localhost:3000']
+const corsOptions = {
+  credentials: true,
+  origin: function (origin, callback) {
+    console.log("** Origin of request " + origin)
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      console.log("Origin acceptable")
+      callback(null, true)
+    } else {
+      console.log("Origin rejected")
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+app.use(cors(corsOptions))
 
 //Using EJS for views
 app.set("view engine", "ejs");
@@ -57,6 +75,7 @@ app.use(flash());
 //Setup Routes For Which The Server Is Listening
 app.use("/", mainRoutes);
 app.use("/post", postRoutes);
+app.use("/events", eventsRoutes);
 
 //Connect To Database
 connectDB().then(() => {

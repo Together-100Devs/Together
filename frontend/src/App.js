@@ -1,5 +1,7 @@
+
+import React from 'react'
 import Calendar from './components/Calendar';
-import UserForm from './components/UserForm'
+import UserForm from './components/form/UserForm'
 function App() {
   return (
     <div>
@@ -9,8 +11,6 @@ function App() {
      <div className ="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
       <UserForm/>
      </div>
-     
-      
     </div>
   )
 }
