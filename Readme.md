@@ -84,17 +84,19 @@ https://codepen.io/robstinson/pen/BaKOZry
 
 ---
 
-# Things to add
+# Things edit 
 
-- Create a `.env` file in the config folder and add the following as `key = value.`
-  - PORT = 2121 (Do not change)
-  - DB_STRING = `your database URI`
-  - CLOUD_NAME = `your Cloudinary cloud name`
-  - API_KEY = `your Cloudinary API key`
-  - API_SECRET = `your Cloudinary API secret`
-  - DISCORD_CLIENT_ID = `discord client ID`
-  - DISCORD_CLIENT_SECRET = `discord client secret`
 
+- Rename the .env.example to just .env and include the following
+`
+  PORT = 2121 (Do not change)
+  DB_STRING = YOUR_DB_STRING
+  CLOUD_NAME = YOUR_CLOUD_NAME
+  API_KEY = YOUR_API_KEY
+  API_SECRET = YOUR_API_SECRET
+  DISCORD_CLIENT_ID = YOUR_DISCORD_CLIENT_ID
+  DISCORD_CLIENT_SECRET = YOUR_DISCORD_CLIENT_SECRET
+`
 ---
 
 # Install & Run

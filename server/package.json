@@ -4,13 +4,8 @@
   "description": "100Devs Social Network",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "concurrently \"npm:watch-client\" \"npm:watch-server\"",
-    "watch-server": "nodemon server.js",
-    "watch-client": "npm --prefix frontend start",
-    "postinstall": "npm --prefix frontend install && npm run build",
-    "build": "rm -rf build && cd ./frontend && npm run build --prod && cp -r build ../",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js"
   },
   "author": "",
   "license": "MIT",
