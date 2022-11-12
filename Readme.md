@@ -115,8 +115,7 @@ We have a loom you can watch [here](https://www.loom.com/share/610009711e734f628
 
 # Run
 
-- `npm install`
-- `npm start`
-- `npm run dev`
+- `npm install` installs the required dependencies.
+- `npm run dev` in the root folder to start both frontend and backend for development/testing.
 
 If you make changes to the front end you must execute `npm run build` otherwise the backend will serve the outdated build file. 
