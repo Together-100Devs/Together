@@ -5,38 +5,26 @@ Together is a new app designed for 100devs. Together is a group calendar for pub
 
 ![alt tag](https://i.ibb.co/vVH3qjx/Screen-Shot-2022-11-05-at-12-13-17-PM.png)
 
-# Things to add
+## How It's Made:
 
-- Create a `.env` file in the config folder and add the following as `key = value.`
-  - PORT = 2121 (can be any port example: 3000)
-  - DB_STRING = `your database URI`
-  - CLOUD_NAME = `your Cloudinary cloud name`
-  - API_KEY = `your Cloudinary API key`
-  - API_SECRET = `your Cloudinary API secret`
+**Tech used:** Tailwind, JavaScript, MERN
 
----
-# Install
+Work in Progress
 
-- `npm install` in the root folder
-- `npm run build` in the root folder
-- Open second terminal in the frontend folder
-- `npm install` in the frontend folder
-- `npm run start` in the frontend folder
-- Switch back to root folder terminal
-- `npm run start` in the root folder terminal
+## Optimizations
+*(optional)*
 
-The backend will only serve the build folder. If you edit anything in your frontend folder, you must execute `npm run build` again, so the server has the proper views to send.
+Work in Progress
 
-Still having troubles? 
+## Lessons Learned:
 
-We have a loom you can watch [here](https://www.loom.com/share/610009711e734f62890a548ecd0f1321). Additionally, you can join the discussion in the together discord channel [here](https://discord.com/channels/735923219315425401/1038482732633825442). You must be a part of the 100Devs discord to view the discussion.  
+Work in Progress
 
----
-# Run
+## Want to Contribute?
 
-`npm start`
----
+Look below to see what MVP tasks are currently open. We have instructions on how to contribute [here](https://github.com/Caleb-Cohen/Together/blob/main/CONTRIBUTING.md). To claim a task add your name and status to the specifc task as a PR. 
 
+We have setup loom located [here](https://www.loom.com/share/610009711e734f62890a548ecd0f1321)
 
 ## BRAINSTORM
 
@@ -45,7 +33,7 @@ tagged with hacktoberfest
 This section is to assign tasks to collaborators for project completion.
 
 ## MVP Tasks (Task - Person Responsible - Status)
-- [x] Anyone can visit the site - @Caleb#9822 - Completed
+- [x] Site setup/ Hosting on Cyclic - @Caleb#9822 - Completed
 - [x] Update readme to give a better description of what Together is - @Caleb#9822 - Completed
 - [x] Update readme for tasklist - @Caleb#9822 - In Progress
 - [x] Add contributing.md to give instructions on how to contribute - @intelagense#1958 - Completed
@@ -94,14 +82,28 @@ can integrate with slack or Discord and work on other servers besides 100devs
 Resources:
 https://codepen.io/robstinson/pen/BaKOZry 
 
-## Optimizations
-*(optional)*
+---
 
+# Things to add
 
-## Want to Contribute?
+- Create a `.env` file in the config folder and add the following as `key = value.`
+  - PORT = 2121 (Do not change)
+  - DB_STRING = `your database URI`
+  - CLOUD_NAME = `your Cloudinary cloud name`
+  - API_KEY = `your Cloudinary API key`
+  - API_SECRET = `your Cloudinary API secret`
+  - DISCORD_CLIENT_ID = `discord client ID`
+  - DISCORD_CLIENT_SECRET = `discord client secret`
 
-Look below to see what MVP tasks are currently open. We have instructions on how to contribute [here](https://github.com/Caleb-Cohen/Together/blob/main/CONTRIBUTING.md). To claim a task add your name and status to the specifc task as a PR. 
+---
 
-We have setup loom located [here](https://www.loom.com/share/610009711e734f62890a548ecd0f1321)
+# Install & Run
 
+- `npm install` installs the required dependencies & rebuilds front-end. 
+- `npm run dev` in the root folder to start both frontend and backend for development/testing.
 
+If you make changes to the front end you must execute `npm run build` otherwise the backend will serve the outdated build file. 
+
+Still having troubles? 
+
+You can join the discussion in the together discord channel [here](https://discord.com/channels/735923219315425401/1038482732633825442). You must be a part of the 100Devs discord to view the discussion.  
