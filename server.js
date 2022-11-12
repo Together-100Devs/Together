@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors')
 const path = require('path')
 const app = express();
 const mongoose = require("mongoose");
@@ -17,6 +18,22 @@ require("dotenv").config({ path: "./config/.env" });
 
 // Passport config
 require("./config/passport")(passport);
+
+const whitelist = ['http://localhost:3000']
+const corsOptions = {
+  credentials: true,
+  origin: function (origin, callback) {
+    console.log("** Origin of request " + origin)
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      console.log("Origin acceptable")
+      callback(null, true)
+    } else {
+      console.log("Origin rejected")
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+app.use(cors(corsOptions))
 
 //Using EJS for views
 app.set("view engine", "ejs");
