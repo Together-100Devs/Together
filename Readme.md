@@ -82,22 +82,6 @@ can integrate with slack or Discord and work on other servers besides 100devs
 Resources:
 https://codepen.io/robstinson/pen/BaKOZry 
 
-# Install
-
-- `npm install` in the root folder
-- `npm run build` in the root folder
-- Open second terminal in the frontend folder
-- `npm install` in the frontend folder
-- `npm run start` in the frontend folder
-- Switch back to root folder terminal
-- `npm run start` in the root folder terminal
-
-The backend will only serve the build folder. If you edit anything in your frontend folder, you must execute `npm run build` again, so the server has the proper views to send.
-
-Still having troubles? 
-
-We have a loom you can watch [here](https://www.loom.com/share/610009711e734f62890a548ecd0f1321). Additionally, you can join the discussion in the together discord channel [here](https://discord.com/channels/735923219315425401/1038482732633825442). You must be a part of the 100Devs discord to view the discussion.  
-
 ---
 
 # Things to add
@@ -113,9 +97,13 @@ We have a loom you can watch [here](https://www.loom.com/share/610009711e734f628
 
 ---
 
-# Run
+# Install & Run
 
 - `npm install` installs the required dependencies.
 - `npm run dev` in the root folder to start both frontend and backend for development/testing.
 
 If you make changes to the front end you must execute `npm run build` otherwise the backend will serve the outdated build file. 
+
+Still having troubles? 
+
+You can join the discussion in the together discord channel [here](https://discord.com/channels/735923219315425401/1038482732633825442). You must be a part of the 100Devs discord to view the discussion.  
