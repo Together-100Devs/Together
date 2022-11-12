@@ -4,11 +4,12 @@ import { FormMoverContext } from './FormMoverContext'
 
 export default function FormCreateEvent () {
   const {userData, setUserData} = useContext(FormMoverContext)
+  
   const handleChange = (e) => {
     const {name, value} = e.target
     setUserData({...userData, [name] : value})
   }
-  
+ 
   return (
     <div className="flex flex-col">
     <div className ="w-full mx-2 flex-1">

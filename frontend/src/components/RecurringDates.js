@@ -1,16 +1,20 @@
-import{useContext} from 'react'
+import{ useContext } from 'react'
 import { FormMoverContext } from './FormMoverContext'
+import { useForm } from 'react-hook-form'
+
 
 
 export default function RecurringDates () {
     
-    
     const {userData, setUserData} = useContext(FormMoverContext)
     const handleChange = (e) => {
       const {name, value} = e.target
-      setUserData({...userData, [name] : value})
+      setUserData({...userData, [name]: value})
+      console.log(`${userData[[name]]}`)
     }
 
+        console.log(`tuesday = ${userData[['tuesday']]}`)
+    
   return (
     <div className ="w-full mx-2 flex-1">
       <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
@@ -27,30 +31,35 @@ export default function RecurringDates () {
        />
        <p>Monthly</p>
        </div>
-       <div className=' flex space-x-4 items-center'>
+       
+       <div className="mx-8 space-y-2">
+        <div className='  flex space-x-4 items-center'>
          <input type="checkbox" 
        onChange={handleChange}
-       value={userData['monday'] || ''}
-       name='monday'
-       className=" mx-1 outline-non text-gray-800"
+       value= 'monday'
+       name= 'monday'
+       id='monday'
+       className="day mx-1 outline-non text-gray-800"
        />
         <p>Monday</p>
        </div>
-       <div className='flex space-x-4 items-center'>
+       <div className=' flex space-x-4 items-center'>
         <input type="checkbox" 
        onChange={handleChange}
-       value={userData['tuesday'] || ''}
+       value='tuesday'
        name='tuesday'
-       className="mx-1 outline-non text-gray-800"
+       id='tuesday'
+       className="day mx-1 outline-non text-gray-800"
        />
        <p>Tuesday</p>
        </div>
-       <div className='flex space-x-4 items-center'>
+       <div className=' flex space-x-4 items-center'>
         <input type="checkbox" 
        onChange={handleChange}
        value={userData['wednesday'] || ''}
        name='wednesday'
-       className="mx-1 outline-non text-gray-800"
+       id='wednesday'
+       className="day mx-1 outline-non text-gray-800"
        />
        <p>Wednesday</p>
        </div>
@@ -89,6 +98,7 @@ export default function RecurringDates () {
        className="mx-1 outline-non text-gray-800"
        />
        <p>Sunday</p>
+       </div>
        </div>
       </div>
     </div>
