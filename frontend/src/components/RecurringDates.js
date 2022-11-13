@@ -8,12 +8,17 @@ export default function RecurringDates () {
     
     const {userData, setUserData} = useContext(FormMoverContext)
     const handleChange = (e) => {
-      const {name, value} = e.target
-      setUserData({...userData, [name]: value})
+      const { name, value, type, checked } = e.target;
+        if (type === "checkbox") {
+            setUserData({ ...userData, [name]: checked })
+        } else {
+            setUserData({ ...userData, [name]: value });
+            }
       console.log(`${userData[[name]]}`)
     }
-
-        console.log(`tuesday = ${userData[['tuesday']]}`)
+    
+    
+       
     
   return (
     <div className ="w-full mx-2 flex-1">
@@ -24,9 +29,10 @@ export default function RecurringDates () {
        <div className='flex space-x-4 items-center'>
         <input type="checkbox" 
        onChange={handleChange}
-       value={userData['monthly'] || ''}
+       value='monthly'
        name='monthly'
        label="monthly"
+       checked={!!userData["monthly"] || false}
        className="  mx-1 outline-non text-gray-800"
        />
        <p>Monthly</p>
@@ -39,6 +45,7 @@ export default function RecurringDates () {
        value= 'monday'
        name= 'monday'
        id='monday'
+       checked={!!userData["monday"]}
        className="day mx-1 outline-non text-gray-800"
        />
         <p>Monday</p>
@@ -49,6 +56,7 @@ export default function RecurringDates () {
        value='tuesday'
        name='tuesday'
        id='tuesday'
+       checked = {!!userData["tuesday"]}
        className="day mx-1 outline-non text-gray-800"
        />
        <p>Tuesday</p>
@@ -56,9 +64,10 @@ export default function RecurringDates () {
        <div className=' flex space-x-4 items-center'>
         <input type="checkbox" 
        onChange={handleChange}
-       value={userData['wednesday'] || ''}
+       value='wednesday'
        name='wednesday'
        id='wednesday'
+       checked={!!userData["wednesday"]}
        className="day mx-1 outline-non text-gray-800"
        />
        <p>Wednesday</p>
@@ -66,8 +75,9 @@ export default function RecurringDates () {
        <div className='flex space-x-4 items-center'>
         <input type="checkbox" 
        onChange={handleChange}
-       value={userData['thursday'] || ''}
+       value='thursday'
        name='thursday'
+       checked={!!userData["thursday"]}
        className="mx-1 outline-non text-gray-800"
        />
        <p>Thursday</p>
@@ -75,8 +85,9 @@ export default function RecurringDates () {
        <div className='flex space-x-4 items-center'>
         <input type="checkbox" 
        onChange={handleChange}
-       value={userData['friday'] || ''}
+       value='friday'
        name='friday'
+       checked={!!userData["friday"]}
        className=" mx-1 outline-non text-gray-800"
        />
        <p>Friday</p>
@@ -84,8 +95,9 @@ export default function RecurringDates () {
        <div className='flex space-x-4 items-center'>
         <input type="checkbox" 
        onChange={handleChange}
-       value={userData['saturday'] || ''}
+       value='saturday'
        name='Saturday'
+       checked={!!userData["saturday"]}
        className="mx-1 outline-non text-gray-800"
        />
        <p>Saturday</p>
@@ -93,8 +105,9 @@ export default function RecurringDates () {
        <div className='flex space-x-4 items-center'>
         <input type="checkbox" 
        onChange={handleChange}
-       value={userData['sunday'] || ''}
+       value='sunday'
        name='sunday'
+       checked={!!userData["sunday"]}
        className="mx-1 outline-non text-gray-800"
        />
        <p>Sunday</p>

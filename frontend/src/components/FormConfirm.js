@@ -80,52 +80,56 @@ export default function FormConfirm () {
       </div>
       <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
        <input type="checkbox" 
-       
-       value={userData['monthly'] || ''}
-       name='monthly'
-       label="monthly"
+       checked={!!userData["monthly"]}
        className="outline-non text-gray-800"
        />
        <input type="checkbox" 
       
-       value={userData['monday'] || ''}
+       value='monday'
        name='monday'
+       checked={!!userData["monday"]}
        className="outline-non text-gray-800"
        />
        <input type="checkbox" 
        
-       value={userData['tuesday'] || ''}
+       value='tuesday'
        name='tuesday'
+       checked = {!!userData["tuesday"]}
        className="outline-non text-gray-800"
        />
        <input type="checkbox" 
        
-       value={userData['wednesday'] || ''}
+       value='wednesday'
        name='wednesday'
+       defaultChecked={!!userData["wednesday"]}
        className="outline-non text-gray-800"
        />
        <input type="checkbox" 
        
-       value={userData['thursday'] || ''}
+       value='thursday'
        name='thursday'
+       defaultChecked={!!userData["thursday"]}
        className="outline-non text-gray-800"
        />
        <input type="checkbox" 
        
-       value={userData['friday'] || ''}
+       value='friday'
        name='friday'
+       defaultChecked={!!userData["friday"]}
        className="outline-non text-gray-800"
        />
        <input type="checkbox" 
        
-       value={userData['saturday'] || ''}
+       value='saturday'
        name='recurring'
+       defaultChecked={!!userData["saturday"]}
        className="outline-non text-gray-800"
        />
        <input type="checkbox" 
        
-       value={userData['sunday'] || ''}
+       value='sunday'
        name='recurring'
+       defaultChecked={!!userData["sunday"]}
        className="outline-non text-gray-800"
        />
       </div>
