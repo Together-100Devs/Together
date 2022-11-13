@@ -20,8 +20,8 @@ router.post("/signup", authController.postSignup);
 //Discord Authentication Routes
 router.get('/auth/discord', passport.authenticate('discord'));
 router.get('/auth/discord/callback', passport.authenticate('discord', {
-    failureRedirect: '/'
-}), function(req, res) {
-    res.redirect('/')
-});
+    failureRedirect: '/',
+    successRedirect: '/'
+}))
+
 module.exports = router;

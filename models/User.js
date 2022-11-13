@@ -2,41 +2,19 @@ const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
-  userName: { type: String, unique: true },
-  email: { type: String, unique: true },
-  password: String,
+  _id: { type: String, required: true },
+  displayName: { type: String, unique: true },
+  avatar: { type: String },
+  socials: [{ type: String }],
+  bio: { type: String },
 });
 
-// Password hash middleware.
-
-UserSchema.pre("save", function save(next) {
-  const user = this;
-  if (!user.isModified("password")) {
-    return next();
-  }
-  bcrypt.genSalt(10, (err, salt) => {
-    if (err) {
-      return next(err);
-    }
-    bcrypt.hash(user.password, salt, (err, hash) => {
-      if (err) {
-        return next(err);
-      }
-      user.password = hash;
-      next();
-    });
-  });
+UserSchema.virtual('avatarURL').get(function() {
+  return 'https://cdn.discordapp.com/' + (
+    this.avatar
+      ? ['', `${this._id}/${this.avatar}.webp`]
+      : ['embed/',  `avatars/${(+this.displayName.split('#').at(-1)) % 5}.png`]
+  ).join('avatars/');
 });
-
-// Helper method for validating user's password.
-
-UserSchema.methods.comparePassword = function comparePassword(
-  candidatePassword,
-  cb
-) {
-  bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
-    cb(err, isMatch);
-  });
-};
 
 module.exports = mongoose.model("User", UserSchema);

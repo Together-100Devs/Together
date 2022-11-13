@@ -5,9 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js",
-    "postbuild": "rm -r frontend/node_modules",
-    "postinstall": "npm --prefix frontend install",
+    "dev": "concurrently \"npm:watch-client\" \"npm:watch-server\"",
+    "watch-server": "nodemon server.js",
+    "watch-client": "npm --prefix frontend start",
+    "postinstall": "npm --prefix frontend install && npm run build",
     "build": "rm -rf build && cd ./frontend && npm run build --prod && cp -r build ../",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -32,5 +33,8 @@
     "passport-discord": "^0.1.4",
     "passport-local": "^1.0.0",
     "validator": "^13.6.0"
+  },
+  "devDependencies": {
+    "concurrently": "^7.5.0"
   }
 }
