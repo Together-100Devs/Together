@@ -1,6 +1,6 @@
 import React from 'react'
 import Calendar from './components/Calendar';
-import LoginWithDiscord from './components/form/LoginWithDiscord'
+import LoginWithDiscord from './components/LoginWithDiscord'
 import UserForm from './components/form/UserForm'
 
 function App() {
