@@ -10,7 +10,10 @@
     "watch-client": "npm --prefix frontend start",
     "postinstall": "npm --prefix frontend install && npm run build",
     "build": "rm -rf build && cd ./frontend && npm run build --prod && cp -r build ../",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
   "author": "",
   "license": "MIT",
@@ -35,6 +38,11 @@
     "validator": "^13.6.0"
   },
   "devDependencies": {
-    "concurrently": "^7.5.0"
+    "concurrently": "^7.5.0",
+    "eslint": "^8.27.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0"
   }
 }
