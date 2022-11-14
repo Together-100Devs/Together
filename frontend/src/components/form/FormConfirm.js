@@ -1,6 +1,6 @@
 import {useContext} from 'react'
 import { FormMoverContext } from './FormMoverContext'
-import RecurringDates from './RecurringDates'
+import RecurringDates from '../RecurringDates'
 
 export default function FormConfirm () {
   const {userData} = useContext(FormMoverContext)
