@@ -1,6 +1,6 @@
 import {useContext} from 'react'
 import { FormMoverContext } from './FormMoverContext'
-import RecurringDates from '../RecurringDates'
+import FormRecurringDates from './FormRecurringDates'
 
 
 export default function FormScheduleEvent () {
@@ -56,7 +56,7 @@ export default function FormScheduleEvent () {
     </div>
 
     <div>
-    <RecurringDates/>
+    <FormRecurringDates/>
     </div>
     </div>
   )

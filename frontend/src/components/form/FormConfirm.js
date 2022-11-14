@@ -1,13 +1,9 @@
 import {useContext} from 'react'
 import { FormMoverContext } from './FormMoverContext'
-import RecurringDates from '../RecurringDates'
+import FormRecurringDates from './FormRecurringDates'
 
 export default function FormConfirm () {
   const {userData} = useContext(FormMoverContext)
-  // const handleChange = (e) => {
-  //   const {name, value} = e.target
-  //   setUserData({...userData, [name] : value})
-  // }
   
   return (
     <div className="flex flex-col">
@@ -38,6 +34,7 @@ export default function FormConfirm () {
       <p>{userData['date']}</p>
       </div>
     </div>
+
     <div className ="w-full mx-2 flex-1">
       <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
      Discord Name
@@ -84,7 +81,6 @@ export default function FormConfirm () {
        className="outline-non text-gray-800"
        />
        <input type="checkbox" 
-      
        value='monday'
        name='monday'
        checked={!!userData["monday"]}
