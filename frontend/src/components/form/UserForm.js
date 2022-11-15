@@ -37,7 +37,7 @@ const UserForm = () => {
   const handleClick = (direction) => {
     let newStep = currentStep
     direction === "next" ? newStep++ : newStep--
-    newStep > 0 && newStep <= steps.length-1 && setCurrentStep(newStep)
+    newStep > 0 && newStep <= steps.length && setCurrentStep(newStep)
   }
 
   const handleSubmit = async () => {
@@ -66,11 +66,13 @@ const UserForm = () => {
 
         </div>
         <div>
+         {currentStep !== steps.length &&
           <FormMoverControl
-          handleClick = {currentStep === 3 ? handleSubmit : handleClick}
+          handleClick = {handleClick}
           currentStep = {currentStep}
           steps= {steps}
           />
+         }
         </div>
       </div>
     
