@@ -1,6 +1,6 @@
 import{ useContext } from 'react'
 import { FormMoverContext } from './FormMoverContext'
-import { useForm } from 'react-hook-form'
+
 
 
 
@@ -10,6 +10,16 @@ export default function FormRecurringDates () {
     const handleChange = (e) => {
       const { name, value, type, checked } = e.target;
         if (type === "checkbox") {
+            setUserData({ ...userData, [name]: checked })
+        } else {
+            setUserData({ ...userData, [name]: value });
+            }
+      console.log(`${userData[[name]]}`)
+    }
+
+    const allChange = (e) => {
+      const { name, value, className, type,  checked } = e.target;
+        if (type=== "checkbox" && className === "day") {
             setUserData({ ...userData, [name]: checked })
         } else {
             setUserData({ ...userData, [name]: value });
@@ -28,11 +38,11 @@ export default function FormRecurringDates () {
       <div className="bg-white p-1 flex-col space-y-6 border border-gray-200 rounded">
        <div className='flex space-x-4 items-center'>
         <input type="checkbox" 
-       onChange={handleChange}
+       onChange={allChange}
        value='monthly'
        name='monthly'
        label="monthly"
-       checked={!!userData["monthly"] || false}
+       checked={!!userData["monthly"]}
        className="  mx-1 outline-non text-gray-800"
        />
        <p>Monthly</p>
