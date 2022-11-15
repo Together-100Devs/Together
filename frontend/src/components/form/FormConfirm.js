@@ -1,13 +1,9 @@
 import {useContext} from 'react'
 import { FormMoverContext } from './FormMoverContext'
-import RecurringDates from '../RecurringDates'
+import FormRecurringDates from './FormRecurringDates'
 
 export default function FormConfirm () {
   const {userData} = useContext(FormMoverContext)
-  // const handleChange = (e) => {
-  //   const {name, value} = e.target
-  //   setUserData({...userData, [name] : value})
-  // }
   
   return (
     <div className="flex flex-col">
@@ -38,6 +34,7 @@ export default function FormConfirm () {
       <p>{userData['date']}</p>
       </div>
     </div>
+
     <div className ="w-full mx-2 flex-1">
       <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
      Discord Name
@@ -78,61 +75,111 @@ export default function FormConfirm () {
       <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
      Recurring
       </div>
-      <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
+      <div className="bg-white py-4 p-1 my-2 flex border border-gray-200 rounded">
+    <div className="border-r pr-6">
+        <div className='flex space-x-4 items-center'>
+        <input type="checkbox" 
+       value='weekly'
+       name='weekly'
+       label="weekly"
+       checked={!!userData["weekly"]}
+       className="  mx-1 outline-non text-gray-800"
+       />
+        <p>Weekly</p>
+        </div>
+
+        <div className='flex space-x-4 items-center'>
        <input type="checkbox" 
+       value='monthly'
+       name='monthly'
+       label="monthly"
        checked={!!userData["monthly"]}
-       className="outline-non text-gray-800"
+       className="  mx-1 outline-non text-gray-800"
        />
+       <p>Monthly</p>
+       </div>
+
+       <div className='flex space-x-4 items-center'>
        <input type="checkbox" 
-      
-       value='monday'
-       name='monday'
+       value='noRecurr'
+       name='noRecurr'
+       label="noRecurr"
+       checked={!!userData["noRecurr"]}
+       className="  mx-1 outline-non text-gray-800"
+       />
+       <p>No Recurring</p>
+       </div>
+
+       </div>
+       <div className=" mx-7 ">
+        <div className='  flex space-x-4 items-center'>
+         <input type="checkbox" 
+       value= 'monday'
+       name= 'monday'
+       id='monday'
        checked={!!userData["monday"]}
-       className="outline-non text-gray-800"
+       className="mx-1 outline-non text-gray-800"
        />
-       <input type="checkbox" 
-       
+        <p>Monday</p>
+       </div>
+       <div className=' flex space-x-4 items-center'>
+        <input type="checkbox" 
        value='tuesday'
        name='tuesday'
+       id='tuesday'
        checked = {!!userData["tuesday"]}
-       className="outline-non text-gray-800"
+       className=" mx-1 outline-non text-gray-800"
        />
-       <input type="checkbox" 
-       
+       <p>Tuesday</p>
+       </div>
+       <div className=' flex space-x-4 items-center'>
+        <input type="checkbox" 
        value='wednesday'
        name='wednesday'
-       defaultChecked={!!userData["wednesday"]}
-       className="outline-non text-gray-800"
+       id='wednesday'
+       checked={!!userData["wednesday"]}
+       className=" mx-1 outline-non text-gray-800"
        />
-       <input type="checkbox" 
-       
+       <p>Wednesday</p>
+       </div>
+       <div className='flex space-x-4 items-center'>
+        <input type="checkbox" 
        value='thursday'
        name='thursday'
-       defaultChecked={!!userData["thursday"]}
-       className="outline-non text-gray-800"
+       checked={!!userData["thursday"]}
+       className="mx-1 outline-non text-gray-800"
        />
-       <input type="checkbox" 
-       
+       <p>Thursday</p>
+       </div>
+       <div className='flex space-x-4 items-center'>
+        <input type="checkbox" 
        value='friday'
        name='friday'
-       defaultChecked={!!userData["friday"]}
-       className="outline-non text-gray-800"
+       checked={!!userData["friday"]}
+       className=" mx-1 outline-non text-gray-800"
        />
-       <input type="checkbox" 
-       
+       <p>Friday</p>
+       </div>
+       <div className='flex space-x-4 items-center'>
+        <input type="checkbox" 
        value='saturday'
-       name='recurring'
-       defaultChecked={!!userData["saturday"]}
-       className="outline-non text-gray-800"
+       name='saturday'
+       checked={!!userData["saturday"]}
+       className="mx-1 outline-non text-gray-800"
        />
-       <input type="checkbox" 
-       
+       <p>Saturday</p>
+       </div>
+       <div className='flex space-x-4 items-center'>
+        <input type="checkbox" 
        value='sunday'
-       name='recurring'
-       defaultChecked={!!userData["sunday"]}
-       className="outline-non text-gray-800"
+       name='sunday'
+       checked={!!userData["sunday"]}
+       className="mx-1 outline-non text-gray-800"
        />
-      </div>
+       <p>Sunday</p>
+       </div>
+       </div>
+    </div>
     </div>
     </div>
   )
