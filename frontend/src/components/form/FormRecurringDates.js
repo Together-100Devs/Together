@@ -24,7 +24,6 @@ export default function FormRecurringDates () {
         }
       }
       setUserData({ ...userData })
-      console.log(userData)
     }      
     
   return (
