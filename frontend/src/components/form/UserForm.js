@@ -12,7 +12,7 @@ const UserForm = () => {
     
   const [currentStep, setCurrentStep] = useState(1)
 
-    const [userData, setUserData] = useState('')
+    const [userData, setUserData] = useState({recurring: {rate: '', days: []}})
     const [finalData, setFinalData] = useState([])
   const steps = [
       "Description",
