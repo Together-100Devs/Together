@@ -8,9 +8,7 @@ const get = async () => {
     
 // Post request
 const create = async userData => {
-    const response = await axios.post('http://localhost:2121/events', {
-        ...userData
-    })
+const response = await axios.post('http://localhost:2121/events', userData)
     return response.data;
 }
 
