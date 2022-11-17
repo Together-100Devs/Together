@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { v4 as uuidv4 } from 'uuid';
 
 // Get request
 const get = async () => {
