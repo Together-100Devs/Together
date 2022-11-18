@@ -45,18 +45,6 @@ export default function FormRecurringDates () {
         <p>Weekly</p>
         </div>
 
-        <div className='flex space-x-4 items-center'>
-       <input type="checkbox" 
-       onChange={handleChange}
-       value='rate'
-       name='monthly'
-       label="monthly"
-       checked={!!(userData.recurring.rate === "monthly")}
-       className="  mx-1 outline-non text-gray-800"
-       />
-       <p>Monthly</p>
-       </div>
-
        <div className='flex space-x-4 items-center'>
        <input type="checkbox" 
        onChange={handleChange}
