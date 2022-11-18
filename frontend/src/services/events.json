@@ -1,0 +1,430 @@
+{
+  "events": [
+    {
+      "date": "2022-12-08T03:01:59.368Z",
+      "user": "Watson#801",
+      "title": "Watson's event",
+      "endTime": "3:15 AM",
+      "location": "remo",
+      "createdAt": "2022-11-17T00:57:44.982Z",
+      "startTime": "3:01 AM",
+      "description": "labore id incididunt irure exercitation enim aute aliqua aliquip ad",
+      "recurringDates": {
+        "days": [
+          "Monday",
+          "Saturday",
+          "Friday",
+          "Wednesday"
+        ],
+        "rate": "Monthly"
+      },
+      "id": 8
+    },
+    {
+      "date": "2022-11-22T15:19:20.938Z",
+      "user": "Miranda#715",
+      "title": "Miranda's event",
+      "endTime": "3:51 PM",
+      "location": "remo",
+      "createdAt": "2022-11-17T00:57:44.984Z",
+      "startTime": "3:19 PM",
+      "description": "pariatur minim nulla dolor nostrud duis cupidatat do ullamco ad",
+      "recurringDates": {
+        "days": [
+          "Thursday",
+          "Wednesday",
+          "Monday",
+          "Tuesday",
+          "Saturday"
+        ],
+        "rate": "No Recurring"
+      },
+      "id": 9
+    },
+    {
+      "date": "2022-11-01T16:15:33.353Z",
+      "user": "Hayes#7",
+      "title": "Hayes's event",
+      "endTime": "4:45 PM",
+      "location": "discord",
+      "createdAt": "2022-11-17T00:57:44.985Z",
+      "startTime": "4:15 PM",
+      "description": "excepteur aliqua minim cupidatat ipsum Lorem ad velit nostrud proident",
+      "recurringDates": {
+        "days": [
+          "Thursday",
+          "Monday",
+          "Friday",
+          "Tuesday",
+          "Saturday"
+        ],
+        "rate": "Weekly"
+      },
+      "id": 10
+    },
+    {
+      "date": "2022-11-08T05:18:02.793Z",
+      "user": "Casey#745",
+      "title": "Casey's event",
+      "endTime": "5:40 AM",
+      "location": "remo",
+      "createdAt": "2022-11-17T00:57:44.986Z",
+      "startTime": "5:18 AM",
+      "description": "culpa tempor pariatur labore cillum ea eiusmod exercitation aliquip commodo",
+      "recurringDates": {
+        "days": [
+          "Saturday",
+          "Tuesday",
+          "Wednesday"
+        ],
+        "rate": "Monthly"
+      },
+      "id": 11
+    },
+    {
+      "date": "2022-12-02T19:34:05.125Z",
+      "user": "Meyer#991",
+      "title": "Meyer's event",
+      "endTime": "8:27 PM",
+      "location": "remo",
+      "createdAt": "2022-11-17T00:57:44.988Z",
+      "startTime": "7:34 PM",
+      "description": "proident ullamco nostrud non sint eu ut elit ad ad",
+      "recurringDates": {
+        "days": [
+          "Saturday",
+          "Sunday",
+          "Tuesday"
+        ],
+        "rate": "Monthly"
+      },
+      "id": 12
+    },
+    {
+      "date": "2022-11-05T11:57:28.176Z",
+      "user": "Kent#328",
+      "title": "Kent's event",
+      "endTime": "12:38 PM",
+      "location": "discord",
+      "createdAt": "2022-11-17T00:57:44.989Z",
+      "startTime": "11:57 AM",
+      "description": "sunt sint adipisicing laborum irure cillum dolor mollit occaecat proident",
+      "recurringDates": {
+        "days": [
+          "Sunday"
+        ],
+        "rate": "Weekly"
+      },
+      "id": 13
+    },
+    {
+      "date": "2022-11-03T09:41:24.679Z",
+      "user": "Petra#90",
+      "title": "Petra's event",
+      "endTime": "10:00 AM",
+      "location": "remo",
+      "createdAt": "2022-11-17T00:57:44.990Z",
+      "startTime": "9:41 AM",
+      "description": "ullamco sit veniam esse culpa qui enim deserunt ea nisi",
+      "recurringDates": {
+        "days": [
+          "Saturday",
+          "Sunday",
+          "Tuesday"
+        ],
+        "rate": "Monthly"
+      },
+      "id": 14
+    },
+    {
+      "date": "2022-11-22T00:20:00.795Z",
+      "user": "Kirby#727",
+      "title": "Kirby's event",
+      "endTime": "12:20 AM",
+      "location": "discord",
+      "createdAt": "2022-11-17T00:57:44.991Z",
+      "startTime": "12:20 AM",
+      "description": "eu est exercitation culpa ex veniam voluptate tempor aliquip proident",
+      "recurringDates": {
+        "days": [
+          "Wednesday",
+          "Thursday",
+          "Sunday",
+          "Tuesday",
+          "Saturday"
+        ],
+        "rate": "No Recurring"
+      },
+      "id": 15
+    },
+    {
+      "date": "2022-12-18T12:33:12.085Z",
+      "user": "Jan#395",
+      "title": "Jan's event",
+      "endTime": "1:07 PM",
+      "location": "remo",
+      "createdAt": "2022-11-17T00:57:44.992Z",
+      "startTime": "12:33 PM",
+      "description": "sint ad dolore voluptate esse mollit voluptate sint minim qui",
+      "recurringDates": {
+        "days": [
+          "Friday",
+          "Monday",
+          "Saturday",
+          "Tuesday"
+        ],
+        "rate": "Weekly"
+      },
+      "id": 16
+    },
+    {
+      "date": "2022-11-01T12:51:01.433Z",
+      "user": "Maura#600",
+      "title": "Maura's event",
+      "endTime": "1:44 PM",
+      "location": "discord",
+      "createdAt": "2022-11-17T00:57:44.993Z",
+      "startTime": "12:51 PM",
+      "description": "magna sunt incididunt voluptate fugiat est adipisicing eiusmod veniam voluptate",
+      "recurringDates": {
+        "days": [
+          "Tuesday",
+          "Friday",
+          "Sunday"
+        ],
+        "rate": "No Recurring"
+      },
+      "id": 17
+    },
+    {
+      "date": "2022-12-07T19:26:15.574Z",
+      "user": "Erica#888",
+      "title": "Erica's event",
+      "endTime": "7:56 PM",
+      "location": "remo",
+      "createdAt": "2022-11-17T00:57:44.995Z",
+      "startTime": "7:26 PM",
+      "description": "ullamco reprehenderit proident quis nisi nostrud in do ut ullamco",
+      "recurringDates": {
+        "days": [
+          "Sunday",
+          "Saturday"
+        ],
+        "rate": "Weekly"
+      },
+      "id": 18
+    },
+    {
+      "date": "2022-12-10T22:20:44.129Z",
+      "user": "Deloris#12",
+      "title": "Deloris's event",
+      "endTime": "10:46 PM",
+      "location": "remo",
+      "createdAt": "2022-11-17T00:57:44.996Z",
+      "startTime": "10:20 PM",
+      "description": "consectetur labore qui do elit adipisicing et aliqua consectetur incididunt",
+      "recurringDates": {
+        "days": [
+          "Tuesday"
+        ],
+        "rate": "Weekly"
+      },
+      "id": 19
+    },
+    {
+      "date": "2022-11-30T04:56:21.880Z",
+      "user": "Gretchen#790",
+      "title": "Gretchen's event",
+      "endTime": "5:24 AM",
+      "location": "remo",
+      "createdAt": "2022-11-17T00:57:44.997Z",
+      "startTime": "4:56 AM",
+      "description": "proident occaecat Lorem aliqua pariatur aute ea non est sit",
+      "recurringDates": {
+        "days": [
+          "Monday",
+          "Friday",
+          "Wednesday",
+          "Thursday",
+          "Tuesday"
+        ],
+        "rate": "Weekly"
+      },
+      "id": 20
+    },
+    {
+      "date": "2022-11-07T15:39:41.186Z",
+      "user": "Josefina#354",
+      "title": "Josefina's event",
+      "endTime": "4:02 PM",
+      "location": "discord",
+      "createdAt": "2022-11-17T00:57:44.998Z",
+      "startTime": "3:39 PM",
+      "description": "ipsum Lorem id irure tempor enim mollit dolore culpa adipisicing",
+      "recurringDates": {
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Friday"
+        ],
+        "rate": "No Recurring"
+      },
+      "id": 21
+    },
+    {
+      "date": "2022-11-10T07:24:59.322Z",
+      "user": "Keisha#401",
+      "title": "Keisha's event",
+      "endTime": "7:52 AM",
+      "location": "remo",
+      "createdAt": "2022-11-17T00:57:45.000Z",
+      "startTime": "7:24 AM",
+      "description": "minim enim aliquip cillum laborum id ipsum anim in veniam",
+      "recurringDates": {
+        "days": [
+          "Wednesday",
+          "Saturday",
+          "Sunday",
+          "Thursday",
+          "Monday"
+        ],
+        "rate": "Monthly"
+      },
+      "id": 22
+    },
+    {
+      "date": "2022-11-14T10:08:30.401Z",
+      "user": "Sherri#996",
+      "title": "Sherri's event",
+      "endTime": "10:51 AM",
+      "location": "remo",
+      "createdAt": "2022-11-17T00:57:45.001Z",
+      "startTime": "10:08 AM",
+      "description": "elit aute incididunt elit ipsum reprehenderit velit culpa mollit proident",
+      "recurringDates": {
+        "days": [
+          "Monday",
+          "Friday",
+          "Thursday"
+        ],
+        "rate": "Monthly"
+      },
+      "id": 23
+    },
+    {
+      "date": "2022-11-14T18:39:30.329Z",
+      "user": "Audra#901",
+      "title": "Audra's event",
+      "endTime": "6:57 PM",
+      "location": "remo",
+      "createdAt": "2022-11-17T00:57:45.003Z",
+      "startTime": "6:39 PM",
+      "description": "voluptate duis laboris et minim laborum enim aliqua cillum eu",
+      "recurringDates": {
+        "days": [
+          "Thursday",
+          "Tuesday",
+          "Friday"
+        ],
+        "rate": "No Recurring"
+      },
+      "id": 24
+    },
+    {
+      "date": "2022-11-29T17:56:07.314Z",
+      "user": "Gutierrez#6",
+      "title": "Gutierrez's event",
+      "endTime": "6:47 PM",
+      "location": "remo",
+      "createdAt": "2022-11-17T00:57:45.004Z",
+      "startTime": "5:56 PM",
+      "description": "in occaecat nulla esse nulla enim aute minim anim sit",
+      "recurringDates": {
+        "days": [
+          "Tuesday",
+          "Saturday",
+          "Monday",
+          "Thursday"
+        ],
+        "rate": "No Recurring"
+      },
+      "id": 25
+    },
+    {
+      "date": "2022-11-25T16:39:38.927Z",
+      "user": "Eliza#351",
+      "title": "Eliza's event",
+      "endTime": "5:28 PM",
+      "location": "remo",
+      "createdAt": "2022-11-17T00:57:45.005Z",
+      "startTime": "4:39 PM",
+      "description": "occaecat eiusmod ut esse qui mollit adipisicing duis eu enim",
+      "recurringDates": {
+        "days": [
+          "Monday",
+          "Friday",
+          "Wednesday",
+          "Sunday"
+        ],
+        "rate": "No Recurring"
+      },
+      "id": 26
+    },
+    {
+      "date": "2022-12-16T01:34:00.488Z",
+      "user": "Raymond#197",
+      "title": "Raymond's event",
+      "endTime": "2:16 AM",
+      "location": "remo",
+      "createdAt": "2022-11-17T00:57:45.007Z",
+      "startTime": "1:34 AM",
+      "description": "anim laboris labore sit nulla tempor ipsum minim exercitation id",
+      "recurringDates": {
+        "days": [
+          "Thursday",
+          "Friday"
+        ],
+        "rate": "Monthly"
+      },
+      "id": 27
+    },
+    {
+      "date": "2022-11-12T08:45:19.900Z",
+      "user": "Hattie#305",
+      "title": "Hattie's event",
+      "endTime": "8:47 AM",
+      "location": "remo",
+      "createdAt": "2022-11-17T00:57:45.008Z",
+      "startTime": "8:45 AM",
+      "description": "Lorem dolor pariatur quis duis et pariatur tempor magna veniam",
+      "recurringDates": {
+        "days": [
+          "Tuesday",
+          "Sunday",
+          "Wednesday",
+          "Friday"
+        ],
+        "rate": "Monthly"
+      },
+      "id": 28
+    },
+    {
+      "date": "2022-12-26T00:46:40.249Z",
+      "user": "Katheryn#424",
+      "title": "Katheryn's event",
+      "endTime": "12:51 AM",
+      "location": "discord",
+      "createdAt": "2022-11-17T00:57:45.010Z",
+      "startTime": "12:46 AM",
+      "description": "esse dolor pariatur velit sit enim aliquip ullamco officia ea",
+      "recurringDates": {
+        "days": [
+          "Saturday",
+          "Sunday"
+        ],
+        "rate": "Monthly"
+      },
+      "id": 29
+    }
+  ]
+}
