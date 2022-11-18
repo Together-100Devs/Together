@@ -88,18 +88,6 @@ export default function FormConfirm () {
         <p>Weekly</p>
         </div>
 
-        <div className='flex space-x-4 items-center'>
-       <input type="checkbox" 
-       value='monthly'
-       name='monthly'
-       label="monthly"
-       readOnly
-       checked={!!(userData.recurring.rate === "monthly")}
-       className="  mx-1 outline-non text-gray-800"
-       />
-       <p>Monthly</p>
-       </div>
-
        <div className='flex space-x-4 items-center'>
        <input type="checkbox" 
        value='noRecurr'
