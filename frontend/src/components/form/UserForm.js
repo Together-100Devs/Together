@@ -12,7 +12,7 @@ const UserForm = () => {
     
   const [currentStep, setCurrentStep] = useState(1)
 
-    const [userData, setUserData] = useState('')
+    const [userData, setUserData] = useState({recurring: {rate: 'noRecurr', days: []}})
     const [finalData, setFinalData] = useState([])
   const steps = [
       "Description",
@@ -34,15 +34,11 @@ const UserForm = () => {
          default:
       }
     }
-  const handleClick = (direction) => {
+  const handleClick = async (direction) => {
     let newStep = currentStep
     direction === "next" ? newStep++ : newStep--
     newStep > 0 && newStep <= steps.length && setCurrentStep(newStep)
-  }
-
-  const handleSubmit = async () => {
-    await DataService.create({data: userData})
-    setCurrentStep(4)
+    newStep === 4 && await DataService.create({data: userData})
   }
 
   return (
