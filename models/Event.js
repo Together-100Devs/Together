@@ -32,6 +32,10 @@ const EventSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  discordName: {
+    type: String,
+    required: true,
+  },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
