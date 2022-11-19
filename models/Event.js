@@ -17,14 +17,22 @@ const EventSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  recurringDates: { //this is not going to be correct, need to discuss with InstinctDev on how to format to match her input form.
+  recurringRate: { 
     type: String,
+    require: true,
+  },
+  recurringDates: { 
+    type: Array,
   },
    endTime: {
     type: String,
     required: true,
   },
   location: {
+    type: String,
+    required: true,
+  },
+  discordName: {
     type: String,
     required: true,
   },
