@@ -6,7 +6,7 @@ import FormCreateEvent from './FormCreateEvent'
 import FormScheduleEvent from './FormScheduleEvent'
 import FormConfirm from './FormConfirm'
 import FormSuccess from './FormSuccess'
-import DataService from '../../services/dataService'
+import DataService from 'services/dataService'
 
 const UserForm = () => {
     
