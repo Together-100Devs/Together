@@ -1,7 +1,7 @@
 import React from 'react'
-import Calendar from './components/Calendar';
-import LoginWithDiscord from './components/LoginWithDiscord'
-import UserForm from './components/form/UserForm'
+import Calendar from 'features/calendar/Calendar';
+import LoginWithDiscord from 'features/auth/LoginWithDiscord'
+import UserForm from 'features/form/UserForm'
 
 function App() {
   return (

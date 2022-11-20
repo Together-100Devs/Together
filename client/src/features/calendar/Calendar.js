@@ -1,6 +1,6 @@
 import React from 'react';
 
-import useDate from '../hooks/useDate';
+import useDate from 'hooks/useDate';
 import MonthAndYear from './MonthAndYear';
 import AllDays from './AllDays';
 import DayCardList from './DayCardList';
