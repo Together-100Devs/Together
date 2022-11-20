@@ -1,12 +1,12 @@
 import {useState} from 'react'
-import {FormMoverContext} from './FormMoverContext'
+import {FormMoverContext} from './contexts/FormMoverContext'
 import FormMover from './FormMover'
 import FormMoverControl from './FormMoverControl'
 import FormCreateEvent from './FormCreateEvent'
 import FormScheduleEvent from './FormScheduleEvent'
 import FormConfirm from './FormConfirm'
 import FormSuccess from './FormSuccess'
-import DataService from '../../services/dataService'
+import DataService from 'services/dataService'
 
 const UserForm = () => {
     
