@@ -10,12 +10,7 @@
       "startTime": "3:01 AM",
       "description": "labore id incididunt irure exercitation enim aute aliqua aliquip ad",
       "recurringDates": {
-        "days": [
-          "Monday",
-          "Saturday",
-          "Friday",
-          "Wednesday"
-        ],
+        "days": ["Monday", "Saturday", "Friday", "Wednesday"],
         "rate": "Monthly"
       },
       "id": 8
@@ -30,13 +25,7 @@
       "startTime": "3:19 PM",
       "description": "pariatur minim nulla dolor nostrud duis cupidatat do ullamco ad",
       "recurringDates": {
-        "days": [
-          "Thursday",
-          "Wednesday",
-          "Monday",
-          "Tuesday",
-          "Saturday"
-        ],
+        "days": ["Thursday", "Wednesday", "Monday", "Tuesday", "Saturday"],
         "rate": "No Recurring"
       },
       "id": 9
@@ -51,13 +40,7 @@
       "startTime": "4:15 PM",
       "description": "excepteur aliqua minim cupidatat ipsum Lorem ad velit nostrud proident",
       "recurringDates": {
-        "days": [
-          "Thursday",
-          "Monday",
-          "Friday",
-          "Tuesday",
-          "Saturday"
-        ],
+        "days": ["Thursday", "Monday", "Friday", "Tuesday", "Saturday"],
         "rate": "Weekly"
       },
       "id": 10
@@ -72,11 +55,7 @@
       "startTime": "5:18 AM",
       "description": "culpa tempor pariatur labore cillum ea eiusmod exercitation aliquip commodo",
       "recurringDates": {
-        "days": [
-          "Saturday",
-          "Tuesday",
-          "Wednesday"
-        ],
+        "days": ["Saturday", "Tuesday", "Wednesday"],
         "rate": "Monthly"
       },
       "id": 11
@@ -91,11 +70,7 @@
       "startTime": "7:34 PM",
       "description": "proident ullamco nostrud non sint eu ut elit ad ad",
       "recurringDates": {
-        "days": [
-          "Saturday",
-          "Sunday",
-          "Tuesday"
-        ],
+        "days": ["Saturday", "Sunday", "Tuesday"],
         "rate": "Monthly"
       },
       "id": 12
@@ -110,9 +85,7 @@
       "startTime": "11:57 AM",
       "description": "sunt sint adipisicing laborum irure cillum dolor mollit occaecat proident",
       "recurringDates": {
-        "days": [
-          "Sunday"
-        ],
+        "days": ["Sunday"],
         "rate": "Weekly"
       },
       "id": 13
@@ -127,11 +100,7 @@
       "startTime": "9:41 AM",
       "description": "ullamco sit veniam esse culpa qui enim deserunt ea nisi",
       "recurringDates": {
-        "days": [
-          "Saturday",
-          "Sunday",
-          "Tuesday"
-        ],
+        "days": ["Saturday", "Sunday", "Tuesday"],
         "rate": "Monthly"
       },
       "id": 14
@@ -146,13 +115,7 @@
       "startTime": "12:20 AM",
       "description": "eu est exercitation culpa ex veniam voluptate tempor aliquip proident",
       "recurringDates": {
-        "days": [
-          "Wednesday",
-          "Thursday",
-          "Sunday",
-          "Tuesday",
-          "Saturday"
-        ],
+        "days": ["Wednesday", "Thursday", "Sunday", "Tuesday", "Saturday"],
         "rate": "No Recurring"
       },
       "id": 15
@@ -167,12 +130,7 @@
       "startTime": "12:33 PM",
       "description": "sint ad dolore voluptate esse mollit voluptate sint minim qui",
       "recurringDates": {
-        "days": [
-          "Friday",
-          "Monday",
-          "Saturday",
-          "Tuesday"
-        ],
+        "days": ["Friday", "Monday", "Saturday", "Tuesday"],
         "rate": "Weekly"
       },
       "id": 16
@@ -187,11 +145,7 @@
       "startTime": "12:51 PM",
       "description": "magna sunt incididunt voluptate fugiat est adipisicing eiusmod veniam voluptate",
       "recurringDates": {
-        "days": [
-          "Tuesday",
-          "Friday",
-          "Sunday"
-        ],
+        "days": ["Tuesday", "Friday", "Sunday"],
         "rate": "No Recurring"
       },
       "id": 17
@@ -206,10 +160,7 @@
       "startTime": "7:26 PM",
       "description": "ullamco reprehenderit proident quis nisi nostrud in do ut ullamco",
       "recurringDates": {
-        "days": [
-          "Sunday",
-          "Saturday"
-        ],
+        "days": ["Sunday", "Saturday"],
         "rate": "Weekly"
       },
       "id": 18
@@ -224,9 +175,7 @@
       "startTime": "10:20 PM",
       "description": "consectetur labore qui do elit adipisicing et aliqua consectetur incididunt",
       "recurringDates": {
-        "days": [
-          "Tuesday"
-        ],
+        "days": ["Tuesday"],
         "rate": "Weekly"
       },
       "id": 19
@@ -241,13 +190,7 @@
       "startTime": "4:56 AM",
       "description": "proident occaecat Lorem aliqua pariatur aute ea non est sit",
       "recurringDates": {
-        "days": [
-          "Monday",
-          "Friday",
-          "Wednesday",
-          "Thursday",
-          "Tuesday"
-        ],
+        "days": ["Monday", "Friday", "Wednesday", "Thursday", "Tuesday"],
         "rate": "Weekly"
       },
       "id": 20
@@ -262,11 +205,7 @@
       "startTime": "3:39 PM",
       "description": "ipsum Lorem id irure tempor enim mollit dolore culpa adipisicing",
       "recurringDates": {
-        "days": [
-          "Monday",
-          "Tuesday",
-          "Friday"
-        ],
+        "days": ["Monday", "Tuesday", "Friday"],
         "rate": "No Recurring"
       },
       "id": 21
@@ -281,13 +220,7 @@
       "startTime": "7:24 AM",
       "description": "minim enim aliquip cillum laborum id ipsum anim in veniam",
       "recurringDates": {
-        "days": [
-          "Wednesday",
-          "Saturday",
-          "Sunday",
-          "Thursday",
-          "Monday"
-        ],
+        "days": ["Wednesday", "Saturday", "Sunday", "Thursday", "Monday"],
         "rate": "Monthly"
       },
       "id": 22
@@ -302,11 +235,7 @@
       "startTime": "10:08 AM",
       "description": "elit aute incididunt elit ipsum reprehenderit velit culpa mollit proident",
       "recurringDates": {
-        "days": [
-          "Monday",
-          "Friday",
-          "Thursday"
-        ],
+        "days": ["Monday", "Friday", "Thursday"],
         "rate": "Monthly"
       },
       "id": 23
@@ -321,11 +250,7 @@
       "startTime": "6:39 PM",
       "description": "voluptate duis laboris et minim laborum enim aliqua cillum eu",
       "recurringDates": {
-        "days": [
-          "Thursday",
-          "Tuesday",
-          "Friday"
-        ],
+        "days": ["Thursday", "Tuesday", "Friday"],
         "rate": "No Recurring"
       },
       "id": 24
@@ -340,12 +265,7 @@
       "startTime": "5:56 PM",
       "description": "in occaecat nulla esse nulla enim aute minim anim sit",
       "recurringDates": {
-        "days": [
-          "Tuesday",
-          "Saturday",
-          "Monday",
-          "Thursday"
-        ],
+        "days": ["Tuesday", "Saturday", "Monday", "Thursday"],
         "rate": "No Recurring"
       },
       "id": 25
@@ -360,12 +280,7 @@
       "startTime": "4:39 PM",
       "description": "occaecat eiusmod ut esse qui mollit adipisicing duis eu enim",
       "recurringDates": {
-        "days": [
-          "Monday",
-          "Friday",
-          "Wednesday",
-          "Sunday"
-        ],
+        "days": ["Monday", "Friday", "Wednesday", "Sunday"],
         "rate": "No Recurring"
       },
       "id": 26
@@ -380,10 +295,7 @@
       "startTime": "1:34 AM",
       "description": "anim laboris labore sit nulla tempor ipsum minim exercitation id",
       "recurringDates": {
-        "days": [
-          "Thursday",
-          "Friday"
-        ],
+        "days": ["Thursday", "Friday"],
         "rate": "Monthly"
       },
       "id": 27
@@ -398,12 +310,7 @@
       "startTime": "8:45 AM",
       "description": "Lorem dolor pariatur quis duis et pariatur tempor magna veniam",
       "recurringDates": {
-        "days": [
-          "Tuesday",
-          "Sunday",
-          "Wednesday",
-          "Friday"
-        ],
+        "days": ["Tuesday", "Sunday", "Wednesday", "Friday"],
         "rate": "Monthly"
       },
       "id": 28
@@ -418,10 +325,7 @@
       "startTime": "12:46 AM",
       "description": "esse dolor pariatur velit sit enim aliquip ullamco officia ea",
       "recurringDates": {
-        "days": [
-          "Saturday",
-          "Sunday"
-        ],
+        "days": ["Saturday", "Sunday"],
         "rate": "Monthly"
       },
       "id": 29

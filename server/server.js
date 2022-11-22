@@ -1,5 +1,5 @@
 const express = require("express");
-const path = require('path')
+const path = require("path");
 const app = express();
 const mongoose = require("mongoose");
 const passport = require("passport");
@@ -10,7 +10,7 @@ const flash = require("express-flash");
 const logger = require("morgan");
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
-const eventsRoutes = require("./routes/events")
+const eventsRoutes = require("./routes/events");
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
@@ -42,7 +42,7 @@ app.use(
 );
 
 // Render React as View
-app.use(express.static(path.join(__dirname, 'build')))
+app.use(express.static(path.join(__dirname, "build")));
 
 // Passport middleware
 app.use(passport.initialize());
@@ -59,6 +59,8 @@ app.use("/events", eventsRoutes);
 connectDB().then(() => {
   //Server Running
   app.listen(process.env.PORT, () => {
-      console.log(`Server is running on ${process.env.PORT}, you better catch it!`);
+    console.log(
+      `Server is running on ${process.env.PORT}, you better catch it!`
+    );
   });
 });

@@ -39,7 +39,7 @@ module.exports = {
     "react/prop-types": 0,
     "react/jsx-indent": [2, 2],
     "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
   },
   settings: {
     react: {

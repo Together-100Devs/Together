@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import useDate from 'hooks/useDate';
-import MonthAndYear from './MonthAndYear';
-import AllDays from './AllDays';
-import DayCardList from './DayCardList';
+import useDate from "hooks/useDate";
+import MonthAndYear from "./MonthAndYear";
+import AllDays from "./AllDays";
+import DayCardList from "./DayCardList";
 
 const Calendar = () => {
   const date = useDate();
@@ -13,22 +13,22 @@ const Calendar = () => {
     month: date.month,
     events: [
       {
-        time: '8:30am',
+        time: "8:30am",
         confirmed: false,
-        title: 'An unconfirmed event'
+        title: "An unconfirmed event",
       },
       {
-        time: '2:15pm',
+        time: "2:15pm",
         confirmed: true,
-        title: 'An confirmed event'
+        title: "An confirmed event",
       },
     ],
-  }))
+  }));
 
   return (
     <div className="flex flex-grow w-screen h-screen overflow-auto text-gray-700">
       <div className="flex flex-col flex-grow">
-        <MonthAndYear 
+        <MonthAndYear
           month={date.month}
           year={date.year}
           handleNextMonth={date.getNextMonth}
