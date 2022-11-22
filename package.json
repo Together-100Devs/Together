@@ -7,7 +7,7 @@
     "start": "npm --prefix server start",
     "dev": "npm --prefix server run dev",
     "build": "npm --prefix server run build:ui",
-    "dev-concurrent": "concurrently \"npm:watch-client\" \"npm:watch-server\"",
+    "dev-concurrent": "concurrently \"npm:start-client\" \"npm:dev\"",
     "start-client": "npm --prefix client start",
     "postinstall": "npm run build",
     "lint": "eslint .",
