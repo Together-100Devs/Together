@@ -75,8 +75,10 @@ https://codepen.io/robstinson/pen/BaKOZry
 
 # Install & Run
 
-- `npm install` installs the required dependencies & rebuilds front-end.
-- `npm run dev` in the root folder to start both frontend and backend for development/testing.
+- ensure `.env` file is located in `server/config` file.
+- `npm install` in the root folder. installs the required dependencies.
+- `npm run build` compiles the build folder. Lint must have no errors for build file command to complete. 
+- `npm run dev-concurrent` in the root folder.
 
 If you make changes to the front end you must execute `npm run build` otherwise the backend will serve the outdated build file.
 
