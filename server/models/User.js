@@ -1,4 +1,3 @@
-const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
@@ -9,12 +8,14 @@ const UserSchema = new mongoose.Schema({
   bio: { type: String },
 });
 
-UserSchema.virtual('avatarURL').get(function() {
-  return 'https://cdn.discordapp.com/' + (
-    this.avatar
-      ? ['', `${this._id}/${this.avatar}.webp`]
-      : ['embed/',  `avatars/${(+this.displayName.split('#').at(-1)) % 5}.png`]
-  ).join('avatars/');
+UserSchema.virtual("avatarURL").get(function () {
+  return (
+    "https://cdn.discordapp.com/" +
+    (this.avatar
+      ? ["", `${this._id}/${this.avatar}.webp`]
+      : ["embed/", `avatars/${+this.displayName.split("#").at(-1) % 5}.png`]
+    ).join("avatars/")
+  );
 });
 
 module.exports = mongoose.model("User", UserSchema);
