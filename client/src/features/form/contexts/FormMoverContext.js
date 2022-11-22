@@ -1,6 +1,3 @@
-import {createContext} from 'react'
+import { createContext } from "react";
 
-
-
-
-export const FormMoverContext = createContext(null)
+export const FormMoverContext = createContext(null);

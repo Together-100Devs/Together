@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const AllDays = () => {
   return (
@@ -11,7 +11,7 @@ const AllDays = () => {
       <div className="pl-1 text-sm">Sat</div>
       <div className="pl-1 text-sm">Sun</div>
     </div>
-  )
+  );
 };
 
 export default AllDays;

@@ -25,7 +25,7 @@ module.exports = {
         SwitchCase: 1,
       },
     ],
-    "linebreak-style": ["error", "unix"],
+    "linebreak-style": ["error", (process.platform === "win32" ? "windows" : "unix")],
     eqeqeq: "error",
     "object-curly-spacing": ["error", "always"],
     "arrow-spacing": [
@@ -39,7 +39,7 @@ module.exports = {
     "react/prop-types": 0,
     "react/jsx-indent": [2, 2],
     "react/react-in-jsx-scope": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
   },
   settings: {
     react: {
