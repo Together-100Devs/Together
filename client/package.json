@@ -1,0 +1,10 @@
+{
+  "proxy": "http://localhost:2121",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "dev": "json-server --watch src/services/events.json --port 2121"
+  }
+}
