@@ -4,7 +4,7 @@
   "description": "Together is a new app designed for 100devs. Together is a group calendar for public events, so you can see what's going on in your community. We're making it easier to find out about the events that are happening in Discord and let you know how much fun they'll be!",
   "main": "server.js",
   "scripts": {
-    "start": "npm --prefix server run start",
+    "start": "cd server && npm run start",
     "dev": "npm --prefix server run dev",
     "build": "npm --prefix server run build:ui",
     "dev-concurrent": "concurrently \"npm:start-client\" \"npm:dev\"",
