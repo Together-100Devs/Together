@@ -13,6 +13,7 @@ Please delete options that are not relevant.
 
 # Checklist:
 
+- [ ] I have executed `npm run lint` and resolved any outstanding errors. Most issues can be solved by executing `npm run format`
 - [ ] My code follows the style guidelines of this project
 - [ ] I have performed a self-review of my own code
 - [ ] I have commented my code, particularly in hard-to-understand areas
