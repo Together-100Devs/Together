@@ -5,6 +5,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "json-server --watch src/services/events.json --port 2121"
+    "dev": "json-server --watch src/test/events.json --port 2121"
   }
 }
