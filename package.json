@@ -9,6 +9,8 @@
     "build": "npm --prefix server run build:ui",
     "dev-concurrent": "concurrently \"npm:start-client\" \"npm:dev\"",
     "start-client": "npm --prefix client start",
+    "start-mockServer": "npm --prefix client run dev",
+    "dev-concurrent-mockServer": "concurrently \"npm:start-client\" \"npm:start-mockServer\"",
     "postinstall": "npm run build",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
