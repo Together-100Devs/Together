@@ -11,7 +11,7 @@ assignees: ''
 
 **Are there any potential issues you foresee with this feature**
 
-**Is this related to any current or past issues? Please take the #**
+**Is this feature related to any current or past issues? Please provide the #**
 
 **Additional context**
 Add any other context or screenshots about the feature request here.
