@@ -24,7 +24,7 @@ Work in Progress
 
 ## Want to Contribute?
 
-Checkout [MVP Tasks Project Board](https://github.com/users/Caleb-Cohen/projects/1/views/1). We have instructions on how to contribute [here](https://github.com/Caleb-Cohen/Together/blob/main/CONTRIBUTING.md). To claim a task comment on an open issue located [here](https://github.com/Caleb-Cohen/Together/issues), or open a new issue from the issues tab. You can also convert a draft todo on the project board to an issue.
+Checkout [MVP Tasks Project Board](https://github.com/users/Caleb-Cohen/projects/1/views/1). We have instructions on how to contribute [here](https://github.com/Caleb-Cohen/Together/blob/development/docs/CONTRIBUTING.md). To claim a task comment on an open issue located [here](https://github.com/Caleb-Cohen/Together/issues), or open a new issue from the issues tab. You can also convert a draft todo on the project board to an issue.
 
 ## MVP Tasks
 
