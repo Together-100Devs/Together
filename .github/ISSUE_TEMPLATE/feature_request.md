@@ -7,10 +7,11 @@ assignees: ''
 
 ---
 
-**Please provide a summary to the feature**
+**Please provide a summary of the feature**
 
-**Is there anyone relevant **
-A clear and concise description of what you want to happen.
+**Are there any potential issues you foresee with this feature**
+
+**Is this related to any current or past issues? Please take the #**
 
 **Additional context**
 Add any other context or screenshots about the feature request here.
