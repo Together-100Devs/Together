@@ -45,15 +45,30 @@ export default function FormCreateEvent() {
 
       <div className="w-full mx-2 flex-1">
         <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
-          Date
+          Start Date
         </div>
         <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
           <input
             type="date"
             onChange={handleChange}
             value={userData["date"] || ""}
-            name="date"
-            placeholder="Date"
+            name="startDate"
+            placeholder="startDate"
+            className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
+          />
+        </div>
+      </div>
+      <div className="w-full mx-2 flex-1">
+        <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
+          End Date
+        </div>
+        <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
+          <input
+            type="date"
+            onChange={handleChange}
+            value={userData["date"] || ""}
+            name="endDate"
+            placeholder="endDate"
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
           />
         </div>
