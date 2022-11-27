@@ -12,11 +12,12 @@ module.exports = {
       await Event.create({
         title: data.title,
         description: data.description,
-        date: data.date,
+        startDate: data.startDate,
+        endDate: data.endDate,
         startTime: data.startTime,
+        endTime: data.endTime,
         recurringDates: data.recurring.days,
         recurringRate: data.recurring.rate,
-        endTime: data.endTime,
         location: data.location,
         discordName: data.discordName,
       });
