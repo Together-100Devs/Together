@@ -1,0 +1,195 @@
+# How to contribute
+
+Beginner friendly instruction steps for individual contributors and team members working on the project.
+
+## Table of contents
+
+1. [How to get involved](#how-to-get-involved)
+1. [Together GitFlow structure](#together-gitflow-structure)
+1. [Finding issues to work on](#issues)
+1. [Editing code and submitting a pull request](#editing-code-and-submitting-a-pull-request)
+
+## How to get involved
+
+> Guess what... if you are already a member of 100Devs one of us should be able to personally walk you through all the steps you will need to contribute code on this project. Send a message on Discord in the [Together discussion thread (external link.)](https://discord.com/channels/735923219315425401/1038482732633825442) We will help you no matter what stage of learning you are on with whatever we can. We can assist you in looking for an issue to address and if no issue exists that fits... we will create one. :) 
+
+## Together GitFlow Structure
+```mermaid
+%%{init: { 'logLevel': 'debug', 'theme': 'default' , 'themeVariables': {
+              'commitLabelColor': '#ff0000',
+              'commitLabelBackground': '#00ff00',
+              'tagLabelFontSize': '16px'
+       } } }%%
+       
+gitGraph
+  commit tag: "MVP"
+  commit id: "1"
+  branch develop
+  checkout develop
+  
+  commit id: "3"
+  branch a_new_feature
+  branch another_feature
+  commit  id: "4"
+  checkout a_new_feature
+  commit id: "5"
+  commit id: "6"
+  checkout another_feature
+  
+  checkout develop
+  merge a_new_feature
+  checkout another_feature
+  commit id: "8"
+  checkout develop
+  merge another_feature
+  checkout main
+  merge develop tag: "v1.0"
+```
+
+>💡 (Don't be intimidated by this graph. It confuses most of us as well.)
+
+We are currently using a GitFlow inspired workflow. This is so that the production server will remain online and stable as contributors work on adding features and fixing bugs.
+
+The `main` branch is for stable production code. This branch is working version of the Together app. 
+
+The `development` branch is a stable branch for testing the server and code before merging to main. This is also the default branch when forking the project.
+
+Multiple `feature` branches can be checked out from the `development` branch. These `feature` branches are tied to various issues and are used to add new code. These `feature` branches are tested and then merged back into the `development` branch.
+
+## Issues
+
+Together's milestones are split into separate distinct issues. Contributors are able to request assignment for each issue they wish to work on and multiple contributors may be assigned to single issues. You are encouraged to request issues you feel will present you with a moderate challenge or that you have a strong interest in. 
+
+>💡 Issues tagged with `Good 100Devs First Try` are beginner level issues that are great for fellow 100Devs.
+
+There are two ways to discover issues.
+
+### Issues Tab
+![Screenshot of Issues tab on GitHub with example issues representing various stages of a project](assets/contributing-issues-tab.jpg)
+The [Issues tab](https://github.com/Caleb-Cohen/Together/issues) contains all of the issues that are either currently in progress, planned to be worked on, or need further review. 
+
+### Projects Tab
+![Screenshot of Projects tab on GitHub](assets/contributing-projects-tab.jpg)
+#### MVP Projects board
+![Screenshot of Projects view on GitHub](assets/contributing-projects-view.jpg)
+A [project management board](https://github.com/users/Caleb-Cohen/projects/1) also exists for this project on GitHub. The project management board contains relevant issues that are currently needed to advance the project to the next milestone or release.
+
+>Issues will also be created for any bugs discovered in the project. (Very minor fixes and typos do not typically require an issue and can be corrected directly in a pull request with a detailed description.)
+
+## Editing code and submitting a pull request
+
+After selecting your first issue use the following process to make your changes.
+
+### Forking, cloning, editing, pushing.
+
+#### Forking
+
+
+
+1. Navigate to the Together project at https://github.com/Caleb-Cohen/Together.
+2. Click Fork.  
+![Screenshot of fork button on GitHub](assets/contributing-fork-button.jpg)
+4. Click Create fork.  
+![Screenshot of create fork button on GitHub](assets/contributing-create-fork.jpg)
+
+>💡 Your new fork will include the `development` branch as the default branch.
+
+
+#### Cloning your fork
+Now that you have a personal fork of the project you will be able to clone the fork to your computer. The instructions will cover cloning using the HTTPS Personal access token method.
+
+1. On GitHub, navigate to your fork of the Together repository.
+
+2. Above the list of files, click  Code.  
+![Screenshot of code button on GitHub](assets/contributing-code-button.jpg)
+
+3. Click the clipboard icon to copy the URL for the repository.  
+![screenshot of clipboard icon on GitHub](assets/contributing-code-clipboard.jpg)
+
+4. Open a terminal on your system.
+
+5. Navigate to the directory where you want to clone the files.
+
+6. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your GitHub username instead of YOUR-USERNAME:
+
+`$ git clone https://github.com/YOUR-USERNAME/Together`
+
+7. Press Enter. Your local clone will be created.
+
+#### Branching
+
+Now that you have the copy you will need access to the feature branch related to your issue in order to create a local working branch to write your code.
+
+1. Set upstream to track the remote repository containing the original repo. (Not just your fork.)  
+`git remote add upstream https://github.com/Caleb-Cohen/Together.git`
+
+2. Use this command to fetch the list of remote branches.  
+`git fetch upstream`
+
+3. Checkout the feature branch appropriate for the issue you are working on.  
+`git checkout <branchname>`
+
+>💡 The error `error: pathspec '&lt;branchname&gt;' did not match any file(s) known to git` usually means you typed the branch name incorrectly. Try again using auto tab completion to fill out the correct branch name.
+
+You now have the code and you are in the correct feature branch but before making changes to the project, you should create a new unique branch and check it out. This branch will exist on your local machine and be pushed to your fork on GitHub. Later you will be able to create a Pull Request with this brach.
+
+1. Create and checkout a branch for the task you are working on.
+
+   `git checkout -b a-descriptive-branch-name`
+
+1. Make any changes and saving your work and making commits as needed.
+
+   `git status` verify what has changed.
+
+   `git add .` stage your files.
+
+   `git commit -m "fixed a thingy"` perform the commit.
+
+1. Push the changes to your fork on GitHub
+
+   Typing `git push` will not work by itself but will show you what command you need to enter. An example shorthand of that command is 
+   `git push -u origin a-descriptive-branch-name`
+   Which will push the code from your origin (your local device) to the correct branch upstream (your GitHub fork.)
+
+1. Now you need to head back to GitHub.com to create a pull request.
+
+
+#### Pull requests
+
+1. Visit your fork on GitHub and a new button should appear allowing you to create the pull request
+
+   ![screenshot of "Compare & pull request" button on GitHub](assets/contributing-pull-request.jpg)
+
+1. Write a description that mentions the issue number then click "Create pull request"
+
+   ![screenshot of "Create pull request" button on GitHub](assets/contributing-pull-request-button.jpg)
+
+
+<!-- 
+Commented these instructions for now. These may need to be reworded and restored or added to the wiki.
+
+#### Merging pull requests
+
+When there are open pull requests team members have the ability to merge them back into the repo. Try to get other team members to review and merge your code for you. They will be able to catch things you might have missed or make further requests or suggestions. The steps to merge code are below.
+
+1. In the pull requests tab click on the pull request you want to merge and you will be brought to this screen.
+
+   ![screenshot of Merge page on GitHub](assets/contributing-merge1.jpg)
+
+1. Do not automatically merge requests. You can click on the various tabs at the top to see the commit messages and merge checks. The files changed tab will quickly show you everything that is changed line by line.
+
+   ![screenshot of Files changed tab showing a diff report on GitHub](assets/contributing-merge2.jpg)
+
+1. Once you are satisfied with all the changes you can click "Merge pull request"
+
+   ![screenshot of "Merge pull request" button on GitHub](assets/contributing-merge3.png)
+
+1. Do not get got. You also have to click "Confirm merge" to complete the pull request
+
+   ![screenshot of Pull Request "Confirm merge" button on GitHub](assets/contributing-merge4.jpg) -->
+
+#### Syncing your fork on GitHub
+
+![screenshot of "Sync fork" button on GitHub](assets/contributing-sync-fork.jpg)
+
+Keep your fork up to date after any pull requests are merged by clicking on "Sync fork" on your forked repository. This will help avoid merge conflicts the next time you submit a pull request.
