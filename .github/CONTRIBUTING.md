@@ -11,9 +11,11 @@ Beginner friendly instruction steps for individual contributors and team members
 
 ## How to get involved
 
-> Guess what... if you are already a member of 100Devs one of us should be able to personally walk you through all the steps you will need to contribute code on this project. Send a message on Discord in the [Together discussion thread (external link.)](https://discord.com/channels/735923219315425401/1038482732633825442) We will help you no matter what stage of learning you are on with whatever we can. We can assist you in looking for an issue to address and if no issue exists that fits... we will create one. :) 
+> Guess what... if you are already a member of 100Devs one of us should be able to personally walk you through all the steps you will need to contribute code on this project. Send a message on Discord in the [Together discussion thread (external link.)](https://discord.com/channels/735923219315425401/1038482732633825442) We will help you no matter what stage of learning you are on with whatever we can. We can assist you in looking for an issue to address and if no issue exists that fits... we will create one. 🤠 
 
 ## Together GitFlow Structure
+
+This graph approximates the structure of the official repository and some example feature branches.  
 ```mermaid
 %%{init: { 'logLevel': 'debug', 'theme': 'default' , 'themeVariables': {
               'commitLabelColor': '#ff0000',
@@ -23,23 +25,23 @@ Beginner friendly instruction steps for individual contributors and team members
        
 gitGraph
   commit tag: "MVP"
-  commit id: "1"
+  commit
   branch develop
   checkout develop
   
-  commit id: "3"
+  commit
   branch a_new_feature
   branch another_feature
-  commit  id: "4"
+  commit
   checkout a_new_feature
-  commit id: "5"
-  commit id: "6"
+  commit
+  commit
   checkout another_feature
   
   checkout develop
   merge a_new_feature
   checkout another_feature
-  commit id: "8"
+  commit
   checkout develop
   merge another_feature
   checkout main
@@ -50,15 +52,15 @@ gitGraph
 
 We are currently using a GitFlow inspired workflow. This is so that the production server will remain online and stable as contributors work on adding features and fixing bugs.
 
-The `main` branch is for stable production code. This branch is working version of the Together app. 
+The `main` branch is for stable production code. This branch is the working version of the Together app. 
 
-The `development` branch is a stable branch for testing the server and code before merging to main. This is also the default branch when forking the project.
+The `development` branch is a stable branch for testing code on the server before merging to main. This is also the default branch when forking the project.
 
-Multiple `feature` branches can be checked out from the `development` branch. These `feature` branches are tied to various issues and are used to add new code. These `feature` branches are tested and then merged back into the `development` branch.
+Multiple `feature` branches can be checked out from the `development` branch. These `feature` branches are tied to various issues and are used to add new code. When ready, The `feature` branches are tested and then merged into the `development` branch before the `development` branch is merged into `main`.
 
 ## Issues
 
-Together's milestones are split into separate distinct issues. Contributors are able to request assignment for each issue they wish to work on and multiple contributors may be assigned to single issues. You are encouraged to request issues you feel will present you with a moderate challenge or that you have a strong interest in. 
+Together's progress and milestones are split into separate distinct issues. Contributors are able to request assignment for each issue they wish to work on and multiple contributors may be assigned to single issues. You are encouraged to request issues you feel will present you with a moderate challenge or that you have a strong interest in. 
 
 >💡 Issues tagged with `Good 100Devs First Try` are beginner level issues that are great for fellow 100Devs.
 
@@ -69,8 +71,8 @@ There are two ways to discover issues.
 The [Issues tab](https://github.com/Caleb-Cohen/Together/issues) contains all of the issues that are either currently in progress, planned to be worked on, or need further review. 
 
 ### Projects Tab
-![Screenshot of Projects tab on GitHub](assets/contributing-projects-tab.jpg)
-#### MVP Projects board
+![Screenshot of Projects tab on GitHub](assets/contributing-projects-tab.jpg)  
+---
 ![Screenshot of Projects view on GitHub](assets/contributing-projects-view.jpg)
 A [project management board](https://github.com/users/Caleb-Cohen/projects/1) also exists for this project on GitHub. The project management board contains relevant issues that are currently needed to advance the project to the next milestone or release.
 
@@ -78,13 +80,11 @@ A [project management board](https://github.com/users/Caleb-Cohen/projects/1) al
 
 ## Editing code and submitting a pull request
 
-After selecting your first issue use the following process to make your changes.
+Use the following process to make your changes after an issue has been assigned to you.
 
 ### Forking, cloning, editing, pushing.
 
 #### Forking
-
-
 
 1. Navigate to the Together project at https://github.com/Caleb-Cohen/Together.
 2. Click Fork.  
@@ -94,9 +94,8 @@ After selecting your first issue use the following process to make your changes.
 
 >💡 Your new fork will include the `development` branch as the default branch.
 
-
 #### Cloning your fork
-Now that you have a personal fork of the project you will be able to clone the fork to your computer. The instructions will cover cloning using the HTTPS Personal access token method.
+Now that you have a personal fork of the project on GitHub you will be able to clone the fork to your computer. These instructions will cover cloning using the HTTPS Personal access token method.
 
 1. On GitHub, navigate to your fork of the Together repository.
 
@@ -129,15 +128,15 @@ Now that you have the copy you will need access to the feature branch related to
 3. Checkout the feature branch appropriate for the issue you are working on.  
 `git checkout <branchname>`
 
->💡 The error `error: pathspec '&lt;branchname&gt;' did not match any file(s) known to git` usually means you typed the branch name incorrectly. Try again using auto tab completion to fill out the correct branch name.
+  >💡 The error `error: pathspec '&lt;branchname&gt;' did not match any file(s) known to git` usually means you typed the branch name incorrectly. Try again using auto tab completion to fill out the correct branch name.
 
-You now have the code and you are in the correct feature branch but before making changes to the project, you should create a new unique branch and check it out. This branch will exist on your local machine and be pushed to your fork on GitHub. Later you will be able to create a Pull Request with this brach.
+  You now have the code and you are in the correct feature branch but before making changes to the project, you should create a new unique branch and check it out. This branch will exist on your local machine and be pushed to your fork on GitHub. Later you will be able to create a Pull Request with this brach.
 
-1. Create and checkout a branch for the task you are working on.
+4. Create and checkout a branch for the task you are working on.
 
    `git checkout -b a-descriptive-branch-name`
 
-1. Make any changes and saving your work and making commits as needed.
+5. Make any changes and saving your work and making commits as needed.
 
    `git status` verify what has changed.
 
@@ -145,14 +144,13 @@ You now have the code and you are in the correct feature branch but before makin
 
    `git commit -m "fixed a thingy"` perform the commit.
 
-1. Push the changes to your fork on GitHub
+6. Push the changes to your fork on GitHub
 
    Typing `git push` will not work by itself but will show you what command you need to enter. An example shorthand of that command is 
    `git push -u origin a-descriptive-branch-name`
    Which will push the code from your origin (your local device) to the correct branch upstream (your GitHub fork.)
 
-1. Now you need to head back to GitHub.com to create a pull request.
-
+7. Now you need to head back to GitHub.com to create a pull request.
 
 #### Pull requests
 
@@ -160,10 +158,9 @@ You now have the code and you are in the correct feature branch but before makin
 
    ![screenshot of "Compare & pull request" button on GitHub](assets/contributing-pull-request.jpg)
 
-1. Write a description that mentions the issue number then click "Create pull request"
+2. Write a description that mentions the issue number then click "Create pull request"
 
    ![screenshot of "Create pull request" button on GitHub](assets/contributing-pull-request-button.jpg)
-
 
 <!-- 
 Commented these instructions for now. These may need to be reworded and restored or added to the wiki.
