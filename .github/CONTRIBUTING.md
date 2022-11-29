@@ -1,6 +1,10 @@
 # How to contribute
 
+<<<<<<< Updated upstream
 Beginner friendly instruction steps for individual contributors and team members working on the project.
+=======
+Welcome to this Beginner-friendly instructional guide for individual contributors and team members working on the Together project!
+>>>>>>> Stashed changes
 
 ## Table of contents
 
@@ -17,6 +21,18 @@ Beginner friendly instruction steps for individual contributors and team members
 
 This graph approximates the structure of the official repository and some example feature branches.  
 ```mermaid
+%% The graph doesn't render in the GitHub mobile app or in code editors.
+%% Enjoy this ASCII art instead.
+%%
+%%               MVP               v1.0
+%% main        o--o-----------------o 
+%%                 \               / 
+%% development      o---------o---o
+%%                  |\       /   /
+%% a_new_feature    | o--o--o   /
+%%                  \          /
+%% another_feature   o--o--o--o 
+%%
 %%{init: { 'logLevel': 'debug', 'theme': 'default' , 'themeVariables': {
               'commitLabelColor': '#ff0000',
               'commitLabelBackground': '#00ff00',
@@ -26,9 +42,8 @@ This graph approximates the structure of the official repository and some exampl
 gitGraph
   commit tag: "MVP"
   commit
-  branch develop
-  checkout develop
-  
+  branch development
+  checkout development
   commit
   branch a_new_feature
   branch another_feature
@@ -37,20 +52,23 @@ gitGraph
   commit
   commit
   checkout another_feature
-  
-  checkout develop
+  checkout development
   merge a_new_feature
   checkout another_feature
   commit
-  checkout develop
+  checkout development
   merge another_feature
   checkout main
-  merge develop tag: "v1.0"
+  merge development tag: "v1.0"
 ```
 
 >💡 (Don't be intimidated by this graph. It confuses most of us as well.)
 
+<<<<<<< Updated upstream
 We are currently using a GitFlow inspired workflow. This is so that the production server will remain online and stable as contributors work on adding features and fixing bugs.
+=======
+We are currently using a GitFlow-inspired workflow. GitFlow allows the production server to remain online and stable as contributors work on adding features and fixing bugs.
+>>>>>>> Stashed changes
 
 The `main` branch is for stable production code. This branch is the working version of the Together app. 
 
@@ -158,9 +176,19 @@ Now that you have the copy you will need access to the feature branch related to
 
    ![screenshot of "Compare & pull request" button on GitHub](assets/contributing-pull-request.jpg)
 
+<<<<<<< Updated upstream
 2. Write a description that mentions the issue number then click "Create pull request"
+=======
+2. Write a description describing the changes you made, then click "Create pull request"
+>>>>>>> Stashed changes
 
    ![screenshot of "Create pull request" button on GitHub](assets/contributing-pull-request-button.jpg)
+
+> 💡 You can link your PR back to the issue it addresses by mentioning the issue ID number in the description box. Include a "closing" keyword if your PR completely resolves the issue mentioned GitHub will automatically close the issue upon merging the PR.
+
+3. A maintainer will review and test your changes and suggest edits if neccesary.
+
+4. Once everything is good your code will be merged. 👍
 
 <!-- 
 Commented these instructions for now. These may need to be reworded and restored or added to the wiki.
