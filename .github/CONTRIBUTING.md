@@ -11,7 +11,7 @@ Welcome to this Beginner-friendly instructional guide for individual contributor
 
 ## How to get involved
 
-> Guess what! If you are already a member of 100Devs, one of us can personally walk you through all the steps you will need to contribute code to this project. Please send a message on Discord in the [Together discussion thread (external link.)](https://discord.com/channels/735923219315425401/1038482732633825442). We will help you no matter what stage of learning you are on with whatever we can. We can assist you in looking for an issue to address, and if no issue exists that fits, we will create one. 🤠 
+> Guess what! If you are already a member of 100Devs, one of us can personally walk you through all the steps you will need to contribute code to this project. Please send a message on Discord in the [Together discussion thread (external link)](https://discord.com/channels/735923219315425401/1038482732633825442). We will help you no matter what stage of learning you are on with whatever we can. We can assist you in looking for an issue to address, and if no issue exists that fits, we will create one. 🤠 
 
 ## Together GitFlow Structure
 
