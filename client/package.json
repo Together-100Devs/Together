@@ -1,7 +1,7 @@
 {
   "proxy": "http://localhost:2121",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start --port 2120",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

@@ -1,5 +1,6 @@
 const DiscordStrategy = require("passport-discord").Strategy;
 const User = require("../models/User");
+require("dotenv").config();
 
 module.exports = function (passport) {
   passport.serializeUser((user, done) => {
