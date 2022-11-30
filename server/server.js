@@ -1,5 +1,5 @@
 const express = require("express");
-const path = require('path')
+const path = require("path");
 const app = express();
 const mongoose = require("mongoose");
 const passport = require("passport");
@@ -10,17 +10,13 @@ const flash = require("express-flash");
 const logger = require("morgan");
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
-const postRoutes = require("./routes/posts");
 const eventsRoutes = require("./routes/events");
 
 //Use .env file in config folder
-require("dotenv").config({ path: "./server/config/.env" });
+require("dotenv").config({ path: "./config/.env" });
 
 // Passport config
 require("./config/passport")(passport);
-
-//Using EJS for views
-app.set("view engine", "ejs");
 
 //Static Folder
 app.use(express.static("public"));
@@ -46,7 +42,7 @@ app.use(
 );
 
 // Render React as View
-app.use(express.static(path.join(__dirname, 'build')))
+app.use(express.static(path.join(__dirname, "build")));
 
 // Passport middleware
 app.use(passport.initialize());
@@ -57,13 +53,14 @@ app.use(flash());
 
 //Setup Routes For Which The Server Is Listening
 app.use("/", mainRoutes);
-app.use("/post", postRoutes);
 app.use("/events", eventsRoutes);
 
 //Connect To Database
 connectDB().then(() => {
   //Server Running
   app.listen(process.env.PORT, () => {
-      console.log(`Server is running on ${process.env.PORT}, you better catch it!`);
+    console.log(
+      `Server is running on ${process.env.PORT}, you better catch it!`
+    );
   });
 });

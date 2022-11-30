@@ -1,16 +1,17 @@
 {
-  "name": "binary-upload-boom",
+  "name": "Together",
   "version": "1.0.0",
-  "description": "100Devs Social Network",
+  "description": "Together is a new app designed for 100devs. Together is a group calendar for public events, so you can see what's going on in your community. We're making it easier to find out about the events that are happening in Discord and let you know how much fun they'll be!",
   "main": "server.js",
   "scripts": {
-    "start": "node ./server/server.js",
-    "dev": "concurrently \"npm:watch-client\" \"npm:watch-server\"",
-    "watch-server": "nodemon ./server/server.js",
-    "watch-client": "npm --prefix client start",
-    "postinstall": "cd client && npm install && cd ../ && npm run build",
-    "build": "cd ./server && rm -rf build && cd ../client && npm run build --prod && cp -r build ../server",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd server && node server.js",
+    "dev": "npm --prefix server run dev",
+    "build": "npm --prefix server run build:ui",
+    "dev-concurrent": "concurrently \"npm:start-client\" \"npm:dev\"",
+    "start-client": "npm --prefix client start",
+    "start-mockServer": "npm --prefix client run dev",
+    "dev-concurrent-mockServer": "concurrently \"npm:start-client\" \"npm:start-mockServer\"",
+    "postinstall": "npm run build",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
@@ -18,11 +19,10 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "bcrypt": "^5.0.1",
     "cloudinary": "^1.25.1",
     "connect-mongo": "^3.2.0",
+    "date-fns": "^2.29.3",
     "dotenv": "^8.2.0",
-    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-flash": "^0.0.2",
     "express-session": "^1.17.1",
@@ -33,16 +33,40 @@
     "multer": "^1.4.5-lts.1",
     "nodemon": "^2.0.20",
     "passport": "^0.6.0",
-    "passport-discord": "^0.1.4",
-    "passport-local": "^1.0.0",
-    "validator": "^13.6.0"
+    "passport-discord": "^0.1.4"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "axios": "^1.1.3",
     "concurrently": "^7.5.0",
     "eslint": "^8.27.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.10",
-    "eslint-plugin-react-hooks": "^4.6.0"
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "json-server": "^0.17.1",
+    "postcss": "^8.4.18",
+    "tailwindcss": "^3.2.2",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.39.3",
+    "react-scripts": "5.0.1",
+    "validator": "^13.6.0",
+    "web-vitals": "^2.1.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

@@ -37,10 +37,11 @@ const Calendar = () => {
   const emptyEvents = !events.length;
   if (emptyEvents) return null;
 
+
   return (
     <div className="flex flex-grow w-screen h-screen overflow-auto text-gray-700">
       <div className="flex flex-col flex-grow">
-        <MonthAndYear 
+        <MonthAndYear
           month={date.month}
           year={date.year}
           handleNextMonth={date.getNextMonth}

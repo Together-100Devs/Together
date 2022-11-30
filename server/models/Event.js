@@ -9,7 +9,11 @@ const EventSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  date: {
+  startDate: {
+    type: Date,
+    require: true,
+  },
+  endDate: {
     type: Date,
     require: true,
   },
@@ -17,14 +21,14 @@ const EventSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
-  recurringRate: { 
+  recurringRate: {
     type: String,
     require: true,
   },
-  recurringDates: { 
+  recurringDates: {
     type: Array,
   },
-   endTime: {
+  endTime: {
     type: String,
     required: true,
   },

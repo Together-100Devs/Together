@@ -1,7 +1,8 @@
-import axios from 'axios'
+import axios from "axios";
 
 // Get request
 const get = async () => {
+
     const response = await axios.get('/events')
     return response.data;
 }
@@ -16,11 +17,12 @@ const response = await axios.post('/events', userData)
 const update = async (id, newUserData) => {
   const response = await axios.put(`/events/${id}/`, newUserData);
   return response.data;
-}
+};
 
 // Delete request
 const remove = async id => {
   try {
+
     const response = await axios.delete(`/events/${id}/`)
     return response.data;
   } catch (error) {
@@ -28,9 +30,10 @@ const remove = async id => {
   }
 }
 
+
 export default {
   get,
   create,
   update,
-  remove
-}
+  remove,
+};

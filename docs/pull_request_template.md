@@ -11,8 +11,12 @@ Please delete options that are not relevant.
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
 - [ ] This change requires a documentation update
 
+## Issue
+- [ ] Is this related to a specific issue? Is so please specify:
+
 # Checklist:
 
+- [ ] I have executed `npm run lint` and resolved any outstanding errors. Most issues can be solved by executing `npm run format`
 - [ ] My code follows the style guidelines of this project
 - [ ] I have performed a self-review of my own code
 - [ ] I have commented my code, particularly in hard-to-understand areas

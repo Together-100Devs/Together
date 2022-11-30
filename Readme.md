@@ -1,4 +1,5 @@
 # Together
+
 Together is a new app designed for 100devs. Together is a group calendar for public events, so you can see what's going on in your community. We're making it easier to find out about the events that are happening in Discord and let you know how much fun they'll be!
 
 **Link to project:** https://together.cyclic.app/
@@ -12,7 +13,8 @@ Together is a new app designed for 100devs. Together is a group calendar for pub
 Work in Progress
 
 ## Optimizations
-*(optional)*
+
+_(optional)_
 
 Work in Progress
 
@@ -22,18 +24,16 @@ Work in Progress
 
 ## Want to Contribute?
 
-Checkout [MVP Tasks Project Board](https://github.com/users/Caleb-Cohen/projects/1/views/1). We have instructions on how to contribute [here](https://github.com/Caleb-Cohen/Together/blob/main/CONTRIBUTING.md). To claim a task comment on an open issue located [here](https://github.com/Caleb-Cohen/Together/issues), or open a new issue from the issues tab. You can also convert a draft todo on the project board to an issue. 
+For complete contributing instructions, read our [Contributing guide](.github/CONTRIBUTING.md). Visit the [Issues tab](https://github.com/Caleb-Cohen/Together/issues) to request an issue or to open a new issue. You can also convert a "draft todo" to an issue on the [MVP Tasks Project Board.](https://github.com/users/Caleb-Cohen/projects/1/views/1)
 
-## MVP Tasks
-MVP Tasks are viewable [here](https://github.com/users/Caleb-Cohen/projects/1/views/1). 
-
-## Next Level 
+## Next Level
 
 - [ ] OAuth will check to see if they are in the 100devs guild(server)
 - [ ] users can add or delete events (two-step delete process for confirmation)
 - [ ] (can have an event log tied to the user name)
 
 ## Next next-level stuff
+
 - [ ] users rsvp events, and a total is displayed
 - [ ] discord bot that will message users for events they are rsvp'd in?
 - [ ] events can have channels tagged that match the server channel emojis' daily view. Clicking on the day can bring up a day planner view, just like the google calendar
@@ -43,14 +43,16 @@ MVP Tasks are viewable [here](https://github.com/users/Caleb-Cohen/projects/1/vi
 - [ ] new event notification dots(easy mode might be to just highlight new events on each reload)
 
 ## The Penultimate Goal
-- [ ] Discord guilds can create their own together calendar 
+
+- [ ] Discord guilds can create their own together calendar
 
 ## thinking ahead,
+
 keep these in mind to prevent the project from being "caged."
 can integrate with slack or Discord and work on other servers besides 100devs
 
 Resources:
-https://codepen.io/robstinson/pen/BaKOZry 
+https://codepen.io/robstinson/pen/BaKOZry
 
 ---
 
@@ -69,11 +71,13 @@ https://codepen.io/robstinson/pen/BaKOZry
 
 # Install & Run
 
-- `npm install` installs the required dependencies & rebuilds front-end. 
-- `npm run dev` in the root folder to start both frontend and backend for development/testing.
+- ensure `.env` file is located in `server/config` file.
+- `npm install` in the root folder. installs the required dependencies.
+- `npm run build` compiles the build folder. Lint must have no errors for build file command to complete. 
+- `npm run dev-concurrent` in the root folder.
 
-If you make changes to the front end you must execute `npm run build` otherwise the backend will serve the outdated build file. 
+If you make changes to the front end you must execute `npm run build` otherwise the backend will serve the outdated build file.
 
-Still having troubles? 
+Still having troubles?
 
-You can join the discussion in the together discord channel [here](https://discord.com/channels/735923219315425401/1038482732633825442). You must be a part of the 100Devs discord to view the discussion.  
+You can join the discussion in the together discord channel [here](https://discord.com/channels/735923219315425401/1038482732633825442). You must be a part of the 100Devs discord to view the discussion.
