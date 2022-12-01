@@ -6,5 +6,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "json-server --watch src/test/events.json --port 2121"
+  },
+  "dependencies": {
+    "http-proxy-middleware": "^2.0.6"
   }
 }

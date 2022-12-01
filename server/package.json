@@ -1,7 +1,6 @@
 {
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js",
-    "build:ui": "rm -rf build && cd ../client && npm run build --prod && cp -r build ../server"
+    "dev": "nodemon server.js"
   }
 }
