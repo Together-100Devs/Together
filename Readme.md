@@ -66,7 +66,7 @@ https://codepen.io/robstinson/pen/BaKOZry
   - API_SECRET = `your Cloudinary API secret`
   - DISCORD_CLIENT_ID = `discord client ID`
   - DISCORD_CLIENT_SECRET = `discord client secret`
-
+  - BASE_URL = `url of deployed application`
 ---
 
 # Install & Run
