@@ -16,6 +16,8 @@ const DayCardList = ({ data, firstDayOfMonth }) => {
     (_, i) => i + 1
   );
 
+  
+
   return (
     <div className="grid flex-grow w-full h-auto grid-cols-7 grid-rows-5 gap-px pt-px mt-1 bg-gray-200">
       {/* Empty div used for days that are not in the month */}

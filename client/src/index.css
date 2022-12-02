@@ -5,3 +5,8 @@
 .group:hover .group-hover\:flex {
   display: flex;
 }
+
+.modal{
+  width: clamp(50%, 700px, 90%);
+  height: min(50%, 300px);
+}
