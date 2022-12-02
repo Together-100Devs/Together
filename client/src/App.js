@@ -9,10 +9,11 @@ function App() {
     <div>
       <LoginWithDiscord />
       <Calendar />
-      <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
+      <Modal/>
+      <div className="md:w-1/2 mx-auto mb-3 shadow-xl rounded-2xl pb-2 bg-white">
         <UserForm />
       </div>
-      <Modal/>
+      
     </div>
   );
 }

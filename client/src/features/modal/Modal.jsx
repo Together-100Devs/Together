@@ -10,12 +10,12 @@ const Modal = () => {
   return (
     <div>
       <motion.button
-        className="py-0 px-4 mt-8 mr-auto mb-auto ml-0 bg-teal-600 text-black"
+        className="py-0 px-4 mt-8 mr-auto mb-auto ml-5 bg-teal-600 text-black rounded"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => (modalOpen ? close() : open())}
       >
-        More Info
+        Click of Modal
       </motion.button>
       <AnimatePresence
         initial={false}
