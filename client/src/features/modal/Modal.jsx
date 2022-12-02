@@ -15,7 +15,7 @@ const Modal = () => {
         whileTap={{ scale: 0.9 }}
         onClick={() => (modalOpen ? close() : open())}
       >
-        Click of Modal
+        Click for Modal
       </motion.button>
       <AnimatePresence
         initial={false}
