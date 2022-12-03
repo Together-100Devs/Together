@@ -1,4 +1,5 @@
 import React from "react";
+import { formatToLocalTime } from 'utilities/calendar';
 
 const DayCardList = ({ data, firstDayOfMonth }) => {
   // Use for generating empty divs to fill days from previous month
@@ -52,7 +53,7 @@ const DayCard = ({ day, month, events }) => {
                 event.confirmed ? confirmedCss : unconfirmedCSss
               } rounded-full`}
             ></span>
-            <span className="ml-2 font-light leading-none">{event.time}</span>
+            <span className="ml-2 font-light leading-none">{formatToLocalTime(event.startDate)}</span>
             <span className="ml-2 font-medium leading-none truncate">
               {event.title}
             </span>
