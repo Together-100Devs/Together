@@ -26,4 +26,21 @@ module.exports = {
       console.log(err);
     }
   },
+  getAll: async (req, res) => {
+    try {
+      const events = await Event.find();
+      // return all events
+      res.json(events)
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  getOne: async (req, res) => {
+    try {
+      const event = await Event.findById(req.params.id);
+      res.json(event);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 };
