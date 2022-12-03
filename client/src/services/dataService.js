@@ -11,6 +11,12 @@ class DataService {
   create(msg) {
     return URL.post(`/events/create`, msg);
   }
+  getAll() {
+    return URL.get('/events')
+  }
+  getById(id) {
+    return URL.get(`/events/${id}`)
+  }
 }
 
 export default new DataService();
