@@ -4,8 +4,8 @@ import MonthAndYear from './MonthAndYear';
 import AllDays from './AllDays';
 import DayCardList from './DayCardList';
 // Utility functions
-// For testing fake json data
-import eventService from 'test/events.js'
+// For testing fake json data (should be unblocked to run testserver)
+//import eventService from 'test/events.js'
 // For getting real data
 import DataService from "services/dataService";
 import useDate from 'hooks/useDate';

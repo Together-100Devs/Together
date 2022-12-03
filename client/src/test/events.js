@@ -31,9 +31,11 @@ const remove = async id => {
 }
 
 
-export default {
+const crud = {
   get,
   create,
   update,
   remove,
 };
+
+export default crud
