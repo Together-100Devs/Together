@@ -17,7 +17,7 @@ export const getEventsByDayNumber = (currentDay, allEvents) => {
   return allEvents.filter(event => {
     const isoDate = parseISO(event.startDate);
     const day = format(isoDate, 'd'); // '2'
-    return currentDay === day
+    return currentDay === Number(day)
   })
 }
 
