@@ -1,6 +1,4 @@
-import { useContext } from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import { FormMoverContext } from "./contexts/FormMoverContext";
 import DataService from "services/dataService";
 
