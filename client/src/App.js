@@ -28,7 +28,7 @@ function App() {
         <button onClick={() => setPage("calendarPage")}>
           Navigate to Calendar
         </button>
-        <LoginWithDiscord />
+        {!context.user && <LoginWithDiscord />}
       </>}
       {context.page === "calendarPage" && <>
         <button onClick={() => setPage("landingPage")}>
