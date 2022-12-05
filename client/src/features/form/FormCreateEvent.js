@@ -4,13 +4,13 @@ import DataService from "services/dataService";
 
 export default function FormCreateEvent() {
   const { userData, setUserData } = useContext(FormMoverContext);
-
+  const [user, setUser] = useState();
   const handleChange = e => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value, discordName: user?.displayName });
   };
 
-  const [user, setUser] = useState();
+
   useEffect(() => {
     DataService.getCurrentUser().then(response => setUser(response.data));
   }, []);
