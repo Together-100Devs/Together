@@ -13,5 +13,8 @@ router.get(
     successRedirect: authRedirectUrl,
   })
 );
+router.get('/getDisplayName', (req, res) =>{
+  res.json(req.user || null)
+});
 
 module.exports = router;

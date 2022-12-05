@@ -11,4 +11,8 @@ router.get('/', eventsController.getAll);
 
 router.get('/:id', eventsController.getOne);
 
+router.get('/getDisplayName', (req, res) =>{
+    res.json(req.user || null)
+  });
+
 module.exports = router;

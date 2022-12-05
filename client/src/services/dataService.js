@@ -17,6 +17,9 @@ class DataService {
   getById(id) {
     return URL.get(`/events/${id}`)
   }
+  getCurrentUser() {
+    return URL.get('/getDisplayName')
+  }
 }
 
 export default new DataService();
