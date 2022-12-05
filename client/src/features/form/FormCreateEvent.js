@@ -9,15 +9,14 @@ export default function FormCreateEvent() {
 
   const handleChange = e => {
     const { name, value } = e.target;
-    setUserData({ ...userData, [name]: value,  discordName:user?.displayName });
+    setUserData({ ...userData, [name]: value, discordName: user?.displayName });
   };
 
   const [user, setUser] = useState();
   useEffect(() => {
-    DataService.getCurrentUser()
-      .then(response => setUser(response.data))
+    DataService.getCurrentUser().then(response => setUser(response.data));
   }, []);
-  console.log(userData)
+  console.log(userData);
 
   return (
     <div className="flex flex-col">

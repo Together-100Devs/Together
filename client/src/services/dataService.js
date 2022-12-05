@@ -12,13 +12,13 @@ class DataService {
     return URL.post(`/events/create`, msg);
   }
   getAll() {
-    return URL.get('/events')
+    return URL.get("/events");
   }
   getById(id) {
-    return URL.get(`/events/${id}`)
+    return URL.get(`/events/${id}`);
   }
   getCurrentUser() {
-    return URL.get('/getDisplayName')
+    return URL.get("/getDisplayName");
   }
 }
 
