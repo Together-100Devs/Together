@@ -90,7 +90,7 @@ export default function FormCreateEvent() {
             onChange={handleChange}
             value={user?.displayName || ""}
             name="discordName"
-            disabled="true"
+            disabled={true}
             placeholder="Discord Name"
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
           />
