@@ -19,7 +19,7 @@ module.exports = {
         recurringDates: data.recurring.days,
         recurringRate: data.recurring.rate,
         location: data.location,
-        discordName: data.discordName,
+        discordName: req.user.displayName,
       });
       res.json({ message: "Event created!" });
     } catch (err) {
@@ -30,7 +30,7 @@ module.exports = {
     try {
       const events = await Event.find();
       // return all events
-      res.json(events)
+      res.json(events);
     } catch (err) {
       console.log(err);
     }
@@ -42,5 +42,5 @@ module.exports = {
     } catch (err) {
       console.log(err);
     }
-  }
+  },
 };
