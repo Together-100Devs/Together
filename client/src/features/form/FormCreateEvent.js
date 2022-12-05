@@ -14,7 +14,6 @@ export default function FormCreateEvent() {
   useEffect(() => {
     DataService.getCurrentUser().then(response => setUser(response.data));
   }, []);
-  console.log(userData);
 
   return (
     <div className="flex flex-col">
