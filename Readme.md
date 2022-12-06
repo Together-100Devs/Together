@@ -54,12 +54,12 @@
       <details open="open">
   <summary>Table of Contents</summary>
 
-  - [About](#📢-about)
-    - [Built With](#✅-built-with)
-  - [Getting Started](#🚀-getting-started)
-    - [Install & Run](#💻-install)
-  - [Contributions](#🛠️-contributions)
-  - [Acknowledgements](#📌-acknowledgements)
+  - [About](#-about)
+    - [Built With](#-built-with)
+  - [Getting Started](#-getting-started)
+    - [Install & Run](#-install)
+  - [Contributions](#-contributions)
+  - [Acknowledgements](#-acknowledgements)
 
   </details>
     </td>
