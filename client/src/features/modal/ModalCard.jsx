@@ -44,32 +44,32 @@ const ModalCard = ({ handleClose }) => {
         >
           Close
         </button>
-        <div className="w-4/6 mt-3 flex flex-col border-2">
+        <div className="w-4/6 mt-3 flex flex-col">
           <h2 className=" flex border-solid border-b-2 border-black font-semibold">
-            <img className="w-7 pr-2" src={togetherLogo} alt="" /> The Title
+            <img className="w-8 pr-2" src={togetherLogo} alt="" /> The Title
           </h2>
           <div className="dateTime">
-            <p>
-              <GrCalendar />
-              <span className="font-semibold">Day:</span>{" "}
+            <section className="flex m-3 gap-1 font-semibold">
+              <GrCalendar className="mt-1"/>
+              <span className="">Day:</span>{" "}
               <span>Thursday, November 11, 2022</span>
-            </p>
-            <p className="flex justify-around">
-              <FaRegClock />
-              <span className="font-semibold ">Starts: 11:11</span>
-              <span className="font-semibold">Ends: 12:00</span>
-            </p>
+            </section>
+            <section className="flex m-3 gap-1 font-semibold">
+              
+              <FaRegClock className="mt-1"/><span className=" "> Starts: 11:11</span>
+              <span className="ml-9">Ends: 12:00</span>
+            </section>
           </div>
           <div className="description w-auto h-20 my-2 p-3 border-solid border-black border-2 font-semibold rounded-xl bg-neutral-200/50">
             <p>Description:</p>
           </div>
 
-          <p className="font-semibold">
-            <IoIosRepeat />
-            Repeats:{" "}
-          </p>
-          <IoLocationOutline />
-          <p className="font-semibold">Location: </p>
+          <section className="flex m-3 gap-1 font-semibold">
+            <IoIosRepeat className="mt-1"/>
+            <span>Repeats:</span> 
+          </section>
+          
+          <section className="flex m-3 gap-1 font-semibold"><IoLocationOutline className="mt-1"/> <span>Location:</span>  </section>
         </div>
       </motion.div>
     </Backdrop>
