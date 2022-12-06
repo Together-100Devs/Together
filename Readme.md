@@ -50,7 +50,7 @@
   - [About](#about)
     - [Built With](#built-with)
   - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
+    - [Install & Run](#prerequisites)
     - [Usage](#usage)
       - [Cookiecutter template](#cookiecutter-template)
       - [Manual setup](#manual-setup)
@@ -87,7 +87,7 @@ Together is a new app designed for 100devs. Together is a group calendar for pub
   <img src="docs/images/divider.png">
 </div>
 
-# Built With
+## Built With
 
 <div style="width:70%;margin:0 auto;">
 <table>
@@ -108,61 +108,17 @@ Together is a new app designed for 100devs. Together is a group calendar for pub
 </table>
 </div>
 
-<!-- <div align="center">
-<img height="28px" src="https://img.shields.io/badge/React-0e062a?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React"/>
-<img height="28px" src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge" alt="Express.js"/>
-<img height="28px" src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS"/>
-<img height="28px" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white" alt="JavaScript"/>
-<img height="28px" src="https://img.shields.io/badge/Node.js-90c53f?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js"/>
-<img height="28px" src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB"/>
-</div> -->
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
-Work in Progress
+# Contributions
 
-## Optimizations
-
-_(optional)_
-
-Work in Progress
-
-## Lessons Learned:
-
-Work in Progress
-
-## Want to Contribute?
+<a href="https://github.com/Caleb-Cohen/Together/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Caleb-Cohen/Together" />
+</a>
 
 For complete contributing instructions, read our [Contributing guide](.github/CONTRIBUTING.md). Visit the [Issues tab](https://github.com/Caleb-Cohen/Together/issues) to request an issue or to open a new issue. You can also convert a "draft todo" to an issue on the [MVP Tasks Project Board.](https://github.com/users/Caleb-Cohen/projects/1/views/1)
-
-
-
-## The Penultimate Goal
-
-- [ ] Discord guilds can create their own together calendar
-
-## thinking ahead,
-
-keep these in mind to prevent the project from being "caged."
-can integrate with slack or Discord and work on other servers besides 100devs
-
-
----
-
-# Things to add
-
-- Create a `.env` file in the config folder and add the following as `key = value.`
-  - PORT = 2121 (Do not change)
-  - DB_STRING = `your database URI`
-  - CLOUD_NAME = `your Cloudinary cloud name`
-  - API_KEY = `your Cloudinary API key`
-  - API_SECRET = `your Cloudinary API secret`
-  - DISCORD_CLIENT_ID = `discord client ID`
-  - DISCORD_CLIENT_SECRET = `discord client secret`
-  - OAUTH_REDIRECT_URL = http://localhost:3000/
-
----
 
 # Install & Run
 
@@ -173,9 +129,12 @@ can integrate with slack or Discord and work on other servers besides 100devs
 
 If you make changes to the front end you must execute `npm run build` otherwise the backend will serve the outdated build file.
 
-Still having troubles?
+<br>
+<strong>Still having troubles?</strong>
 
-You can join the discussion in the together discord channel [here](https://discord.com/channels/735923219315425401/1038482732633825442). You must be a part of the 100Devs discord to view the discussion.
+You can join the discussion in the together discord channel <strong>[here](https://discord.com/channels/735923219315425401/1038482732633825442)</strong>.
+<br>
+*(You must be a part of the 100Devs discord to view the discussion)*
 
 
 
@@ -197,8 +156,9 @@ You can join the discussion in the together discord channel [here](https://disco
     <td valign="center" style="width:83%;margin:0 auto;">
     <h2>Resources</h2>
     <br>
-    Tailwing Calendar by <a href="Resources:
-https://codepen.io/robstinson/pen/BaKOZry">Rob Stinson</a> @ Codepen
+    · Tailwind Calendar by <a href="https://codepen.io/robstinson/pen/BaKOZry">Rob Stinson</a> @ Codepen
+    <br>
+    · 'Cool Kids' illustrations by <a href="https://blush.design/artists/iDxEJwP2Ha4IrbT6bF88/irene-falgueras">Irene Falgueras</a>
     </td>
     <td valign="center" style="width:17%;margin:0 auto;">
      <img width="100%" src="docs/images/mug.png" alt="Mug"/>
