@@ -58,7 +58,7 @@
     - [Built With](#-built-with)
   - [Getting Started](#-getting-started)
     - [Install & Run](#-install)
-  - [Contributions](#-contributions)
+  - [Contributions](#%EF%B8%8F-contributions)
   - [Acknowledgements](#-acknowledgements)
 
   </details>
