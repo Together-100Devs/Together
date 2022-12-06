@@ -161,14 +161,14 @@ For complete contributing instructions, read our [Contributing guide](.github/CO
 <div style="width:100%;margin:0 auto;" align="center">
   <table>
     <tr>
-      <td valign="center" style="width:83%;margin:0 auto;">
-      <h2>Resources</h2>
-      <br>
-      · Tailwind Calendar by <a href="https://codepen.io/robstinson/pen/BaKOZry">Rob Stinson</a> @ Codepen
-      <br>
-      · 'Cool Kids' illustrations by <a href="https://blush.design/artists/iDxEJwP2Ha4IrbT6bF88/irene-falgueras">Irene Falgueras</a>
+      <td valign="center" style="width:88%;margin:0 auto;">
+        <h2>Resources</h2>
+        <br>
+        · Tailwind Calendar by <a href="https://codepen.io/robstinson/pen/BaKOZry">Rob Stinson</a> @ Codepen
+        <br>
+        · 'Cool Kids' illustrations by <a href="https://blush.design/artists/iDxEJwP2Ha4IrbT6bF88/irene-falgueras">Irene Falgueras</a>
       </td>
-      <td valign="center" style="width:17%;margin:0 auto;">
+      <td valign="center" style="width:12%;margin:0 auto;">
        <img width="100%" src="docs/images/mug.png" alt="Mug"/>
       </td>
     </tr>
