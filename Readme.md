@@ -90,7 +90,7 @@ Together is a new app designed for 100devs. Together is a group calendar for pub
 
 ## ✅ Built With
 
-<div style="width:70%;margin:0 auto;" align="center">
+<div style="width:60%;margin:0 auto;" align="center">
   <table>
     <tr>
       <td valign="center">
@@ -173,21 +173,20 @@ If you're interested in contributing, you may:
 # 📌 Acknowledgements
 
 <div align="center">
-  <table>
-    <tr>
-      <td valign="center" style="width:85%">
-        <h2>Resources</h2>
+<table>
+  <tr>
+    <td valign="center" style="width:85%">
+     <h2>Resources</h2>
         <br>
         · Tailwind Calendar by <a href="https://codepen.io/robstinson/pen/BaKOZry">Rob Stinson</a> @ Codepen
         <br>
         · 'Cool Kids' illustrations by <a href="https://blush.design/artists/iDxEJwP2Ha4IrbT6bF88/irene-falgueras">Irene Falgueras</a>
-      </td>
-      <td valign="center" style="width:15%">
-       <img width="100%" src="docs/images/mug.png" alt="Mug"/>
-      </td>
-    </tr>
-  </table>
+    </td>
+    <td valign="center" style="width:15%"><img src="docs/images/mug.png" alt="Mug"/></td>
+  </tr>
+</table>
 </div>
+
 
 <br/>
 <p align="right">(<a href="#top">back to top</a>)</p>
