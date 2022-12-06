@@ -7,24 +7,37 @@ import { Context } from "./contexts/Context"
 
 function App() {
   const [context, setContext] = useState({user: null})
+  const [page, setPage] = useState("landingPage")
 
   useEffect(() => {
     DataService.getCurrentUser().then(response => {
       setContext({ user: response.data })
+      console.log(response.data)
     });
   }, []);
 
   return (
     <Context.Provider value={[context, setContext]}>
+      {context.user && 
+        <h3>Hello, {context.user.displayName}, welcome to Together!</h3>
+      }
       <LoginWithDiscord />
-      {!context.user && <>
+      {page === "landingPage" && <>
+        <button onClick={() => setPage("calendarPage")}>
+          Navigate to Calendar
+        </button>
         <h1>Hello, landingPage goes here</h1>
       </>}
-      {context.user && <>
+      {page === "calendarPage" && <>
+        <button onClick={() => setPage("landingPage")}>
+          Navigate to LandingPage
+        </button>
         <Calendar />
-        <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
-          <UserForm />
-        </div>
+        {context.user && 
+          <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
+            <UserForm />
+          </div>
+        }
       </>}
     </Context.Provider>
   )

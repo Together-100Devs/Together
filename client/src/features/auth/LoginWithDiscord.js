@@ -5,7 +5,7 @@ import DataService from "services/dataService";
 const LoginWithDiscord = () => {
   const [context, setContext] = useContext(Context)
   return (
-    <>
+    <div>
       {!context.user && 
         <form action="/auth/discord">
           <button type="submit">Login with Discord</button>
@@ -18,7 +18,7 @@ const LoginWithDiscord = () => {
           setContext({...context})
         }}>Logout</button>
       }
-    </>
+    </div>
   );
 };
 
