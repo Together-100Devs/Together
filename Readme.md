@@ -175,14 +175,13 @@ If you're interested in contributing, you may:
 <div align="center">
 <table>
   <tr>
-    <td valign="center" style="width:85%">
-     <h2>Resources</h2>
-        <br>
+    <td valign="center">
+     <h3>Resources</h3>
         · Tailwind Calendar by <a href="https://codepen.io/robstinson/pen/BaKOZry">Rob Stinson</a> @ Codepen
         <br>
         · 'Cool Kids' illustrations by <a href="https://blush.design/artists/iDxEJwP2Ha4IrbT6bF88/irene-falgueras">Irene Falgueras</a>
     </td>
-    <td valign="center" style="width:15%"><img src="docs/images/mug.png" alt="Mug"/></td>
+    <td valign="center" style="width:10%"><img height="120px" src="docs/images/mug.png" alt="Mug"/></td>
   </tr>
 </table>
 </div>
