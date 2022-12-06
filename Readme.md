@@ -54,12 +54,13 @@
       <details open="open">
   <summary>Table of Contents</summary>
 
-  - [About](#about)
-    - [Built With](#built-with)
-  - [Getting Started](#getting-started)
-    - [Install & Run](#install)
-  - [Contributions](#contributions)
-  - [Acknowledgements](#acknowledgements)
+  - [About](#📢-about)
+    - [Built With](#✅-built-with)
+  - [Getting Started](#🚀-getting-started)
+    - [Install & Run](#💻-install)
+  - [Contributions](#🛠️-contributions)
+  - [Acknowledgements](#📌-acknowledgements)
+
   </details>
     </td>
     <td valign="top" style="width:70%"><img src="docs/images/coolkidsstayinghome.png" alt="Two girls sitting on a sofa"/></td>
@@ -75,7 +76,7 @@
   <img src="docs/images/divider.png">
 </div>
 
-# About
+# 📢 About
 
 Together is a new app designed for 100devs. Together is a group calendar for public events, so you can see what's going on in your community. We're making it easier to find out about the events that are happening in Discord and let you know how much fun they'll be!
 
@@ -87,22 +88,22 @@ Together is a new app designed for 100devs. Together is a group calendar for pub
   <img src="docs/images/divider.png">
 </div>
 
-## Built With
+## ✅ Built With
 
 <div style="width:70%;margin:0 auto;" align="center">
   <table>
     <tr>
       <td valign="center">
-      <img width="100%" src="https://img.shields.io/badge/React-0e062a?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React"/>
-      <img width="100%" src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge" alt="Express.js"/>
+      <img width="100%" title="React" src="https://img.shields.io/badge/React-0e062a?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React"/>
+      <img width="100%" title="Express" src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge" alt="Express.js"/>
       </td>
       <td valign="center">
-       <img width="100%" src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS"/>
-       <img width="100%" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white" alt="JavaScript"/>
+       <img width="100%" title="Tailwind CSS" src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS"/>
+       <img width="100%" title="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white" alt="JavaScript"/>
       </td>
       <td valign="center">
-       <img width="100%" src="https://img.shields.io/badge/Node.js-90c53f?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js"/>
-       <img width="100%" src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB"/>
+       <img width="100%" title="Node.js" src="https://img.shields.io/badge/Node.js-90c53f?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js"/>
+       <img width="100%" title="MongoDB" src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB"/>
       </td>
     </tr>
   </table>
@@ -116,8 +117,8 @@ Together is a new app designed for 100devs. Together is a group calendar for pub
   <img src="docs/images/divider.png">
 </div>
 
-# Getting Started
-## Install
+# 🚀 Getting Started
+## 💻 Install
 
 - ensure `.env` file is located in `server/config` file.
 - `npm install` in the root folder. installs the required dependencies.
@@ -139,15 +140,28 @@ You can join the discussion in the together discord channel <strong>[here](https
   <img src="docs/images/divider.png">
 </div>
 
-# Contributions
+# 🛠️ Contributions
 
-<a href="https://github.com/Caleb-Cohen/Together/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Caleb-Cohen/Together&max=100"/>
-</a> 
+<div align="center"
+  <a href="https://github.com/Caleb-Cohen/Together/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=Caleb-Cohen/Together&max=100"/>
+  </a> 
+</div>
 
 
+<br>
 
-For complete contributing instructions, read our [Contributing guide](.github/CONTRIBUTING.md). Visit the [Issues tab](https://github.com/Caleb-Cohen/Together/issues) to request an issue or to open a new issue. You can also convert a "draft todo" to an issue on the [MVP Tasks Project Board.](https://github.com/users/Caleb-Cohen/projects/1/views/1)
+## Help us improve Together!
+
+<em>Together</em> is a community-driven open source project backed by 100devs students. Whether you are helping us fixing bugs, proposing new feature, improving our documentation or spreading the word - <strong>All contributions are welcome.</strong>
+
+<br>
+
+If you're interested in contributing, you may:
+* read our [Contributing guide](.github/CONTRIBUTING.md);
+* Visit the [Issues tab](https://github.com/Caleb-Cohen/Together/issues) to request an issue or to open a new issue;
+* You can also convert a "draft todo" to an issue on the [MVP Tasks Project Board.](https://github.com/users/Caleb-Cohen/projects/1/views/1)
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -156,9 +170,9 @@ For complete contributing instructions, read our [Contributing guide](.github/CO
   <img src="docs/images/divider.png">
 </div>
 
-# Acknowledgements
+# 📌 Acknowledgements
 
-<div style="width:100%;margin:0 auto;" align="center">
+<div align="center">
   <table>
     <tr>
       <td valign="center" style="width:85%">
@@ -178,6 +192,6 @@ For complete contributing instructions, read our [Contributing guide](.github/CO
 <br/>
 <p align="right">(<a href="#top">back to top</a>)</p>
 <div align="center">
-  <img width="70%" src="docs/images/coolkidspitchmeeting.png" alt="Two girls sitting on a sofa"/>
+  <img width="80%" src="docs/images/coolkidspitchmeeting.png" alt="Two girls sitting on a sofa"/>
 </div>
 
