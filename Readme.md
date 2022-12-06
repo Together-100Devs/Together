@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://github.com/Caleb-Cohen/Together">
+  <a href="https://together.cyclic.app/">
     <img src="docs/images/logo.png" alt="Together logo" width="125">
   </a>
 </h1>
@@ -10,27 +10,21 @@
   what's going on in the 100Devs community!
   <br/>
   <br/>
+  <a href="https://github.com/Caleb-Cohen/Together/wiki">Project Wiki</a>
+  ·
   <a href="https://github.com/Caleb-Cohen/Together/blob/development/.github/CONTRIBUTING.md">Contributing guide</a>
   ·
   <a href="https://together.cyclic.app/"><strong>Link to project</strong></a>
   ·
-  <a href="https://github.com/dec0dOS/amazing-github-template/discussions">Ask a Question</a>
-</div>
-
-<br/>
-
-<div align="center">
-<img height="25px" src="https://img.shields.io/badge/React-0e062a?style=for-the-badge&logo=react&logoColor=61DAFB" alt="instagram" style="margin-bottom: 5px;" />
-<img height="25px" src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge" alt="instagram" style="margin-bottom: 5px;" />
-<img height="25px" src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="instagram" style="margin-bottom: 5px;" />
-<img height="25px" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white" alt="instagram" style="margin-bottom: 5px;" />
-<img height="25px" src="https://img.shields.io/badge/Node.js-90c53f?style=for-the-badge&logo=node.js&logoColor=white" alt="instagram" style="margin-bottom: 5px;" />
-<img height="25px" src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="instagram" style="margin-bottom: 5px;" />
+  <a href="https://github.com/Caleb-Cohen/Together/issues">Request an issue</a>
+  ·
+  <a href="https://discord.com/channels/735923219315425401/1038482732633825442">Contact us!</a>
 </div>
 
 
 <br/>
 <br/>
+
 
 <div align="center">
 <table>
@@ -60,30 +54,30 @@
 </div>
 
 
-
 <br/>
 <br/>
 
+<img src="docs/images/divider.png">
 
-
-
-
-
-
-
-
-
-
-
-
+# About
 
 Together is a new app designed for 100devs. Together is a group calendar for public events, so you can see what's going on in your community. We're making it easier to find out about the events that are happening in Discord and let you know how much fun they'll be!
 
-**Link to project:** https://together.cyclic.app/
+<br/>
 
 ![alt tag](https://i.ibb.co/vVH3qjx/Screen-Shot-2022-11-05-at-12-13-17-PM.png)
 
-## How It's Made:
+<img src="docs/images/divider.png">
+
+# Built With
+<div align="center">
+<img height="25px" src="https://img.shields.io/badge/React-0e062a?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React"/>
+<img height="25px" src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge" alt="Express.js"/>
+<img height="25px" src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS"/>
+<img height="25px" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white" alt="JavaScript"/>
+<img height="25px" src="https://img.shields.io/badge/Node.js-90c53f?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js"/>
+<img height="25px" src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB"/>
+</div>
 
 **Tech used:** Tailwind, JavaScript, MERN
 
@@ -145,3 +139,16 @@ If you make changes to the front end you must execute `npm run build` otherwise 
 Still having troubles?
 
 You can join the discussion in the together discord channel [here](https://discord.com/channels/735923219315425401/1038482732633825442). You must be a part of the 100Devs discord to view the discussion.
+
+
+
+
+
+
+
+
+
+
+
+# Aknowledgements
+
