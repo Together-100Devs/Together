@@ -190,6 +190,6 @@ If you're interested in contributing, you may:
 <br/>
 <p align="right">(<a href="#top">back to top</a>)</p>
 <div align="center">
-  <img width="80%" src="docs/images/coolkidspitchmeeting.png" alt="Two girls sitting on a sofa"/>
+  <img width="60%" src="docs/images/coolkidspitchmeeting.png" alt="Two girls sitting on a sofa"/>
 </div>
 
