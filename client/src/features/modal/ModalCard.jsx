@@ -39,12 +39,12 @@ const ModalCard = ({ handleClose }) => {
         exit="exit"
       >
         <button
-          className="w-auto h-12 px-2 border-solid border-2 border-gray outline-none rounded font-semibold text-xl"
+          className="w-auto h-12 mt-3 px-2 border-solid border-2 border-gray outline-none rounded font-semibold text-xl hover:bg-teal-600 active:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-300"
           onClick={handleClose}
         >
           Close
         </button>
-        <div className="w-2/4  flex flex-col border-2">
+        <div className="w-4/6 mt-3 flex flex-col border-2">
           <h2 className=" flex border-solid border-b-2 border-black font-semibold">
             <img className="w-7 pr-2" src={togetherLogo} alt="" /> The Title
           </h2>
