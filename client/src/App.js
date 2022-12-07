@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import Calendar from "features/calendar/Calendar";
 import LoginWithDiscord from "features/auth/LoginWithDiscord";
 import UserForm from "features/form/UserForm";
+import Modal from "features/modal/Modal";
 
 function App() {
+
   const [page, setPage] = useState("landingPage");  
 
   if (page === "landingPage") {
@@ -23,6 +25,7 @@ function App() {
         </button>
         <LoginWithDiscord />
         <Calendar />
+        <Modal/>
         <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
           <UserForm />
         </div>
