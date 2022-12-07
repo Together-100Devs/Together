@@ -20,6 +20,9 @@ class DataService {
   getCurrentUser() {
     return URL.get("/getDisplayName");
   }
+  logout() {
+    return URL.get("/auth/logout")
+  }
 }
 
 export default new DataService();
