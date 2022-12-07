@@ -188,7 +188,7 @@ If you're interested in contributing, you may:
         <br>
         · Readme designed by <a href="https://github.com/praxeds">Juliana Praxedes</a>
     </td>
-    <td valign="center" style="width:10%"><img height="10%" src="docs/images/mug.png" alt="Mug"/></td>
+    <td valign="center" style="width:10%"><img height="120px" src="docs/images/mug.png" alt="Mug"/></td>
   </tr>
 </table>
 </div>
