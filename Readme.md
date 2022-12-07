@@ -129,7 +129,7 @@ Together is a new app designed for 100devs. Together is a group calendar for pub
 <br>
 
 ### 🤔 <strong>Still having troubles?</strong>
-You check check out our [New Developer Onboarding](https://github.com/Caleb-Cohen/Together/wiki/02---Onboarding) in our [wiki](https://github.com/Caleb-Cohen/Together/wiki).
+You can check out our [New Developer Onboarding](https://github.com/Caleb-Cohen/Together/wiki/02---Onboarding) in our [wiki](https://github.com/Caleb-Cohen/Together/wiki).
 
 You can also join the discussion in the [Together Discord channel](https://discord.com/channels/735923219315425401/1038482732633825442) within [100Devs](https://leonnoel.com/100devs/).
 
@@ -141,6 +141,10 @@ You can also join the discussion in the [Together Discord channel](https://disco
 </div>
 
 # 🛠️ Contributions
+
+ ### Thanks go to these wonderful people for their contributions to <em>Together</em>:
+
+ <br>
 
 <div align="center"
   <a href="https://github.com/Caleb-Cohen/Together/graphs/contributors">
@@ -159,6 +163,7 @@ You can also join the discussion in the [Together Discord channel](https://disco
 
 If you're interested in contributing, you may:
 * read our [Contributing guide](.github/CONTRIBUTING.md);
+* join our [Discord channel](https://discord.com/channels/735923219315425401/1038482732633825442) within 100Devs to discuss your ideas;
 * Visit the [Issues tab](https://github.com/Caleb-Cohen/Together/issues) to request an issue or to open a new issue;
 * You can also convert a "draft todo" to an issue on the [MVP Tasks Project Board.](https://github.com/users/Caleb-Cohen/projects/1/views/1)
 
@@ -180,6 +185,8 @@ If you're interested in contributing, you may:
         · Tailwind Calendar by <a href="https://codepen.io/robstinson/pen/BaKOZry">Rob Stinson</a> @ Codepen
         <br>
         · 'Cool Kids' illustrations by <a href="https://blush.design/artists/iDxEJwP2Ha4IrbT6bF88/irene-falgueras">Irene Falgueras</a>
+        <br>
+        · Readme designed by <a href="https://github.com/praxeds">Juliana Praxedes</a>
     </td>
     <td valign="center" style="width:10%"><img height="10%" src="docs/images/mug.png" alt="Mug"/></td>
   </tr>
