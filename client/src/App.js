@@ -34,9 +34,9 @@ function App() {
           Navigate to LandingPage
         </button>
         <Calendar />
-        <Modal/>
         {context.user && 
           <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
+            <Modal/>
             <UserForm />
           </div>
         }
