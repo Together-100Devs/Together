@@ -57,7 +57,7 @@
   - [About](#-about)
     - [Built With](#-built-with)
   - [Getting Started](#-getting-started)
-    - [Install & Run](#-install)
+    - [Install](#-install)
   - [Contributions](#%EF%B8%8F-contributions)
   - [Acknowledgements](#-acknowledgements)
 
@@ -120,19 +120,19 @@ Together is a new app designed for 100devs. Together is a group calendar for pub
 # 🚀 Getting Started
 ## 💻 Install
 
-- ensure `.env` file is located in `server/config` file.
+- Fork and clone the repository to your local computer.
+- Complete and store `.env` file in the `server/config` folder
+    - [(See .env template setup instructions)](https://github.com/Caleb-Cohen/Together/wiki/02---Onboarding#development-machine-setup)
 - `npm install` in the root folder. installs the required dependencies.
-- `npm run build` compiles the build folder. Lint must have no errors for build file command to complete. 
-- `npm run dev-concurrent` in the root folder.
-
-If you make changes to the front end you must execute `npm run build` otherwise the backend will serve the outdated build file.
+- `npm run dev-concurrent` in the root folder. This starts the front-end and back-end in one terminal.
 
 <br>
-<strong>Still having troubles?</strong>
 
-You can join the discussion in the together discord channel <strong>[here](https://discord.com/channels/735923219315425401/1038482732633825442)</strong>.
-<br>
-*(You must be a part of the 100Devs discord to view the discussion)*
+### 🤔 <strong>Still having troubles?</strong>
+You check check out our [New Developer Onboarding](https://github.com/Caleb-Cohen/Together/wiki/02---Onboarding) in our [wiki](https://github.com/Caleb-Cohen/Together/wiki).
+
+You can also join the discussion in the [Together Discord channel](https://discord.com/channels/735923219315425401/1038482732633825442) within [100Devs](https://leonnoel.com/100devs/).
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -181,7 +181,7 @@ If you're interested in contributing, you may:
         <br>
         · 'Cool Kids' illustrations by <a href="https://blush.design/artists/iDxEJwP2Ha4IrbT6bF88/irene-falgueras">Irene Falgueras</a>
     </td>
-    <td valign="center" style="width:10%"><img height="120px" src="docs/images/mug.png" alt="Mug"/></td>
+    <td valign="center" style="width:10%"><img height="10%" src="docs/images/mug.png" alt="Mug"/></td>
   </tr>
 </table>
 </div>
