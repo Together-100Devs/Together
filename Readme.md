@@ -24,11 +24,7 @@ Work in Progress
 
 ## Want to Contribute?
 
-Checkout [MVP Tasks Project Board](https://github.com/users/Caleb-Cohen/projects/1/views/1). We have instructions on how to contribute [here](https://github.com/Caleb-Cohen/Together/blob/development/docs/CONTRIBUTING.md). To claim a task comment on an open issue located [here](https://github.com/Caleb-Cohen/Together/issues), or open a new issue from the issues tab. You can also convert a draft todo on the project board to an issue.
-
-## MVP Tasks
-
-MVP Tasks are viewable [here](https://github.com/users/Caleb-Cohen/projects/1/views/1).
+For complete contributing instructions, read our [Contributing guide](.github/CONTRIBUTING.md). Visit the [Issues tab](https://github.com/Caleb-Cohen/Together/issues) to request an issue or to open a new issue. You can also convert a "draft todo" to an issue on the [MVP Tasks Project Board.](https://github.com/users/Caleb-Cohen/projects/1/views/1)
 
 ## Next Level
 
@@ -70,6 +66,7 @@ https://codepen.io/robstinson/pen/BaKOZry
   - API_SECRET = `your Cloudinary API secret`
   - DISCORD_CLIENT_ID = `discord client ID`
   - DISCORD_CLIENT_SECRET = `discord client secret`
+  - OAUTH_REDIRECT_URL = http://localhost:3000/
 
 ---
 

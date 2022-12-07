@@ -6,5 +6,29 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "json-server --watch src/test/events.json --port 2121"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.18",
+    "tailwindcss": "^3.2.2",
+    "axios": "^1.1.3"
   }
 }

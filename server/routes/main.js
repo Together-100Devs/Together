@@ -3,15 +3,19 @@ const router = express.Router();
 const passport = require("passport");
 
 //Main Routes - simplified for now
-
+const authRedirectUrl =
+  process.env.OAUTH_REDIRECT_URL || "http://localhost:3000";
 //Discord Authentication Routes
 router.get("/auth/discord", passport.authenticate("discord"));
 router.get(
   "/auth/discord/callback",
   passport.authenticate("discord", {
-    failureRedirect: "/",
-    successRedirect: "/",
+    failureRedirect: authRedirectUrl,
+    successRedirect: authRedirectUrl,
   })
 );
+router.get("/getDisplayName", (req, res) => {
+  res.json(req.user || null);
+});
 
 module.exports = router;
