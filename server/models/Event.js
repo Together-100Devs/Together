@@ -21,12 +21,12 @@ const EventSchema = new mongoose.Schema({
     type: Boolean,
     require: true,
   },
-  recurringDates: [
+  dates: [
     {
       title: { type: String },
       description: { type: String },
-      start: { type: Date },
-      end: { type: Date },
+      startAt: { type: Date },
+      endAt: { type: Date },
       location: { type: String },
     }
   ],
