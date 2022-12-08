@@ -54,7 +54,7 @@ const DayCard = ({ day, month, events }) => {
               className={`flex-shrink-0 w-2 h-2 ${event.confirmed ? confirmedCss : unconfirmedCSss
                 } rounded-full`}
             ></span>
-            <span className="ml-2 font-light leading-none">{formatToLocalTime(event.initialDate || event.start)}</span>
+            <span className="ml-2 font-light leading-none">{formatToLocalTime(event.initialDate || event.startAt)}</span>
             <span className="ml-2 font-medium leading-none truncate">
               {event.title}
             </span>
