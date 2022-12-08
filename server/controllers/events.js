@@ -12,7 +12,7 @@ module.exports = {
       await Event.create({
         title: data.title,
         description: data.description,
-        startDate: data.startDate,
+        initialDate: data.initialDate,
         endDate: data.endDate,
         startTime: data.startTime,
         endTime: data.endTime,
