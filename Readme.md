@@ -82,7 +82,9 @@ Together is a new app designed for 100devs. Together is a group calendar for pub
 
 <br/>
 
-![alt tag](https://i.ibb.co/vVH3qjx/Screen-Shot-2022-11-05-at-12-13-17-PM.png)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/75268174/206335415-9b8ae4a7-806b-4771-a853-66a9f6789e40.png">
+</p>
 
 <div align='center'>
   <img src="docs/images/divider.png">
