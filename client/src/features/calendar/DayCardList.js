@@ -17,7 +17,7 @@ const DayCardList = ({ data, firstDayOfMonth }) => {
     (_, i) => i + 1
   );
 
-  
+
 
   return (
     <div className="grid flex-grow w-full h-auto grid-cols-7 grid-rows-5 gap-px pt-px mt-1 bg-gray-200">
@@ -51,11 +51,10 @@ const DayCard = ({ day, month, events }) => {
             className="flex items-center flex-shrink-0 h-5 px-1 text-xs hover:bg-gray-200"
           >
             <span
-              className={`flex-shrink-0 w-2 h-2 ${
-                event.confirmed ? confirmedCss : unconfirmedCSss
-              } rounded-full`}
+              className={`flex-shrink-0 w-2 h-2 ${event.confirmed ? confirmedCss : unconfirmedCSss
+                } rounded-full`}
             ></span>
-            <span className="ml-2 font-light leading-none">{formatToLocalTime(event.startDate)}</span>
+            <span className="ml-2 font-light leading-none">{formatToLocalTime(event.initialDate || event.startAt)}</span>
             <span className="ml-2 font-medium leading-none truncate">
               {event.title}
             </span>

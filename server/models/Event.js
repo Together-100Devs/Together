@@ -21,6 +21,10 @@ const EventSchema = new mongoose.Schema({
     type: Boolean,
     require: true,
   },
+  recurringRate: {
+    type: String,
+    require: true,
+  },
   dates: [
     {
       title: { type: String },
