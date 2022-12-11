@@ -9,11 +9,10 @@ import { Context } from "./contexts/Context"
 function App() {
   const [context, setContext] = useState({user: null})
   const [page, setPage] = useState("landingPage")
-
+  
   useEffect(() => {
     DataService.getCurrentUser().then(response => {
       setContext({ user: response.data })
-      console.log(response.data)
     });
   }, []);
 
