@@ -127,7 +127,7 @@ Together is a new app designed for 100devs. Together is a group calendar for pub
     - [(See .env template setup instructions)](https://github.com/Caleb-Cohen/Together/wiki/02---Onboarding#development-machine-setup)
 - `npm install` in the root folder. installs the required dependencies.
 - `npm run dev-concurrent` in the root folder. This starts the front-end and back-end in one terminal.
-    - This runs a local instance of mongodb. You can connect to it by connecting to `mongodb://127.0.0.1:27017/` with any MongoDB client.
+    - This runs a local instance of mongodb. You can connect to it by connecting to `mongodb://127.0.0.1:27017/` with any MongoDB client like [Compass](https://www.mongodb.com/products/compass).
 
 <br>
 
