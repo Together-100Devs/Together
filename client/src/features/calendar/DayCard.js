@@ -1,11 +1,7 @@
 import React from "react";
-import { formatToLocalTime } from 'utilities/calendar';
+import Event from "./Event";
 
 const DayCard = ({ day, month, events }) => {
-  // Styling for bullet point
-  const confirmedCss = "bg-gray-500";
-  const unconfirmedCSss = "border border-gray-500";
-
   return (
     <div className="relative flex flex-col bg-white group">
       <span className="mx-2 my-1 text-xs font-bold">
@@ -13,21 +9,8 @@ const DayCard = ({ day, month, events }) => {
       </span>
 
       <div className="flex flex-col px-1 py-1 overflow-auto">
-        {events.map(event => (
-          <button
-            key={event.title}
-            className="flex items-center flex-shrink-0 h-5 px-1 text-xs hover:bg-gray-200"
-          >
-            <span
-              className={`flex-shrink-0 w-2 h-2 ${
-                event.confirmed ? confirmedCss : unconfirmedCSss
-              } rounded-full`}
-            ></span>
-            <span className="ml-2 font-light leading-none">{formatToLocalTime(event.startDate)}</span>
-            <span className="ml-2 font-medium leading-none truncate">
-              {event.title}
-            </span>
-          </button>
+        {events.map((event, i) => (
+          <Event event={event} key={i}/>
         ))}
       </div>
 

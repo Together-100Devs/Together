@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import ModalCard from "./ModalCard";
 import { Context } from "contexts/Context";
