@@ -5,15 +5,19 @@ import eachDayOfInterval from 'date-fns/eachDayOfInterval'
 export const getMatchMonth = (monthToMatch, events) => {
   if (!events.length) return [];
 
-  return events.map(event => {
-    let events = new Array(event)
-    events.push(...event.dates)
-    return events
-  }).flat().filter(event => {
-    const isoDate = parseISO(event.initialDate || event.startAt);
-    const monthInString = format(isoDate, 'LLLL'); // December
-    return monthToMatch === monthInString
-  })
+  let allMatchedEvents = [];
+
+  for (let event of events) {
+    const matchedEvents = event.dates.filter(date => {
+      const isoDate = parseISO(date.startAt);
+      const monthInString = format(isoDate, 'LLLL'); // December
+      return monthToMatch === monthInString
+    });
+
+    allMatchedEvents = [...allMatchedEvents, ...matchedEvents]
+  }
+
+  return allMatchedEvents;
 }
 
 export const getEventsByDayNumber = (currentDay, allEvents) => {
@@ -63,7 +67,7 @@ export const generateRecurringDatesArray = ({ initialDate, startTime, finalDate,
       description: description,
       startAt: newStartDate,
       endAt: newEndDate,
-      location:location,
+      location: location,
     }
   })
 

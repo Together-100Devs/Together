@@ -35,19 +35,25 @@ const UserForm = () => {
     let newStep = currentStep;
     direction === "next" ? newStep++ : newStep--;
     newStep > 0 && newStep <= steps.length && setCurrentStep(newStep);
-    const recurringDates = generateRecurringDatesArray(userData);
 
-    newStep === 4 && (await DataService.create({ data: { ...userData, dates: recurringDates } }));
+    if (newStep === 4) {
+      const recurringDates = generateRecurringDatesArray(userData);
+      const data = JSON.stringify({
+        ...userData,
+        dates: recurringDates
+      })
+      await DataService.create({ data: data })
+    };
   };
 
-   // Date and Time Formats
+  // Date and Time Formats
   // returned dates = "2022-12-01"  returned times = "20:33" 
 
 
   // function concatDateTime (date, time) {
   //   return `${date.split("T")[0]}T${time.split("T")[1]}`;
   // }
-  
+
   // console.log(concatDateTime("2021-05-25T09:50:40.603Z", Date.UTC("2021-05-12T11:52:40.603Z")));
   // console.log(concatDateTime("2021-05-25T09:50:40.603Z", "2021-05-12T11:52:40.603Z"));
 
