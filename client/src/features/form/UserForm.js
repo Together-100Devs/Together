@@ -7,6 +7,7 @@ import FormScheduleEvent from "./FormScheduleEvent";
 import FormConfirm from "./FormConfirm";
 import FormSuccess from "./FormSuccess";
 import DataService from "services/dataService";
+import { generateRecurringDatesArray } from "utilities/calendar";
 
 const UserForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -34,7 +35,11 @@ const UserForm = () => {
     let newStep = currentStep;
     direction === "next" ? newStep++ : newStep--;
     newStep > 0 && newStep <= steps.length && setCurrentStep(newStep);
-    newStep === 4 && (await DataService.create({ data: userData }));
+    newStep === 4 && console.log(userData);;
+
+    const recurringDates = generateRecurringDatesArray(userData, userData)
+
+    newStep === 4 && (await DataService.create({ data: { ...userData, dates: recurringDates } }));
   };
 
   return (
