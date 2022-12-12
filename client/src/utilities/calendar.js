@@ -39,10 +39,10 @@ export const createDateInUTC = (htmlDate = '', htmlTime = '') => {
   return new Date(Date.UTC(year, month - 1, day, hour, minute))
 }
 
-export const generateRecurringDatesArray = ({ initialDate, startTime, endDate, endTime}, event) => {
+export const generateRecurringDatesArray = ({ initialDate, startTime, finalDate, endTime, title, description, location }) => {
   // Generate UTC time from HTML input (date and time).
   const startUTC = createDateInUTC(initialDate, startTime);
-  const endUTC = createDateInUTC(endDate, endTime);
+  const endUTC = createDateInUTC(finalDate, endTime);
   // Generate a range of dates in between initialDate & endDate (date-fns does not generate the time sadly)
   const result = eachDayOfInterval({
     start: startUTC,
@@ -53,17 +53,17 @@ export const generateRecurringDatesArray = ({ initialDate, startTime, endDate, e
   const dates = result.map(date => {
     const [month, day, year] = format(date, 'P').split('/')
     const htmlDateFormat = `${year}-${month}-${day}`;
-    
+
     // Recreate date with time added
     const newStartDate = createDateInUTC(htmlDateFormat, startTime);
     const newEndDate = createDateInUTC(htmlDateFormat, endTime);
 
     return {
-      title: event.title,
-      description: event.description,
+      title: title,
+      description: description,
       startAt: newStartDate,
       endAt: newEndDate,
-      location:event.location,
+      location:location,
     }
   })
 

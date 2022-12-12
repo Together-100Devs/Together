@@ -35,8 +35,7 @@ const UserForm = () => {
     let newStep = currentStep;
     direction === "next" ? newStep++ : newStep--;
     newStep > 0 && newStep <= steps.length && setCurrentStep(newStep);
-
-    const recurringDates = generateRecurringDatesArray(userData, userData)
+    const recurringDates = generateRecurringDatesArray(userData);
 
     newStep === 4 && (await DataService.create({ data: { ...userData, dates: recurringDates } }));
   };
