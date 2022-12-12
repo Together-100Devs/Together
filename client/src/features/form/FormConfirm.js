@@ -26,7 +26,7 @@ export default function FormConfirm() {
 
       <div className="w-full mx-2 flex-1">
         <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
-          initialDate
+          Initial Date
         </div>
         <div className="bg-white my-2 p-1 flex text-slate-400 border border-gray-200 rounded">
           <p>{userData["initialDate"]}</p>
@@ -35,10 +35,10 @@ export default function FormConfirm() {
 
       <div className="w-full mx-2 flex-1">
         <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
-          endDate
+          End Date
         </div>
         <div className="bg-white my-2 p-1 flex text-slate-400 border border-gray-200 rounded">
-          <p>{userData["endDate"]}</p>
+          <p>{userData["finalDate"]}</p>
         </div>
       </div>
 
