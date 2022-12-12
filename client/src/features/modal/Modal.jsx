@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import ModalCard from "./ModalCard";
 import { Context } from "contexts/Context";
 
@@ -13,14 +13,6 @@ const Modal = () => {
 
   return (
     <div>
-      <motion.button
-        className="py-0 px-4 mt-8 mr-auto mb-auto ml-5 bg-teal-600 text-black rounded focus:outline-none focus:ring focus:ring-teal-300"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        onClick={toggleModal}
-      >
-        Click for Modal
-      </motion.button>
       <AnimatePresence
         initial={false}
         exitBeforeEnter={true}
