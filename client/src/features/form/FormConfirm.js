@@ -114,11 +114,11 @@ export default function FormConfirm() {
             <div className="  flex space-x-4 items-center">
               <input
                 type="checkbox"
-                value="monday"
-                name="monday"
-                id="monday"
+                value="Monday"
+                name="Monday"
+                id="Monday"
                 readOnly
-                checked={!!userData.recurring.days.includes("monday")}
+                checked={!!userData.recurring.days.includes("Monday")}
                 className="mx-1 outline-non text-gray-800"
               />
               <p>Monday</p>
@@ -126,11 +126,11 @@ export default function FormConfirm() {
             <div className=" flex space-x-4 items-center">
               <input
                 type="checkbox"
-                value="tuesday"
-                name="tuesday"
-                id="tuesday"
+                value="Tuesday"
+                name="Tuesday"
+                id="Tuesday"
                 readOnly
-                checked={!!userData.recurring.days.includes("tuesday")}
+                checked={!!userData.recurring.days.includes("Tuesday")}
                 className=" mx-1 outline-non text-gray-800"
               />
               <p>Tuesday</p>
@@ -138,11 +138,11 @@ export default function FormConfirm() {
             <div className=" flex space-x-4 items-center">
               <input
                 type="checkbox"
-                value="wednesday"
-                name="wednesday"
-                id="wednesday"
+                value="Wednesday"
+                name="Wednesday"
+                id="Wednesday"
                 readOnly
-                checked={!!userData.recurring.days.includes("wednesday")}
+                checked={!!userData.recurring.days.includes("Wednesday")}
                 className=" mx-1 outline-non text-gray-800"
               />
               <p>Wednesday</p>
@@ -150,10 +150,10 @@ export default function FormConfirm() {
             <div className="flex space-x-4 items-center">
               <input
                 type="checkbox"
-                value="thursday"
-                name="thursday"
+                value="Thursday"
+                name="Thursday"
                 readOnly
-                checked={!!userData.recurring.days.includes("thursday")}
+                checked={!!userData.recurring.days.includes("Thursday")}
                 className="mx-1 outline-non text-gray-800"
               />
               <p>Thursday</p>
@@ -161,10 +161,10 @@ export default function FormConfirm() {
             <div className="flex space-x-4 items-center">
               <input
                 type="checkbox"
-                value="friday"
-                name="friday"
+                value="Friday"
+                name="Friday"
                 readOnly
-                checked={!!userData.recurring.days.includes("friday")}
+                checked={!!userData.recurring.days.includes("Friday")}
                 className=" mx-1 outline-non text-gray-800"
               />
               <p>Friday</p>
@@ -172,10 +172,10 @@ export default function FormConfirm() {
             <div className="flex space-x-4 items-center">
               <input
                 type="checkbox"
-                value="saturday"
-                name="saturday"
+                value="Saturday"
+                name="Saturday"
                 readOnly
-                checked={!!userData.recurring.days.includes("saturday")}
+                checked={!!userData.recurring.days.includes("Saturday")}
                 className="mx-1 outline-non text-gray-800"
               />
               <p>Saturday</p>
@@ -183,10 +183,10 @@ export default function FormConfirm() {
             <div className="flex space-x-4 items-center">
               <input
                 type="checkbox"
-                value="sunday"
-                name="sunday"
+                value="Sunday"
+                name="Sunday"
                 readOnly
-                checked={!!userData.recurring.days.includes("sunday")}
+                checked={!!userData.recurring.days.includes("Sunday")}
                 className="mx-1 outline-non text-gray-800"
               />
               <p>Sunday</p>
