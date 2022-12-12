@@ -7,7 +7,7 @@ import DataService from "services/dataService";
 import { Context } from "./contexts/Context"
 
 function App() {
-  const [context, setContext] = useState({user: null})
+  const [context, setContext] = useState({user: null, event: null, modalOpen: false})
   const [page, setPage] = useState("landingPage")
   
   useEffect(() => {

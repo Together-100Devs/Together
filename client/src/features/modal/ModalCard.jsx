@@ -1,9 +1,11 @@
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import Backdrop from "./Backdrop";
 import { GrCalendar } from "react-icons/gr";
 import { FaRegClock } from "react-icons/fa";
 import { IoIosRepeat } from "react-icons/io";
 import { IoLocationOutline } from "react-icons/io5";
+import { Context } from "contexts/Context";
 
 import togetherLogo from "../.././assets/images/togetherLogo.svg";
 const dropIn = {
@@ -28,6 +30,7 @@ const dropIn = {
 };
 
 const ModalCard = ({ handleClose }) => {
+  const [context] = useContext(Context)
   return (
     <Backdrop onClick={handleClose}>
       <motion.div
@@ -46,32 +49,35 @@ const ModalCard = ({ handleClose }) => {
         </button>
         <div className="w-4/6 mt-3 flex flex-col">
           <h2 className=" flex mb-1 border-solid border-b-2 border-black font-semibold">
-            <img className="w-8 pr-2" src={togetherLogo} alt="" /> The Title
+            <img className="w-8 pr-2" src={togetherLogo} alt="" /> {context.event.title}
           </h2>
           <div className="dateTime">
             <section className="flex m-3 gap-1 font-semibold">
               <GrCalendar className="mt-1" />
               <span className="">Day:</span>{" "}
-              <span>Thursday, November 11, 2022</span>
+              <span>{context.event.startDate.split('T')[0]}</span>
             </section>
 
             <section className="flex m-3 gap-1 font-semibold">
               <FaRegClock className="mt-1" />
-              <span className=" "> Starts: 11:11</span>
-              <span className="ml-9">Ends: 12:00</span>
+              <span className=" "> Starts: {context.event.startTime}</span>
+              <span className="ml-9">Ends: {context.event.endTime}</span>
             </section>
           </div>
           <div className="description w-auto h-20 my-2 p-2 border-solid border-black border-2 font-semibold rounded-xl bg-neutral-200/50">
-            <p>Description:</p>
+            <p>Description: {context.event.description}</p>
           </div>
           <div>
             <section className="flex m-3 gap-1 font-semibold">
               <IoIosRepeat className="mt-1" />
-              <span>Repeats:</span>
+              <span>
+                Repeats:
+                {context.event.recurringRate !== 'noRecurr' ? <div>{context.event.recurringDates.join(', ')}, {context.event.recurringRate}</div> : <div>Does not repeat.</div>}
+              </span>
             </section>
 
             <section className="flex m-3 gap-1 font-semibold">
-              <IoLocationOutline className="mt-1" /> <span>Location:</span>
+              <IoLocationOutline className="mt-1" /> <span>Location: {context.event.location}</span>
             </section>
           </div>
         </div>
