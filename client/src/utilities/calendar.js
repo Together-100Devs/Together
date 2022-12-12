@@ -2,33 +2,6 @@ import parseISO from 'date-fns/parseISO'
 import format from 'date-fns/format';
 import eachDayOfInterval from 'date-fns/eachDayOfInterval'
 
-// const useDate = () => {
-//   const [date, setDate] = useState(new Date());
-//   const year = getYear(date);
-//   // Month in string format; e.g. 'November'
-//   const month = format(date, "LLLL");
-//   const daysInMonth = getDaysInMonth(date);
-//   // First day of the month; e.g. 'Tue'
-//   const firstDay = format(startOfMonth(date), "E");
-
-//   const getNextMonth = () => {
-//     setDate(prevDate => new Date(getYear(prevDate), getMonth(prevDate) + 1));
-//   };
-
-//   const getPreviousMonth = () => {
-//     setDate(prevDate => new Date(getYear(prevDate), getMonth(prevDate) - 1));
-//   };
-
-//   return {
-//     year,
-//     month,
-//     daysInMonth,
-//     firstDay,
-//     getNextMonth,
-//     getPreviousMonth,
-//   };
-// };
-
 export const getMatchMonth = (monthToMatch, events) => {
   if (!events.length) return [];
 
