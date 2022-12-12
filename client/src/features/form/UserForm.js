@@ -34,8 +34,26 @@ const UserForm = () => {
     let newStep = currentStep;
     direction === "next" ? newStep++ : newStep--;
     newStep > 0 && newStep <= steps.length && setCurrentStep(newStep);
-    newStep === 4 && (await DataService.create({ data: userData }));
+    if(newStep === 4){
+      // Convert user local time to sever time
+      // Concat date with server time 
+      (await DataService.create({ data: userData }))
+    
+    };
   };
+
+   // Date and Time Formats
+  // returned dates = "2022-12-01"  returned times = "20:33" 
+
+
+  // function concatDateTime (date, time) {
+  //   return `${date.split("T")[0]}T${time.split("T")[1]}`;
+  // }
+  
+  // console.log(concatDateTime("2021-05-25T09:50:40.603Z", Date.UTC("2021-05-12T11:52:40.603Z")));
+  // console.log(concatDateTime("2021-05-25T09:50:40.603Z", "2021-05-12T11:52:40.603Z"));
+
+
 
   return (
     <div>
