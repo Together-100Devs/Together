@@ -1,19 +1,23 @@
+import { useState, useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
 import ModalCard from "./ModalCard";
+import { Context } from "contexts/Context";
 
 const Modal = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const close = () => setModalOpen(false);
-  const open = () => setModalOpen(true);
-  
+  const [context, setContext] = useContext(Context)
+
+  const toggleModal = () => {
+    context.modalOpen = !context.modalOpen
+    setContext({ ...context })
+  }
+
   return (
     <div>
       <motion.button
         className="py-0 px-4 mt-8 mr-auto mb-auto ml-5 bg-teal-600 text-black rounded focus:outline-none focus:ring focus:ring-teal-300"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        onClick={() => (modalOpen ? close() : open())}
+        onClick={toggleModal}
       >
         Click for Modal
       </motion.button>
@@ -22,7 +26,7 @@ const Modal = () => {
         exitBeforeEnter={true}
         onExitComplete={() => null}
       >
-        {modalOpen && <ModalCard modalOpen={modalOpen} handleClose={close} />}
+        {context.modalOpen && <ModalCard modalOpen={context.modalOpen} handleClose={toggleModal} />}
       </AnimatePresence>
     </div>
   );
