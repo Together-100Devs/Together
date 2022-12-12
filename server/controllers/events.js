@@ -7,7 +7,7 @@ module.exports = {
   },
   create: async (req, res) => {
     try {
-      let data = req.body.data;
+      let data = JSON.parse(req.body.data);
       console.log(data);
       await Event.create({
         title: data.title,
@@ -17,8 +17,8 @@ module.exports = {
         startTime: data.startTime,
         endTime: data.endTime,
         recurring: data.recurring.rate === "weekly",
-        recurringDates: data.recurring.days,
-        recurringRate: data.recurring.rate,
+        dates: data.dates,
+        recurringPattern: data.recurring,
         location: data.location,
         discordName: req.user.displayName,
       });
