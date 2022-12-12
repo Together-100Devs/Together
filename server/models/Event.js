@@ -7,23 +7,23 @@ const EventSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    require: true,
+    required: true,
   },
   initialDate: {
     type: Date,
-    require: true,
+    required: true,
   },
   finalDate: {
     type: Date,
-    require: true,
+    required: true,
   },
   recurring: {
     type: Boolean,
-    require: true,
+    required: true,
   },
   recurringRate: {
     type: String,
-    require: true,
+    required: true,
   },
   dates: [
     {
