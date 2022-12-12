@@ -4,10 +4,8 @@ import MonthAndYear from './MonthAndYear';
 import AllDays from './AllDays';
 import DayCardList from './DayCardList';
 // Utility functions
-// For testing fake json data (should be unblocked to run testserver)
-import eventService from 'test/events.js'
 // For getting real data
-// import DataService from "services/dataService";
+import DataService from "services/dataService";
 import useDate from 'hooks/useDate';
 import { getMatchMonth, getEventsByDayNumber } from 'utilities/calendar';
 
@@ -31,13 +29,9 @@ const Calendar = () => {
     setLoading(true);
     // Fetch events from server
     const fetch = async () => {
-      // For testing fake json data
-      const eventsData = await eventService.get()
-      setEvents(eventsData)
-
       // Database data from server
-      // const response = await DataService.getAll()
-      // setEvents(response.data);
+      const response = await DataService.getAll()
+      setEvents(response.data);
     };
 
     fetch()
