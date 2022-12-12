@@ -1,19 +1,14 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext } from "react";
 import { FormMoverContext } from "./contexts/FormMoverContext";
-import DataService from "services/dataService";
+import { Context } from "contexts/Context";
 
 export default function FormCreateEvent() {
   const { userData, setUserData } = useContext(FormMoverContext);
-  const [user, setUser] = useState();
+  const [context] = useContext(Context)
   const handleChange = e => {
     const { name, value } = e.target;
-    setUserData({ ...userData, [name]: value, discordName: user?.displayName });
+    setUserData({ ...userData, [name]: value, discordName: context.user?.displayName });
   };
-
-
-  useEffect(() => {
-    DataService.getCurrentUser().then(response => setUser(response.data));
-  }, []);
 
   return (
     <div className="flex flex-col">
@@ -88,7 +83,7 @@ export default function FormCreateEvent() {
           <input
             type="text"
             onChange={handleChange}
-            value={user?.displayName || ""}
+            value={context.user?.displayName || ""}
             name="discordName"
             disabled={true}
             placeholder="Discord Name"
