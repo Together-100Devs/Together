@@ -6,6 +6,8 @@ module.exports = {
       colors: {
         primary: "#cddae1",
         secondary: "#e1e9ed",
+        logoText: "#EC7F50",
+        discordBtn: "#de9f85",
       },
     },
   },
