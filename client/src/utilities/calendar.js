@@ -12,7 +12,7 @@ export const getMatchMonth = (monthToMatch, events) => {
       const isoDate = parseISO(date.startAt);
       const monthInString = format(isoDate, 'LLLL'); // December
       return monthToMatch === monthInString
-    });
+    }).map(date => ({ ...event, ...date }))
 
     allMatchedEvents = [...allMatchedEvents, ...matchedEvents]
   }
@@ -24,7 +24,7 @@ export const getEventsByDayNumber = (currentDay, allEvents) => {
   if (!allEvents.length) return [];
 
   return allEvents.filter(event => {
-    const isoDate = parseISO(event.initialDate || event.startAt);
+    const isoDate = parseISO(event.startAt);
     const day = format(isoDate, 'd'); // '2'
     return currentDay === Number(day)
   })
@@ -48,6 +48,7 @@ export const convertLocalDateToUTC = (htmlDate = '', htmlTime = '') => {
     localDate.getUTCMinutes(), localDate.getUTCSeconds());
 }
 
+//happens on event submit
 export const generateRecurringDatesArray = ({ initialDate, startTime, finalDate, endTime, title, description, location, recurring }) => {
   // Generate UTC time from HTML input (date and time).
   const startUTC = convertLocalDateToUTC(initialDate, startTime);
@@ -79,6 +80,7 @@ export const generateRecurringDatesArray = ({ initialDate, startTime, finalDate,
       startAt: newStartDate,
       endAt: newEndDate,
       location: location,
+      recurring: recurring
     }
   })
 
