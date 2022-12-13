@@ -12,7 +12,7 @@ const DayCard = ({ day, month, events }) => {
 
       <div className="flex flex-col px-1 py-1 overflow-auto">
         {events.map((event, i) => (
-          <Event key={i} event={event} />
+          <Event event={event} key={i}/>
         ))}
       </div>
 
