@@ -9,4 +9,6 @@ const DiscordButton = () => (
     </div>
   </>
 );
+
 export default DiscordButton;
+

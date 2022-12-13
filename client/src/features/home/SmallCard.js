@@ -16,4 +16,6 @@ const SmallCard = ({ img1, img2, img3, title }) => {
     </div>
   );
 };
+
 export default SmallCard;
+
