@@ -50,6 +50,19 @@ export const convertLocalDateToUTC = (htmlDate = '', htmlTime = '') => {
 
 //happens on event submit
 export const generateRecurringDatesArray = ({ initialDate, startTime, finalDate, endTime, title, description, location, recurring }) => {
+
+  // If event is not recurring, generate just one event for dates array and return.
+  if (recurring.rate === 'noRecurr') {
+    return [{
+      title: title,
+      description: description,
+      startAt: convertLocalDateToUTC(initialDate, startTime),
+      endAt: convertLocalDateToUTC(finalDate, endTime),
+      location: location,
+      recurring: recurring
+    }]
+  }
+
   // Generate UTC time from HTML input (date and time).
   const startUTC = convertLocalDateToUTC(initialDate, startTime);
   const endUTC = convertLocalDateToUTC(finalDate, endTime);
@@ -83,6 +96,5 @@ export const generateRecurringDatesArray = ({ initialDate, startTime, finalDate,
       recurring: recurring
     }
   })
-
   return dates
 }
