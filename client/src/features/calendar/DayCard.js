@@ -2,11 +2,8 @@ import React from "react";
 import Event from "./Event";
 
 const DayCard = ({ day, month, events }) => {
-<<<<<<< HEAD
   // Styling for bullet point
 
-=======
->>>>>>> development
   return (
     <div className="relative flex flex-col bg-white group">
       <span className="mx-2 my-1 text-xs font-bold">
@@ -15,11 +12,7 @@ const DayCard = ({ day, month, events }) => {
 
       <div className="flex flex-col px-1 py-1 overflow-auto">
         {events.map((event, i) => (
-<<<<<<< HEAD
-          <Event key={i} event={event} />
-=======
           <Event event={event} key={i}/>
->>>>>>> development
         ))}
       </div>
 
@@ -36,8 +29,4 @@ const DayCard = ({ day, month, events }) => {
   );
 };
 
-<<<<<<< HEAD
 export default DayCard;
-=======
-export default DayCard
->>>>>>> development
