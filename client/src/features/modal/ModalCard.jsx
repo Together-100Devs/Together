@@ -57,7 +57,7 @@ const ModalCard = ({ handleClose }) => {
             <section className="flex m-3 gap-1 font-semibold">
               <GrCalendar className="mt-1" />
               <span className="">Day:</span>{" "}
-              <span>{context.event.startAt.split('T')[0]}</span>
+              <span>{format(parseISO(context.event.startAt), 'M')}/{format(parseISO(context.event.startAt), 'd')}/{format(parseISO(context.event.startAt), 'y')}</span>
             </section>
 
             <section className="flex m-3 gap-1 font-semibold">
