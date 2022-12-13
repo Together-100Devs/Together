@@ -7,7 +7,7 @@ import { IoIosRepeat } from "react-icons/io";
 import { IoLocationOutline } from "react-icons/io5";
 import { Context } from "contexts/Context";
 import { format, parseISO } from "date-fns";
-
+import { formatToLocalTime } from 'utilities/calendar';
 import togetherLogo from "../.././assets/images/togetherLogo.svg";
 const dropIn = {
   hidden: {
