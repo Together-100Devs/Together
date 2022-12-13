@@ -6,7 +6,8 @@ import { FaRegClock } from "react-icons/fa";
 import { IoIosRepeat } from "react-icons/io";
 import { IoLocationOutline } from "react-icons/io5";
 import { Context } from "contexts/Context";
-
+import { format, parseISO } from "date-fns";
+import { formatToLocalTime } from 'utilities/calendar';
 import togetherLogo from "../.././assets/images/togetherLogo.svg";
 const dropIn = {
   hidden: {
@@ -34,7 +35,7 @@ const ModalCard = ({ handleClose }) => {
   return (
     <Backdrop onClick={handleClose}>
       <motion.div
-        className="modal flex flex-col items-center py-0 px-2rem rounded-xl bg-white"
+        className="modal flex flex-col items-center py-0 px-2rem rounded-xl bg-white pb-4"
         onClick={e => e.stopPropagation()}
         variants={dropIn}
         initial="hidden"
@@ -55,16 +56,16 @@ const ModalCard = ({ handleClose }) => {
             <section className="flex m-3 gap-1 font-semibold">
               <GrCalendar className="mt-1" />
               <span className="">Day:</span>{" "}
-              <span>{context.event.startDate.split('T')[0]}</span>
+              <span>{format(parseISO(context.event.startAt), 'M')}/{format(parseISO(context.event.startAt), 'd')}/{format(parseISO(context.event.startAt), 'y')}</span>
             </section>
 
             <section className="flex m-3 gap-1 font-semibold">
               <FaRegClock className="mt-1" />
-              <span className=" "> Starts: {context.event.startTime}</span>
-              <span className="ml-9">Ends: {context.event.endTime}</span>
+ <span className=" "> Starts: {formatToLocalTime(context.event.startAt)}</span>
+ <span className="ml-9">Ends: {formatToLocalTime(context.event.endAt)}</span>
             </section>
           </div>
-          <div className="description w-auto h-20 my-2 p-2 border-solid border-black border-2 font-semibold rounded-xl bg-neutral-200/50">
+          <div className="description break-words w-auto min-h-20 my-2 p-2 border-solid border-black border-2 font-semibold rounded-xl bg-neutral-200/50">
             <p>Description: {context.event.description}</p>
           </div>
           <div>
@@ -72,10 +73,9 @@ const ModalCard = ({ handleClose }) => {
               <IoIosRepeat className="mt-1" />
               <span>
                 Repeats:
-                {context.event.recurringRate !== 'noRecurr' ? <div>{context.event.recurringDates.join(', ')}, {context.event.recurringRate}</div> : <div>Does not repeat.</div>}
+                {context.event.recurring ? <div>{context.event.recurringPattern.days.join(', ')}, {context.event.recurringPattern.rate}</div> : <div>Does not repeat.</div>}
               </span>
             </section>
-
             <section className="flex m-3 gap-1 font-semibold">
               <IoLocationOutline className="mt-1" /> <span>Location: {context.event.location}</span>
             </section>

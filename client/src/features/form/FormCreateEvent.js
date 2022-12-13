@@ -52,9 +52,9 @@ export default function FormCreateEvent() {
           <input
             type="date"
             onChange={handleChange}
-            value={userData["startDate"] || ""}
-            name="startDate"
-            placeholder="startDate"
+            value={userData["initialDate"] || ""}
+            name="initialDate"
+            placeholder="Start Date"
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
           />
         </div>
@@ -68,8 +68,8 @@ export default function FormCreateEvent() {
           <input
             type="date"
             onChange={handleChange}
-            value={userData["endDate"] || ""}
-            name="endDate"
+            value={userData["finalDate"] || ""}
+            name="finalDate"
             placeholder="endDate"
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
           />

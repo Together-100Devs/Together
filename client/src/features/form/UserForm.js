@@ -7,6 +7,7 @@ import FormScheduleEvent from "./FormScheduleEvent";
 import FormConfirm from "./FormConfirm";
 import FormSuccess from "./FormSuccess";
 import DataService from "services/dataService";
+import { generateRecurringDatesArray } from "utilities/calendar";
 
 const UserForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -34,8 +35,29 @@ const UserForm = () => {
     let newStep = currentStep;
     direction === "next" ? newStep++ : newStep--;
     newStep > 0 && newStep <= steps.length && setCurrentStep(newStep);
-    newStep === 4 && (await DataService.create({ data: userData }));
+
+    if (newStep === 4) {
+      const recurringDates = generateRecurringDatesArray(userData);
+      const data = JSON.stringify({
+        ...userData,
+        dates: recurringDates
+      })
+      await DataService.create({ data: data })
+    };
   };
+
+  // Date and Time Formats
+  // returned dates = "2022-12-01"  returned times = "20:33" 
+
+
+  // function concatDateTime (date, time) {
+  //   return `${date.split("T")[0]}T${time.split("T")[1]}`;
+  // }
+
+  // console.log(concatDateTime("2021-05-25T09:50:40.603Z", Date.UTC("2021-05-12T11:52:40.603Z")));
+  // console.log(concatDateTime("2021-05-25T09:50:40.603Z", "2021-05-12T11:52:40.603Z"));
+
+
 
   return (
     <div>

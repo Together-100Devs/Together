@@ -2,6 +2,8 @@ import React from "react";
 import Event from "./Event";
 
 const DayCard = ({ day, month, events }) => {
+  // Styling for bullet point
+
   return (
     <div className="relative flex flex-col bg-white group">
       <span className="mx-2 my-1 text-xs font-bold">
@@ -27,4 +29,4 @@ const DayCard = ({ day, month, events }) => {
   );
 };
 
-export default DayCard
+export default DayCard;
