@@ -62,8 +62,8 @@ const ModalCard = ({ handleClose }) => {
 
             <section className="flex m-3 gap-1 font-semibold">
               <FaRegClock className="mt-1" />
-              <span className=" "> Starts: {format(parseISO(context.event.startAt), 'p')}</span>
-              <span className="ml-9">Ends: {format(parseISO(context.event.endAt), 'p')}</span>
+ <span className=" "> Starts: {formatToLocalTime(context.event.startAt)}</span>
+ <span className="ml-9">Ends: {formatToLocalTime(context.event.endAt)}</span>
             </section>
           </div>
           <div className="description break-words w-auto min-h-20 my-2 p-2 border-solid border-black border-2 font-semibold rounded-xl bg-neutral-200/50">
