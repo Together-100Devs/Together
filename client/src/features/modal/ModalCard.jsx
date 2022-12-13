@@ -32,7 +32,6 @@ const dropIn = {
 
 const ModalCard = ({ handleClose }) => {
   const [context] = useContext(Context)
-  console.log(context.event)
   return (
     <Backdrop onClick={handleClose}>
       <motion.div
