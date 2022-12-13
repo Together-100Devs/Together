@@ -20,13 +20,4 @@ const LandingPage = () => (
 );
 
 
-      <SmallCard img3={"../../hooman.png"} title={"Welcome!"} />
-    </div>
-
-    <div className=" w-70">
-      <LongCard />
-    </div>
-  </div>
-);
-
 export default LandingPage;
