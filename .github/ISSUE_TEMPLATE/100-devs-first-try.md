@@ -21,8 +21,11 @@ Fork the development branch and name the fork development-featureName. More inst
 
 ### Step 3
 
+## Which Branch should this fix be Pulled into?
+PR into [branchName]
+
 ## Potential Issues
 
 **When completed please ensure you are creating a pull request into the development branch, instead of main.**
 
-**Please comment on this issue if you'd like to take it on.**
+*If you're interested in working on this feature, please comment so you can be assigned*
