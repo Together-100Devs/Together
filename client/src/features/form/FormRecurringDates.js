@@ -60,10 +60,10 @@ export default function FormRecurringDates() {
             <input
               type="checkbox"
               onChange={handleChange}
-              value="monday"
-              name="monday"
-              id="monday"
-              checked={!!userData.recurring.days.includes("monday")}
+              value="Monday"
+              name="Monday"
+              id="Monday"
+              checked={!!userData.recurring.days.includes("Monday")}
               className="mx-1 outline-non text-gray-800"
             />
             <p>Monday</p>
@@ -72,10 +72,10 @@ export default function FormRecurringDates() {
             <input
               type="checkbox"
               onChange={handleChange}
-              value="tuesday"
-              name="tuesday"
-              id="tuesday"
-              checked={!!userData.recurring.days.includes("tuesday")}
+              value="Tuesday"
+              name="Tuesday"
+              id="Tuesday"
+              checked={!!userData.recurring.days.includes("Tuesday")}
               className=" mx-1 outline-non text-gray-800"
             />
             <p>Tuesday</p>
@@ -84,10 +84,10 @@ export default function FormRecurringDates() {
             <input
               type="checkbox"
               onChange={handleChange}
-              value="wednesday"
-              name="wednesday"
-              id="wednesday"
-              checked={!!userData.recurring.days.includes("wednesday")}
+              value="Wednesday"
+              name="Wednesday"
+              id="Wednesday"
+              checked={!!userData.recurring.days.includes("Wednesday")}
               className=" mx-1 outline-non text-gray-800"
             />
             <p>Wednesday</p>
@@ -96,9 +96,9 @@ export default function FormRecurringDates() {
             <input
               type="checkbox"
               onChange={handleChange}
-              value="thursday"
-              name="thursday"
-              checked={!!userData.recurring.days.includes("thursday")}
+              value="Thursday"
+              name="Thursday"
+              checked={!!userData.recurring.days.includes("Thursday")}
               className="mx-1 outline-non text-gray-800"
             />
             <p>Thursday</p>
@@ -107,9 +107,9 @@ export default function FormRecurringDates() {
             <input
               type="checkbox"
               onChange={handleChange}
-              value="friday"
-              name="friday"
-              checked={!!userData.recurring.days.includes("friday")}
+              value="Friday"
+              name="Friday"
+              checked={!!userData.recurring.days.includes("Friday")}
               className=" mx-1 outline-non text-gray-800"
             />
             <p>Friday</p>
@@ -118,9 +118,9 @@ export default function FormRecurringDates() {
             <input
               type="checkbox"
               onChange={handleChange}
-              value="saturday"
-              name="saturday"
-              checked={!!userData.recurring.days.includes("saturday")}
+              value="Saturday"
+              name="Saturday"
+              checked={!!userData.recurring.days.includes("Saturday")}
               className="mx-1 outline-non text-gray-800"
             />
             <p>Saturday</p>
@@ -129,9 +129,9 @@ export default function FormRecurringDates() {
             <input
               type="checkbox"
               onChange={handleChange}
-              value="sunday"
-              name="sunday"
-              checked={!!userData.recurring.days.includes("sunday")}
+              value="Sunday"
+              name="Sunday"
+              checked={!!userData.recurring.days.includes("Sunday")}
               className="mx-1 outline-non text-gray-800"
             />
             <p>Sunday</p>

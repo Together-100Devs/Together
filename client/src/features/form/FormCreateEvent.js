@@ -1,12 +1,13 @@
 import { useContext } from "react";
 import { FormMoverContext } from "./contexts/FormMoverContext";
+import { Context } from "contexts/Context";
 
 export default function FormCreateEvent() {
   const { userData, setUserData } = useContext(FormMoverContext);
-
+  const [context] = useContext(Context)
   const handleChange = e => {
     const { name, value } = e.target;
-    setUserData({ ...userData, [name]: value });
+    setUserData({ ...userData, [name]: value, discordName: context.user?.displayName });
   };
 
   return (
@@ -51,9 +52,9 @@ export default function FormCreateEvent() {
           <input
             type="date"
             onChange={handleChange}
-            value={userData["startDate"] || ""}
-            name="startDate"
-            placeholder="startDate"
+            value={userData["initialDate"] || ""}
+            name="initialDate"
+            placeholder="Start Date"
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
           />
         </div>
@@ -67,8 +68,8 @@ export default function FormCreateEvent() {
           <input
             type="date"
             onChange={handleChange}
-            value={userData["endDate"] || ""}
-            name="endDate"
+            value={userData["finalDate"] || ""}
+            name="finalDate"
             placeholder="endDate"
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
           />
@@ -82,8 +83,9 @@ export default function FormCreateEvent() {
           <input
             type="text"
             onChange={handleChange}
-            value={userData["discordName"] || ""}
+            value={context.user?.displayName || ""}
             name="discordName"
+            disabled={true}
             placeholder="Discord Name"
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
           />

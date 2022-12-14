@@ -7,31 +7,33 @@ const EventSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    require: true,
-  },
-  startDate: {
-    type: Date,
-    require: true,
-  },
-  endDate: {
-    type: Date,
-    require: true,
-  },
-  startTime: {
-    type: String,
-    require: true,
-  },
-  recurringRate: {
-    type: String,
-    require: true,
-  },
-  recurringDates: {
-    type: Array,
-  },
-  endTime: {
-    type: String,
     required: true,
   },
+  initialDate: {
+    type: Date,
+    required: true,
+  },
+  finalDate: {
+    type: Date,
+    required: true,
+  },
+  recurring: {
+    type: Boolean,
+    required: true,
+  },
+  recurringPattern: {
+    rate: String,
+    days: Array
+  },
+  dates: [
+    {
+      title: { type: String },
+      description: { type: String },
+      startAt: { type: Date },
+      endAt: { type: Date },
+      location: { type: String },
+    }
+  ],
   location: {
     type: String,
     required: true,

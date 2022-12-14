@@ -15,7 +15,7 @@ This issue has been opened specifically to give 100Devs members a chance to get 
 ## Tasks
 
 ### Step 1
-Fork the development branch and name the fork development-featureName. More instructions about this can be found [here.](https://github.com/Caleb-Cohen/Together/blob/development/docs/CONTRIBUTING.md)
+Fork the development branch and name the fork development-featureName. More instructions about this can be found in our [contributing document.](https://github.com/Caleb-Cohen/Together/blob/development/.github/CONTRIBUTING.md)
 
 ### Step 2
 
