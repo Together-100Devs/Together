@@ -1,0 +1,27 @@
+MY TODO:
+- Figure out how our date/time system workfa-spin
+- Test if adding 90 days to current date spits out the correct 3 months from now date
+- Make if statement and test if setting start or final date past this threshold triggers this boolean
+- Change a useState value doing this
+- Create an error message that appears if that useState value is changed
+- Make sure it's changed back when the dates are actually within range.
+- Figure out how to do this in harmony with the person working on the other softSecurity Issues 
+
+Isaac's ideas for 
+
+Things to fix:
+- Days of week checkboxes should be disabled if "Weekly" is not selected
+- "Add" button on each date should pass the start date and end date directly into the form
+- Can scroll the form horizontally - is it's container wider than the window?
+- Need time/date validation to ensure end-date-time is not BEFORE start-date-time
+- Move Date/Time fields to be next to each other, maybe?
+- New event added should appear on the calendar once we're on the success screen without refreshing?
+- Recurring events aren't working yet (I think there's already an issue on this)
+- In production, can scroll away when viewing event details, "shade" layer looks disconnected, need to lock screen
+- Make past days greyed out a little
+- Highlight "today" with green or something idk
+- Events should be sorted by chronological order 
+
+Features to Add:
+- Functional "monthly" recurrence button
+- Add a "New Event" button in the top right maybe that just brings you to an empty form
