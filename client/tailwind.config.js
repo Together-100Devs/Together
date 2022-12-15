@@ -2,6 +2,9 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    fontFamily: {
+      inconsolata: ["Inconsolata", "monospace"],
+    },
     extend: {
       colors: {
         primary: "#cddae1",
@@ -13,6 +16,7 @@ module.exports = {
           light: "#BFD0D8",
           lightest: "#E0E8EC",
         },
+        accent: "#FF8435",
       },
     },
   },
