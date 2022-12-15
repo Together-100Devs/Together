@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Calendar from "features/calendar/Calendar";
 import UserForm from "features/form/UserForm";
 import Modal from "features/modal/Modal";
 import DataService from "services/dataService";
 import { Context } from "./contexts/Context";
 import LandingPage from "features/home/LandingPage";
+import CalendarPage from "features/home/CalendarPage";
 
 function App() {
   const [context, setContext] = useState({
@@ -44,17 +44,7 @@ function App() {
             Navigate to LandingPage
           </button>
 
-          <main className="flex">
-            <section className="flex-[.2]">
-              <button>Log out</button>
-              <button>Help</button>
-            </section>
-            <section className="flex-[.7]">
-              <button>Add to Calendar</button>
-              <img src="#" alt="Lady SVG" />
-              <Calendar />
-            </section>
-          </main>
+          <CalendarPage />
 
           {context.user && (
             <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
