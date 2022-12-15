@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 // components
-import MonthAndYear from './MonthAndYear';
-import AllDays from './AllDays';
-import DayCardList from './DayCardList';
+import MonthAndYear from "./MonthAndYear";
+import AllDays from "./AllDays";
+import DayCardList from "./DayCardList";
 // Utility functions
 // For getting real data
 import DataService from "services/dataService";
-import useDate from 'hooks/useDate';
-import { getMatchMonth, getEventsByDayNumber } from 'utilities/calendar';
+import useDate from "hooks/useDate";
+import { getMatchMonth, getEventsByDayNumber } from "utilities/calendar";
 
 const Calendar = () => {
   const date = useDate();
@@ -21,29 +21,27 @@ const Calendar = () => {
     return {
       day: currentDay,
       month: date.month,
-      events: getEventsByDayNumber(currentDay, eventsInSelectedMonth)
-    }
-  })
+      events: getEventsByDayNumber(currentDay, eventsInSelectedMonth),
+    };
+  });
 
   useEffect(() => {
     setLoading(true);
     // Fetch events from server
     const fetch = async () => {
       // Database data from server
-      const response = await DataService.getAll()
+      const response = await DataService.getAll();
       setEvents(response.data);
     };
 
-    fetch()
-      .then(setLoading(false))
-      .catch(setLoading(false))
-  }, [])
+    fetch().then(setLoading(false)).catch(setLoading(false));
+  }, []);
 
   // Render nothing while fetching for data from server
   if (loading) return null;
 
   return (
-    <div className="flex flex-grow w-screen h-screen overflow-auto text-gray-700">
+    <div className="flex flex-grow min-h-[600px] overflow-auto text-gray-700 border-2 border-black bg-white rounded-md">
       <div className="flex flex-col flex-grow">
         <MonthAndYear
           month={date.month}
