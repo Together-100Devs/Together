@@ -36,12 +36,12 @@ function App() {
           Navigate to LandingPage
         </button>
         <Calendar />
-        {context.user && 
-          <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
-            <Modal/>
+        <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
+          <Modal/>
+          {context.user && 
             <UserForm />
-          </div>
-        }
+          }
+        </div>
       </>}
     </Context.Provider>
   )
