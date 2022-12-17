@@ -2,9 +2,8 @@
 name: 100 Devs first try
 about: This template designed to give 100Devs members a first try in solving the issue
 title: ''
-labels: ''
+labels: 'Good 100Devs First Try'
 assignees: ''
-
 ---
 
 ### Intro
