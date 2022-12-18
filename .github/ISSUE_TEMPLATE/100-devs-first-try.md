@@ -16,12 +16,14 @@ This issue has been opened specifically to give 100Devs members a chance to get 
 ## The Task
 
 ### Creating your branch
+- Fork the Together repository.
 - Navigate to the development branch using `git checkout development`.
 - Create a new branch using `git branch -b your-branch-name-here`.
 - If you have questions, more instructions about this can be found in our [contributing document.](https://github.com/CalebCohen/Together/blob/development/.github/CONTRIBUTING.md)
 
 ### Setting up a local server
-- Run `npm run dev-concurrent` in a vscode terminal.
+- Execute `npm install`
+- Execute `npm run dev-concurrent` in a vscode terminal.
 - If you get errors, you may have to do one of the following:
 - Delete your node_modules folder and then run `npm i`
 - Make sure you have a .env file with the [necessary secrets](https://github.com/Caleb-Cohen/Together/wiki/02---Onboarding)
