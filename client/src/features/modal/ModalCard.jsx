@@ -4,7 +4,7 @@ import Backdrop from "./Backdrop";
 import { GrCalendar } from "react-icons/gr";
 import { FaRegClock } from "react-icons/fa";
 import { IoIosRepeat } from "react-icons/io";
-import { IoLocationOutline } from "react-icons/io5";
+import { IoLocationOutline, IoPersonOutline } from "react-icons/io5";
 import { Context } from "contexts/Context";
 import { format, parseISO } from "date-fns";
 import { formatToLocalTime } from 'utilities/calendar';
@@ -78,6 +78,9 @@ const ModalCard = ({ handleClose }) => {
             </section>
             <section className="flex m-3 gap-1 font-semibold">
               <IoLocationOutline className="mt-1" /> <span>Location: {context.event.location}</span>
+            </section>
+            <section className="flex m-3 gap-1 font-semibold">
+              <IoPersonOutline className="mt-1" /> <span>Event Author: {context.event.discordName}</span>
             </section>
           </div>
         </div>
