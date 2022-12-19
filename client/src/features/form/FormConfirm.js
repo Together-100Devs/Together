@@ -1,7 +1,10 @@
 import { useContext } from "react";
 import { FormMoverContext } from "./contexts/FormMoverContext";
 
+// This components displays all of the form data for the user to confirm 
 export default function FormConfirm() {
+
+  // This useContext hook syncs userData across UserForm and its sub-components
   const { userData } = useContext(FormMoverContext);
 
   return (
