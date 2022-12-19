@@ -5,11 +5,11 @@ import { Context } from "contexts/Context";
 import Backdrop from "./Backdrop";
 import { motion } from "framer-motion";
 
-const Modal = () => {
+const Modal = (props) => {
   const [context, setContext] = useContext(Context)
 
   const toggleModal = () => {
-    context.modalOpen = !context.modalOpen
+    context[props.open] = !context[props.open]
     setContext({ ...context })
   }
 
@@ -41,7 +41,7 @@ const Modal = () => {
         exitBeforeEnter={true}
         onExitComplete={() => null}
       >
-        {context.modalOpen &&
+        {context[props.open] &&
           <Backdrop onClick={toggleModal}>
             <motion.div
               className="modal"
@@ -51,7 +51,7 @@ const Modal = () => {
               animate="visible"
               exit="exit"
             >
-              <EventModal modalOpen={context.modalOpen} handleClose={toggleModal} />
+              <EventModal handleClose={toggleModal} />
             </motion.div>
           </Backdrop>
         }
