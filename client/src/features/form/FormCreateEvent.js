@@ -17,16 +17,20 @@ export default function FormCreateEvent() {
   const handleChange = e => {
     const { name, value } = e.target;
     
-    // TODO: Debug testing what context even is, u better delet this later
-    console.log(context);
+    // TODO: move this note to documentation
+    // Debug testing what context even is, turns out it's the Discord User data.
+    // console.log(context);
     
     // Set the userData
     setUserData({ ...userData, [name]: value, discordName: context.user?.displayName });
   };
 
-  useEffect(()=>{
-    console.log(parseISO(userData["initialDate"] + "T00:00:00"));
-  }, [])
+  useEffect(()=>{ // Debug code
+    userData["initialDate"] ? console.log(format(add(parseISO(userData["initialDate"]), {days: 90}), 'yyyy-MM-dd')) : console.log("initialDate DNE");
+
+    // Idea: fail-safe where if start date goes back past the 90 day limit AFTER setting start and end date
+    // We auto-set the end date too to prevent an exploit
+  }, [userData])
 
   return (
     // TITLE OF EVENT FIELD
@@ -99,7 +103,8 @@ export default function FormCreateEvent() {
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
             required 
             min={format(new Date(), 'yyyy-MM-dd')}
-            max = {format(add(parseISO(userData["initialDate"] + "T00:00:00"), {days: 90}), 'yyyy-MM-dd')}
+            // If start date exists, then the end date max = start date + 90 days, otherwise end date max = last day of 2023
+            max = {userData["initialDate"] ? format(add(parseISO(userData["initialDate"]), {days: 90}), 'yyyy-MM-dd') : '2023-12-31'}
           />
         </div>
       </div>
