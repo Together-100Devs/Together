@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { FormMoverContext } from "./contexts/FormMoverContext";
 import { Context } from "contexts/Context";
+import { format, add, parseISO } from 'date-fns';
+import { useEffect } from "react";
 
 // This Component gets the Title, Description, and the start/end Dates for the event
 export default function FormCreateEvent() {
@@ -21,6 +23,10 @@ export default function FormCreateEvent() {
     // Set the userData
     setUserData({ ...userData, [name]: value, discordName: context.user?.displayName });
   };
+
+  useEffect(()=>{
+    console.log(parseISO(userData["initialDate"] + "T00:00:00"));
+  }, [])
 
   return (
     // TITLE OF EVENT FIELD
@@ -71,6 +77,9 @@ export default function FormCreateEvent() {
             name="initialDate"
             placeholder="Start Date"
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
+            required 
+            min={format(new Date(), 'yyyy-MM-dd')}
+            max='2023-12-31'
           />
         </div>
       </div>
@@ -88,6 +97,9 @@ export default function FormCreateEvent() {
             name="finalDate"
             placeholder="endDate"
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
+            required 
+            min={format(new Date(), 'yyyy-MM-dd')}
+            max = {format(add(parseISO(userData["initialDate"] + "T00:00:00"), {days: 90}), 'yyyy-MM-dd')}
           />
         </div>
       </div>

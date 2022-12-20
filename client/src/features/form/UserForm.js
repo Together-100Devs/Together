@@ -26,40 +26,6 @@ const UserForm = () => {
     recurring: { rate: "noRecurr", days: [] },
   });
 
-  /* Notes about how the form works:
-  Start Date is the default date for a one-off singular event
-  End Date is a date you can set IF you are recurring.
-  */
-
-  // ISAAC'S ISSUE TO SOLVE:
-  // Recurring events cannot be more than 3 months between start and end. 
-  // Can either reject the input or stop the object from being submitted
-
-  function dataIsNotMoreThanThreeMonthsApart() {
-    // Start and end dates must both be between today (day you're posting the event) and three months from today.
-    // 90 days diff.
-    // Literally just check if (endDate or startDate > today + 90 days), return False;
-    
-    // Code to work on:
-    // const threeMonthsFromNow = date + 90 days;
-    // if (userData.startDate > threeMonthsFromNow || userData.finalDate > threeMonthsFromNow) {
-    //   return false;
-    // }
-    // return true;
-
-    // Have a component that's only visible when this bug occurs. 
-    // Recurring events cannot be scheduled this end date either.
-    // Right now, that means in the 12/2022 and 03/2023.
-    // Reject the input when hitting the "NEXT" button
-  }
-
-  useEffect(() => {
-    // Validate the data, ensure that recurring events aren't more than 3 months between start and end
-    // Consilidating this in a function to prevent merge errors and such
-    dataIsNotMoreThanThreeMonthsApart();
-
-  }, [userData])
-
   // The userData's structure should be something like this:
   /* 
   userData = {
@@ -84,7 +50,6 @@ const UserForm = () => {
    */
 
   // This is what the data is copied into
-  // NOTE: Is this necessary? Could we just send userData instead after it's validated via front end soft security?
   const [finalData, setFinalData] = useState([]);
 
   // Strings for steps present in the form, steps[currentStep] --> string
