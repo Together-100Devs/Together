@@ -2,17 +2,20 @@ import ButtonLink from "features/buttonlink/ButtonLink";
 import readingLadySVG from "../../../src/assets/images/readingLady.svg";
 import { AiOutlineCalendar } from "react-icons/ai";
 import Calendar from "features/calendar/Calendar";
+import { useState } from "react";
 
 function CalendarPage() {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
-    <main className="flex">
-      <section className="flex-[.2]">
+    <main className="flex px-3 py-5">
+      <section className={`${isExpanded ? "flex-[.2]" : "flex-[.1]"}`}>
         <div className="w-[70%] mx-auto">
           <ButtonLink className="bg-teal">Log out</ButtonLink>
           <ButtonLink className="bg-teal">Help</ButtonLink>
         </div>
       </section>
-      <section className="flex-[.7]">
+      <section className={`${isExpanded ? "flex-[.8]" : "flex-[.9]"}`}>
         <div className="flex w-[90%] justify-end m-auto">
           <ButtonLink Icon={AiOutlineCalendar} className="bg-accent">
             Add to Calendar
