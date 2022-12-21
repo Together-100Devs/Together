@@ -35,15 +35,6 @@ function App() {
       )}
       {context.page === "calendarPage" && (
         <>
-          <button
-            onClick={() => {
-              context.page = "landingPage";
-              setContext({ ...context });
-            }}
-          >
-            Navigate to LandingPage
-          </button>
-
           <CalendarPage />
 
           {context.user && (
