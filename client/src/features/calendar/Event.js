@@ -10,7 +10,7 @@ const Event = (props) => {
     <button
       onClick={() => {
         context.event = props.event
-        context.modalOpen = true
+        context.eventModal = true
         setContext({...context})
       }}
       key={props.event.title}
