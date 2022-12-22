@@ -5,7 +5,9 @@ const DayCard = ({ day, month, events }) => {
   // Styling for bullet point
 
   // Sort events by startAt property
-  let sortedEvents = [...events].sort((a,b) => new Date(a.startAt) - new Date(b.startAt));
+  let sortedEvents = [...events].sort(
+    (a, b) => new Date(a.startAt) - new Date(b.startAt)
+  );
 
   return (
     <div className="relative flex flex-col bg-white group">
@@ -15,7 +17,7 @@ const DayCard = ({ day, month, events }) => {
 
       <div className="flex flex-col px-1 py-1 overflow-auto">
         {sortedEvents.map((event, i) => (
-          <Event event={event} key={i}/>
+          <Event event={event} key={i} />
         ))}
       </div>
 
