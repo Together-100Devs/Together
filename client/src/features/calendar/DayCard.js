@@ -4,8 +4,13 @@ import Event from "./Event";
 const DayCard = ({ day, month, events }) => {
   // Styling for bullet point
 
+    // Determine the current day
+    const currentDay = new Date().getDate();
+    //aplies styling if true
+    const currentDayStyles = day === currentDay ? { backgroundColor: "#BFD0D8" } : {};
+
   return (
-    <div className="relative flex flex-col bg-white group">
+    <div className="relative flex flex-col bg-white group" style={currentDayStyles}>
       <span className="mx-2 my-1 text-xs font-bold">
         {day} {day === 1 && month}
       </span>
