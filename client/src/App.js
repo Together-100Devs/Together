@@ -7,7 +7,7 @@ import { Context } from "./contexts/Context"
 import LandingPage from "features/home/LandingPage";
 
 function App() {
-  const [context, setContext] = useState({page: "landingPage", user: null, event: null, modalOpen: false})
+  const [context, setContext] = useState({page: "landingPage", user: null, event: null, eventModal: false})
   
   useEffect(() => {
     DataService.getCurrentUser().then(response => {
@@ -37,7 +37,7 @@ function App() {
         </button>
         <Calendar />
         <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
-          <Modal/>
+          <Modal type={'event'} open={'eventModal'}/>
           {context.user && 
             <UserForm />
           }
