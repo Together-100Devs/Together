@@ -10,11 +10,10 @@ function CalendarPage() {
   return (
     <main className="flex px-3 py-5">
       <section className={`${isExpanded ? "flex-[.2]" : "flex-[.1]"}`}>
-        <div className="w-[70%] mx-auto">
-          <ButtonLink className="bg-teal">Log out</ButtonLink>
-          <ButtonLink className="bg-teal">Help</ButtonLink>
-        </div>
+        <img src="/TogetherLogo.png" alt="Logo" />
+        <nav className="w-[70%] mx-auto bg-orange-300 border border-black"></nav>
       </section>
+
       <section className={`${isExpanded ? "flex-[.8]" : "flex-[.9]"}`}>
         <div className="flex w-[90%] justify-end m-auto">
           <ButtonLink Icon={AiOutlineCalendar} className="bg-accent">
