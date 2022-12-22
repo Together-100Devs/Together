@@ -12,19 +12,15 @@ function CalendarPage() {
       <section className={`${isExpanded ? "flex-[.2]" : "flex-[.1]"}`}>
         <img src="/TogetherLogo.png" alt="Logo" />
         <nav className="w-[70%] mx-auto bg-orange-300 border border-black"></nav>
+        <img
+          className="w-60 transform translate-y-4 space-x-5"
+          src={readingLadySVG}
+          alt="Reading Lady SVG"
+        />
       </section>
 
       <section className={`${isExpanded ? "flex-[.8]" : "flex-[.9]"}`}>
-        <div className="flex w-[90%] justify-end m-auto">
-          <ButtonLink Icon={AiOutlineCalendar} className="bg-accent">
-            Add to Calendar
-          </ButtonLink>
-          <img
-            className="w-60 transform translate-y-4 space-x-5"
-            src={readingLadySVG}
-            alt="Reading Lady SVG"
-          />
-        </div>
+        <div className="flex w-[90%] justify-end m-auto"></div>
         <Calendar />
       </section>
     </main>
