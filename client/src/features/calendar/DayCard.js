@@ -6,8 +6,12 @@ const DayCard = ({ day, month, events }) => {
 
     // Determine the current day
     const currentDay = new Date().getDate();
+
+    // Determine the current month
+    const currentMonth = new Date().toLocaleString('default', { month: 'long' })
+
     //Aplies styling if true
-    const currentDayStyles = day === currentDay ? { backgroundColor: "#BFD0D8" } : {};
+    const currentDayStyles = day === currentDay && month === currentMonth ? { backgroundColor: "#BFD0D8" } : {};
 
   // Sort events by startAt property
   let sortedEvents = [...events].sort(
