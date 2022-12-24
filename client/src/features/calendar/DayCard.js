@@ -6,8 +6,13 @@ const DayCard = ({ day, month, events }) => {
 
     // Determine the current day
     const currentDay = new Date().getDate();
-    //aplies styling if true
+    //Aplies styling if true
     const currentDayStyles = day === currentDay ? { backgroundColor: "#BFD0D8" } : {};
+
+  // Sort events by startAt property
+  let sortedEvents = [...events].sort(
+    (a, b) => new Date(a.startAt) - new Date(b.startAt)
+  );
 
   return (
     <div className="relative flex flex-col bg-white group" style={currentDayStyles}>
@@ -16,8 +21,8 @@ const DayCard = ({ day, month, events }) => {
       </span>
 
       <div className="flex flex-col px-1 py-1 overflow-auto">
-        {events.map((event, i) => (
-          <Event event={event} key={i}/>
+        {sortedEvents.map((event, i) => (
+          <Event event={event} key={i} />
         ))}
       </div>
 
