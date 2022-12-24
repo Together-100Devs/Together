@@ -21,6 +21,7 @@ const Calendar = () => {
     return {
       day: currentDay,
       month: date.month,
+      year: date.year,
       events: getEventsByDayNumber(currentDay, eventsInSelectedMonth)
     }
   })

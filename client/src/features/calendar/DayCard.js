@@ -1,17 +1,19 @@
+import { isSameDay } from "date-fns";
 import React from "react";
 import Event from "./Event";
 
-const DayCard = ({ day, month, events }) => {
+const DayCard = ({ day, month, year, events }) => {
   // Styling for bullet point
 
-    // Determine the current day
-    const currentDay = new Date().getDate();
+    //convert month prop to a number
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const monthInt = months.indexOf(month);
 
-    // Determine the current month
-    const currentMonth = new Date().toLocaleString('default', { month: 'long' })
+    //checks if current day matches props
+    const sameDayCheck = isSameDay(new Date (year, monthInt, day), new Date())
 
-    //Aplies styling if true
-    const currentDayStyles = day === currentDay && month === currentMonth ? { backgroundColor: "#BFD0D8" } : {};
+    //Aplies styling if isSameDay is true
+    const currentDayStyles = sameDayCheck === true ? { backgroundColor: "#BFD0D8" } : {};
 
   // Sort events by startAt property
   let sortedEvents = [...events].sort(
