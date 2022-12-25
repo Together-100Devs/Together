@@ -1,15 +1,18 @@
-import { isSameDay, parse } from "date-fns";
+import { isSameDay, format } from "date-fns";
 import React from "react";
 import Event from "./Event";
 
-const DayCard = ({ day, month, year, events }) => {
+const DayCard = ({ date, events }) => {
   // Styling for bullet point
-    
-    //Converts props into a date
-    const eventProps = parse(`${month}, ${day}, ${year}`, 'MMMM, d, yyyy', new Date())
 
-    //checks if current day matches date
-    const sameDayCheck = isSameDay(eventProps, new Date())
+    //Extracts month in long format from date object
+    const month = format(date, 'MMMM');
+
+    //Extracts day from date object
+    const day = date.getDate()
+
+    //Checks if current day matches date
+    const sameDayCheck = isSameDay(date, new Date())
 
     //Aplies styling if isSameDay is true
     const currentDayStyles = sameDayCheck === true ? { backgroundColor: "#BFD0D8" } : {};
