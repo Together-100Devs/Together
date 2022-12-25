@@ -1,8 +1,21 @@
+import { isSameDay, format } from "date-fns";
 import React from "react";
 import Event from "./Event";
 
-const DayCard = ({ day, month, events }) => {
+const DayCard = ({ date, events }) => {
   // Styling for bullet point
+
+    //Extracts month in long format from date object
+    const month = format(date, 'MMMM');
+
+    //Extracts day from date object
+    const day = date.getDate()
+
+    //Checks if current day matches date
+    const sameDayCheck = isSameDay(date, new Date())
+
+    //Aplies styling if isSameDay is true
+    const currentDayStyles = sameDayCheck === true ? { backgroundColor: "#BFD0D8" } : {};
 
   // Sort events by startAt property
   let sortedEvents = [...events].sort(
@@ -10,7 +23,7 @@ const DayCard = ({ day, month, events }) => {
   );
 
   return (
-    <div className="relative flex flex-col bg-white group">
+    <div className="relative flex flex-col bg-white group" style={currentDayStyles}>
       <span className="mx-2 my-1 text-xs font-bold">
         {day} {day === 1 && month}
       </span>
