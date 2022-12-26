@@ -11,8 +11,10 @@ function App() {
   
   useEffect(() => {
     DataService.getCurrentUser().then(response => {
-      context.user = response.data
-      setContext({...context})
+      setContext(prevContext => ({
+        ...prevContext,
+        user: response.data,
+      }));
     });
   }, []);
 

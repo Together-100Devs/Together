@@ -8,6 +8,7 @@ import DayCardList from './DayCardList';
 import DataService from "services/dataService";
 import useDate from 'hooks/useDate';
 import { getMatchMonth, getEventsByDayNumber } from 'utilities/calendar';
+import { parse } from "date-fns";
 
 const Calendar = () => {
   const date = useDate();
@@ -18,9 +19,11 @@ const Calendar = () => {
   // An array of days containing events for populating the calendar
   const days = Array.from({ length: date.daysInMonth }, (_, i) => {
     const currentDay = i + 1;
+
+    //Creates dateObject using month spelled out in a string, currentDay and year
+    const dateObject = parse(`${date.month}, ${currentDay}, ${date.year}`, 'MMMM, d, yyyy', new Date())
     return {
-      day: currentDay,
-      month: date.month,
+      date: dateObject,
       events: getEventsByDayNumber(currentDay, eventsInSelectedMonth)
     }
   })
