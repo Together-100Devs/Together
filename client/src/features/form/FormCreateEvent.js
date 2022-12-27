@@ -17,10 +17,6 @@ export default function FormCreateEvent() {
   const handleChange = e => {
     const { name, value } = e.target;
 
-    // TODO: move this note to documentation
-    // Debug testing what context even is, turns out it's the Discord User data.
-    // console.log(context);
-
     // Set the userData
     setUserData({ ...userData, [name]: value, discordName: context.user?.displayName });
   };
@@ -29,35 +25,24 @@ export default function FormCreateEvent() {
     userData["initialDate"] ? console.log("End Date:", format(add(parseISO(userData["initialDate"]), { days: 90 }), 'yyyy-MM-dd')) : console.log("initialDate DNE");
   }, [userData])
 
+  // This function sets initialDate's minimum to either today
   const calculateStartDateMinimum = () => {
     const today = new Date(); // establish "today" as a string value
+    const NinetyDaysBefore = sub(parseISO(userData["finalDate"]), {days : 90});
 
-    if (!userData["finalDate"]) { // if endDate does not exist, startDate's minimum is today
-      return format(today, 'yyyy-MM-dd');
-
-    } else { // if endDate exists, startDate cannot be more than 90 days before endDate
-
-      // OR it defaults to newDate if the date 90 days before endDate is before or equal to newDate
-      const NinetyDaysBefore = sub(parseISO(userData["finalDate"]), {days : 90});
-
-      if (NinetyDaysBefore <= today) { // NOTE: can you compare dates this way? who knows.
-        return format(today, 'yyyy-MM-dd');
-      } else {
-        return format(NinetyDaysBefore, 'yyyy-MM-dd');
-      }
-
+    // If the finalDate exists and 90 days before finalDate is LATER than today, 
+    // initialTime's minimum = 90 days before finalDate
+    if (NinetyDaysBefore > today && userData["finalDate"]) { 
+      return format(NinetyDaysBefore, 'yyyy-MM-dd');
     }
+
+    // finalDate is not yet set, or 90 days before finalDate would be before or equal to today,
+    // initialTime's minimum = today
+    return format(today, 'yyyy-MM-dd');
   }
 
-  // This prevents the end date from being set to something before the start date
-  const calculateEndDateMinimum = () => {
-    if (userData["startDate"] !== undefined) { // start date exists, end date minimum = start date
-      return format(userData["startDate"], 'yyyy-MM-dd')
 
-    } else { // start date does not exist in any case, end date minimum = today
-      return format(new Date(), 'yyyy-MM-dd');
-    }
-  }
+
 
   return (
     // TITLE OF EVENT FIELD
@@ -111,9 +96,15 @@ export default function FormCreateEvent() {
             placeholder="Start Date"
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
             required
+            // Some more complex logic is needed to set the startDate minimum, so we moved it into a function
+            // so that we don't have to use a verbose ternary operator
             min={calculateStartDateMinimum()}
-            // If end date exists, then the start date's max = that end date, otherwise max = last day of 2023
-            // this prevents the start date being set to anything after the end date
+            /* min={ // this is the old ternary operator, which I'm adding to a commit for records purposes
+              (sub(parseISO(userData["finalDate"]), {days : 90}) > new Date()) && userData["finalDate"] ? 
+              format(sub(parseISO(userData["finalDate"]), 'yyyy-MM-dd')) : format(new Date(), 'yyyy-MM-dd')
+            } */
+            // If finalDate exists, then the initialDate's max = that finalDate, otherwise max = last day of 2023
+            // this prevents the initialDate being set to anything after the finalDate
             max={userData["finalDate"] ? format((parseISO(userData["finalDate"])), 'yyyy-MM-dd') : '2023-12-31'}
           />
         </div>
@@ -133,9 +124,11 @@ export default function FormCreateEvent() {
             placeholder="endDate"
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
             required
-            // If start date exists, then the minimum for the end date is start date, otherwise the minimum end date is today
+            // If initialDate exists, then the minimum finalDate is initialDate, otherwise the minimum finalDate is today
+            // This prevents the finalDate from being set to something before the initialDate
             min={userData["initialDate"] ? userData["initialDate"] : format(new Date(), 'yyyy-MM-dd')}
-            // If start date exists, then the end date max = start date + 90 days, otherwise end date max = last day of 2023
+            // If initialDate exists, then finalDate max = initialDate + 90 days, otherwise max = last day of 2023
+            // This prevents finalDate from being 90 days beyond initialDate AND from being beyond 2022-2023
             max={userData["initialDate"] ? format(add(parseISO(userData["initialDate"]), { days: 90 }), 'yyyy-MM-dd') : '2023-12-31'}
           />
         </div>
