@@ -96,8 +96,9 @@ export default function FormCreateEvent() {
       </div>
 
       {/* START DATE OF EVENT */}
-      <p>Note: </p>
       <div className="w-full mx-2 flex-1">
+        {/* Note for user to understand the date boundaries. Added margin to seperate the date section from the event info */}
+        <p className="text-xs mt-10">Note: Start Date and End Date cannot be more than 90 days apart, and both must be in 2022 or 2023.</p>
         <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
           Start Date
         </div>
