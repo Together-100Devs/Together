@@ -49,6 +49,7 @@ export default function FormCreateEvent() {
     }
   }
 
+  // This prevents the end date from being set to something before the start date
   const calculateEndDateMinimum = () => {
     if (userData["startDate"] !== undefined) { // start date exists, end date minimum = start date
       return format(userData["startDate"], 'yyyy-MM-dd')
@@ -95,6 +96,7 @@ export default function FormCreateEvent() {
       </div>
 
       {/* START DATE OF EVENT */}
+      <p>Note: </p>
       <div className="w-full mx-2 flex-1">
         <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
           Start Date
@@ -109,7 +111,9 @@ export default function FormCreateEvent() {
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
             required
             min={calculateStartDateMinimum()}
-            max='2023-12-31'
+            // If end date exists, then the start date's max = that end date, otherwise max = last day of 2023
+            // this prevents the start date being set to anything after the end date
+            max={userData["finalDate"] ? format((parseISO(userData["finalDate"])), 'yyyy-MM-dd') : '2023-12-31'}
           />
         </div>
       </div>
