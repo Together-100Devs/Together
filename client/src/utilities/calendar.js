@@ -1,8 +1,6 @@
-import parseISO from 'date-fns/parseISO'
-import format from 'date-fns/format';
-import eachDayOfInterval from 'date-fns/eachDayOfInterval'
+import { parseISO, format, eachDayOfInterval } from "date-fns";
 
-export const getMatchMonth = (monthToMatch, events) => {
+export const getMatchMonthAndYear = (monthToMatch, yearToMatch, events) => {
   if (!events.length) return [];
 
   let allMatchedEvents = [];
@@ -11,7 +9,8 @@ export const getMatchMonth = (monthToMatch, events) => {
     const matchedEvents = event.dates.filter(date => {
       const isoDate = parseISO(date.startAt);
       const monthInString = format(isoDate, 'LLLL'); // December
-      return monthToMatch === monthInString
+      const year = isoDate.getFullYear();
+      return monthToMatch === monthInString && year === yearToMatch
     }).map(date => ({ ...event, ...date }))
 
     allMatchedEvents = [...allMatchedEvents, ...matchedEvents]
