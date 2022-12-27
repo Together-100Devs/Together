@@ -27,16 +27,16 @@ export default function FormCreateEvent() {
 
   // This function sets initialDate's minimum to either today
   const calculateStartDateMinimum = () => {
-    const today = new Date(); // establish "today" as a string value
-    const NinetyDaysBefore = sub(parseISO(userData["finalDate"]), {days : 90});
+    const today = new Date(); // get date for today
+    const NinetyDaysBefore = sub(parseISO(userData["finalDate"]), {days : 90}); // get date 90 days before final date
 
-    // If the finalDate exists and 90 days before finalDate is LATER than today, 
+    // If the finalDate exists AND 90 days before finalDate is LATER than today, 
     // initialTime's minimum = 90 days before finalDate
     if (NinetyDaysBefore > today && userData["finalDate"]) { 
       return format(NinetyDaysBefore, 'yyyy-MM-dd');
     }
 
-    // finalDate is not yet set, or 90 days before finalDate would be before or equal to today,
+    // if finalDate is not yet set, or 90 days before finalDate would be before or equal to today,
     // initialTime's minimum = today
     return format(today, 'yyyy-MM-dd');
   }
@@ -99,10 +99,6 @@ export default function FormCreateEvent() {
             // Some more complex logic is needed to set the startDate minimum, so we moved it into a function
             // so that we don't have to use a verbose ternary operator
             min={calculateStartDateMinimum()}
-            /* min={ // this is the old ternary operator, which I'm adding to a commit for records purposes
-              (sub(parseISO(userData["finalDate"]), {days : 90}) > new Date()) && userData["finalDate"] ? 
-              format(sub(parseISO(userData["finalDate"]), 'yyyy-MM-dd')) : format(new Date(), 'yyyy-MM-dd')
-            } */
             // If finalDate exists, then the initialDate's max = that finalDate, otherwise max = last day of 2023
             // this prevents the initialDate being set to anything after the finalDate
             max={userData["finalDate"] ? format((parseISO(userData["finalDate"])), 'yyyy-MM-dd') : '2023-12-31'}
