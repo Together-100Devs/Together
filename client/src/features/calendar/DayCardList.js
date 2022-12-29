@@ -25,7 +25,7 @@ const DayCardList = ({ data, firstDayOfMonth }) => {
       ))}
 
       {data.map(dayData => (
-        <DayCard key={dayData.day} {...dayData} />
+        <DayCard key={dayData.date} {...dayData} />
       ))}
     </div>
   );
