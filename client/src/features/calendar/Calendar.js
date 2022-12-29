@@ -41,7 +41,7 @@ const Calendar = () => {
   if (loading) return null;
 
   return (
-    <div className="flex flex-grow min-h-[600px] overflow-auto text-gray-700 border-2 border-black bg-white rounded-lg">
+    <div className="flex flex-grow h-crunch-screen w-full overflow-auto text-gray-700 border-2 border-black bg-white rounded-lg">
       <div className="flex flex-col flex-grow">
         <MonthAndYear
           month={date.month}

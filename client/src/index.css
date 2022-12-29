@@ -17,4 +17,8 @@
     width: clamp(10%, 500px, 50%);
     min-height: 400px;
   }
+
+  .h-crunch-screen {
+    height: calc(100vh - 5%);
+  }
 }
