@@ -1,32 +1,16 @@
-import { useContext } from "react";
-import { FormMoverContext } from "./contexts/FormMoverContext";
-import { Context } from "contexts/Context";
-import { format, add, sub, parseISO } from 'date-fns';
-import { useEffect } from "react";
+import React from "react";
+import { useFormContext } from "contexts/FormContext";
+import { useAuthContext } from "contexts/AuthContext";
 
 // This Component gets the Title, Description, and the start/end Dates for the event
 export default function FormCreateEvent() {
+  const auth = useAuthContext();
+  const { formData, setFormData } = useFormContext();
 
-  // This useContext hook syncs userData across UserForm and its sub-components
-  const { userData, setUserData } = useContext(FormMoverContext);
-
-  // This useContext hook passes in the Discord username of the logged in Discord user (in this case), it might do other things for other parts.
-  const [context] = useContext(Context)
-
-  // When something on the form changes, modify userData to have the new stuff from the form
   const handleChange = e => {
 
     const { name, value } = e.target;
-
-    // Set the userData
-    setUserData({ ...userData, [name]: value, discordName: context.user?.displayName });
-
-    // TODO: Add more validation for each field here
-    // Next button disabled by default
-    // Validate each event
-    // If all valid, pass a value to FormMoverControl that enables the button.
-    // NOTE: Might just need to have the button not move forward the form before changing it's css styling/appearance
-    // TODO: Add functionality to change the context's value,  
+    setFormData(prevFormData => ({ ...prevFormData, [name]: value, discordName: auth.user?.displayName }));
   };
 
   useEffect(() => { // Debug code
@@ -67,7 +51,7 @@ export default function FormCreateEvent() {
           <input
             type="text"
             onChange={handleChange}
-            value={userData["title"] || ""} // Blank by default, or equal to whatever the userData's value is (same for other fields)
+            value={formData["title"] || ""}
             name="title"
             placeholder="Title"
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
@@ -84,7 +68,7 @@ export default function FormCreateEvent() {
           <input
             type="text"
             onChange={handleChange}
-            value={userData["description"] || ""}
+            value={formData["description"] || ""}
             name="description"
             placeholder="Description"
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
@@ -103,7 +87,7 @@ export default function FormCreateEvent() {
           <input
             type="date" // Date input type
             onChange={handleChange}
-            value={userData["initialDate"] || ""}
+            value={formData["initialDate"] || ""}
             name="initialDate"
             placeholder="Start Date"
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
@@ -127,7 +111,7 @@ export default function FormCreateEvent() {
           <input
             type="date"
             onChange={handleChange}
-            value={userData["finalDate"] || ""}
+            value={formData["finalDate"] || ""}
             name="finalDate"
             placeholder="endDate"
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
@@ -151,7 +135,7 @@ export default function FormCreateEvent() {
           <input
             type="text"
             onChange={handleChange}
-            value={context.user?.displayName || ""}
+            value={auth.user?.displayName || ""}
             name="discordName"
             disabled={true}
             placeholder="Discord Name"
