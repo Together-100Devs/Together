@@ -1,16 +1,12 @@
-import { Context } from "contexts/Context";
-import { useContext } from "react";
+import { useRoutingContext } from "contexts/RoutingContext";
 
 const NavBtn = ({ Icon }) => {
-  const [context, setContext] = useContext(Context);
+  const routing = useRoutingContext()
   return (
     <div className="flex overflow-hidden rounded-lg my-3">
       <button
         className="block text-white text-xs bg-navBtn py-3 px-3 font-sans tracking-wide uppercase font-bold "
-        onClick={() => {
-          context.page = "calendarPage";
-          setContext({ ...context });
-        }}
+        onClick={() => routing.setCurrentPage("calendarPage")}
       >
         Navigate to Calendar Page
       </button>

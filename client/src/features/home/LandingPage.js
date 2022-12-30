@@ -1,3 +1,4 @@
+import React from "react";
 import "../../index.css";
 import LongCard from "./LongCard";
 import NavBtn from "./NavBtn";
@@ -5,7 +6,7 @@ import SmallCard from "./SmallCard";
 import { FaArrowRight } from "react-icons/fa";
 
 const LandingPage = () => {
-  return (
+  return(
     <div className="flex flex-wrap ">
       <NavBtn Icon={FaArrowRight} />
       <div className="flex flex-col content-center md:flex-row text-center gap-8 ">
