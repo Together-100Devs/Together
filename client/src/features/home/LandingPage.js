@@ -1,17 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import "../../index.css";
 import LongCard from "./LongCard";
 import SmallCard from "./SmallCard";
-import { Context } from "contexts/Context";
+import { useRoutingContext } from "contexts/RoutingContext";
 
 const LandingPage = () => {
-  const [context, setContext] = useContext(Context)
+  const routing = useRoutingContext()
+  
   return (
     <div className="flex flex-wrap ">
-      <button onClick={() => {
-        context.page = "calendarPage"
-        setContext({...context})
-      }}>
+      <button onClick={() => routing.setCurrentPage('calendarPage')}>
         Navigate to Calendar Page
       </button>
       <div className="flex flex-col content-center md:flex-row text-center gap-8 ">
