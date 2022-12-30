@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useFormContext } from "contexts/FormContext";
 import { useAuthContext } from "contexts/AuthContext";
+import { parseISO, format, add, sub } from "date-fns";
 
 // This Component gets the Title, Description, and the start/end Dates for the event
 export default function FormCreateEvent() {
@@ -14,17 +15,17 @@ export default function FormCreateEvent() {
   };
 
   useEffect(() => { // Debug code
-    userData["initialDate"] ? console.log("End Date:", format(add(parseISO(userData["initialDate"]), { days: 90 }), 'yyyy-MM-dd')) : console.log("initialDate DNE");
-  }, [userData])
+    formData["initialDate"] ? console.log("End Date:", format(add(parseISO(formData["initialDate"]), { days: 90 }), 'yyyy-MM-dd')) : console.log("initialDate DNE");
+  }, [formData])
 
   // This function sets initialDate's minimum to either today
   const calculateStartDateMinimum = () => {
     const today = new Date(); // get date for today
-    const NinetyDaysBefore = sub(parseISO(userData["finalDate"]), {days : 90}); // get date 90 days before final date
+    const NinetyDaysBefore = sub(parseISO(formData["finalDate"]), {days : 90}); // get date 90 days before final date
 
     // If the finalDate exists AND 90 days before finalDate is LATER than today, 
     // initialTime's minimum = 90 days before finalDate
-    if (NinetyDaysBefore > today && userData["finalDate"]) { 
+    if (NinetyDaysBefore > today && formData["finalDate"]) { 
       return format(NinetyDaysBefore, 'yyyy-MM-dd');
     }
 
@@ -97,7 +98,7 @@ export default function FormCreateEvent() {
             min={calculateStartDateMinimum()}
             // If finalDate exists, then the initialDate's max = that finalDate, otherwise max = last day of 2023
             // this prevents the initialDate being set to anything after the finalDate
-            max={userData["finalDate"] ? format((parseISO(userData["finalDate"])), 'yyyy-MM-dd') : '2023-12-31'}
+            max={formData["finalDate"] ? format((parseISO(formData["finalDate"])), 'yyyy-MM-dd') : '2023-12-31'}
           />
         </div>
       </div>
@@ -118,10 +119,10 @@ export default function FormCreateEvent() {
             required
             // If initialDate exists, then the minimum finalDate is initialDate, otherwise the minimum finalDate is today
             // This prevents the finalDate from being set to something before the initialDate
-            min={userData["initialDate"] ? userData["initialDate"] : format(new Date(), 'yyyy-MM-dd')}
+            min={formData["initialDate"] ? formData["initialDate"] : format(new Date(), 'yyyy-MM-dd')}
             // If initialDate exists, then finalDate max = initialDate + 90 days, otherwise max = last day of 2023
             // This prevents finalDate from being 90 days beyond initialDate AND from being beyond 2022-2023
-            max={userData["initialDate"] ? format(add(parseISO(userData["initialDate"]), { days: 90 }), 'yyyy-MM-dd') : '2023-12-31'}
+            max={formData["initialDate"] ? format(add(parseISO(formData["initialDate"]), { days: 90 }), 'yyyy-MM-dd') : '2023-12-31'}
           />
         </div>
       </div>
