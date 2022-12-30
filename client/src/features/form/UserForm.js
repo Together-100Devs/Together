@@ -15,6 +15,9 @@ import DataService from "services/dataService";
 
 import { generateRecurringDatesArray } from "utilities/calendar";
 
+// Joe's team will move out the useState's and the handleClick code to a separate file
+// And also changing the name of "userData" to "formData"
+
 // This is the code for the form where you add events to the calendar
 const UserForm = () => {
 
@@ -74,7 +77,7 @@ const UserForm = () => {
     }
   };
   
-  // 
+
   const handleClick = async direction => {
     let newStep = currentStep; // Extract step as temporary value from currentStep state
     direction === "next" ? newStep++ : newStep--; // If the direction we're going in the 
@@ -89,6 +92,8 @@ const UserForm = () => {
       await DataService.create({ data: data })
     };
   };
+
+  // TODO: Make a separate function for validating form data when clicking "next"
 
   // Date and Time Formats
   // returned dates = "2022-12-01"  returned times = "20:33" 

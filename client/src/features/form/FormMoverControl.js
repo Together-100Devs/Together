@@ -1,4 +1,5 @@
 import React from "react";
+// NOTE: This won't have props later, it will just take the context instead.
 
 // This functional component handles what buttons show up depending on the step 
 const FormMoverControl = ({ handleClick, currentStep, steps }) => {
@@ -15,6 +16,7 @@ const FormMoverControl = ({ handleClick, currentStep, steps }) => {
         Back
       </button>
       {/* next button */}
+      {/* TODO: Insert some kind of condition handler to enable the button if data on a screen is valid */}
       <button
         onClick={() => handleClick("next")}
         className="bg-green-500 text-white uppercase py-2 px-4 rounded-xl font-semibold cursor-pointer  hover:bg-slate-700 hover:text-white transition duration-200 ease-in-out"

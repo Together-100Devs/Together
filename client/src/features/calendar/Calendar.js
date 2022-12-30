@@ -7,14 +7,14 @@ import DayCardList from './DayCardList';
 // For getting real data
 import DataService from "services/dataService";
 import useDate from 'hooks/useDate';
-import { getMatchMonth, getEventsByDayNumber } from 'utilities/calendar';
+import { getMatchMonthAndYear, getEventsByDayNumber } from 'utilities/calendar';
 
 const Calendar = () => {
   const date = useDate();
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const eventsInSelectedMonth = getMatchMonth(date.month, events);
+  const eventsInSelectedMonth = getMatchMonthAndYear(date.month, date.year, events);
   // An array of days containing events for populating the calendar
   const days = Array.from({ length: date.daysInMonth }, (_, i) => {
     const currentDay = i + 1;

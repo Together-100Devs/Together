@@ -15,10 +15,18 @@ export default function FormCreateEvent() {
 
   // When something on the form changes, modify userData to have the new stuff from the form
   const handleChange = e => {
+
     const { name, value } = e.target;
 
     // Set the userData
     setUserData({ ...userData, [name]: value, discordName: context.user?.displayName });
+
+    // TODO: Add more validation for each field here
+    // Next button disabled by default
+    // Validate each event
+    // If all valid, pass a value to FormMoverControl that enables the button.
+    // NOTE: Might just need to have the button not move forward the form before changing it's css styling/appearance
+    // TODO: Add functionality to change the context's value,  
   };
 
   useEffect(() => { // Debug code
@@ -40,6 +48,10 @@ export default function FormCreateEvent() {
     // initialTime's minimum = today
     return format(today, 'yyyy-MM-dd');
   }
+
+  /* Pseudo 
+  
+   */
 
 
 
