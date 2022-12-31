@@ -1,21 +1,15 @@
 import { parseISO, format, eachDayOfInterval } from "date-fns";
+import { nanoid } from "nanoid";
 
 export const getMatchMonthAndYear = (monthToMatch, yearToMatch, events) => {
   if (!events.length) return [];
 
-  let allMatchedEvents = [];
-
-  for (let event of events) {
-    const matchedEvents = event.dates.filter(date => {
-      const isoDate = parseISO(date.startAt);
-      const monthInString = format(isoDate, 'LLLL'); // December
-      const year = isoDate.getFullYear();
-      return monthToMatch === monthInString && year === yearToMatch
-    }).map(date => ({ ...event, ...date }))
-
-    allMatchedEvents = [...allMatchedEvents, ...matchedEvents]
-  }
-
+  const allMatchedEvents = events.filter(event => {
+    const isoDate = parseISO(event.startAt);
+    const monthInString = format(isoDate, 'LLLL'); // December
+    const year = isoDate.getFullYear();
+    return monthToMatch === monthInString && year === yearToMatch
+  })
   return allMatchedEvents;
 }
 
@@ -53,12 +47,9 @@ export const generateRecurringDatesArray = ({ initialDate, startTime, finalDate,
   // If event is not recurring, generate just one event for dates array and return.
   if (recurring.rate === 'noRecurr') {
     return [{
-      title: title,
-      description: description,
+      groupId: null,
       startAt: convertLocalDateToUTC(initialDate, startTime),
       endAt: convertLocalDateToUTC(finalDate, endTime),
-      location: location,
-      recurring: recurring
     }]
   }
 
@@ -77,6 +68,9 @@ export const generateRecurringDatesArray = ({ initialDate, startTime, finalDate,
     return recurring.days.some(day => day === format(date, 'cccc'))
   })
 
+  // Recurring events have the same group id. This allows deleting them all at once by this id.
+  const groupId = nanoid();
+
   // Create recurring dates array with events information
   const dates = result.map(date => {
     const [month, day, year] = format(date, 'P').split('/')
@@ -87,12 +81,9 @@ export const generateRecurringDatesArray = ({ initialDate, startTime, finalDate,
     const newEndDate = convertLocalDateToUTC(htmlDateFormat, endTime);
 
     return {
-      title: title,
-      description: description,
+      groupId,
       startAt: newStartDate,
       endAt: newEndDate,
-      location: location,
-      recurring: recurring
     }
   })
   return dates
