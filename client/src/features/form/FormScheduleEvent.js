@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useFormContext } from "contexts/FormContext";
 import FormRecurringDates from "./FormRecurringDates";
 
@@ -10,6 +10,11 @@ export default function FormScheduleEvent() {
     const { name, value } = e.target;
     setFormData(prevFormData => ({ ...prevFormData, [name]: value}));
   };
+
+  // Debug, remove later
+  useEffect(() => {
+    console.log(formData);
+  }, [formData]);
 
   return (
     // LOCATION FIELD

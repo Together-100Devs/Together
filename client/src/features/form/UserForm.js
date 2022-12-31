@@ -17,6 +17,8 @@ import { generateRecurringDatesArray } from "utilities/calendar";
 
 // This is the code for the form where you add events to the calendar
 const UserForm = () => {
+  
+  // Specifically extract the currentStep and totalSteps from userFormContext
   const { currentStep, totalSteps } = useFormContext();
 
   // Called to display different parts of the form based on the latest step.

@@ -7,15 +7,28 @@ import { parseISO, format, add, sub } from "date-fns";
 export default function FormCreateEvent() {
   const auth = useAuthContext();
   const { formData, setFormData } = useFormContext();
+  // const {formCompleted, setFormCompleted} = useState();
 
   const handleChange = e => {
 
     const { name, value } = e.target;
+
+    // TODO: These are devs notes, delete this line and possibly the rest before PRing
+    // Using an anonymous function like so allows us to get the previous state of the data and extend it
+    // [name]: value overrides the value at the [name] on which handleChange is called
+    // e.g. if [name] is "title" in the form input, the value of "title" gets changed in formData
+    // the data is then also extended by your Discord username
     setFormData(prevFormData => ({ ...prevFormData, [name]: value, discordName: auth.user?.displayName }));
+
+    // Next button stays greyed out/disabled by default, and as long as any field is empty
+    // and also if a date is out of range, etc.
+
+    // TODO: Ask Caleb about making end date just one or two years from now in the Issue thread.
   };
 
   useEffect(() => { // Debug code
-    formData["initialDate"] ? console.log("End Date:", format(add(parseISO(formData["initialDate"]), { days: 90 }), 'yyyy-MM-dd')) : console.log("initialDate DNE");
+    // // formData["initialDate"] ? console.log("End Date:", format(add(parseISO(formData["initialDate"]), { days: 90 }), 'yyyy-MM-dd')) : console.log("initialDate DNE");
+    console.log(formData);
   }, [formData])
 
   // This function sets initialDate's minimum to either today
@@ -56,6 +69,7 @@ export default function FormCreateEvent() {
             name="title"
             placeholder="Title"
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
+            required
           />
         </div>
       </div>
@@ -73,6 +87,7 @@ export default function FormCreateEvent() {
             name="description"
             placeholder="Description"
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
+            required
           />
         </div>
       </div>
