@@ -9,31 +9,14 @@ const EventSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  initialDate: {
+  startAt: {
     type: Date,
     required: true,
   },
-  finalDate: {
+  endAt: {
     type: Date,
     required: true,
   },
-  recurring: {
-    type: Boolean,
-    required: true,
-  },
-  recurringPattern: {
-    rate: String,
-    days: Array
-  },
-  dates: [
-    {
-      title: { type: String },
-      description: { type: String },
-      startAt: { type: Date },
-      endAt: { type: Date },
-      location: { type: String },
-    }
-  ],
   location: {
     type: String,
     required: true,
@@ -43,8 +26,12 @@ const EventSchema = new mongoose.Schema({
     required: true,
   },
   user: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String, // User _id is the discord id
+    required: true,
     ref: "User",
+  },
+  groupId: {
+    type: String,
   },
   createdAt: {
     type: Date,
