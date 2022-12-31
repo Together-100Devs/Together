@@ -17,7 +17,7 @@ class DataService {
   getById(id) {
     return URL.get(`/events/${id}`);
   }
-  delete(id) {
+  deleteEvent(id) {
     return URL.delete(`/events/${id}`)
   }
   getCurrentUser() {
