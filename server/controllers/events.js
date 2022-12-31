@@ -8,34 +8,19 @@ module.exports = {
   create: async (req, res) => {
     try {
       let data = JSON.parse(req.body.data);
+      data.forEach(obj => obj.user = req.user._id);
       console.log(data);
-      // Watch out for big max length
-      // Mongoose might have built in max length
-      // Do something to make this work with the latest schema... so do this with the updated event
-      
-      // Whitelist - Focus on full control
-      // THIS below is the whitelist.
-      await Event.create({
-        title: data.title,
-        description: data.description,
-        initialDate: data.initialDate,
-        finalDate: data.finalDate,
-        startTime: data.startTime,
-        endTime: data.endTime,
-        recurring: data.recurring.rate === "weekly",
-        dates: data.dates,
-        recurringPattern: data.recurring,
-        location: data.location,
-        discordName: req.user.displayName,
-      });
+      await Event.insertMany(data);
       res.json({ message: "Event created!" });
     } catch (err) {
       console.log(err);
     }
   },
   getAll: async (req, res) => {
+    console.log(req.user);
     try {
-      const events = await Event.find();
+      const events = await Event.find().populate('user').exec();
+      console.log(await events[0]);
       // return all events
       res.json(events);
     } catch (err) {
