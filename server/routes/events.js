@@ -13,4 +13,6 @@ router.get("/:id", eventsController.getOne);
 
 router.delete("/:id", eventsController.deleteEvent)
 
+router.delete("/deleteAllEvents/:groupId", eventsController.deleteAllEvents)
+
 module.exports = router;

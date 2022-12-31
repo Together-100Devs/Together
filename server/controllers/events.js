@@ -44,4 +44,13 @@ module.exports = {
       console.error(error);
     }
   },
+  deleteAllEvents: async (req, res) => {
+    try {
+      const groupId = req.params.groupId;
+      await Event.deleteMany({ groupId: groupId });
+      res.json({ message: 'Events deleted' });
+    } catch (error) {
+      console.error(error, "group id = ");
+    }
+  },
 };
