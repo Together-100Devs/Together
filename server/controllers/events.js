@@ -50,7 +50,7 @@ module.exports = {
       await Event.deleteMany({ groupId: groupId });
       res.json({ message: 'Events deleted' });
     } catch (error) {
-      console.error(error, "group id = ");
+      console.error(error);
     }
   },
 };
