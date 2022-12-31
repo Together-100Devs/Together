@@ -11,6 +11,4 @@ router.get("/", eventsController.getAll);
 
 router.get("/:id", eventsController.getOne);
 
-router.delete("/:id", eventsController.deleteEvent)
-
 module.exports = router;
