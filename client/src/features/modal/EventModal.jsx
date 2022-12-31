@@ -19,7 +19,6 @@ const EventModal = ({ handleClose }) => {
   const { user } = useAuthContext();
   const userId = user?._id;
   const authorCheck = userId === modal.activeModal.user._id
-  console.log(user._id, modal.activeModal.user._id, authorCheck)
 
   return (
     <div className="flex flex-col items-center py-0 px-2rem rounded-xl bg-white pb-4">
@@ -32,10 +31,7 @@ const EventModal = ({ handleClose }) => {
       {authorCheck &&
       <button
         className="w-auto h-12 mt-5 px-2 border-solid border-2 border-gray outline-none rounded font-semibold text-xl hover:bg-teal-600 active:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-300"
-        onClick={() => {
-          dataService.deleteEvent(modal.activeModal._id);
-          handleClose();
-        }}
+        onClick={() => dataService.deleteEvent(modal.activeModal._id).then(handleClose) }
       >
         Delete Specific Event
       </button>
@@ -43,10 +39,7 @@ const EventModal = ({ handleClose }) => {
       {authorCheck &&
       <button
         className="w-auto h-10 mt-5 px-2 border-solid border-2 border-gray outline-none rounded font-semibold text-xl text-sm hover:bg-teal-600 active:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-300 inline-block"
-        onClick={() => {
-          dataService.deleteAllEvents(modal.activeModal.groupId);
-          handleClose();
-        }}
+        onClick={() => dataService.deleteAllEvents(modal.activeModal._id).then(handleClose) }
       >
         Delete All Events
       </button>
