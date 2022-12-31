@@ -7,19 +7,10 @@ import { format, parseISO } from "date-fns";
 import { formatToLocalTime } from 'utilities/calendar';
 import togetherLogo from "../.././assets/images/togetherLogo.svg";
 import { useModalContext } from "contexts/ModalContext";
-import DataService from '../../services/dataService'
 
 
 const EventModal = ({ handleClose }) => {
   const modal = useModalContext();
-
-  const deleteEvent = async (eventId) => {
-    try {
-      await DataService.delete(`${modal.activeModal._id}`);
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   return (
     <div className="flex flex-col items-center py-0 px-2rem rounded-xl bg-white pb-4">
@@ -28,18 +19,6 @@ const EventModal = ({ handleClose }) => {
         onClick={handleClose}
       >
         Close
-      </button>
-      <button
-      className="w-auto h-12 mt-5 px-2 border-solid border-2 border-gray outline-none rounded font-semibold text-xl hover:bg-teal-600 active:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-300"
-      onClick={() => deleteEvent(modal.activeModal._id)}
-    >
-      Delete Specific Event
-    </button>
-      <button
-        className="w-auto h-12 mt-5 px-2 border-solid border-2 border-gray outline-none rounded font-semibold text-xl hover:bg-teal-600 active:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-300"
-        onClick={handleClose}
-      >
-        Delete All Events
       </button>
       <div className="w-4/6 mt-3 flex flex-col">
         <h2 className=" flex mb-1 border-solid border-b-2 border-black font-semibold">

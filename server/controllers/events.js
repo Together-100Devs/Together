@@ -35,13 +35,4 @@ module.exports = {
       console.log(err);
     }
   },
-  deleteEvent: async (req, res) => {
-    try {
-      const eventId = req.params.id;
-      await Event.deleteOne({ _id: eventId });
-      res.json({ message: 'Event deleted' });
-    } catch (error) {
-      console.error(error);
-    }
-  },
 };
