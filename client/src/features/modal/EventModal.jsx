@@ -1,7 +1,7 @@
 import React from "react";
 import { GrCalendar } from "react-icons/gr";
 import { FaRegClock } from "react-icons/fa";
-import { IoIosRepeat } from "react-icons/io";
+// import { IoIosRepeat } from "react-icons/io";
 import { IoLocationOutline, IoPersonOutline } from "react-icons/io5";
 import { format, parseISO } from "date-fns";
 import { formatToLocalTime } from 'utilities/calendar';
@@ -41,18 +41,18 @@ const EventModal = ({ handleClose }) => {
           <p>Description: {modal.activeModal.description}</p>
         </div>
         <div>
-          <section className="flex m-3 gap-1 font-semibold">
+          {/* <section className="flex m-3 gap-1 font-semibold">
             <IoIosRepeat className="mt-1" />
             <span>
               Repeats:
               {modal.activeModal.recurring ? <div>{modal.activeModal.recurringPattern.days.join(', ')}, {modal.activeModal.recurringPattern.rate}</div> : <div>Does not repeat.</div>}
             </span>
-          </section>
+          </section> */}
           <section className="flex m-3 gap-1 font-semibold">
             <IoLocationOutline className="mt-1" /> <span>Location: {modal.activeModal.location}</span>
           </section>
           <section className="flex m-3 gap-1 font-semibold">
-              <IoPersonOutline className="mt-1" /> <span>Event Author: {modal.activeModal.discordName}</span>
+              <IoPersonOutline className="mt-1" /> <span>Event Author: {modal.activeModal.user?.displayName || "Deleted"}</span>
           </section>
         </div>
       </div>
