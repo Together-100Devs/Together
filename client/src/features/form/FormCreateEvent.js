@@ -5,7 +5,8 @@ import { useAuthContext } from "contexts/AuthContext";
 export default function FormCreateEvent() {
   const auth = useAuthContext();
   const { formData, setFormData } = useFormContext();
-
+  
+  console.log(formData)
   const handleChange = e => {
     const { name, value } = e.target;
     setFormData(prevFormData => ({ ...prevFormData, [name]: value, discordName: auth.user?.displayName }));
