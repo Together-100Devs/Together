@@ -5,35 +5,7 @@ import { parseISO, format, add, sub } from "date-fns";
 
 // This Component gets the Title, Description, and the start/end Dates for the event
 export default function FormCreateEvent() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-  const auth = useAuthContext();
-  const { formData, setFormData } = useFormContext();
-  
-  console.log(formData)
-  const handleChange = e => {
-    const { name, value } = e.target;
-    setFormData(prevFormData => ({ ...prevFormData, [name]: value, discordName: auth.user?.displayName }));
-=======
 
-  // This useContext hook syncs userData across UserForm and its sub-components
-  const { userData, setUserData } = useContext(FormMoverContext);
-
-  // This useContext hook passes in the Discord username of the logged in Discord user (in this case), it might do other things for other parts.
-  const [context] = useContext(Context)
-
-  // When something on the form changes, modify userData to have the new stuff from the form
-  const handleChange = e => {
-    const { name, value } = e.target;
-    
-    // TODO: Debug testing what context even is, u better delet this later
-    console.log(context);
-    
-    // Set the userData
-    setUserData({ ...userData, [name]: value, discordName: context.user?.displayName });
->>>>>>> 713dfc15700cb0b15e23e41de3443fd9d350428e
-=======
-  const auth = useAuthContext();
   const { formData, setFormData } = useFormContext();
   // const {formCompleted, setFormCompleted} = useState();
 
@@ -52,7 +24,6 @@ export default function FormCreateEvent() {
     // and also if a date is out of range, etc.
 
     // TODO: Ask Caleb about making end date just one or two years from now in the Issue thread.
->>>>>>> e31137c17c70ede33d5c3c1aef8aa6307dabc9df
   };
 
   useEffect(() => { // Debug code
@@ -94,15 +65,7 @@ export default function FormCreateEvent() {
           <input
             type="text"
             onChange={handleChange}
-<<<<<<< HEAD
-<<<<<<< HEAD
             value={formData["title"] || ""}
-=======
-            value={userData["title"] || ""} // Blank by default, or equal to whatever the userData's value is (same for other fields)
->>>>>>> 713dfc15700cb0b15e23e41de3443fd9d350428e
-=======
-            value={formData["title"] || ""}
->>>>>>> e31137c17c70ede33d5c3c1aef8aa6307dabc9df
             name="title"
             placeholder="Title"
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
