@@ -4,4 +4,4 @@ node_modules
 build
 .DS_Store
 .mongo
-client\src\contexts\FormContext\formLogic.txt
+formLogic.txt

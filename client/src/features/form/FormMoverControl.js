@@ -15,20 +15,8 @@ const FormMoverControl = () => {
       >
         Back
       </button>
+      
       {/* next button */}
-      {/* TODO: Insert some kind of condition handler to enable the button if data on a screen is valid */}
-      {/* 
-      // Button is still clickable, but only moves form forward if all fields are valid.
-       */}
-       
-      {/* Disabled button that does nothing */}
-      {/* <button
-        className="bg-green-200 text-white uppercase py-2 px-4 rounded-xl font-semibold cursor-pointer  transition duration-200 ease-in-out"}
-      >
-        {currentStep === totalSteps.length - 1 ? "Submit" : "Next"}
-      </button> */}
-
-      {/* Actual button that moves you forward */}
       <button
         onClick={() => handleNewStep("next")}
         className="bg-green-500 text-white uppercase py-2 px-4 rounded-xl font-semibold cursor-pointer  hover:bg-slate-700 hover:text-white transition duration-200 ease-in-out"
