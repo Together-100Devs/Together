@@ -6,6 +6,7 @@ import { parseISO, format, add, sub } from "date-fns";
 // This Component gets the Title, Description, and the start/end Dates for the event
 export default function FormCreateEvent() {
 
+  const { auth } = useAuthContext();
   const { formData, setFormData } = useFormContext();
   // const {formCompleted, setFormCompleted} = useState();
 
