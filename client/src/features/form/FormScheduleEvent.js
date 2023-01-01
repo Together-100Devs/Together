@@ -13,9 +13,9 @@ export default function FormScheduleEvent() {
   };
 
   // Debug, remove later
-  useEffect(() => {
-    console.log(formData);
-  }, [formData]);
+  // useEffect(() => {
+  //   console.log(formData);
+  // }, [formData]);
 
   // This function sets initialDate's minimum to either today or otherwise
   const calculateStartDateMinimum = () => {
