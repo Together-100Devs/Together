@@ -1,0 +1,34 @@
+    // title != null
+    // description != null
+    
+    // initialDate != null
+    // initialDate cannot be more than 90 days before finalDate
+    // initialDate cannot be after finalDate
+    // initialDate cannot be before today
+    // initialDate cannot be after 12/31/2023
+    // NOTE: initialDate's minimum of today will stay hardcoded
+    // NOTE: initialDate's maximum will stay 12/31/2023
+    
+    // finalDate != null
+    // finalDate cannot be more than 90 days after Start Date
+    // finalDate cannot be before initialDate
+    // finalDate cannot be before today
+    // finalDate cannot be after 12/31/2023
+    // NOTE: finalDate's minimum of today will stay hardcoded
+    // NOTE: finalDate's maximum will stay 12/31/2023
+    
+    // discordName != null
+    
+    
+    //  PAGE 2  FormScheduleEvent.js
+    
+    // location != null
+    
+    // startTime != null
+    // startTime not AFTER endTime
+    // endTime != null
+    // endTime not BEFORE startTime
+    
+    // recurring.rate != null
+    // if recurring.rate != "noRecurr", recurring.days != null
+    // else if recurring.rate === "noRecurr", recurring.days === null or empty

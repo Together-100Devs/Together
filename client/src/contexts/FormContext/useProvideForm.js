@@ -18,7 +18,10 @@ const useProvideForm = () => {
     
     console.log(formDataCurrentKeys.toString(),formDataExpectedKeys.toString())
     
-    if(formDataExpectedKeys.toString() !== formDataCurrentKeys.toString()){return false}
+    if(formDataExpectedKeys.toString() !== formDataCurrentKeys.toString())
+    {
+      return false
+    }
   
     
 
@@ -57,8 +60,6 @@ const useProvideForm = () => {
     // if recurring.rate != "noRecurr", recurring.days != null
     // else if recurring.rate === "noRecurr", recurring.days === null or empty
 
-
-    // if(description && discordName && finalDate && initialDate){}
   }
 
   const handleNewStep = async direction => {
