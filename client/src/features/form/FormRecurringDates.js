@@ -1,11 +1,15 @@
 import React from 'react';
 import { useFormContext } from "contexts/FormContext";
 
+// Handles if your events are recurring and on which days of the week they will recur
 export default function FormRecurringDates() {
   const { formData, setFormData } = useFormContext();
 
   const handleChange = e => {
+
     const { name, value } = e.target;
+    
+    // Handle the rates of occurunces
     if (value === "rate") {
       //ensures that only one of 'weekly', 'monthly', or 'no recurring' can be checked at a time
       formData.recurring.rate = name;
@@ -29,6 +33,8 @@ export default function FormRecurringDates() {
         Recurring
       </div>
       <div className="bg-white py-4 p-1 my-2 flex border border-gray-200 rounded">
+
+        {/* WEEKLY */}
         <div className="border-r pr-6">
           <div className="flex space-x-4 items-center">
             <input
@@ -43,6 +49,7 @@ export default function FormRecurringDates() {
             <p>Weekly</p>
           </div>
 
+          {/* NOT RECURRING */}
           <div className="flex space-x-4 items-center">
             <input
               type="checkbox"
@@ -56,6 +63,9 @@ export default function FormRecurringDates() {
             <p>No Recurring</p>
           </div>
         </div>
+
+        {/* DAYS OF WEEK TO REPEAT EVENT */}
+        {/* MONDAY */}
         <div className=" mx-7 ">
           <div className="  flex space-x-4 items-center">
             <input
@@ -69,6 +79,8 @@ export default function FormRecurringDates() {
             />
             <p>Monday</p>
           </div>
+
+          {/* TUESDAY */}
           <div className=" flex space-x-4 items-center">
             <input
               type="checkbox"
@@ -81,6 +93,8 @@ export default function FormRecurringDates() {
             />
             <p>Tuesday</p>
           </div>
+
+          {/* WEDNESDAY */}
           <div className=" flex space-x-4 items-center">
             <input
               type="checkbox"
@@ -93,6 +107,8 @@ export default function FormRecurringDates() {
             />
             <p>Wednesday</p>
           </div>
+
+          {/* THURSDAY */}
           <div className="flex space-x-4 items-center">
             <input
               type="checkbox"
@@ -104,6 +120,8 @@ export default function FormRecurringDates() {
             />
             <p>Thursday</p>
           </div>
+
+          {/* FRIDAY */}
           <div className="flex space-x-4 items-center">
             <input
               type="checkbox"
@@ -115,6 +133,8 @@ export default function FormRecurringDates() {
             />
             <p>Friday</p>
           </div>
+
+          {/* SATURDAY */}
           <div className="flex space-x-4 items-center">
             <input
               type="checkbox"
@@ -126,6 +146,8 @@ export default function FormRecurringDates() {
             />
             <p>Saturday</p>
           </div>
+
+          {/* SUNDAY */}
           <div className="flex space-x-4 items-center">
             <input
               type="checkbox"
@@ -137,6 +159,8 @@ export default function FormRecurringDates() {
             />
             <p>Sunday</p>
           </div>
+
+          {/* END DAYS OF WEEK CHECKBOXES */}
         </div>
       </div>
     </div>

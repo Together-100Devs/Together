@@ -15,10 +15,6 @@ const useProvideForm = () => {
     const formDataExpectedKeys = ['recurring', 'completed', 'title', 'discordName', 'description', 'initialDate', 'finalDate']
 
     const formDataCurrentKeys = Object.keys(formData)
-
-    // for(let key of formDataCurrentKeys){
-    //   if formDataExpectedKeys
-    // }
     
     console.log(formDataCurrentKeys.toString(),formDataExpectedKeys.toString())
     
