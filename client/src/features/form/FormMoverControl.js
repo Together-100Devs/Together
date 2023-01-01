@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useFormContext } from "contexts/FormContext";
 
 const FormMoverControl = () => {
@@ -6,25 +6,19 @@ const FormMoverControl = () => {
 
   const handleNextButton = () => {
 
-    // FormMoverControl.js:
-    // Add a new function to the "Next" button in FormMoverControl.js
-    // Upon clicking it:
+    // Run a bunch of tests for FormCreateEvent.
+    // For each test that returns an error, save a value
+    // Return the values to FormCreateEventErrors
 
-    // console.log("Current step is:", currentStep);
-    // console.log(Object.values(formData));
-
-    // If currentStep === 1
     if (currentStep === 1) {
-      // Run a bunch of tests for FormCreateEvent.
 
-      // const formDataExpectedKeys = ['recurring', 'completed', 'title', 'discordName', 'description', 'location']
-      // const formDataCurrentKeys = Object.keys(formData)      
-      // console.log(formDataCurrentKeys.toString(),formDataExpectedKeys.toString())
-      
+      const FormCreateEventErrors = [];
+
       // Check if any values are undeclared
-      if (Object.keys(formData).toString() !== ['recurring', 'completed', 'title', 'discordName', 'description', 'location'].toString()) {
-        console.log("Error: Undeclared Value");
-      }
+      // This code is no londer needed
+      // if (Object.keys(formData).toString() !== ['recurring', 'completed', 'title', 'discordName', 'description', 'location'].toString()) {
+      //   console.log("Error: Undeclared Value");
+      // }
 
       console.log("\n\nChecking Values:");
 
@@ -32,41 +26,35 @@ const FormMoverControl = () => {
       // Side note: This is the only case where you'd ever want to use == instead of ===
       if (formData['title'] === "" || formData['title'] == null) {
         console.log("Error: Missing 'title' field value");
+        FormCreateEventErrors.push('title');
       } else {
         console.log("'title' field value is valid");
       }
-      
+
       if (formData['description'] === "" || formData['description'] == null) {
         console.log("Error: Missing 'description' field value");
+          FormCreateEventErrors.push('description');
       } else {
         console.log("'description' field value is valid");
       }
 
       if (formData['location'] === "" || formData['location'] == null) {
         console.log("Error: Missing 'location' field value");
+          FormCreateEventErrors.push('location');
       } else {
         console.log("'location' field value is valid");
       }
 
       if (formData['discordName'] === "" || formData['discordName'] == null) {
         console.log("Error: Missing 'discordName' field value");
+          FormCreateEventErrors.push('discordName');
       } else {
         console.log("'discordName' field value is valid");
       }
 
-      // Below is old code for checking all the values at once for null
-      // But we want to check each value individually to display the respect error
-      // So TODO: scrap this later
-      // if (Object.values(formData).some((item) => {
-      //   return item == null || item === "";
-      // })) {
-      //   console.log("Error: Value null, undefined, or empty (Most likely empty string)");
-      // }
-
+      console.log("Errors at fields:", FormCreateEventErrors);
       console.log("Testing concluded.");
 
-      // For each test that returns an error, save a value
-        // Return the values to FormCreateEventErrors
       // Only if none of the tests return an error do we allow currentStep to iterate
       // By running handleNextStep.
     }

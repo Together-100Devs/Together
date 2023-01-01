@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useFormContext } from "contexts/FormContext";
 import { useAuthContext } from "contexts/AuthContext";
-import { parseISO, format, add, sub } from "date-fns";
 
 // This Component gets the Title, Description, and the start/end Dates for the event
 export default function FormCreateEvent() {
