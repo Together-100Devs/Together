@@ -19,14 +19,13 @@ const useProvideForm = () => {
     // Submit form to server
     if (newStep === 4) {
       const recurringDates = generateRecurringDatesArray(formData);
-      const { title, description, location, discordName } = formData;
+      const { title, description, location } = formData;
 
       const data = JSON.stringify(
         recurringDates.map(date => ({
           title,
           description,
           location,
-          discordName,
           ...date,
         }))
       );
