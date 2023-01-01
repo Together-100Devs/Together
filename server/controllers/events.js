@@ -35,4 +35,28 @@ module.exports = {
       console.log(err);
     }
   },
+  deleteEvent: async (req, res) => {
+    try {
+      const eventId = req.params.id;
+      //checks if an event exists that _id, user, and req.user._id match. This is to prevent users that are authenticated from deleting events they do not author.
+      const event = await Event.findOne({ _id: eventId, user: req.user._id });
+      if (!event) { return res.status(401).send({ message: 'You are not the author of this event' }); }
+      await Event.deleteOne({ _id: eventId });
+      res.json({ message: 'Event deleted' });
+    } catch (error) {
+      console.error(error);
+    }
+  },
+  deleteAllEvents: async (req, res) => {
+    try {
+      const groupId = req.params.groupId;
+      //checks if an event exists that _id, user, and req.user._id match. This is to prevent users that are authenticated from deleting events they do not author.
+      const event = await Event.findOne({ groupId: groupId, user: req.user._id })
+      if (!event) { return res.status(401).send({ message: 'You are not the author of this event' }); }
+      await Event.deleteMany({ groupId: groupId });
+      res.json({ message: 'Events deleted' });
+    } catch (error) {
+      console.error(error);
+    }
+  },
 };
