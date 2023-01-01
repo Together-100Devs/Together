@@ -45,6 +45,7 @@ module.exports = {
       res.json({ message: 'Event deleted' });
     } catch (error) {
       console.error(error);
+      res.send(500);
     }
   },
   deleteAllEvents: async (req, res) => {
@@ -57,6 +58,7 @@ module.exports = {
       res.json({ message: 'Events deleted' });
     } catch (error) {
       console.error(error);
+      res.send(500);
     }
   },
 };
