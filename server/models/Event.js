@@ -23,7 +23,7 @@ const EventSchema = new mongoose.Schema(
       required: true,
     },
     user: {
-      type: String, // User _id is the discord id
+      type: mongoose.SchemaTypes.ObjectId, // User _id is the discord id
       required: true,
       ref: "User",
     },
