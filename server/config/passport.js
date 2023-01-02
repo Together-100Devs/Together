@@ -32,7 +32,7 @@ module.exports = function (passport) {
             msg: "You must be a member of the 100Devs Discord to use this application",
           });
         // Check if user exists in DB
-        let user = await User.findOne({ discordId: profile.id}).exec();
+        let user = await User.findOne({ discordId: profile.id }).exec();
 
         try {
           // Create user if it doesn't exist
