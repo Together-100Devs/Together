@@ -37,7 +37,6 @@ module.exports = function (passport) {
         try {
           // Create user if it doesn't exist
           if (!user) {
-            console.log("attempting to create a user")
             user = await User.create({
               displayName: displayName,
               discordId: profile.id,
