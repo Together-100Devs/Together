@@ -10,7 +10,7 @@ const useProvideForm = () => {
   const totalSteps = ["Description", "Schedule", "Confirm", "Success"];
 
   const handleNewStep = async direction => {
-    const newStep = direction === "next" ? currentStep + 1: currentStep - 1;
+    const newStep = direction === "next" ? currentStep + 1 : currentStep - 1;
 
     if (newStep > 0 && newStep <= totalSteps.length) {
       setCurrentStep(newStep);
@@ -19,20 +19,26 @@ const useProvideForm = () => {
     // Submit form to server
     if (newStep === 4) {
       const recurringDates = generateRecurringDatesArray(formData);
-      const data = JSON.stringify({
-        ...formData,
-        dates: recurringDates
-      })
-      await DataService.create({ data: data })
+      const { title, description, location } = formData;
+
+      const data = JSON.stringify(
+        recurringDates.map(date => ({
+          title,
+          description,
+          location,
+          ...date,
+        }))
+      );
+      await DataService.create({ data: data });
     }
-  }
+  };
 
   return {
     currentStep,
     totalSteps,
     formData,
     handleNewStep,
-    setFormData
+    setFormData,
   };
 };
 

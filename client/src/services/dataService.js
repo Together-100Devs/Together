@@ -17,6 +17,12 @@ class DataService {
   getById(id) {
     return URL.get(`/events/${id}`);
   }
+  deleteEvent(id) {
+    return URL.delete(`/events/${id}`)
+  }
+  deleteAllEvents(groupId) {
+    return URL.delete(`/events/deleteAllEvents/${groupId}`)
+  }
   getCurrentUser() {
     return URL.get("/getDisplayName");
   }
