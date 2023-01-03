@@ -39,7 +39,7 @@ const EventModal = ({ handleClose }) => {
       {authorCheck &&
       <button
         className="w-auto h-10 mt-5 px-2 border-solid border-2 border-gray outline-none rounded font-semibold text-xl text-sm hover:bg-teal-600 active:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-300 inline-block"
-        onClick={() => dataService.deleteAllEvents(modal.activeModal._id).then(handleClose) }
+        onClick={() => dataService.deleteAllEvents(modal.activeModal.groupId).then(handleClose) }
       >
         Delete All Events
       </button>
