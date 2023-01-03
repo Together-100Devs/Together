@@ -9,7 +9,6 @@ module.exports = {
     try {
       let data = JSON.parse(req.body.data);
       data.forEach(obj => obj.user = req.user._id);
-      console.log(data);
       await Event.insertMany(data);
       res.json({ message: "Event created!" });
     } catch (err) {
@@ -17,10 +16,8 @@ module.exports = {
     }
   },
   getAll: async (req, res) => {
-    console.log(req.user);
     try {
       const events = await Event.find().populate('user').exec();
-      console.log(await events[0]);
       // return all events
       res.json(events);
     } catch (err) {
