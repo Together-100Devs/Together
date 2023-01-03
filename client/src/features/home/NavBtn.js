@@ -10,8 +10,8 @@ const NavBtn = ({ Icon }) => {
       >
         Navigate to Calendar Page
       </button>
-      <div class="bg-navBtnLight shadow-border p-3">
-        <div class="w-4 h-4">
+      <div className="bg-navBtnLight shadow-border p-3">
+        <div className="w-4 h-4">
           <Icon />
         </div>
       </div>
