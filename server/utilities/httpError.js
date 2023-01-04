@@ -6,6 +6,9 @@ const errorMessages = {
   409: "Conflict",
 };
 
+/**
+ * Create an Error object with the given status and message
+ */
 const httpError = (status, message = errorMessages[status]) => {
   const error = new Error(message);
   error.status = status;
