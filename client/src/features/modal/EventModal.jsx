@@ -11,7 +11,7 @@ import dataService from '../../services/dataService';
 import { useAuthContext } from "contexts/AuthContext";
 
 
-const EventModal = ({ handleClose }) => {
+const EventModal = () => {
   const modal = useModalContext();
 
   //grabs user compares user from context and event author
@@ -24,25 +24,25 @@ const EventModal = ({ handleClose }) => {
     <div className="flex flex-col items-center py-0 px-2rem rounded-xl bg-white pb-4">
       <button
         className="w-auto h-12 mt-5 px-2 border-solid border-2 border-gray outline-none rounded font-semibold text-xl hover:bg-teal-600 active:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-300"
-        onClick={handleClose}
+        onClick={modal.handleClose}
       >
         Close
       </button>
       {authorCheck &&
-      <button
-        className="w-auto h-12 mt-5 px-2 border-solid border-2 border-gray outline-none rounded font-semibold text-xl hover:bg-teal-600 active:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-300"
-        onClick={() => dataService.deleteEvent(modal.activeModal._id).then(handleClose) }
-      >
-        Delete Specific Event
-      </button>
+        <button
+          className="w-auto h-12 mt-5 px-2 border-solid border-2 border-gray outline-none rounded font-semibold text-xl hover:bg-teal-600 active:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-300"
+          onClick={() => dataService.deleteEvent(modal.activeModal._id).then(modal.handleClose)}
+        >
+          Delete Specific Event
+        </button>
       }
       {authorCheck &&
-      <button
-        className="w-auto h-10 mt-5 px-2 border-solid border-2 border-gray outline-none rounded font-semibold text-xl text-sm hover:bg-teal-600 active:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-300 inline-block"
-        onClick={() => dataService.deleteAllEvents(modal.activeModal.groupId).then(handleClose) }
-      >
-        Delete All Events
-      </button>
+        <button
+          className="w-auto h-10 mt-5 px-2 border-solid border-2 border-gray outline-none rounded font-semibold text-xl text-sm hover:bg-teal-600 active:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-300 inline-block"
+          onClick={() => dataService.deleteAllEvents(modal.activeModal.groupId).then(modal.handleClose)}
+        >
+          Delete All Events
+        </button>
       }
       <div className="w-4/6 mt-3 flex flex-col">
         <h2 className=" flex mb-1 border-solid border-b-2 border-black font-semibold">
@@ -76,7 +76,7 @@ const EventModal = ({ handleClose }) => {
             <IoLocationOutline className="mt-1" /> <span>Location: {modal.activeModal.location}</span>
           </section>
           <section className="flex m-3 gap-1 font-semibold">
-              <IoPersonOutline className="mt-1" /> <span>Event Author: {modal.activeModal.user?.displayName || "Deleted"}</span>
+            <IoPersonOutline className="mt-1" /> <span>Event Author: {modal.activeModal.user?.displayName || "Deleted"}</span>
           </section>
         </div>
       </div>
