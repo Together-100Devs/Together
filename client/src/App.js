@@ -2,6 +2,7 @@ import React from "react";
 import Calendar from "features/calendar/Calendar";
 import UserForm from "features/form/UserForm";
 import Modal from "features/modal/Modal";
+import EventModal from "features/modal/EventModal";
 import { useRoutingContext } from "contexts/RoutingContext";
 import { useAuthContext } from "contexts/AuthContext";
 import LandingPage from "features/home/LandingPage";
@@ -31,7 +32,9 @@ function App() {
         <Calendar />
         <FormProvider>
           <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
-            <Modal type={'event'} open={'eventModal'}/>
+            <Modal>
+              <EventModal />
+            </Modal>
             {auth?.user && 
                 <UserForm />
             }
