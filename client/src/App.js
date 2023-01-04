@@ -5,12 +5,14 @@ import Modal from "features/modal/Modal";
 import EventModal from "features/modal/EventModal";
 import { useRoutingContext } from "contexts/RoutingContext";
 import { useAuthContext } from "contexts/AuthContext";
+import { useModalContext } from "contexts/ModalContext";
 import LandingPage from "features/home/LandingPage";
 import FormProvider from "contexts/FormContext";
 
 function App() {
   const routing = useRoutingContext();
   const auth = useAuthContext();
+  const modal = useModalContext();
   const isAuthenticated = auth.isAuthenticated();
 
   return (
@@ -32,11 +34,11 @@ function App() {
         <Calendar />
         <FormProvider>
           <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
-            <Modal>
+            <Modal context={modal}>
               <EventModal />
             </Modal>
             {auth?.user && 
-                <UserForm />
+              <UserForm />
             }
           </div>
         </FormProvider>
