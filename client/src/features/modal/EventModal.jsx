@@ -38,7 +38,7 @@ const EventModal = () => {
       }
       {authorCheck &&
         <button
-          className="w-auto h-10 mt-5 px-2 border-solid border-2 border-gray outline-none rounded font-semibold text-xl text-sm hover:bg-teal-600 active:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-300 inline-block"
+          className="w-auto h-10 mt-5 px-2 border-solid border-2 border-gray outline-none rounded font-semibold text-xl hover:bg-teal-600 active:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-300 inline-block"
           onClick={() => dataService.deleteAllEvents(modal.activeEvent.groupId).then(modal.handleClose)}
         >
           Delete All Events
