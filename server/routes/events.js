@@ -7,7 +7,7 @@ const auth = require("../middleware/auth");
 //test function
 router.get("/ping", eventsController.ping);
 
-router.post("/create", auth.ensureAuth, eventsController.create);
+router.post("/", auth.ensureAuth, eventsController.create);
 
 router.get("/", eventsController.getAll);
 
