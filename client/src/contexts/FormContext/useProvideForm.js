@@ -75,8 +75,10 @@ const useProvideForm = () => {
     currentStep,
     totalSteps,
     formData,
+    formCreateEventErrors, 
     handleNewStep,
-    setFormData
+    setFormData,
+    setformCreateEventErrors
   };
 };
 
