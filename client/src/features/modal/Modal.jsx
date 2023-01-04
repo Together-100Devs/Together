@@ -1,10 +1,9 @@
 import { AnimatePresence } from "framer-motion";
-import EventModal from "./EventModal";
 import Backdrop from "./Backdrop";
 import { motion } from "framer-motion";
 import { useModalContext } from "contexts/ModalContext";
 
-const Modal = (props) => {
+const Modal = ({ children }) => {
   const modal = useModalContext();
 
   const dropIn = {
@@ -45,7 +44,7 @@ const Modal = (props) => {
               animate="visible"
               exit="exit"
             >
-              <EventModal handleClose={modal.handleClose} />
+              {children}
             </motion.div>
           </Backdrop>
         }
