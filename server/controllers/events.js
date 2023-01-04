@@ -76,24 +76,35 @@ module.exports = {
       next(err);
     }
   },
-  deleteAllEvents: async (req, res) => {
+  deleteAllEvents: async (req, res, next) => {
     try {
-      const groupId = req.params.groupId;
-      //checks if an event exists that _id, user, and req.user._id match. This is to prevent users that are authenticated from deleting events they do not author.
-      const event = await Event.findOne({
-        groupId: groupId,
+      const { groupId } = req.params;
+
+      // Prevent users that are authenticated from deleting events they do not author.
+      const count = await Event.countDocuments({
+        groupId,
         user: req.user._id,
-      });
-      if (!event) {
-        return res
-          .status(401)
-          .send({ message: "You are not the author of this event" });
+      }).exec();
+
+      if (count === 0) {
+        throw httpError(401);
       }
-      await Event.deleteMany({ groupId: groupId });
-      res.json({ message: "Events deleted" });
-    } catch (error) {
-      console.error(error);
-      res.send(500);
+
+      const { deletedCount } = await Event.deleteMany({
+        groupId,
+        user: req.user._id,
+      }).exec();
+
+      // If the number of documents found is not equal to the number of deleted documents
+      // Something may have gone wrong
+      if (count !== deletedCount) {
+        console.log(`Documents found: ${count}`);
+        console.log(`Documents deleted: ${deletedCount}`);
+      }
+
+      res.sendStatus(204);
+    } catch (err) {
+      next(err);
     }
   },
 };
