@@ -7,7 +7,7 @@ const FormMoverControl = () => {
 
   const [errorArray, setErrorArray] = useState([]);
 
-  function checkInputError(input) {
+  function checkForEmptyField(input) {
     if (formData[input] === "" || formData[input] == null) {
       console.log(`Error: Missing ${input} field value`);
       errorArray.push(`Error: Missing ${input} field can't be empty`);
@@ -33,9 +33,9 @@ const FormMoverControl = () => {
         // Check if any values are empty string, null, undefined, and/or less than 2 characters
         // Side note: This is the only case where you"d ever want to use == instead of ===
 
-        checkInputError("title");
-        checkInputError("description");
-        checkInputError("location");
+        checkForEmptyField("title");
+        checkForEmptyField("description");
+        checkForEmptyField("location");
 
         console.log("Errors:", errorArray);
         console.log("Testing concluded.");
@@ -49,55 +49,13 @@ const FormMoverControl = () => {
         console.log("\n\nChecking Values:");
 
         // Empty Field Value Tests
-        if (formData["initialDate"] === "" || formData["initialDate"] == null) {
-          console.log("Error: Missing start date field value");
-          errorArray.push("Start date field must not be empty");
-        } else {
-          console.log("Start date field value is valid");
-          const index = errorArray.indexOf("Start date field must not be empty")
-          if (index > -1) { // only splice array when item is found
-            errorArray.splice(index, 1); // 2nd parameter means remove one item only
-          }
-        }
-
-        if (formData["finalDate"] === "" || formData["finalDate"] == null) {
-          console.log("Error: Missing End date field value");
-          errorArray.push("End date field must not be empty");
-        } else {
-          console.log("End date field value is valid");
-          const index = errorArray.indexOf("End date field must not be empty")
-          if (index > -1) { // only splice array when item is found
-            errorArray.splice(index, 1); // 2nd parameter means remove one item only
-          }
-        }
-
-        if (formData["startTime"] === "" || formData["startTime"] == null) {
-          console.log("Error: Missing Start time field value");
-          errorArray.push("Start time field must not be empty");
-        } else {
-          console.log("Start time field value is valid");
-          const index = errorArray.indexOf("Start time field must not be empty")
-          if (index > -1) { // only splice array when item is found
-            errorArray.splice(index, 1); // 2nd parameter means remove one item only
-          }
-        }
-
-        if (formData["endTime"] === "" || formData["endTime"] == null) {
-          console.log("Error: Missing End time field value");
-          errorArray.push("End time field must not be empty");
-        } else {
-          console.log("End time field value is valid");
-          const index = errorArray.indexOf("End time field must not be empty")
-          if (index > -1) { // only splice array when item is found
-            errorArray.splice(index, 1); // 2nd parameter means remove one item only
-          }
-        }
-
+        checkForEmptyField("initialDate");
+        checkForEmptyField("finalDate");
+        checkForEmptyField("startTime");
+        checkForEmptyField("endTime");
 
         // Start Date & End Date Cannot be more than 90 days apart
-
         // get date 90 days before final date
-
         const NinetyDaysBeforeFinalDate = sub(parseISO(formData["finalDate"]), { days: 90 });
         // console.log(formData["initialDate"]);
         // console.log(NinetyDaysBeforeFinalDate)
@@ -105,12 +63,6 @@ const FormMoverControl = () => {
         if (parseISO(formData["initialDate"]) < NinetyDaysBeforeFinalDate) {
           console.log("Error: Start date and End date cannot be more than 90 days apart");
           errorArray.push("Start date and End date cannot be more than 90 days apart");
-        } else {
-          console.log("Start date and End date difference is valid");
-          const index = errorArray.indexOf("Start date and End date cannot be more than 90 days apart")
-          if (index > -1) { // only splice array when item is found
-            errorArray.splice(index, 1); // 2nd parameter means remove one item only
-          }
         }
 
         // Start Date cannot be after End Date, vica versa
@@ -118,22 +70,21 @@ const FormMoverControl = () => {
           console.log("Error: Start date cannot be after End date");
           errorArray.push("Error: Start date cannot be after End date");
         }
-        
-        /*  else {
-          console.log("Start date and End date difference is valid");
-          const index = errorArray.indexOf("Start date and End date cannot be more than 90 days apart")
-          if (index > -1) { // only splice array when item is found
-            errorArray.splice(index, 1); // 2nd parameter means remove one item only
-          }
-        } */
 
         // "Weekly" Recurring Event MUST include at least on day of week
         if (formData["recurring"]["rate"] === "weekly" && formData["recurring"]["days"].length === 0) {
-          console.log("Weekly recurring Event MUST include at least on day of week");
-          errorArray.push("Weekly recurring Event MUST include at least on day of week");
+          console.log("Weekly recurring Event MUST include at least one day of the week");
+          errorArray.push("Weekly recurring Event MUST include at least one day of the week");
         }
         // print an error
 
+        // Start time cannot be after End time
+        if ((formData["startTime"]) > formData["endTime"]) {
+          console.log("Error: Start time cannot be after End time");
+          errorArray.push("Error: Start time cannot be after End time");
+        }
+
+        
         console.log("Errors:", errorArray);
         console.log("Testing concluded.");
 
