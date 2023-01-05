@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useFormContext } from "contexts/FormContext";
 import { useAuthContext } from "contexts/AuthContext";
 
@@ -6,8 +6,12 @@ import { useAuthContext } from "contexts/AuthContext";
 export default function FormCreateEvent() {
 
   const auth = useAuthContext();
-  const { formData, setFormData } = useFormContext();
+  const { formData, setFormData, formCreateEventErrors } = useFormContext();
   // const {formCompleted, setFormCompleted} = useState();
+
+  useEffect(() => {
+    console.log("Got errors for formCreatEvent:", formCreateEventErrors);
+  }, [formCreateEventErrors]);
 
   const handleChange = e => {
 
@@ -34,6 +38,19 @@ export default function FormCreateEvent() {
     // TITLE OF EVENT FIELD
     <div className="flex flex-col">
       <div className="w-full mx-2 flex-1">
+
+        {/* ["string", "string", "string", ...] */}
+        {/* {formCreateEventErrors} */}
+        {formCreateEventErrors.forEach((error) => {
+          <div class="alert alert-error shadow-lg text-red-700">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <span>{error} is needed to continue.</span>
+            </div>
+          </div>
+        })}
+      
+
         <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
           Title
         </div>
