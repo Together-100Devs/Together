@@ -1,4 +1,4 @@
-const DiscordStrategy = require("passport-discord").Strategy;
+const DiscordStrategy = require("passport-discord");
 const User = require("../models/User");
 
 module.exports = function (passport) {
@@ -6,8 +6,14 @@ module.exports = function (passport) {
     done(null, user.id);
   });
 
-  passport.deserializeUser((id, done) => {
-    User.findById(id, (err, user) => done(err, user));
+  passport.deserializeUser(async (id, done) => {
+    try {
+      const user = await User.findById(id);
+      if (!user) throw new Error("User not found");
+      done(null, user);
+    } catch (err) {
+      done(err);
+    }
   });
 
   //Discord authentication
