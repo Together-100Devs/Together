@@ -3,6 +3,30 @@ import { useFormContext } from "contexts/FormContext";
 import { useAuthContext } from "contexts/AuthContext";
 
 export default function FormCreateEvent() {
+
+  const auth = useAuthContext();
+  const { formData, setFormData, formCreateEventErrors } = useFormContext();
+  // const {formCompleted, setFormCompleted} = useState();
+
+  useEffect(() => {
+    console.log("Got errors for formCreatEvent:", formCreateEventErrors);
+  }, [formCreateEventErrors]);
+
+  const handleChange = e => {
+
+    const { name, value } = e.target;
+
+    // TODO: These are devs notes, delete this line and possibly the rest before PRing
+    // Using an anonymous function like so allows us to get the previous state of the data and extend it
+    // [name]: value overrides the value at the [name] on which handleChange is called
+    // e.g. if [name] is "title" in the form input, the value of "title" gets changed in formData
+    // the data is then also extended by your Discord username
+    setFormData(prevFormData => ({ ...prevFormData, [name]: value, discordName: auth.user?.displayName }));
+
+    // Next button stays greyed out/disabled by default, and as long as any field is empty
+    // and also if a date is out of range, etc.
+
+    // TODO: Ask Caleb about making end date just one or two years from now in the Issue thread.
   const auth = useAuthContext();
   const { formData, setFormData } = useFormContext();
   
@@ -12,9 +36,29 @@ export default function FormCreateEvent() {
     setFormData(prevFormData => ({ ...prevFormData, [name]: value, discordName: auth.user?.displayName }));
   };
 
+  //test
+
+  // useEffect(() => { // Debug code
+  //   console.log(formData);
+  // }, [formData])
+
+
   return (
     <div className="flex flex-col">
       <div className="w-full mx-2 flex-1">
+
+        {/* ["string", "string", "string", ...] */}
+        {/* {formCreateEventErrors} */}
+        {formCreateEventErrors.forEach((error) => {
+          <div class="alert alert-error shadow-lg text-red-700">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <span>{error} is needed to continue.</span>
+            </div>
+          </div>
+        })}
+      
+
         <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
           Title
         </div>

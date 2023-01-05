@@ -47,7 +47,9 @@ export const convertLocalDateToUTC = (htmlDate = '', htmlTime = '') => {
     localDate.getUTCMinutes(), localDate.getUTCSeconds());
 }
 
-//happens on event submit
+// happens on event submit
+// need to trust the data is valid, we can't trust any data from client to server (not other way  around)
+// TODO: ONLY AFTER PULLING NEW SCHEMA, Most to all of this sanitization should be done in a controlled environment on the server.
 export const generateRecurringDatesArray = ({ initialDate, startTime, finalDate, endTime, title, description, location, recurring }) => {
 
   // If event is not recurring, generate just one event for dates array and return.
