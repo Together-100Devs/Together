@@ -1,75 +1,106 @@
-import React from "react";
+import React, {useState} from "react";
 import { useFormContext } from "contexts/FormContext";
+import { parseISO, format, add, sub } from "date-fns";
 
 const FormMoverControl = () => {
-  const { formData, currentStep, totalSteps, handleNewStep, setFormCreateEventErrors, formCreateEventErrors } = useFormContext();
+  const { formData, currentStep, totalSteps, handleNewStep, setFormCreateEventErrors, setFormScheduleEventErrors } = useFormContext();
+
+  const [errorArray, setErrorArray] = useState([]);
+
+  function checkForEmptyField(input) {
+    if (formData[input] === "" || formData[input] == null) {
+      console.log(`Error: Missing ${input} field value`);
+      errorArray.push(`Error: Missing ${input} field can't be empty`);
+    }
+  }
 
   const handleNextButton = () => {
 
-    // Run a bunch of tests for FormCreateEvent.
-    // For each test that returns an error, save a value
-    // Return the values to FormCreateEventErrors
+    // Run a bunch of tests for each form page.
+    // For each test that returns an error, save a value.
+    // Return the values to the form page"s component.
+
+
+    setErrorArray([]);
+
+    console.log("CHECKING STEP: ", currentStep);
 
     switch (currentStep) {
       case 1:
-        //aaa
-        const errorArray = [];
 
-        // Check if any values are undeclared
-        // This code is no londer needed
-        // if (Object.keys(formData).toString() !== ['recurring', 'completed', 'title', 'discordName', 'description', 'location'].toString()) {
-        //   console.log("Error: Undeclared Value");
-        // }
-
-        console.log("\n\nChecking Values:");
+        console.log("\n\nChecking Values:", formData);
 
         // Check if any values are empty string, null, undefined, and/or less than 2 characters
-        // Side note: This is the only case where you'd ever want to use == instead of ===
-        if (formData['title'] === "" || formData['title'] == null) {
-          console.log("Error: Missing 'title' field value");
-          errorArray.push('Title field must at least be two characters');
-        } else {
-          console.log("'title' field value is valid");
-          errorArray.remove('Title field must at least be two characters');
-        }
+        // Side note: This is the only case where you"d ever want to use == instead of ===
 
-        if (formData['description'] === "" || formData['description'] == null) {
-          console.log("Error: Missing 'description' field value");
-          errorArray.push('Description field must at least be two characters');
-        } else {
-          console.log("'description' field value is valid");
-          errorArray.remove('Description field must at least be two characters');
-        }
+        checkForEmptyField("title");
+        checkForEmptyField("description");
+        checkForEmptyField("location");
 
-        if (formData['location'] === "" || formData['location'] == null) {
-          console.log("Error: Missing 'location' field value");
-          errorArray.push('Location field must at least be two characters');
-        } else {
-          console.log("'location' field value is valid");
-          errorArray.remove('Location field must at least be two characters');
-        }
-
-        if (formData['discordName'] === "" || formData['discordName'] == null) {
-          console.log("Error: Missing 'discordName' field value");
-          errorArray.push('Discord username field must at least be two characters');
-        } else {
-          console.log("'discordName' field value is valid");
-          errorArray.remove('Discord username field must at least be two characters');
-        }
-
-        console.log("Errors at fields:", errorArray);
+        console.log("Errors:", errorArray);
         console.log("Testing concluded.");
 
         setFormCreateEventErrors(errorArray);
-      // console.log(formCreateEventErrors);
+        break;
+
+      // 2nd page - FormScheduleEvent
+      case 2:
+
+        console.log("\n\nChecking Values:");
+
+        // Empty Field Value Tests
+        checkForEmptyField("initialDate");
+        checkForEmptyField("finalDate");
+        checkForEmptyField("startTime");
+        checkForEmptyField("endTime");
+
+        // Start Date & End Date Cannot be more than 90 days apart
+        // get date 90 days before final date
+        const NinetyDaysBeforeFinalDate = sub(parseISO(formData["finalDate"]), { days: 90 });
+        // console.log(formData["initialDate"]);
+        // console.log(NinetyDaysBeforeFinalDate)
+        // console.log("Is start date 90 days before end date", parseISO(formData["initialDate"]) < NinetyDaysBeforeFinalDate);
+        if (parseISO(formData["initialDate"]) < NinetyDaysBeforeFinalDate) {
+          console.log("Error: Start date and End date cannot be more than 90 days apart");
+          errorArray.push("Start date and End date cannot be more than 90 days apart");
+        }
+
+        // Start Date cannot be after End Date, vica versa
+        if (parseISO(formData["finalDate"]) < parseISO(formData["initialDate"])) {
+          console.log("Error: Start date cannot be after End date");
+          errorArray.push("Error: Start date cannot be after End date");
+        }
+
+        // "Weekly" Recurring Event MUST include at least on day of week
+        if (formData["recurring"]["rate"] === "weekly" && formData["recurring"]["days"].length === 0) {
+          console.log("Weekly recurring Event MUST include at least one day of the week");
+          errorArray.push("Weekly recurring Event MUST include at least one day of the week");
+        }
+        // print an error
+
+        // Start time cannot be after End time
+        if ((formData["startTime"]) > formData["endTime"]) {
+          console.log("Error: Start time cannot be after End time");
+          errorArray.push("Error: Start time cannot be after End time");
+        }
+
+        
+        console.log("Errors:", errorArray);
+        console.log("Testing concluded.");
+
+        setFormScheduleEventErrors(errorArray);
+        break;
+
       default:
-        console.log("helo");
+        break;
 
     }
     // Only if none of the tests return an error do we allow currentStep to iterate
     // By running handleNextStep.
 
-    handleNewStep("next");
+    if (errorArray.length <= 0) {
+      handleNewStep("next");
+    }
   }
 
   return (
