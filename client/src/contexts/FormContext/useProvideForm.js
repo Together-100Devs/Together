@@ -12,8 +12,8 @@ const useProvideForm = () => {
   });
 
   // form errors
-  //aaa
   const [formCreateEventErrors, setFormCreateEventErrors] = useState([]);
+  const [formScheduleEventErrors, setFormScheduleEventErrors] = useState([]);
   
   const checkCompleted = () =>{
 
@@ -77,9 +77,11 @@ const useProvideForm = () => {
     totalSteps,
     formData,
     formCreateEventErrors,
+    formScheduleEventErrors,
     handleNewStep,
     setFormData,
-    setFormCreateEventErrors
+    setFormCreateEventErrors,
+    setFormScheduleEventErrors
   };
 };
 
