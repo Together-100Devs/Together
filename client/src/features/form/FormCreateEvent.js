@@ -30,6 +30,8 @@ export default function FormCreateEvent() {
     // TODO: Ask Caleb about making end date just one or two years from now in the Issue thread.
   };
 
+  //test
+
   // useEffect(() => { // Debug code
   //   console.log(formData);
   // }, [formData])
