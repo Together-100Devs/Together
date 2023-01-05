@@ -1,12 +1,13 @@
-import { useContext } from "react";
-import { FormMoverContext } from "./contexts/FormMoverContext";
+import React from "react";
+import { useFormContext } from "contexts/FormContext";
 import FormRecurringDates from "./FormRecurringDates";
 
 export default function FormScheduleEvent() {
-  const { userData, setUserData } = useContext(FormMoverContext);
+  const { formData, setFormData } = useFormContext();
+
   const handleChange = e => {
     const { name, value } = e.target;
-    setUserData({ ...userData, [name]: value });
+    setFormData(prevFormData => ({ ...prevFormData, [name]: value}));
   };
 
   return (
@@ -19,7 +20,7 @@ export default function FormScheduleEvent() {
           <input
             type="text"
             onChange={handleChange}
-            value={userData["location"] || ""}
+            value={formData["location"] || ""}
             name="location"
             placeholder="Location"
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
@@ -35,7 +36,7 @@ export default function FormScheduleEvent() {
           <input
             type="time"
             onChange={handleChange}
-            value={userData["startTime"] || ""}
+            value={formData["startTime"] || ""}
             name="startTime"
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
           />
@@ -50,7 +51,7 @@ export default function FormScheduleEvent() {
           <input
             type="time"
             onChange={handleChange}
-            value={userData["endTime"] || ""}
+            value={formData["endTime"] || ""}
             name="endTime"
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
           />

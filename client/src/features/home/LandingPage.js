@@ -1,19 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import "../../index.css";
 import LongCard from "./LongCard";
+import NavBtn from "./NavBtn";
 import SmallCard from "./SmallCard";
-import { Context } from "contexts/Context";
+import { FaArrowRight } from "react-icons/fa";
 
 const LandingPage = () => {
-  const [context, setContext] = useContext(Context)
-  return (
+  return(
     <div className="flex flex-wrap ">
-      <button onClick={() => {
-        context.page = "calendarPage"
-        setContext({...context})
-      }}>
-        Navigate to Calendar Page
-      </button>
+      <NavBtn Icon={FaArrowRight} />
       <div className="flex flex-col content-center md:flex-row text-center gap-8 ">
         <SmallCard
           title={"together"}
@@ -27,8 +22,7 @@ const LandingPage = () => {
         <LongCard />
       </div>
     </div>
-  )
-}
-
+  );
+};
 
 export default LandingPage;

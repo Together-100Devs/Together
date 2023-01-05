@@ -1,51 +1,44 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Calendar from "features/calendar/Calendar";
 import UserForm from "features/form/UserForm";
 import Modal from "features/modal/Modal";
-import DataService from "services/dataService";
-import { Context } from "./contexts/Context"
+import { useRoutingContext } from "contexts/RoutingContext";
+import { useAuthContext } from "contexts/AuthContext";
 import LandingPage from "features/home/LandingPage";
+import FormProvider from "contexts/FormContext";
 
 function App() {
-  const [context, setContext] = useState({page: "landingPage", user: null, event: null, eventModal: false})
-  
-  useEffect(() => {
-    DataService.getCurrentUser().then(response => {
-      setContext(prevContext => ({
-        ...prevContext,
-        user: response.data,
-      }));
-    });
-  }, []);
+  const routing = useRoutingContext();
+  const auth = useAuthContext();
+  const isAuthenticated = auth.isAuthenticated();
 
   return (
-    <Context.Provider value={[context, setContext]}>
-      {context.user && 
-        <h3>Hello, {context.user.displayName}, welcome to Together!</h3>
+    <>
+      {isAuthenticated && 
+        <h3>Hello, {auth.user.displayName}, welcome to Together!</h3>
       }
-      {context.page === "landingPage" &&
+      {routing.currentPage === "landingPage" &&
       <div className="bg-primary overflow-hidden flex justify-center items-center h-screen">
-        <div className="w-1/3">
+        <div className="flex w-1/3">
           <LandingPage />
         </div>
       </div>
       }
-      {context.page === "calendarPage" && <>
-        <button onClick={() => {
-          context.page = "landingPage"
-          setContext({...context})
-        }}>
+      {routing.currentPage === "calendarPage" && <>
+        <button onClick={() => routing.setCurrentPage('landingPage')}>
           Navigate to LandingPage
         </button>
         <Calendar />
-        <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
-          <Modal type={'event'} open={'eventModal'}/>
-          {context.user && 
-            <UserForm />
-          }
-        </div>
+        <FormProvider>
+          <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
+            <Modal type={'event'} open={'eventModal'}/>
+            {auth?.user && 
+                <UserForm />
+            }
+          </div>
+        </FormProvider>
       </>}
-    </Context.Provider>
+    </>
   )
 }
 
