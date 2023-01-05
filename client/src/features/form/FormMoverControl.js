@@ -12,6 +12,7 @@ const FormMoverControl = () => {
 
     switch (currentStep) {
       case 1:
+        //aaa
         const errorArray = [];
 
         // Check if any values are undeclared
