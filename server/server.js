@@ -17,6 +17,9 @@ const eventsRoutes = require("./routes/events");
 // Passport config
 require("./config/passport")(passport);
 
+// Mongoose debug mode
+// mongoose.set("debug", true);
+
 //Body Parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -38,7 +41,7 @@ app.use(
 );
 
 // Render React as View
-app.use(express.static(path.join(__dirname, "..", "client", "build")));
+// app.use(express.static(path.join(__dirname, "..", "client", "build")));
 
 // Passport middleware
 app.use(passport.initialize());
@@ -50,9 +53,6 @@ app.use(flash());
 //Setup Routes For Which The Server Is Listening
 app.use("/", mainRoutes);
 app.use("/events", eventsRoutes);
-app.get("'", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
-});
 
 // 404 handler
 app.use((req, res) => {
@@ -61,7 +61,8 @@ app.use((req, res) => {
 
 // error handler
 app.use((err, req, res, next) => {
-  const { status = 500, message = "Server error" } = err;
+  const { status = 500, message = "Server error", stack } = err;
+  console.log(stack);
   res.status(status).json({ message });
 });
 
