@@ -16,7 +16,7 @@ const DayCard = ({ day, month, events }) => {
         ))}
       </div>
 
-      <button className="absolute bottom-0 right-0 flex items-center justify-center hidden w-6 h-6 mb-2 mr-2 text-white bg-gray-400 rounded group-hover:flex hover:bg-gray-500">
+      <button className="absolute bottom-0 right-0 items-center justify-center hidden w-6 h-6 mb-2 mr-2 text-white bg-gray-400 rounded group-hover:flex hover:bg-gray-500">
         <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
           <path
             fillRule="evenodd"
