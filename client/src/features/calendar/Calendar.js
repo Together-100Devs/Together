@@ -41,7 +41,7 @@ const Calendar = () => {
   if (loading) return null;
 
   return (
-    <div className="flex flex-grow h-[600px] w-full overflow-auto text-gray-700 bg-white">
+    <div className="flex flex-grow h-[700px] w-full overflow-auto text-gray-700 bg-white">
       <div className="flex flex-col flex-grow">
         <AllDays />
         <DayCardList data={days} firstDayOfMonth={date.firstDay} />
