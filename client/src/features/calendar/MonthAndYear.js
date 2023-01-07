@@ -7,8 +7,8 @@ const MonthAndYear = ({
   handleNextMonth,
 }) => {
   return (
-    <div className="flex items-center mt-4">
-      <div className="flex ml-6">
+    <div className="flex items-center">
+      <div className="flex">
         <button onClick={handlePreviousMonth}>
           <svg
             className="w-6 h-6"
