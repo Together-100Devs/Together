@@ -4,7 +4,7 @@ import { useState } from "react";
 // Allow us to check and modify any methods/functions in one place.
 const useProvideModal = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeModal, setActiveModal] = useState(null);
+  const [activeEvent, setActiveEvent] = useState(null);
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -23,8 +23,8 @@ const useProvideModal = () => {
     handleOpen,
     handleClose,
     handleToggle,
-    activeModal,
-    setActiveModal
+    activeEvent,
+    setActiveEvent
   }
 };
 

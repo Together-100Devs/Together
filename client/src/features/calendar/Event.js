@@ -9,7 +9,7 @@ const Event = (props) => {
   return (
     <button
       onClick={() => {
-        modal.setActiveModal(props.event)
+        modal.setActiveEvent(props.event)
         modal.handleOpen();
       }}
       key={props.event.title}

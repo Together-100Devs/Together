@@ -1,11 +1,8 @@
 import { AnimatePresence } from "framer-motion";
-import EventModal from "./EventModal";
 import Backdrop from "./Backdrop";
 import { motion } from "framer-motion";
-import { useModalContext } from "contexts/ModalContext";
 
-const Modal = (props) => {
-  const modal = useModalContext();
+const Modal = ({ children, context }) => {
 
   const dropIn = {
     hidden: {
@@ -35,8 +32,8 @@ const Modal = (props) => {
         exitBeforeEnter={true}
         onExitComplete={() => null}
       >
-        {modal.isOpen &&
-          <Backdrop onClick={modal.handleClose}>
+        {context.isOpen &&
+          <Backdrop onClick={context.handleClose}>
             <motion.div
               className="modal"
               onClick={e => e.stopPropagation()}
@@ -45,7 +42,7 @@ const Modal = (props) => {
               animate="visible"
               exit="exit"
             >
-              <EventModal handleClose={modal.handleClose} />
+              {children}
             </motion.div>
           </Backdrop>
         }
