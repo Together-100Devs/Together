@@ -2,13 +2,17 @@ import React, { useContext } from "react";
 import { Context } from "contexts/Context";
 import DataService from "services/dataService";
 
-const LoginWithDiscord = () => {
+const LoginWithDiscord = ({ DiscordIcon }) => {
   const [context, setContext] = useContext(Context);
   return (
     <div>
       {!context.user && (
         <form action="/auth/discord">
-          <button className="tracking-widest" type="submit">
+          <button
+            className=" inline-flex w-52 pt-2 tracking-widest"
+            type="submit"
+          >
+            <DiscordIcon className="w-7 h-7 mr-2" />
             Login with Discord
           </button>
         </form>
