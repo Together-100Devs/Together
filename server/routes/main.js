@@ -25,7 +25,11 @@ router.get(
   })
 );
 router.get("/getDisplayName", (req, res) => {
-  res.json(req.user || null);
+  if(req.session.isNot100Dever){
+    res.json("User is not in 100Devs")
+  } else {
+    res.json(req.user || null);
+  }
 });
 
 module.exports = router;

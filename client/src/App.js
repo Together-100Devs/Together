@@ -3,6 +3,7 @@ import Calendar from "features/calendar/Calendar";
 import UserForm from "features/form/UserForm";
 import Modal from "features/modal/Modal";
 import EventModal from "features/modal/EventModal";
+import RejectionModal from "features/modal/RejectionModal";
 import { useRoutingContext } from "contexts/RoutingContext";
 import { useAuthContext } from "contexts/AuthContext";
 import { useModalContext } from "contexts/ModalContext";
@@ -14,6 +15,7 @@ function App() {
   const auth = useAuthContext();
   const modal = useModalContext();
   const isAuthenticated = auth.isAuthenticated();
+  const isNot100Dever = auth.isNot100Dever();
 
   return (
     <>
@@ -43,6 +45,9 @@ function App() {
           </div>
         </FormProvider>
       </>}
+      {isNot100Dever &&
+      <h1>join 100Devs Dummy</h1>
+      }
     </>
   )
 }
