@@ -6,7 +6,7 @@ function CalendarPage() {
   const date = useDate();
 
   return (
-    <main className="flex flex-col gap-3 p-3 shadow-sm min-h-screen">
+    <main className="flex flex-col gap-3 p-3 shadow-sm min-h-screen max-w-[1920px] mx-auto">
       <CalendarHeader date={date} />
       <Calendar date={date} />
     </main>
