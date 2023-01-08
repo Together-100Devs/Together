@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useFormContext } from "contexts/FormContext";
 import FormRecurringDates from "./FormRecurringDates";
-import { parseISO, format, add, sub } from "date-fns";
+import { format } from "date-fns";
 
 // This component contains location, and the start and end time, see the FormRecurringDates sub-component for details regarding the recurring events
 export default function FormScheduleEvent() {
@@ -56,7 +56,7 @@ export default function FormScheduleEvent() {
       {/* START DATE OF EVENT */}
       <div className="w-full mx-2 flex-1">
         {/* Note for user to understand the date boundaries. Added margin to seperate the date section from the event info */}
-        <p className="text-xs mt-10">Note: Start Date and End Date cannot be more than 90 days apart, and both must be in 2022 or 2023.</p>
+        <p className={"text-xs mt-10 " + finalDateHidden}>Note: Start Date and End Date cannot be more than 90 days apart, and both must be in 2023.</p>
         <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
           {firstDateTitle}
         </div>

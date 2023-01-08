@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useFormContext } from "contexts/FormContext";
-import { parseISO, format, add, sub } from "date-fns";
+import { parseISO, sub } from "date-fns";
 
 const FormMoverControl = () => {
   const { formData, currentStep, totalSteps, handleNewStep, setFormCreateEventErrors, setFormScheduleEventErrors } = useFormContext();
@@ -64,7 +64,7 @@ const FormMoverControl = () => {
           formData["finalDate"] = formData["initialDate"];
         }
 
-        // console.log("\n\nChecking Values:", formData);
+        // console.log("\n\nChecking Values:", formData.initialDate, formData.finalDate);
 
         // Empty Field Value Tests
         checkForEmptyField("initialDate");
@@ -79,7 +79,7 @@ const FormMoverControl = () => {
         // console.log(NinetyDaysBeforeFinalDate)
         // console.log("Is start date 90 days before end date", parseISO(formData["initialDate"]) < NinetyDaysBeforeFinalDate);
         if (parseISO(formData["initialDate"]) < NinetyDaysBeforeFinalDate) {
-          errorArray.push("Start date and End date cannot be more than 90 days apart");
+          errorArray.push("Error: Start date and End date cannot be more than 90 days apart");
         }
 
         // Start Date cannot be after End Date, vica versa
@@ -89,7 +89,7 @@ const FormMoverControl = () => {
 
         // "Weekly" Recurring Event MUST include at least on day of week
         if (formData["recurring"]["rate"] === "weekly" && formData["recurring"]["days"].length === 0) {
-          errorArray.push("Weekly recurring event MUST include at least one day of the week");
+          errorArray.push("Error: Weekly recurring event MUST include at least one day of the week");
         }
 
         // Start time cannot be after End time

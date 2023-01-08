@@ -12,12 +12,11 @@ export default function FormRecurringDates() {
     // If Not Recurring, set days of week checkboxes to be invisible
     if (formData.recurring.rate === "noRecurr") {
       setRecurringDaysHidden("hidden");
-      // Reset days array
-      formData.recurring.days = [];
+      formData.recurring.days = []; // Reset days array
     } else {
       setRecurringDaysHidden("");
     }
-  }, [formData.recurring.rate])
+  }, [formData.recurring, formData.recurring.rate])
 
   // This handles the value change when a recurrence rate checkbox is selected
   const handleDaysOfWeekChange = e => {
@@ -79,7 +78,7 @@ export default function FormRecurringDates() {
               checked={!!(formData.recurring.rate === "noRecurr")}
               className="  mx-1 outline-non text-gray-800"
             />
-            <p>No Recurring</p>
+            <p>Not Recurring</p>
           </div>
         </div>
 
