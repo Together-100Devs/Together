@@ -4,6 +4,7 @@ import BottomCard from "./BottomCard";
 import NavContainer from "./NavContainer";
 import SmallCard from "./SmallCard";
 import { CgChevronDoubleRightO } from "react-icons/cg";
+import HamburgerNav from "./HamburgerNav";
 
 const LandingPage = () => {
   const cards = [
@@ -22,7 +23,8 @@ const LandingPage = () => {
   ];
 
   return (
-    <div className="flex flex-wrap tablet:w-full">
+    <div className="flex flex-wrap desktop:w-full pt-20 tablet:pt-0">
+      <HamburgerNav logo={"./logoicon.png"} logotext={"./logotext.png"} />
       <NavContainer />
       <LongCard
         img={"/Homeoffice.png"}
@@ -55,19 +57,3 @@ const LandingPage = () => {
 };
 
 export default LandingPage;
-
-/*      <SmallCard
-          heading="Order1"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-          Icon={CgChevronDoubleRightO}
-        />
-        <SmallCard
-          heading="Order2"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-          Icon={CgChevronDoubleRightO}
-        />
-        <SmallCard
-          heading="Order3"
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-          Icon={CgChevronDoubleRightO}
-        /> */

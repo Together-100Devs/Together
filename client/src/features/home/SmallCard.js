@@ -9,7 +9,7 @@ const SmallCard = ({ heading, description, Icon }) => {
       : "bg-[#E0835D]";
   return (
     <div
-      className={`text-white px-8 py-8 my-8 border-2 border-black rounded-xl shadow-lg ${cardColor}`}
+      className={`text-white p-8 my-8 tablet:w-full border-2 border-black rounded-xl shadow-lg ${cardColor}`}
     >
       <h1 className="font-bold text-2xl text-center pb-10">{heading}</h1>
       <p className="text-xl">{description}</p>

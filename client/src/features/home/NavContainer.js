@@ -4,9 +4,8 @@ import { FaHome, FaChevronCircleRight, FaRegCalendarAlt } from "react-icons/fa";
 
 const NavContainer = () => {
   return (
-    <nav className="flex flex-row justify-around w-[639px] h-[130px] text-center py-6 tablet:flex-row tablet:justify-between tablet:h-44 box-border border-2 border-emerald-500 tablet:py-6 tablet:px-6">
-      <LogoContainer logo={"/logoicon.png"} logotext={"/logotext.png"} />
-
+    <nav className="hidden flex-row tablet:inline-flex justify-around desktop:justify-between w-[639px] tablet:w-full h-[130px] tablet:h-44 py-6 box-border border-2 border-emerald-500 tablet:py-6 tablet:px-2">
+      <LogoContainer logo={"./logoicon.png"} logotext={"./logotext.png"} />
       <NavButtons
         HomeIcon={FaHome}
         LoginIcon={FaChevronCircleRight}

@@ -1,42 +1,46 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
-function HamburgerNav() {
-  const [navbar, setNavbar] = useState(false);
+function HamburgerNav({ logo, logotext }) {
+  let Links = [
+    { name: "HOME", link: "landingPage" },
+    { name: "LOG IN", link: "/auth/discord" },
+    { name: "CALENDAR", link: "calendarPage" },
+  ];
+
+  let [open, setOpen] = useState(false);
+
   return (
-    <nav className="w-full bg-white z-10 tablet:hidden">
-      <div className="justify-between mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
-        <div>
-          <div className="flex justify-center px-3 py-3 md:py-5 md:block">
-            <div className="md:hidden">
-              <button
-                className="p-2 rounded-md focus:border"
-                onClick={() => setNavbar(!navbar)}
-              >
-                {navbar ? <FaBars /> : <FaTimes />}
-              </button>
-            </div>
-          </div>
+    <nav className="shadow-md w-full fixed top-0 left-0 tablet:hidden">
+      <div className="tablet:flex bg-white py-6 px-7">
+        <div className="cursor-pointer flex items-center">
+          <img className="mr-1 pt-2 w-7" src={logo} alt="logo icon" />
+          <img className="mr-1 pt-2 w-20" src={logotext} alt="logo text" />
         </div>
-        <div>
-          <div
-            className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
-              navbar ? "block" : "hidden"
-            }`}
-          >
-            <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-              <li className="text-gray-600 hover:text-blue-600">
-                <a href="index.html">Home</a>
-              </li>
-              <li className="text-gray-600 hover:text-blue-600">
-                <a href="login.html">Log In</a>
-              </li>
-              <li className="text-gray-600 hover:text-blue-600">
-                <a href="calendar.html">Calendar</a>
-              </li>
-            </ul>
-          </div>
+        <div
+          onClick={() => setOpen(!open)}
+          className="text-3xl absolute right-8 top-6 cursor-pointer"
+        >
+          {open ? <FaTimes /> : <FaBars />}
         </div>
+        <ul
+          className={`absolute bg-white z-[-1] left-0 w-full pl-9 transition-all duration-200 ease-in ${
+            open ? "top-20" : "top-[-480px]"
+          }`}
+        >
+          {Links.map(Link => {
+            return (
+              <li key={Link.name} className="text-xl my-7">
+                <a
+                  href={Link.link}
+                  className="text-gray-800 hover:text-grey-400 duration-500"
+                >
+                  {Link.name}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </nav>
   );

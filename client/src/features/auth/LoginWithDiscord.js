@@ -9,7 +9,7 @@ const LoginWithDiscord = ({ DiscordIcon }) => {
       {!context.user && (
         <form action="/auth/discord">
           <button
-            className=" inline-flex w-52 pt-2 tracking-widest"
+            className=" inline-flex w-52 tablet:w-auto pt-2 tracking-widest"
             type="submit"
           >
             <DiscordIcon className="w-7 h-7 mr-2" />
