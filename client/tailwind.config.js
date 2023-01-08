@@ -11,6 +11,8 @@ module.exports = {
         secondary: "#e1e9ed",
         logoText: "#EC7F50",
         discordBtn: "#de9f85",
+        navBtn: "#009BA0",
+        navBtnLight: "#66c3c6",
         teal: {
           DEFAULT: "#009BA0",
           light: "#BFD0D8",
