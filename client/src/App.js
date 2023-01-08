@@ -1,11 +1,10 @@
 import React from "react";
-import Calendar from "features/calendar/Calendar";
 import UserForm from "features/form/UserForm";
 import Modal from "features/modal/Modal";
 import { useRoutingContext } from "contexts/RoutingContext";
 import { useAuthContext } from "contexts/AuthContext";
 import LandingPage from "features/home/LandingPage";
-import FormProvider from "contexts/FormContext";
+import CalendarPage from "features/home/CalendarPage";
 
 function App() {
   const routing = useRoutingContext();
@@ -24,20 +23,7 @@ function App() {
           </div>
         </div>
       )}
-      {routing.currentPage === "calendarPage" && (
-        <>
-          <button onClick={() => routing.setCurrentPage("landingPage")}>
-            Navigate to LandingPage
-          </button>
-          <Calendar />
-          <FormProvider>
-            <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
-              <Modal type={"event"} open={"eventModal"} />
-              {auth?.user && <UserForm />}
-            </div>
-          </FormProvider>
-        </>
-      )}
+      {routing.currentPage === "calendarPage" && <CalendarPage />}
     </>
   );
 }
