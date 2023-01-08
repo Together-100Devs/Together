@@ -21,7 +21,7 @@ const useProvideAuth = () => {
 
   // To conditional render a component depending on if user's authenticated
   const isAuthenticated = () => {
-    return !!user && user != "User is not in 100Devs";
+    return !!user && user !== "User is not in 100Devs";
   };
 
   //create function that checks if the user is 100Dever
