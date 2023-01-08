@@ -8,9 +8,26 @@ const FormMoverControl = () => {
   const [errorArray, setErrorArray] = useState([]);
 
   function checkForEmptyField(input) {
+    let fieldName = `${input}`;
+    let otherNameIGuess = "";
+
+    // if page 2
+    if (currentStep === 2) {
+      // Take the last four letters of input, call that the second word
+      otherNameIGuess += fieldName.slice(fieldName.length - 4, fieldName.length);
+      // the first word is either start or end, just see if the word includes it
+      if (fieldName.includes("start") || fieldName.includes("initial")) {
+        otherNameIGuess =  "Start " + otherNameIGuess;
+      } else {
+        otherNameIGuess =  "End " + otherNameIGuess;
+      }
+    }
+    // else, just set $input
+    else {
+      otherNameIGuess = fieldName;
+    }
     if (formData[input] === "" || formData[input] == null) {
-      // console.log(`Error: Missing ${input} field value`);
-      errorArray.push(`Error: Missing ${input} field can't be empty`);
+      errorArray.push("Error: "+otherNameIGuess+" field can't be empty");
     }
   }
 
@@ -23,12 +40,10 @@ const FormMoverControl = () => {
 
     setErrorArray([]);
 
-    // console.log("CHECKING STEP: ", currentStep);
 
     switch (currentStep) {
       case 1:
 
-        // console.log("\n\nChecking Values:", formData);
 
         // Check if any values are empty string, null, undefined, and/or less than 2 characters
         // Side note: This is the only case where you"d ever want to use == instead of ===
@@ -37,8 +52,6 @@ const FormMoverControl = () => {
         checkForEmptyField("description");
         checkForEmptyField("location");
 
-        // console.log("Errors:", errorArray);
-        // console.log("Testing concluded.");
 
         setFormCreateEventErrors(errorArray);
         break;
@@ -51,7 +64,7 @@ const FormMoverControl = () => {
           formData["finalDate"] = formData["initialDate"];
         }
 
-        console.log("\n\nChecking Values:", formData);
+        // console.log("\n\nChecking Values:", formData);
 
         // Empty Field Value Tests
         checkForEmptyField("initialDate");
@@ -62,34 +75,28 @@ const FormMoverControl = () => {
         // Start Date & End Date Cannot be more than 90 days apart
         // get date 90 days before final date
         const NinetyDaysBeforeFinalDate = sub(parseISO(formData["finalDate"]), { days: 90 });
-        console.log(formData["initialDate"]);
-        console.log(NinetyDaysBeforeFinalDate)
-        console.log("Is start date 90 days before end date", parseISO(formData["initialDate"]) < NinetyDaysBeforeFinalDate);
+        // console.log(formData["initialDate"]);
+        // console.log(NinetyDaysBeforeFinalDate)
+        // console.log("Is start date 90 days before end date", parseISO(formData["initialDate"]) < NinetyDaysBeforeFinalDate);
         if (parseISO(formData["initialDate"]) < NinetyDaysBeforeFinalDate) {
-          // console.log("Error: Start date and End date cannot be more than 90 days apart");
           errorArray.push("Start date and End date cannot be more than 90 days apart");
         }
 
         // Start Date cannot be after End Date, vica versa
         if (parseISO(formData["finalDate"]) < parseISO(formData["initialDate"])) {
-          // console.log("Error: Start date cannot be after End date");
           errorArray.push("Error: Start date cannot be after End date");
         }
 
         // "Weekly" Recurring Event MUST include at least on day of week
         if (formData["recurring"]["rate"] === "weekly" && formData["recurring"]["days"].length === 0) {
-          // console.log("Weekly recurring Event MUST include at least one day of the week");
-          errorArray.push("Weekly recurring Event MUST include at least one day of the week");
+          errorArray.push("Weekly recurring event MUST include at least one day of the week");
         }
 
         // Start time cannot be after End time
         if ((formData["startTime"]) > formData["endTime"]) {
-          // console.log("Error: Start time cannot be after End time");
           errorArray.push("Error: Start time cannot be after End time");
         }
 
-        // console.log("Errors:", errorArray);
-        // console.log("Testing concluded.");
 
         setFormScheduleEventErrors(errorArray);
         break;
