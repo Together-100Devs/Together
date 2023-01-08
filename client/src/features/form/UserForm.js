@@ -6,15 +6,6 @@ import FormScheduleEvent from "./FormScheduleEvent";
 import FormConfirm from "./FormConfirm";
 import FormSuccess from "./FormSuccess";
 
-// Import data via API for some reason?
-import DataService from "services/dataService";
-
-
-import { generateRecurringDatesArray } from "utilities/calendar";
-
-// Joe's team will move out the useState's and the handleClick code to a separate file
-// And also changing the name of "userData" to "formData"
-
 // This is the code for the form where you add events to the calendar
 const UserForm = () => {
   
