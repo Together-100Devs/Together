@@ -6,11 +6,9 @@ import DayCardList from "./DayCardList";
 // Utility functions
 // For getting real data
 import DataService from "services/dataService";
-import useDate from "hooks/useDate";
 import { getMatchMonth, getEventsByDayNumber } from "utilities/calendar";
 
-const Calendar = () => {
-  const date = useDate();
+const Calendar = ({ date }) => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
 

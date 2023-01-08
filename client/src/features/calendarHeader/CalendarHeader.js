@@ -5,14 +5,12 @@ import { BsCalendarPlusFill } from "react-icons/bs";
 import { FaQuestion } from "react-icons/fa";
 import { RiArrowLeftCircleFill, RiArrowRightCircleFill } from "react-icons/ri";
 import MonthAndYear from "features/calendar/MonthAndYear";
-import useDate from "hooks/useDate";
 import Logo from "../../assets/images/togetherLogo.svg";
 import DataService from "services/dataService";
 import { useContext } from "react";
 import { Context } from "contexts/Context";
 
-function CalendarHeader() {
-  const date = useDate();
+function CalendarHeader({ date }) {
   const [context, setContext] = useContext(Context);
 
   const handleJoinClick = () => {
@@ -36,7 +34,7 @@ function CalendarHeader() {
 
   return (
     <header className="flex items-center px-5 py-2 bg-white justify-between">
-      <section className="flex space-x-2">
+      <section className="flex space-x-3">
         <HeaderButton Icon={BsCalendarPlusFill} toolTipText="Add Event" />
         <HeaderButton
           Icon={MdGroupAdd}
@@ -53,7 +51,7 @@ function CalendarHeader() {
           handlePreviousMonth={date.getPreviousMonth}
         />
       </section>
-      <section className="flex space-x-2">
+      <section className="flex space-x-3">
         <HeaderButton Icon={IoChatbubblesOutline} toolTipText="Feedback" />
         <HeaderButton Icon={FaQuestion} toolTipText="Help" />
         {context.user ? (
