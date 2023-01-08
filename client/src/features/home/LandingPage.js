@@ -36,7 +36,7 @@ const LandingPage = () => {
           easier to find out about the events that are happening in Discord and
           let you know how much fun they'll be!"
       />
-      <div className="w-full p-6 text-center tablet:inline-flex tablet:space-x-10 tablet:p-6 border-solid border-2 border-emerald-500 tablet:w-full tablet:h-[27rem]">
+      <div className="w-full p-6 text-center tablet:inline-flex tablet:space-x-10 tablet:p-6 tablet:w-full tablet:h-[27rem]">
         {cards.map(cardData => {
           return (
             <SmallCard

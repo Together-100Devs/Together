@@ -21,9 +21,3 @@ const SmallCard = ({ heading, description, Icon }) => {
 };
 
 export default SmallCard;
-
-/*let titleColor = title === "together" ? "text-logoText" : "text-black"; 
-  <img className="mx-auto h-18" src={img1} alt="" />
-        <span className={`${cardColor}`}>{order}</span>
-        <img className="-mb-2" src={img2} alt="" />
-        <img className="rotate-[5.5deg]" src={img3} alt="" /> */

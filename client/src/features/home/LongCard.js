@@ -2,8 +2,8 @@ import "../../index.css";
 import DiscordButton from "./DiscordButton";
 
 const LongCard = ({ heading, title, description, img }) => (
-  <div className="p-4 w-full box-border border-solid border-2 border-emerald-500">
-    <section className="flex py-6 tablet:h-[44rem] border-solid border-2 border-black rounded-3xl bg-secondary tablet:py-20 ">
+  <div className="p-4 w-full">
+    <section className="flex py-6 laptop:px-20 tablet:h-[44rem] border-solid border-2 border-black rounded-3xl bg-secondary tablet:py-20 ">
       <div className="tablet:w-full place-self-center hidden tablet:block">
         <img src={img} alt="two people sitting" />
       </div>

@@ -2,7 +2,7 @@ import HamburgerNav from "./HamburgerNav";
 
 const NavButtons = ({ HomeIcon, LoginIcon, CalendarIcon }) => {
   return (
-    <div className="flex flex-row self-center tablet:space-x-2 desktop:space-x-10">
+    <div className="flex flex-row self-center tablet:space-x-2">
       {/* Home Button */}
       <button class="bg-white hidden tablet:block overflow-hidden container box-border rounded-3xl border-2 border-black tablet:w-auto desktop:5/12 tablet:h-28 desktop:w-auto desktop:h-auto tablet:px-8 tablet:py-3 desktop:px-9 desktop:py-6">
         <div className="flex justify-center">
