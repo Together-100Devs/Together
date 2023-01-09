@@ -1,6 +1,4 @@
 import React from "react";
-import UserForm from "features/form/UserForm";
-import Modal from "features/modal/Modal";
 import { useRoutingContext } from "contexts/RoutingContext";
 import { useAuthContext } from "contexts/AuthContext";
 import LandingPage from "features/home/LandingPage";

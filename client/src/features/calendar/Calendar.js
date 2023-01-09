@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 // components
-import MonthAndYear from "./MonthAndYear";
 import AllDays from "./AllDays";
 import DayCardList from "./DayCardList";
 // Utility functions
 // For getting real data
 import DataService from "services/dataService";
-import useDate from "hooks/useDate";
 import { getMatchMonthAndYear, getEventsByDayNumber } from "utilities/calendar";
 import { parse } from "date-fns";
 
