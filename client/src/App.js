@@ -27,7 +27,7 @@ function App() {
         <h3>Hello, {context.user.displayName}, welcome to Together!</h3>
       )}
       {context.page === "landingPage" && (
-        <div className="flex justify-center bg-primary tablet:bg-blue-400 laptop:bg-purple-700 desktop:bg-lime-500">
+        <div className="flex justify-center bg-primary">
           <div className="w-full tablet:w-11/12 desktop:w-2/3">
             <LandingPage />
           </div>
