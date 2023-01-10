@@ -35,11 +35,6 @@ module.exports = {
     try {
       const { id } = req.params;
 
-      // Check if the ID is valid
-      if (!mongoose.isValidObjectId(id)) {
-        throw httpError(404);
-      }
-
       // Get event by id
       const event = await Event.findById(id).lean().exec();
 
@@ -56,11 +51,6 @@ module.exports = {
   deleteEvent: async (req, res, next) => {
     try {
       const { id } = req.params;
-
-      // Check if the ID is valid
-      if (!mongoose.isValidObjectId(id)) {
-        throw httpError(404);
-      }
 
       // Prevent users that are authenticated from deleting events they do not author.
       const event = await Event.findOne({ _id: id, user: req.user._id });
