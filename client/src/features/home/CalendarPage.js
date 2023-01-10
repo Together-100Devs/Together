@@ -21,12 +21,14 @@ function CalendarPage() {
         <CalendarHeader date={date} />
         <Calendar date={date} />
       </main>
-      <FormProvider>
-        <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
-          <Modal type={"event"} open={"eventModal"} />
-          {auth?.user && <UserForm />}
-        </div>
-      </FormProvider>
+      <Modal type={"event"} open={"eventModal"} />
+      {auth?.user && (
+        <FormProvider>
+          <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
+            <UserForm />
+          </div>
+        </FormProvider>
+      )}
     </>
   );
 }
