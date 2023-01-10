@@ -24,7 +24,7 @@ function CalendarHeader({ date }) {
         <HeaderButton
           Icon={MdGroupAdd}
           tooltipText="Join Team"
-          onClickFn={() => window.open(TOGETHER_THREAD_URL, "_blank")}
+          onClick={() => window.open(TOGETHER_THREAD_URL, "_blank")}
         />
       </section>
       <section className="flex items-center">
@@ -43,13 +43,13 @@ function CalendarHeader({ date }) {
           <HeaderButton
             Icon={RiArrowLeftCircleFill}
             tooltipText="Logout"
-            onClickFn={logout}
+            onClick={logout}
           />
         ) : (
           <HeaderButton
             Icon={RiArrowRightCircleFill}
             tooltipText="Login"
-            onClickFn={handleLogin}
+            onClick={handleLogin}
           />
         )}
       </section>
