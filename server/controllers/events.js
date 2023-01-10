@@ -1,31 +1,12 @@
 const mongoose = require("mongoose");
 const Joi = require("joi");
-const Event = require("../models/Event");
+const { Event } = require("../models/Event");
 const httpError = require("../utilities/httpError");
 
 module.exports = {
   create: async (req, res, next) => {
     try {
-      const eventSchema = Joi.object({
-        title: Joi.string().required(),
-        description: Joi.string().required(),
-        location: Joi.string().required(),
-        groupId: Joi.string().allow(null),
-        startAt: Joi.date().timestamp().greater(Date.now()).required(),
-        endAt: Joi.date().timestamp().greater(Joi.ref("startAt")).required(),
-      });
-
-      const arrayOfEventsSchema = Joi.array().items(eventSchema);
-
       let data = JSON.parse(req.body.data);
-
-      const result = arrayOfEventsSchema.validate(data);
-
-      const { error } = result;
-      if (error) {
-        throw httpError(400, error.message);
-      }
-
       data.forEach(obj => (obj.user = req.user._id));
       await Event.insertMany(data);
       res.json({ message: "Event created!" });

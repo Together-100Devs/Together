@@ -2,8 +2,15 @@ const express = require("express");
 const router = express.Router();
 const eventsController = require("../controllers/events");
 const auth = require("../middleware/auth");
+const validateBody = require("../middleware/validateBody");
+const { createEventSchema } = require("../models/Event");
 
-router.post("/", auth.ensureAuth, eventsController.create);
+router.post(
+  "/",
+  auth.ensureAuth,
+  validateBody(createEventSchema),
+  eventsController.create
+);
 
 router.get("/", eventsController.getAll);
 
