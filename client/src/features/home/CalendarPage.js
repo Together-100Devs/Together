@@ -8,15 +8,11 @@ import UserForm from "features/form/UserForm";
 import { useAuthContext } from "contexts/AuthContext";
 
 function CalendarPage() {
-  const routing = useRoutingContext();
   const auth = useAuthContext();
   const date = useDate();
 
   return (
     <>
-      <button onClick={() => routing.setCurrentPage("landingPage")}>
-        Navigate to LandingPage
-      </button>
       <main className="flex flex-col gap-3 p-3 shadow-sm min-h-screen max-w-[1920px] mx-auto">
         <CalendarHeader date={date} />
         <Calendar date={date} />
