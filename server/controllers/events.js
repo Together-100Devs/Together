@@ -7,7 +7,10 @@ module.exports = {
   create: async (req, res, next) => {
     try {
       let data = JSON.parse(req.body.data);
-      data.forEach(obj => (obj.user = req.user._id));
+      data.forEach(obj => {
+        obj.user = req.user._id;
+        obj.rsvpList = [];
+      });
       await Event.insertMany(data);
       res.json({ message: "Event created!" });
     } catch (err) {
