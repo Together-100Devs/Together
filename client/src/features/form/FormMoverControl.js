@@ -64,8 +64,6 @@ const FormMoverControl = () => {
           formData["finalDate"] = formData["initialDate"];
         }
 
-        // console.log("\n\nChecking Values:", formData.initialDate, formData.finalDate);
-
         // Empty Field Value Tests
         checkForEmptyField("initialDate");
         checkForEmptyField("finalDate");
@@ -75,9 +73,6 @@ const FormMoverControl = () => {
         // Start Date & End Date Cannot be more than 90 days apart
         // get date 90 days before final date
         const NinetyDaysBeforeFinalDate = sub(parseISO(formData["finalDate"]), { days: 90 });
-        // console.log(formData["initialDate"]);
-        // console.log(NinetyDaysBeforeFinalDate)
-        // console.log("Is start date 90 days before end date", parseISO(formData["initialDate"]) < NinetyDaysBeforeFinalDate);
         if (parseISO(formData["initialDate"]) < NinetyDaysBeforeFinalDate) {
           errorArray.push("Error: Start date and End date cannot be more than 90 days apart");
         }

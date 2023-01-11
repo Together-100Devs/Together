@@ -6,31 +6,14 @@ export default function FormCreateEvent() {
 
   const auth = useAuthContext();
   const { formData, setFormData, formCreateEventErrors } = useFormContext();
-  // const {formCompleted, setFormCompleted} = useState();
-
-  useEffect(() => {
-    console.log("Got errors for formCreateEvent:", formCreateEventErrors);
-  }, [formCreateEventErrors]);
-
+  
+  // This updates the form data's in the context
   const handleChange = e => {
 
     const { name, value } = e.target;
 
-    // TODO: These are devs notes, delete this line and possibly the rest before PRing
-    // Using an anonymous function like so allows us to get the previous state of the data and extend it
-    // [name]: value overrides the value at the [name] on which handleChange is called
-    // e.g. if [name] is "title" in the form input, the value of "title" gets changed in formData
-    // the data is then also extended by your Discord username
     setFormData(prevFormData => ({ ...prevFormData, [name]: value, discordName: auth.user?.displayName }));
   };
-
-
-  //test
-
-  // useEffect(() => { // Debug code
-  //   console.log(formData);
-  // }, [formData])
-
 
   return (
     <div className="flex flex-col">
@@ -43,7 +26,6 @@ export default function FormCreateEvent() {
             </div>
           </div>
         )
-        // <p>{error}</p>
       })}
 
       <div className="w-full mx-2 flex-1">

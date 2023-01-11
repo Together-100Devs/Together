@@ -22,19 +22,10 @@ export default function FormScheduleEvent() {
     }
   }, [formData.recurring.rate])
 
-  useEffect(() => {
-    console.log("Got errors for formScheduleEvent:", formScheduleEventErrors);
-  }, [formScheduleEventErrors]);
-
   const handleChange = e => {
     const { name, value } = e.target;
     setFormData(prevFormData => ({ ...prevFormData, [name]: value }));
   };
-
-  // Debug, remove later
-  // useEffect(() => {
-  //   console.log(formData);
-  // }, [formData]);
 
   return (
     <div>

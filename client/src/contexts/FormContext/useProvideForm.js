@@ -16,14 +16,11 @@ const useProvideForm = () => {
   const [formScheduleEventErrors, setFormScheduleEventErrors] = useState([]);
   
   const handleNewStep = async direction => {
-    // console.log(checkCompleted()) // Debug
     const newStep = direction === "next" ? currentStep + 1: currentStep - 1;
 
     if (newStep > 0 && newStep <= totalSteps.length) {
       setCurrentStep(newStep);
     }
-
-    // if(newStep === 1){console.log(newStep)}
 
     // Submit form to server
     if (newStep === 4) {
