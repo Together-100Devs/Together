@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { generateRecurringDatesArray } from "utilities/calendar";
 import DataService from "services/dataService";
 
 const useProvideForm = () => {
@@ -18,18 +17,8 @@ const useProvideForm = () => {
 
     // Submit form to server
     if (newStep === 4) {
-      const recurringDates = generateRecurringDatesArray(formData);
-      const { title, description, location } = formData;
-
-      const data = JSON.stringify(
-        recurringDates.map(date => ({
-          title,
-          description,
-          location,
-          ...date,
-        }))
-      );
-      await DataService.create({ data: data });
+      console.log(formData);
+      await DataService.create({ data: JSON.stringify(formData) });
     }
   };
 
