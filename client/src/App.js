@@ -14,32 +14,32 @@ function App() {
 
   return (
     <>
-      {isAuthenticated && 
+      {isAuthenticated && (
         <h3>Hello, {auth.user.displayName}, welcome to Together!</h3>
-      }
-      {routing.currentPage === "landingPage" &&
-      <div className="bg-primary overflow-hidden flex justify-center items-center h-screen">
-        <div className="flex w-1/3">
-          <LandingPage />
-        </div>
-      </div>
-      }
-      {routing.currentPage === "calendarPage" && <>
-        <button onClick={() => routing.setCurrentPage('landingPage')}>
-          Navigate to LandingPage
-        </button>
-        <Calendar />
-        <FormProvider>
-          <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
-            <Modal type={'event'} open={'eventModal'}/>
-            {auth?.user && 
-                <UserForm />
-            }
+      )}
+      {routing.currentPage === "landingPage" && (
+        <div className="bg-primary flex justify-center">
+          <div className="w-full tablet:w-11/12 desktop:w-2/3">
+            <LandingPage />
           </div>
-        </FormProvider>
-      </>}
+        </div>
+      )}
+      {routing.currentPage === "calendarPage" && (
+        <>
+          <button onClick={() => routing.setCurrentPage("landingPage")}>
+            Navigate to LandingPage
+          </button>
+          <Calendar />
+          <FormProvider>
+            <div className="tablet:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
+              <Modal type={"event"} open={"eventModal"} />
+              {auth?.user && <UserForm />}
+            </div>
+          </FormProvider>
+        </>
+      )}
     </>
-  )
+  );
 }
 
 export default App;
