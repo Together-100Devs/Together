@@ -1,3 +1,4 @@
+import React from "react";
 import "../../index.css";
 import LongCard from "./LongCard";
 import BottomCard from "./BottomCard";
