@@ -5,7 +5,8 @@ const { dateToTimestamp } = require("./dateToTimestamp");
 const { getEventTimes } = require("./getEventTimes");
 
 /**
- * Generates an array of event dates [{ startAt, endAt, groupId }, ...]
+ * Generates an array of events
+ * [ { title, description, location, groupId, startAt, endAt, rsvp }, ... ]
  * If the event is not recurring the groupId is null
  */
 const createEventsArray = ({
