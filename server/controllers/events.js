@@ -4,7 +4,7 @@ const { createEventsArray } = require("../utilities/createEventsArray");
 
 module.exports = {
   create: async (req, res, next) => {
-    let formData = JSON.parse(req.body.data);
+    const formData = req.body;
     const events = createEventsArray(formData);
 
     events.forEach(e => (e.user = req.user._id));

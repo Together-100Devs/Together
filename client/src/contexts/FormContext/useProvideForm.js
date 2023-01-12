@@ -17,8 +17,10 @@ const useProvideForm = () => {
 
     // Submit form to server
     if (newStep === 4) {
-      console.log(formData);
-      await DataService.create({ data: JSON.stringify(formData) });
+      console.log(JSON.stringify(formData));
+      // Axios automatically serializes object to JSON
+      // https://masteringjs.io/tutorials/axios/post-json
+      await DataService.create(formData);
     }
   };
 
