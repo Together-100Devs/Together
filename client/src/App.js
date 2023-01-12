@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Calendar from "features/calendar/Calendar";
 import UserForm from "features/form/UserForm";
 import Modal from "features/modal/Modal";
@@ -16,6 +16,8 @@ function App() {
   const modal = useModalContext();
   const isAuthenticated = auth.isAuthenticated();
   const isNot100Dever = auth.isNot100Dever();
+  const [rejectionModalOpen, setRejectionModalOpen] = useState(true)
+  const rejectionModalContext = { isOpen: rejectionModalOpen, handleClose:  () => { setRejectionModalOpen(false) }}
 
   return (
     <>
@@ -46,7 +48,9 @@ function App() {
         </FormProvider>
       </>}
       {isNot100Dever &&
-      <h1>join 100Devs Dummy</h1>
+      <Modal context={rejectionModalContext}>
+        <RejectionModal handleClose={rejectionModalContext.handleClose}/>
+      </Modal>
       }
     </>
   )
