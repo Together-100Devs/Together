@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { useRoutingContext } from "contexts/RoutingContext";
 
 function HamburgerNav({ logo, logotext }) {
+  const routing = useRoutingContext();
+
   let Links = [
-    { name: "HOME", link: "landingPage" },
-    { name: "LOG IN", link: "/auth/discord" },
-    { name: "CALENDAR", link: "calendarPage" },
+    { name: "HOME", link: "landingPage", type: "button" },
+    { name: "LOG IN", link: "/auth/discord", type: "a" },
+    { name: "CALENDAR", link: "calendarPage", type: "button" },
   ];
 
   let [open, setOpen] = useState(false);
@@ -31,12 +34,19 @@ function HamburgerNav({ logo, logotext }) {
           {Links.map(Link => {
             return (
               <li key={Link.name} className="text-xl my-7">
-                <a
-                  href={Link.link}
-                  className="text-gray-800 hover:text-grey-400 duration-500"
-                >
-                  {Link.name}
-                </a>
+                {Link.type === "button" && (
+                  <button onClick={() => routing.setCurrentPage(Link.link)}>
+                    {Link.name}
+                  </button>
+                )}
+                {Link.type === "a" && (
+                  <a
+                    href={Link.link}
+                    className="text-gray-800 hover:text-grey-400 duration-500"
+                  >
+                    {Link.name}
+                  </a>
+                )}
               </li>
             );
           })}
