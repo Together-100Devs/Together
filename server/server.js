@@ -13,6 +13,7 @@ require("dotenv").config({ path: "./config/.env" });
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const eventsRoutes = require("./routes/events");
+const mockUser = require("./config/mockUser.json")
 
 // Passport config
 require("./config/passport")(passport);
@@ -43,6 +44,14 @@ app.use(express.static(path.join(__dirname, "..", "client", "build")));
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
+
+if (process.env.NODE_ENV === 'development' && process.env.MOCK_USER === 'true') {
+  console.log("In development - using mocked user")
+  app.use((req, res, next) => {
+    req.user = mockUser;
+    next()
+  })
+}
 
 //Use flash messages for errors, info, ect...
 app.use(flash());
