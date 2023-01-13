@@ -40,7 +40,9 @@ const Calendar = () => {
     fetch()
       .then(setLoading(false))
       .catch(setLoading(false))
-  }, [])
+    // this dependency array should only contain immutable values
+    // - this hook should only run once on mount
+  }, [setEvents])
 
   // Render nothing while fetching for data from server
   if (loading) return null;
