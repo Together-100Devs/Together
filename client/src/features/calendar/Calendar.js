@@ -9,10 +9,11 @@ import DataService from "services/dataService";
 import useDate from 'hooks/useDate';
 import { getMatchMonthAndYear, getEventsByDayNumber } from 'utilities/calendar';
 import { parse } from "date-fns";
+import useProvideEvents from 'contexts/EventsContext/useProvideEvents';
 
 const Calendar = () => {
   const date = useDate();
-  const [events, setEvents] = useState([]);
+  const { events, setEvents } = useProvideEvents();
   const [loading, setLoading] = useState(true);
   const eventsInSelectedMonth = getMatchMonthAndYear(date.month, date.year, events);
   // An array of days containing events for populating the calendar

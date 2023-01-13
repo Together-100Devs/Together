@@ -5,6 +5,7 @@ import App from "./App";
 import AuthProvider from 'contexts/AuthContext';
 import RoutingProvider from 'contexts/RoutingContext';
 import ModalProvider from 'contexts/ModalContext';
+import EventsProvider from "contexts/EventsContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -12,7 +13,9 @@ root.render(
     <RoutingProvider>
       <AuthProvider>
         <ModalProvider>
-          <App />
+          <EventsProvider>
+            <App />
+          </EventsProvider>
         </ModalProvider>
       </AuthProvider>
     </RoutingProvider>
