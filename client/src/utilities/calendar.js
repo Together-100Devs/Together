@@ -26,3 +26,12 @@ export const formatToLocalTime = date => {
   const isoDate = parseISO(date);
   return format(isoDate, "p");
 };
+
+/**
+ * Convert date and time from a form to Javascript timestamp
+ * @param {string} date 'yyyy-mm-dd'
+ * @param {string} time 'hh:mm'
+ * @returns {Date}
+ */
+export const dateToTimestamp = (date, time) =>
+  new Date(`${date}T${time}`).getTime();

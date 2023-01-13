@@ -1,8 +1,6 @@
 const eachDayOfInterval = require("date-fns/eachDayOfInterval");
 const format = require("date-fns/format");
 const { nanoid } = require("nanoid");
-const { dateToTimestamp } = require("./dateToTimestamp");
-const { getEventTimes } = require("./getEventTimes");
 
 /**
  * Generates an array of events
@@ -10,27 +8,40 @@ const { getEventTimes } = require("./getEventTimes");
  * If the event is not recurring the groupId is null
  */
 const createEventsArray = ({
-  initialDate,
-  startTime,
-  finalDate,
-  endTime,
   recurring,
   title,
   description,
   location,
+  firstEventStart,
+  firstEventEnd,
+  lastEventStart,
 }) => {
   // If event is not recurring, generate just one event for dates array and return.
   if (recurring.rate === "noRecurr") {
-    const [startAt, endAt] = getEventTimes(initialDate, startTime, endTime);
+    let [startAt, endAt] = [firstEventStart, firstEventEnd];
+    // If the starting time is greater than the ending time, then the ending time is the next day
+    if (firstEventStart > firstEventEnd) {
+      const date = new Date(firstEventEnd);
+      date.setDate(date.getDate() + 1);
+      endAt = date.getTime();
+    }
     return [
-      { title, description, location, groupId: null, startAt, endAt, rsvp: [] },
+      {
+        title,
+        description,
+        location,
+        groupId: null,
+        startAt,
+        endAt,
+        rsvp: [],
+      },
     ];
   }
 
   // Generate a range of dates in between initialDate & endDate (date-fns does not generate the time sadly)
   const dateRange = eachDayOfInterval({
-    start: dateToTimestamp(initialDate, startTime),
-    end: dateToTimestamp(finalDate, endTime),
+    start: firstEventStart,
+    end: lastEventStart,
   });
 
   // Filter out dates that are not recurring
@@ -43,11 +54,20 @@ const createEventsArray = ({
 
   // Create recurring dates array with events information
   const events = eventStartDates.map(date => {
-    const [month, day, year] = format(date, "P").split("/");
-    const htmlDateFormat = `${year}-${month}-${day}`;
+    const startAt = new Date(firstEventStart);
+    startAt.setFullYear(date.getFullYear());
+    startAt.setMonth(date.getMonth());
+    startAt.setDate(date.getDate());
 
-    // Recreate date with time added
-    const [startAt, endAt] = getEventTimes(htmlDateFormat, startTime, endTime);
+    const endAt = new Date(firstEventEnd);
+    endAt.setFullYear(date.getFullYear());
+    endAt.setMonth(date.getMonth());
+    endAt.setDate(date.getDate());
+
+    if (startAt > endAt) {
+      endAt.setDate(endAt.getDate() + 1);
+    }
+
     return { title, description, location, groupId, startAt, endAt, rsvp: [] };
   });
   return events;

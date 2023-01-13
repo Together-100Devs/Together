@@ -46,20 +46,21 @@ const createEventSchema = Joi.object({
   description: Joi.string().trim().min(1).required(),
   location: Joi.string().trim().min(1).required(),
   discordName: Joi.string().trim().min(1).required(),
-  initialDate: Joi.date()
+  firstEventStart: Joi.date()
     // Subtract one day because time on server may differ from client
     .min(new Date() - 60 * 60 * 24 * 1000)
     .required(),
-  startTime: Joi.string()
-    // Time in format 'hh:mm'
-    .pattern(/^\d{2}:\d{2}$/)
+  firstEventEnd: Joi.date()
+    // time on server may differ from the time on client
+    // the most extreme offsets are +12 and -14 hours from utc
+    .min(new Date() - 1000 * 60 * 60 * 26)
     .required(),
-  finalDate: Joi.date()
-    // finalDate should be not earlier than initialDate
-    .min(Joi.ref("initialDate"))
-    // at most 90 days from initialDate
+  lastEventStart: Joi.date()
+    // last event start date should not be earlier than first event start date
+    .min(Joi.ref("firstEventStart"))
+    // at most 90 days from firstEventStart
     .max(
-      Joi.ref("initialDate", {
+      Joi.ref("firstEventStart", {
         adjust: val => {
           let date = new Date(val);
           date.setDate(date.getDate() + 90);
@@ -69,19 +70,16 @@ const createEventSchema = Joi.object({
     )
     // Limit events to 2023
     .less("2024-01-01")
-    // If recurring rate is noRecurr finalDate is equal to initialDate
+    // If recurring rate is 'noRecurr' lastEventStart should be equal to firstEventStart
     .when(Joi.ref("/recurring.rate"), {
       is: Joi.valid("noRecurr"),
-      then: Joi.ref("initialDate"),
+      then: Joi.ref("firstEventStart"),
     })
     .required()
     .messages({
-      "date.max": '"finalDate" must be within 90 days of "ref:initialDate"',
+      "date.max":
+        '"lastEventStart" must be within 90 days of "ref:firstEventStart"',
     }),
-  endTime: Joi.string()
-    // Time in format 'hh:mm'
-    .pattern(/^\d{2}:\d{2}$/)
-    .required(),
   recurring: Joi.object({
     // Rate is either "noRecurr" or "weekly"
     rate: Joi.string().valid("noRecurr", "weekly").required(),
