@@ -27,6 +27,11 @@ const Modal = ({ children, context }) => {
 
   return (
     <div>
+      <AnimatePresence
+        initial={false}
+        exitBeforeEnter={true}
+        onExitComplete={() => null}
+      >
         {context.isOpen &&
           <Backdrop onClick={context.handleClose}>
             <motion.div
@@ -41,6 +46,7 @@ const Modal = ({ children, context }) => {
             </motion.div>
           </Backdrop>
         }
+      </AnimatePresence>
     </div>
   );
 };
