@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { generateRecurringDatesArray } from "utilities/calendar";
 import DataService from "services/dataService";
+import { useEventsContext } from "contexts/EventsContext";
 
 const useProvideForm = () => {
+  const { setEvents } = useEventsContext();
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
     recurring: { rate: "noRecurr", days: [] },
@@ -29,7 +31,15 @@ const useProvideForm = () => {
           ...date,
         }))
       );
-      await DataService.create({ data: data });
+      try {
+        await DataService.create({ data: data });
+      } catch (err) {
+        console.error(err)
+        return
+      }
+
+      const response = await DataService.getAll()
+      setEvents(response.data);
     }
   };
 
