@@ -2,7 +2,6 @@ import useDate from "hooks/useDate";
 import Calendar from "../calendar/Calendar";
 import CalendarHeader from "../calendarHeader";
 import FormProvider from "contexts/FormContext";
-import { useRoutingContext } from "contexts/RoutingContext";
 import Modal from "features/modal/Modal";
 import UserForm from "features/form/UserForm";
 import { useAuthContext } from "contexts/AuthContext";
