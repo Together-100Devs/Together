@@ -24,6 +24,10 @@ router.get(
     successRedirect: authRedirectUrl,
   })
 );
+
+//with the detection of 100Dever passport will pass back one of three things
+//The req.user, null, or a string "User is not in 100Devs"
+//Considering a string is truthy this .get distinguishes between the string and req.user
 router.get("/getDisplayName", (req, res) => {
   if(req.session.isNot100Dever){
     res.json("User is not in 100Devs")
