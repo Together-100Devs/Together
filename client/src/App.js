@@ -7,6 +7,7 @@ import RejectionModal from "features/modal/RejectionModal";
 import { useRoutingContext } from "contexts/RoutingContext";
 import { useAuthContext } from "contexts/AuthContext";
 import { useModalContext } from "contexts/ModalContext";
+import { useFormModalContext } from "contexts/FormModalContext";
 import LandingPage from "features/home/LandingPage";
 import FormProvider from "contexts/FormContext";
 
@@ -14,6 +15,7 @@ function App() {
   const routing = useRoutingContext();
   const auth = useAuthContext();
   const modal = useModalContext();
+  const formModal = useFormModalContext();
   const isAuthenticated = auth.isAuthenticated();
   const isNot100Dever = auth.isNot100Dever();
   //Sets rejection modal to true because updating state is a pain
@@ -44,7 +46,9 @@ function App() {
               <EventModal />
             </Modal>
             {auth?.user && 
-              <UserForm />
+              <Modal context={formModal}>
+                <UserForm />
+              </Modal>
             }
           </div>
         </FormProvider>
