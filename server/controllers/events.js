@@ -8,13 +8,6 @@ module.exports = {
   create: async (req, res) => {
     try {
       let data = JSON.parse(req.body.data);
-      console.log(data);
-      // Watch out for big max length
-      // Mongoose might have built in max length
-      // Do something to make this work with the latest schema... so do this with the updated event
-      
-      // Whitelist - Focus on full control
-      // THIS below is the whitelist.
       await Event.create({
         title: data.title,
         description: data.description,
