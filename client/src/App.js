@@ -16,6 +16,8 @@ function App() {
   const modal = useModalContext();
   const isAuthenticated = auth.isAuthenticated();
   const isNot100Dever = auth.isNot100Dever();
+  //Sets rejection modal to true because updating state is a pain
+  //Line 52 will prevent the modal from rendering unless user is not 100Dever
   const [rejectionModalOpen, setRejectionModalOpen] = useState(true)
   const rejectionModalContext = { isOpen: rejectionModalOpen, handleClose:  () => { setRejectionModalOpen(false) }}
 
