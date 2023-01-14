@@ -1,12 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 //import { Context } from "contexts/Context";
 import togetherLogo from "../.././assets/images/togetherLogo.svg";
-import Modal from "./Modal";
-import { useModalContext } from "contexts/ModalContext";
+
 
 
 const RejectionModal = ({ handleClose }) => {
-  const modal = useModalContext();
   return (
     <div className="flex flex-col items-center py-0 px-2rem rounded-xl bg-white pb-4">
         <button
