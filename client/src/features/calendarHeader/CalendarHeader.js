@@ -2,16 +2,24 @@ import HeaderButton from "./components/HeaderButton";
 import { MdGroupAdd } from "react-icons/md";
 import { IoChatbubblesOutline } from "react-icons/io5";
 import { BsCalendarPlusFill } from "react-icons/bs";
-import { FaQuestion } from "react-icons/fa";
+import { FaHome, FaQuestion } from "react-icons/fa";
 import { RiArrowLeftCircleFill, RiArrowRightCircleFill } from "react-icons/ri";
 import MonthAndYear from "features/calendar/MonthAndYear";
 import Logo from "../../assets/images/togetherLogo.svg";
 import { useAuthContext } from "contexts/AuthContext";
+import { useRoutingContext } from "contexts/RoutingContext";
 
 function CalendarHeader({ date }) {
   const { isAuthenticated, logout } = useAuthContext();
-  const TOGETHER_THREAD_URL =
+  const { setCurrentPage } = useRoutingContext();
+  const DISCORD_THREAD_URL =
     "discord://discord.com/channels/735923219315425401/1038482732633825442";
+
+  const GH_ISSUES_URL = "https://github.com/Caleb-Cohen/Together/issues";
+
+  const linkToUrl = url => {
+    window.open(url, "_blank");
+  };
 
   const handleLogin = () => {
     window.location = "/auth/discord";
@@ -24,7 +32,12 @@ function CalendarHeader({ date }) {
         <HeaderButton
           Icon={MdGroupAdd}
           tooltipText="Join Team"
-          onClick={() => window.open(TOGETHER_THREAD_URL, "_blank")}
+          onClick={() => linkToUrl(DISCORD_THREAD_URL)}
+        />
+        <HeaderButton
+          Icon={FaHome}
+          tooltipText={"Home"}
+          onClick={() => setCurrentPage("landingPage")}
         />
       </section>
       <section className="flex items-center">
@@ -37,8 +50,16 @@ function CalendarHeader({ date }) {
         />
       </section>
       <section className="flex space-x-3">
-        <HeaderButton Icon={IoChatbubblesOutline} tooltipText="Feedback" />
-        <HeaderButton Icon={FaQuestion} tooltipText="Help" />
+        <HeaderButton
+            Icon={IoChatbubblesOutline}
+            tooltipText="Feedback"
+            onClick={() => linkToUrl(GH_ISSUES_URL)}
+          />
+          <HeaderButton
+            Icon={FaQuestion}
+            tooltipText="Help"
+            onClick={() => linkToUrl(GH_ISSUES_URL)}
+          />
         {isAuthenticated() ? (
           <HeaderButton
             Icon={RiArrowLeftCircleFill}
