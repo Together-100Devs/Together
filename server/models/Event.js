@@ -30,6 +30,9 @@ const EventSchema = new mongoose.Schema(
     groupId: {
       type: String,
     },
+    rsvpList: {
+      type: Array
+    },
   },
   { timestamps: true }
 );

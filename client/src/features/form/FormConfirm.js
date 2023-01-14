@@ -1,6 +1,7 @@
 import React from "react";
 import { useFormContext } from "contexts/FormContext";
 
+// This components displays all of the form data for the user to confirm 
 export default function FormConfirm() {
   const { formData } = useFormContext();
 
