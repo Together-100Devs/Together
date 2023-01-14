@@ -53,7 +53,7 @@ function CalendarHeader({ date }) {
         <HeaderButton
           Icon={IoChatbubblesOutline}
           tooltipText="Feedback"
-          onclick={() => linkToUrl(GH_ISSUES_URL)}
+          onClick={() => linkToUrl(GH_ISSUES_URL)}
         />
         <HeaderButton
           Icon={FaQuestion}
