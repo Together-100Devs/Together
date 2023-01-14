@@ -41,7 +41,6 @@ export const convertLocalDateToUTC = (htmlDate = '', htmlTime = '') => {
     localDate.getUTCMinutes(), localDate.getUTCSeconds());
 }
 
-//happens on event submit
 export const generateRecurringDatesArray = ({ initialDate, startTime, finalDate, endTime, title, description, location, recurring }) => {
 
   // If event is not recurring, generate just one event for dates array and return.
