@@ -2,14 +2,17 @@ import HeaderButton from "./components/HeaderButton";
 import { MdGroupAdd } from "react-icons/md";
 import { IoChatbubblesOutline } from "react-icons/io5";
 import { BsCalendarPlusFill } from "react-icons/bs";
-import { FaQuestion } from "react-icons/fa";
+import { FaHome, FaQuestion } from "react-icons/fa";
 import { RiArrowLeftCircleFill, RiArrowRightCircleFill } from "react-icons/ri";
 import MonthAndYear from "features/calendar/MonthAndYear";
 import Logo from "../../assets/images/togetherLogo.svg";
 import { useAuthContext } from "contexts/AuthContext";
+import { useRoutingContext } from "contexts/RoutingContext";
 
 function CalendarHeader({ date }) {
   const { isAuthenticated, logout } = useAuthContext();
+  const { setCurrentPage } = useRoutingContext();
+
   const TOGETHER_THREAD_URL =
     "discord://discord.com/channels/735923219315425401/1038482732633825442";
 
@@ -25,6 +28,11 @@ function CalendarHeader({ date }) {
           Icon={MdGroupAdd}
           tooltipText="Join Team"
           onClick={() => window.open(TOGETHER_THREAD_URL, "_blank")}
+        />
+        <HeaderButton
+          Icon={FaHome}
+          tooltipText={"Home"}
+          onClick={() => setCurrentPage("landingPage")}
         />
       </section>
       <section className="flex items-center">
