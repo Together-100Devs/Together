@@ -25,7 +25,10 @@ const DayCard = ({ date, events }) => {
   );
 
   return (
-    <div className="relative flex flex-col bg-white group" style={currentDayStyles}>
+    <div
+      className="relative flex flex-col bg-white group"
+      style={currentDayStyles}
+    >
       <span className="mx-2 my-1 text-xs font-bold">
         {day} {day === 1 && month}
       </span>
