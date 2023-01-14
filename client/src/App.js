@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import Calendar from "features/calendar/Calendar";
 import UserForm from "features/form/UserForm";
 import Modal from "features/modal/Modal";
 import EventModal from "features/modal/EventModal";
+import RejectionModal from "features/modal/RejectionModal";
 import { useRoutingContext } from "contexts/RoutingContext";
 import { useAuthContext } from "contexts/AuthContext";
 import { useModalContext } from "contexts/ModalContext";
@@ -14,6 +15,11 @@ function App() {
   const auth = useAuthContext();
   const modal = useModalContext();
   const isAuthenticated = auth.isAuthenticated();
+  const isNot100Dever = auth.isNot100Dever();
+  //Sets rejection modal to true because updating state is a pain
+  //Line 52 will prevent the modal from rendering unless user is not 100Dever
+  const [rejectionModalOpen, setRejectionModalOpen] = useState(true)
+  const rejectionModalContext = { isOpen: rejectionModalOpen, handleClose:  () => { setRejectionModalOpen(false) }}
 
   return (
     <>
@@ -43,6 +49,11 @@ function App() {
           </div>
         </FormProvider>
       </>}
+      {isNot100Dever &&
+      <Modal context={rejectionModalContext}>
+        <RejectionModal handleClose={rejectionModalContext.handleClose}/>
+      </Modal>
+      }
     </>
   )
 }
