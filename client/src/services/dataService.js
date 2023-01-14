@@ -5,9 +5,6 @@ const URL = axios.create({
 });
 
 class DataService {
-  ping() {
-    return URL.get(`/events/ping`);
-  }
   create(msg) {
     return URL.post(`/events/create`, msg);
   }

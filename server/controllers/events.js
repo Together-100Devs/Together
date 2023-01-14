@@ -2,9 +2,6 @@ const Event = require("../models/Event");
 
 module.exports = {
   //test function
-  ping: (req, res) => {
-    return res.json({ message: "pong" });
-  },
   create: async (req, res) => {
     try {
       let data = JSON.parse(req.body.data);
