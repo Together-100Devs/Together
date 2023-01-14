@@ -13,8 +13,13 @@ function CalendarHeader({ date }) {
   const { isAuthenticated, logout } = useAuthContext();
   const { setCurrentPage } = useRoutingContext();
 
-  const TOGETHER_THREAD_URL =
+  const DISCORD_THREAD_URL =
     "discord://discord.com/channels/735923219315425401/1038482732633825442";
+  const GH_ISSUES_URL = "https://github.com/Caleb-Cohen/Together/issues";
+
+  const linkToUrl = url => {
+    window.open(url, "_blank");
+  };
 
   const handleLogin = () => {
     window.location = "/auth/discord";
@@ -27,7 +32,7 @@ function CalendarHeader({ date }) {
         <HeaderButton
           Icon={MdGroupAdd}
           tooltipText="Join Team"
-          onClick={() => window.open(TOGETHER_THREAD_URL, "_blank")}
+          onClick={() => linkToUrl(DISCORD_THREAD_URL)}
         />
         <HeaderButton
           Icon={FaHome}
@@ -45,8 +50,16 @@ function CalendarHeader({ date }) {
         />
       </section>
       <section className="flex space-x-3">
-        <HeaderButton Icon={IoChatbubblesOutline} tooltipText="Feedback" />
-        <HeaderButton Icon={FaQuestion} tooltipText="Help" />
+        <HeaderButton
+          Icon={IoChatbubblesOutline}
+          tooltipText="Feedback"
+          onclick={() => linkToUrl(GH_ISSUES_URL)}
+        />
+        <HeaderButton
+          Icon={FaQuestion}
+          tooltipText="Help"
+          onClick={() => linkToUrl(GH_ISSUES_URL)}
+        />
         {isAuthenticated() ? (
           <HeaderButton
             Icon={RiArrowLeftCircleFill}
