@@ -5,22 +5,38 @@ const EventSchema = new mongoose.Schema(
   {
     title: {
       type: String,
+      trim: true,
       required: true,
     },
     description: {
       type: String,
+      trim: true,
       required: true,
     },
     startAt: {
       type: Date,
       required: true,
+      validate: {
+        validator: function (value) {
+          greateThanToday = value > new Date() - 1000 * 60 * 60 * 26;
+          limitTo2023 = value < new Date("2024-01-01");
+          return greateThanToday && limitTo2023;
+        },
+      },
     },
     endAt: {
       type: Date,
       required: true,
+      validate: {
+        validator: function (value) {
+          return value > this.startAt;
+        },
+        message: "should be greater than 'startAt' field",
+      },
     },
     location: {
       type: String,
+      trim: true,
       required: true,
     },
     user: {
@@ -31,9 +47,7 @@ const EventSchema = new mongoose.Schema(
     groupId: {
       type: String,
     },
-    rsvpList: {
-      type: Array,
-    },
+    rsvpList: [{ type: mongoose.SchemaTypes.ObjectId }],
   },
   { timestamps: true }
 );
