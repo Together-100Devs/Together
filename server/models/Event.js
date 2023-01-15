@@ -1,16 +1,20 @@
 const mongoose = require("mongoose");
 const Joi = require("joi");
 
+STRING_MAX_LENGTH = 280;
+
 const EventSchema = new mongoose.Schema(
   {
     title: {
       type: String,
       trim: true,
+      maxLength: STRING_MAX_LENGTH,
       required: true,
     },
     description: {
       type: String,
       trim: true,
+      maxLength: STRING_MAX_LENGTH,
       required: true,
     },
     startAt: {
@@ -37,6 +41,7 @@ const EventSchema = new mongoose.Schema(
     location: {
       type: String,
       trim: true,
+      maxLength: STRING_MAX_LENGTH,
       required: true,
     },
     user: {
@@ -56,10 +61,10 @@ const Event = mongoose.model("Event", EventSchema);
 
 // Schema for request.body validation when event is created
 const createEventSchema = Joi.object({
-  title: Joi.string().trim().min(1).required(),
-  description: Joi.string().trim().min(1).required(),
-  location: Joi.string().trim().min(1).required(),
-  discordName: Joi.string().trim().min(1).required(),
+  title: Joi.string().trim().min(1).max(STRING_MAX_LENGTH).required(),
+  description: Joi.string().trim().min(1).max(STRING_MAX_LENGTH).required(),
+  location: Joi.string().trim().min(1).max(STRING_MAX_LENGTH).required(),
+  discordName: Joi.string().trim().min(1).max(STRING_MAX_LENGTH).required(),
   firstEventStart: Joi.date()
     // Subtract one day because time on server may differ from client
     .min(new Date() - 60 * 60 * 24 * 1000)
@@ -96,7 +101,10 @@ const createEventSchema = Joi.object({
     }),
   recurring: Joi.object({
     // Rate is either "noRecurr" or "weekly"
-    rate: Joi.string().valid("noRecurr", "weekly").required(),
+    rate: Joi.string()
+      .valid("noRecurr", "weekly")
+      .max(STRING_MAX_LENGTH)
+      .required(),
     days: Joi.when(Joi.ref("rate"), {
       // if rate is noRecurr
       is: Joi.valid("noRecurr"),
