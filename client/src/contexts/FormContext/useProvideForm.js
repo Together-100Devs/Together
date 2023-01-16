@@ -4,17 +4,11 @@ import DataService from "services/dataService";
 
 const useProvideForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
-  const totalSteps = ["Description", "Schedule", "Confirm", "Success"];
-  
   const [formData, setFormData] = useState({
     recurring: { rate: "noRecurr", days: [] },
-    completed: false,
   });
+  const totalSteps = ["Description", "Schedule", "Confirm", "Success"];
 
-  // form errors
-  const [formCreateEventErrors, setFormCreateEventErrors] = useState([]);
-  const [formScheduleEventErrors, setFormScheduleEventErrors] = useState([]);
-  
   const handleNewStep = async direction => {
     const newStep = direction === "next" ? currentStep + 1 : currentStep - 1;
 
@@ -43,12 +37,8 @@ const useProvideForm = () => {
     currentStep,
     totalSteps,
     formData,
-    formCreateEventErrors,
-    formScheduleEventErrors,
     handleNewStep,
     setFormData,
-    setFormCreateEventErrors,
-    setFormScheduleEventErrors
   };
 };
 

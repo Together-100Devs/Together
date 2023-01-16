@@ -10,6 +10,7 @@ const useProvideAuth = () => {
   useEffect(() => {
     // If so, save user's information to the context
     DataService.getCurrentUser().then((response) => {
+      console.log(response.data);
       setUser(response.data);
     });
   }, []);
