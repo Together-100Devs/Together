@@ -31,3 +31,4 @@ const RejectionModal = ({ handleClose }) => {
 };
 
   export default RejectionModal;
+  
