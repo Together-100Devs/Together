@@ -8,8 +8,10 @@ import MonthAndYear from "features/calendar/MonthAndYear";
 import Logo from "../../assets/images/togetherLogo.svg";
 import { useAuthContext } from "contexts/AuthContext";
 import { useRoutingContext } from "contexts/RoutingContext";
+import { useFormModalContext } from "contexts/FormModalContext";
 
 function CalendarHeader({ date }) {
+  const formModal = useFormModalContext();
   const { isAuthenticated, logout } = useAuthContext();
   const { setCurrentPage } = useRoutingContext();
   const DISCORD_THREAD_URL =
@@ -28,7 +30,11 @@ function CalendarHeader({ date }) {
   return (
     <header className="flex items-center px-5 py-2 bg-white justify-between">
       <section className="flex space-x-3">
-        <HeaderButton Icon={BsCalendarPlusFill} tooltipText="Add Event" />
+        <HeaderButton 
+          Icon={BsCalendarPlusFill} 
+          tooltipText="Add Event"
+          onClick={formModal.handleOpen}
+        />
         <HeaderButton
           Icon={MdGroupAdd}
           tooltipText="Join Team"
