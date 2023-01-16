@@ -11,7 +11,7 @@ module.exports = {
 
     try {
       await Event.insertMany(events);
-      res.json({ message: "Event created!" });
+      res.status(201).json({ message: "Event created!" });
     } catch (err) {
       next(err);
     }
