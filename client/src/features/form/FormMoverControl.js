@@ -87,10 +87,10 @@ const FormMoverControl = () => {
           errorArray.push("Error: Weekly recurring event MUST include at least one day of the week");
         }
 
-        // Start time cannot be after End time
-        if ((formData["startTime"]) > formData["endTime"]) {
-          errorArray.push("Error: Start time cannot be after End time");
-        }
+        //Holding off on adding this now as it won't account for edge cases in event creation like 11pm to 12am.
+        // if ((formData["startTime"]) > formData["endTime"]) {
+        //   errorArray.push("Error: Start time cannot be after End time");
+        // }
 
 
         setFormScheduleEventErrors(errorArray);
