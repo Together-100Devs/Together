@@ -1,21 +1,18 @@
 import "../../index.css";
 
-const SmallCard = ({ heading, description, Icon }) => {
-  let cardColor =
-    heading === "Order1"
-      ? "bg-[#3EA6D7]"
-      : heading === "Order2"
-      ? "bg-[#5ABABE]"
-      : "bg-[#E0835D]";
+const SmallCard = ({ heading, description, Icon, index }) => {
+  let cardColors = ["bg-[#3EA6D7]", "bg-[#5ABABE]", "bg-[#E0835D]"];
+  let colorIndex = (index + 1) % cardColors.length;
   return (
     <div
-      className={`text-white p-8 my-8 tablet:w-full border-2 border-black rounded-xl shadow-lg ${cardColor}`}
+      className={`text-white p-5 my-8 tablet:w-full tablet:min-h-full border-2 border-black rounded-xl shadow-lg ${cardColors[colorIndex]}`}
     >
-      <h1 className="font-bold text-2xl text-center pb-10">{heading}</h1>
-      <p className="text-xl">{description}</p>
-      <div className="w-full h-[8rem] grid place-content-end px-2">
+      <h1 className="font-bold desktop:text-lg tablet:text-base text-center pb-7">{heading}</h1>
+      <p className="desktop:text-base tablet:text-sm">{description}</p>
+      <div className="w-full h-[5rem] grid place-content-end px-2">
         <Icon className=" text-6xl" />
       </div>
+
     </div>
   );
 };
