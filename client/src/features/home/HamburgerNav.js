@@ -1,15 +1,20 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { useRoutingContext } from "contexts/RoutingContext";
+import { useAuthContext } from "contexts/AuthContext";
 
 function HamburgerNav({ logo, logotext }) {
-  const routing = useRoutingContext();
+  const { isAuthenticated, logout } = useAuthContext();
 
   let Links = [
     { name: "HOME", link: "landingPage", type: "button" },
-    { name: "LOG IN", link: "/auth/discord", type: "a" },
     { name: "CALENDAR", link: "calendarPage", type: "button" },
   ];
+
+  if(!isAuthenticated()){
+    Links.push({ name: "LOG IN", link: "/auth/discord", type: "a" });
+  } else {
+    Links.push({ name: "LOG OUT", onClick: logout, type: "button" });
+  }
 
   let [open, setOpen] = useState(false);
 
@@ -35,7 +40,7 @@ function HamburgerNav({ logo, logotext }) {
             return (
               <li key={Link.name} className="text-xl my-7">
                 {Link.type === "button" && (
-                  <button onClick={() => routing.setCurrentPage(Link.link)}>
+                  <button onClick={Link.onClick}>
                     {Link.name}
                   </button>
                 )}
