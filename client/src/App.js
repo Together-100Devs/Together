@@ -22,10 +22,10 @@ function App() {
         <h3>Hello, {auth.user.displayName}, welcome to Together!</h3>
       )}
       {routing.currentPage === "landingPage" && (
-        <div className="bg-primary overflow-hidden flex justify-center items-center h-screen">
-          <div className="flex w-1/3">
+        <div className="bg-primary flex justify-center">
+          <div className="w-full tablet:w-11/12 desktop:w-2/3">
             <LandingPage />
-            {isNot100Dever &&
+            {!isNot100Dever &&
               <Modal context={rejectionModalContext}>
                 <RejectionModal handleClose={rejectionModalContext.handleClose}/>
               </Modal>
@@ -33,7 +33,15 @@ function App() {
           </div>
         </div>
       )}
-      {routing.currentPage === "calendarPage" && <CalendarPage />}
+      {routing.currentPage === "calendarPage" && (
+      <CalendarPage>
+        {!isNot100Dever && (
+          <Modal context={rejectionModalContext}>
+            <RejectionModal handleClose={rejectionModalContext.handleClose}/>
+          </Modal>
+        )}
+      </CalendarPage>
+      )}
     </>
   );
 }
