@@ -25,7 +25,7 @@ function App() {
         <div className="bg-primary flex justify-center">
           <div className="w-full tablet:w-11/12 desktop:w-2/3">
             <LandingPage />
-            {!isNot100Dever &&
+            {isNot100Dever &&
               <Modal context={rejectionModalContext}>
                 <RejectionModal handleClose={rejectionModalContext.handleClose}/>
               </Modal>
@@ -35,7 +35,7 @@ function App() {
       )}
       {routing.currentPage === "calendarPage" && (
       <CalendarPage>
-        {!isNot100Dever && (
+        {isNot100Dever && (
           <Modal context={rejectionModalContext}>
             <RejectionModal handleClose={rejectionModalContext.handleClose}/>
           </Modal>
