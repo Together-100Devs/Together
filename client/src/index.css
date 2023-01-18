@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-.group:hover .group-hover\:flex {
-  display: flex;
+@layer base {
+  body {
+    @apply bg-teal-light;
+  }
 }
 
 .modal {

@@ -9,6 +9,10 @@ const useProvideForm = () => {
   });
   const totalSteps = ["Description", "Schedule", "Confirm", "Success"];
 
+  // form errors
+  const [formCreateEventErrors, setFormCreateEventErrors] = useState([]);
+  const [formScheduleEventErrors, setFormScheduleEventErrors] = useState([]);
+
   const handleNewStep = async direction => {
     const newStep = direction === "next" ? currentStep + 1 : currentStep - 1;
 
@@ -39,6 +43,8 @@ const useProvideForm = () => {
     formData,
     handleNewStep,
     setFormData,
+    setFormCreateEventErrors,
+    setFormScheduleEventErrors
   };
 };
 
