@@ -2,9 +2,8 @@ import { useState } from "react";
 
 // Everything related to the modal context will be inside of here: (CRUD)
 // Allow us to check and modify any methods/functions in one place.
-const useProvideModal = () => {
+const useProvideFormModal = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeEvent, setActiveEvent] = useState(null);
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -22,10 +21,8 @@ const useProvideModal = () => {
     isOpen,
     handleOpen,
     handleClose,
-    handleToggle,
-    activeEvent,
-    setActiveEvent
+    handleToggle
   }
 };
 
-export default useProvideModal;
+export default useProvideFormModal;
