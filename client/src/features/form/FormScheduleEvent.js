@@ -51,79 +51,82 @@ export default function FormScheduleEvent() {
         <FormRecurringDates />
       </div>
 
-      {/* START DATE OF EVENT */}
-      <div className="w-full mx-2 flex-1">
-        {/* Note for user to understand the date boundaries. Added margin to seperate the date section from the event info */}
-        <p className="text-xs mt-10 ">Note: Start Date and End Date cannot be more than 90 days apart, and both must be in 2023.</p>
-        <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
-          Start Date
+      <p className="text-xs mt-10 ">Note: Start Date and End Date cannot be more than 90 days apart, and both must be in 2023.</p>
+      <div className="grid grid-cols-2">
+
+        {/* START DATE OF EVENT */}
+        <div className="w-full mx-2 flex-1">
+          {/* Note for user to understand the date boundaries. Added margin to seperate the date section from the event info */}
+          <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
+            Start Date
+          </div>
+          <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
+            <input
+              type="date" // Date input type
+              onChange={handleChange}
+              value={formData["initialDate"] || ""}
+              name="initialDate"
+              placeholder="Start Date"
+              className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
+              required
+              min={format(new Date(), 'yyyy-MM-dd')}
+              max='2023-12-31'
+            />
+          </div>
         </div>
-        <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
-          <input
-            type="date" // Date input type
-            onChange={handleChange}
-            value={formData["initialDate"] || ""}
-            name="initialDate"
-            placeholder="Start Date"
-            className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
-            required
-            min={format(new Date(), 'yyyy-MM-dd')}
-            max='2023-12-31'
-          />
+
+        {/* START TIME FIELD */}
+        <div className="w-full mx-2 flex-1">
+          <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
+            Start Time
+          </div>
+          <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
+            <input
+              type="time"
+              onChange={handleChange}
+              value={formData["startTime"] || ""}
+              name="startTime"
+              className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
+            />
+          </div>
+        </div>
+
+        {/* END DATE OF EVENT */}
+        <div className="w-full mx-2 flex-1 ">
+          <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
+            End Date
+          </div>
+          <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
+            <input
+              type="date"
+              onChange={handleChange}
+              value={formData["finalDate"] || ""}
+              name="finalDate"
+              placeholder="endDate"
+              className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
+              required
+              min={format(new Date(), 'yyyy-MM-dd')}
+              max='2023-12-31'
+            />
+          </div>
+        </div>
+        {/* END TIME FIELD */}
+        <div className="w-full mx-2 flex-1">
+          <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
+            End Time
+          </div>
+          <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
+            <input
+              type="time"
+              onChange={handleChange}
+              value={formData["endTime"] || ""}
+              name="endTime"
+              className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
+            />
+          </div>
         </div>
       </div>
 
-      {/* END DATE OF EVENT */}
-      <div className="w-full mx-2 flex-1 ">
-        <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
-          End Date
-        </div>
-        <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
-          <input
-            type="date"
-            onChange={handleChange}
-            value={formData["finalDate"] || ""}
-            name="finalDate"
-            placeholder="endDate"
-            className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
-            required
-            min={format(new Date(), 'yyyy-MM-dd')}
-            max='2023-12-31'
-          />
-        </div>
-      </div>
-
-      {/* START TIME FIELD */}
-      <div className="w-full mx-2 flex-1">
-        <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
-          Start Time
-        </div>
-        <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
-          <input
-            type="time"
-            onChange={handleChange}
-            value={formData["startTime"] || ""}
-            name="startTime"
-            className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
-          />
-        </div>
-      </div>
-
-      {/* END TIME FIELD */}
-      <div className="w-full mx-2 flex-1">
-        <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
-          End Time
-        </div>
-        <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
-          <input
-            type="time"
-            onChange={handleChange}
-            value={formData["endTime"] || ""}
-            name="endTime"
-            className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
-          />
-        </div>
-      </div>
 
     </div>
   );
