@@ -29,11 +29,24 @@ const useProvideAuth = () => {
     return user === "User is not in 100Devs"
   }
 
+  const needsToBeWelcome = () => {
+    return user.needsToBeWelcome;
+  }
+
+  const deleteNeedsToBeWelcome = () => {
+    const updateUser = { ...user };
+    delete updateUser.needsToBeWelcome;
+    setUser(updateUser)
+    console.log(user)
+  }
+
   return {
     user,
     logout,
     isAuthenticated,
     isNot100Dever,
+    needsToBeWelcome,
+    deleteNeedsToBeWelcome,
   };
 };
 

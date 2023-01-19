@@ -43,13 +43,16 @@ module.exports = function (passport) {
               avatar: profile.avatar,
               socials: [],
               bio: "",
+              needsToBeWelcome: true,
             });
+            console.log(user)
             return cb(null, user);
           } else {
             // it user already exists, update display name and avatar
             user.displayName = displayName;
             user.avatar = profile.avatar;
             const updatedUser = await user.save();
+            console.log(updatedUser)
             return cb(null, updatedUser);
           }
         } catch (err) {
