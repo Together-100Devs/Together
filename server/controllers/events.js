@@ -1,64 +1,92 @@
-const Event = require("../models/Event");
+const { Event } = require("../models/Event");
+const httpError = require("../utilities/httpError");
+const { createEventsArray } = require("../utilities/createEventsArray");
+require("express-async-errors");
 
 module.exports = {
-  //test function
-  ping: (req, res) => {
-    return res.json({ message: "pong" });
-  },
   create: async (req, res) => {
-    try {
-      let data = JSON.parse(req.body.data);
-      data.forEach(obj => {
-        obj.user = req.user._id;
-        obj.rsvpList = [];
-      });
-      await Event.insertMany(data);
-      res.json({ message: "Event created!" });
-    } catch (err) {
-      console.log(err);
+    const formData = req.body;
+    const events = createEventsArray(formData);
+
+    // If none of the days of the week selected is between start and end dates
+    if (!events.length) {
+      throw httpError(400);
     }
+
+    events.forEach(e => (e.user = req.user._id));
+
+    // insertMany result doesn't populate user display name
+    const result = await Event.insertMany(events);
+    // find newly added events and populate user with displayName
+    const ids = result.map(e => e._id);
+    const addedEvents = await Event.find({ _id: { $in: ids } })
+      .populate("user", "displayName")
+      .lean()
+      .exec();
+
+    res.status(201).json({ message: "Event created!", events: addedEvents });
   },
   getAll: async (req, res) => {
-    try {
-      const events = await Event.find().populate('user').exec();
-      // return all events
-      res.json(events);
-    } catch (err) {
-      console.log(err);
-    }
+    // Get an array of ALL events
+    const events = await Event.find()
+      .populate("user", "displayName")
+      .lean()
+      .exec();
+
+    // return all events
+    res.json(events);
   },
   getOne: async (req, res) => {
-    try {
-      const event = await Event.findById(req.params.id);
-      res.json(event);
-    } catch (err) {
-      console.log(err);
+    const { id } = req.params;
+
+    // Get event by id
+    const event = await Event.findById(id).lean().exec();
+
+    // Check if event exists
+    if (!event) {
+      throw httpError(404);
     }
+
+    res.json(event);
   },
   deleteEvent: async (req, res) => {
-    try {
-      const eventId = req.params.id;
-      //checks if an event exists that _id, user, and req.user._id match. This is to prevent users that are authenticated from deleting events they do not author.
-      const event = await Event.findOne({ _id: eventId, user: req.user._id });
-      if (!event) { return res.status(401).send({ message: 'You are not the author of this event' }); }
-      await Event.deleteOne({ _id: eventId });
-      res.json({ message: 'Event deleted' });
-    } catch (error) {
-      console.error(error);
-      res.send(500);
+    const { id } = req.params;
+
+    // Prevent users that are authenticated from deleting events they do not author.
+    const event = await Event.findOne({ _id: id, user: req.user._id });
+    if (!event) {
+      throw httpError(404);
     }
+
+    // Delete event by id
+    await Event.findByIdAndDelete(id);
+
+    res.sendStatus(204);
   },
   deleteAllEvents: async (req, res) => {
-    try {
-      const groupId = req.params.groupId;
-      //checks if an event exists that _id, user, and req.user._id match. This is to prevent users that are authenticated from deleting events they do not author.
-      const event = await Event.findOne({ groupId: groupId, user: req.user._id })
-      if (!event) { return res.status(401).send({ message: 'You are not the author of this event' }); }
-      await Event.deleteMany({ groupId: groupId });
-      res.json({ message: 'Events deleted' });
-    } catch (error) {
-      console.error(error);
-      res.send(500);
+    const { groupId } = req.params;
+
+    // Prevent users that are authenticated from deleting events they do not author.
+    const count = await Event.countDocuments({
+      groupId,
+      user: req.user._id,
+    }).exec();
+
+    if (count === 0) {
+      throw httpError(404);
     }
+
+    const { deletedCount } = await Event.deleteMany({
+      groupId,
+      user: req.user._id,
+    }).exec();
+
+    // If the number of documents found is not equal to the number of deleted documents
+    // Something may have gone wrong
+    if (count !== deletedCount) {
+      console.log(`Found: ${count}. Deleted: ${deletedCount}`);
+    }
+
+    res.sendStatus(204);
   },
 };

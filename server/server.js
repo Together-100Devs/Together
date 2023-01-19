@@ -13,6 +13,7 @@ require("dotenv").config({ path: "./config/.env" });
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const eventsRoutes = require("./routes/events");
+const mockUser = require("./config/mockUser.json")
 
 // Passport config
 require("./config/passport")(passport);
@@ -44,6 +45,14 @@ app.use(express.static(path.join(__dirname, "..", "client", "build")));
 app.use(passport.initialize());
 app.use(passport.session());
 
+if (process.env.NODE_ENV === 'development' && process.env.MOCK_USER === 'true') {
+  console.log("In development - using mocked user")
+  app.use((req, res, next) => {
+    req.user = mockUser;
+    next()
+  })
+}
+
 //Use flash messages for errors, info, ect...
 app.use(flash());
 
@@ -52,7 +61,19 @@ app.use("/", mainRoutes);
 app.use("/events", eventsRoutes);
 app.get("'", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
-})
+});
+
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({ message: "Not found" });
+});
+
+// error handler
+app.use((err, req, res, next) => {
+  const { status = 500, message = "Server error", stack } = err;
+  console.log(stack);
+  res.status(status).json({ message });
+});
 
 //Connect To Database
 connectDB().then(() => {
