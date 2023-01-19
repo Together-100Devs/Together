@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useFormContext } from "contexts/FormContext";
 import FormRecurringDates from "./FormRecurringDates";
 import { format } from "date-fns";
@@ -6,28 +6,13 @@ import { format } from "date-fns";
 // This component contains location, and the start and end time, see the FormRecurringDates sub-component for details regarding the recurring events
 export default function FormScheduleEvent() {
   const { formData, setFormData, formScheduleEventErrors } = useFormContext();
-  const [finalDateHidden, setFinalDateHidden] = useState("");
-  const [firstDateTitle, setFirstDateTitle] = useState("Date");
-
-  // This handles how the "days of the week" checkboxes should be hidden when the event is non-recurring
-  useEffect(() => {
-    // If Not Recurring, set finalDate to be invisible
-    if (formData.recurring.rate === "noRecurr") {
-      // setFinalDateHidden("hidden");
-      // Set title of first date to just be date
-      // setFirstDateTitle("Date");
-    } else {
-      // setFinalDateHidden("");
-      // setFirstDateTitle("Start Date");
-    }
-  }, [formData.recurring.rate])
 
   const handleChange = e => {
     const { name, value } = e.target;
 
     // Set the value of the end date equal to start date's value when the start date's value is change, but NOT vice versa.
     if (name === "initialDate" && formData.recurring.rate === "noRecurr") {
-      setFormData(prevFormData => ({ ...prevFormData, ["initialDate"]: value, ["finalDate"]: value }));
+      setFormData(prevFormData => ({ ...prevFormData, "initialDate": value, "finalDate": value }));
       return;
     }
 
