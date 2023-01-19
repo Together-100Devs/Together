@@ -7,6 +7,12 @@ module.exports = {
   create: async (req, res) => {
     const formData = req.body;
     const events = createEventsArray(formData);
+
+    // If none of the days of the week selected is between start and end dates
+    if (!events.length) {
+      throw httpError(400);
+    }
+
     events.forEach(e => (e.user = req.user._id));
     await Event.insertMany(events);
     res.status(201).json({ message: "Event created!" });
