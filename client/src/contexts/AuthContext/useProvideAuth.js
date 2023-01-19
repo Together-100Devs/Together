@@ -29,10 +29,12 @@ const useProvideAuth = () => {
     return user === "User is not in 100Devs"
   }
 
+  // function check if user has needsToBeWelcome property
   const needsToBeWelcome = () => {
     return user.needsToBeWelcome;
   }
 
+  // Delete property of needsToBeWelcome 
   const deleteNeedsToBeWelcome = () => {
     const updateUser = { ...user };
     delete updateUser.needsToBeWelcome;
