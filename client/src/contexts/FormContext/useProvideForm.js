@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { generateRecurringDatesArray } from "utilities/calendar";
 import DataService from "services/dataService";
+import { dateToTimestamp } from "utilities/calendar";
 import { useEventsContext } from "contexts/EventsContext";
 
 const useProvideForm = () => {
@@ -25,21 +25,21 @@ const useProvideForm = () => {
 
     // Submit form to server
     if (newStep === 4) {
-      const recurringDates = generateRecurringDatesArray(formData);
-      const { title, description, location } = formData;
+      const { initialDate, startTime, finalDate, endTime, ...rest } = formData;
+      // start and end timestamps of the earliest possible event
+      const firstEventStart = dateToTimestamp(initialDate, startTime);
+      const firstEventEnd = dateToTimestamp(initialDate, endTime);
+      // start timestamp of the last possible event
+      const lastEventStart = dateToTimestamp(finalDate, startTime);
+      // Event data to be sent to the backend
+      const event = { ...rest, firstEventStart, firstEventEnd, lastEventStart };
 
-      const data = JSON.stringify(
-        recurringDates.map(date => ({
-          title,
-          description,
-          location,
-          ...date,
-        }))
-      );
-
+      
       let response;
       try {
-        response = await DataService.create({ data: data });
+        // Axios automatically serializes object to JSON
+        // https://masteringjs.io/tutorials/axios/post-json
+        response = await DataService.create(event);
       } catch (err) {
         console.error(err)
         return
