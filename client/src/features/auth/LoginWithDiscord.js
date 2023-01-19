@@ -1,8 +1,10 @@
 import React from "react";
 import { useAuthContext } from "contexts/AuthContext";
+import { useRoutingContext } from "contexts/RoutingContext";
 
 const LoginWithDiscord = ({ DiscordIcon }) => {
   const auth = useAuthContext();
+  const { setCurrentPage } = useRoutingContext();
 
   // If user is not authenticated; Render login button
   if (!auth.isAuthenticated()) {
@@ -17,7 +19,14 @@ const LoginWithDiscord = ({ DiscordIcon }) => {
         </button>
       </form>
     );
-  }
+  } 
+
+// Redirect user to calendarPage on successful login:
+  if (auth.isAuthenticated) {
+    return (
+      setCurrentPage("calendarPage")
+    )}
+  
 
   return (
     <div>
