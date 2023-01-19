@@ -14,8 +14,8 @@ module.exports = {
     }
 
     events.forEach(e => (e.user = req.user._id));
-    await Event.insertMany(events);
-    res.status(201).json({ message: "Event created!" });
+    const result = await Event.insertMany(events);
+    res.status(201).json({ message: "Event created!", events: result });
   },
   getAll: async (req, res) => {
     // Get an array of ALL events
