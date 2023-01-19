@@ -2,13 +2,13 @@ const Event = require("../models/Event");
 
 module.exports = {
   //test function
-  ping: (req, res) => {
-    return res.json({ message: "pong" });
-  },
   create: async (req, res) => {
     try {
       let data = JSON.parse(req.body.data);
-      data.forEach(obj => obj.user = req.user._id);
+      data.forEach(obj => {
+        obj.user = req.user._id;
+        obj.rsvpList = [];
+      });
       const result = await Event.insertMany(data);
       const events = result.map(r => r.toObject())
       res.json({ message: "Event created!", events });

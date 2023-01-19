@@ -1,21 +1,20 @@
 import "../../index.css";
-import DiscordButton from "./DiscordButton";
 
-const SmallCard = ({ img1, img2, img3, title }) => {
-  let titleColor = title === "together" ? "text-logoText" : "text-black";
-  let showBtn = title === "Welcome!";
+const SmallCard = ({ heading, description, Icon, index }) => {
+  let cardColors = ["bg-[#3EA6D7]", "bg-[#5ABABE]", "bg-[#E0835D]"];
+  let colorIndex = (index + 1) % cardColors.length;
   return (
-    <div className="px-16 pt-8 mb-0 border-solid border-2 border-slate-600 rounded-lg shadow-lg bg-secondary">
-      <div>
-        <img className="mx-auto h-18" src={img1} alt="" />
-        <span className={`${titleColor} font-bold text-2xl mt-8`}>{title}</span>
-        {showBtn && <DiscordButton />}
-        <img className="-mb-2" src={img2} alt="" />
-        <img className="rotate-[5.5deg]" src={img3} alt="" />
+    <div
+      className={`text-white p-5 my-8 tablet:w-full tablet:min-h-full border-2 border-black rounded-xl shadow-lg ${cardColors[colorIndex]}`}
+    >
+      <h1 className="font-bold desktop:text-lg tablet:text-base text-center pb-7">{heading}</h1>
+      <p className="desktop:text-base tablet:text-sm">{description}</p>
+      <div className="w-full h-[5rem] grid place-content-end px-2">
+        <Icon className=" text-6xl" />
       </div>
+
     </div>
   );
 };
 
 export default SmallCard;
-
