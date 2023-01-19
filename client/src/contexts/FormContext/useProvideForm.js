@@ -9,8 +9,7 @@ const useProvideForm = () => {
   const totalSteps = ["Description", "Schedule", "Confirm", "Success"];
   
   const [formData, setFormData] = useState({
-    recurring: { rate: "noRecurr", days: [] },
-    completed: false,
+    recurring: { rate: "noRecurr", days: [] }
   });
 
   // form errors
