@@ -9,8 +9,9 @@ module.exports = {
         obj.user = req.user._id;
         obj.rsvpList = [];
       });
-      await Event.insertMany(data);
-      res.json({ message: "Event created!" });
+      const result = await Event.insertMany(data);
+      const events = result.map(r => r.toObject())
+      res.json({ message: "Event created!", events });
     } catch (err) {
       console.log(err);
     }
