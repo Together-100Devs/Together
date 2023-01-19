@@ -13,17 +13,24 @@ export default function FormScheduleEvent() {
   useEffect(() => {
     // If Not Recurring, set finalDate to be invisible
     if (formData.recurring.rate === "noRecurr") {
-      setFinalDateHidden("hidden");
+      // setFinalDateHidden("hidden");
       // Set title of first date to just be date
-      setFirstDateTitle("Date");
+      // setFirstDateTitle("Date");
     } else {
-      setFinalDateHidden("");
-      setFirstDateTitle("Start Date");
+      // setFinalDateHidden("");
+      // setFirstDateTitle("Start Date");
     }
   }, [formData.recurring.rate])
 
   const handleChange = e => {
     const { name, value } = e.target;
+
+    // Set the value of the end date equal to start date's value when the start date's value is change, but NOT vice versa.
+    if (name === "initialDate" && formData.recurring.rate === "noRecurr") {
+      setFormData(prevFormData => ({ ...prevFormData, ["initialDate"]: value, ["finalDate"]: value }));
+      return;
+    }
+
     setFormData(prevFormData => ({ ...prevFormData, [name]: value }));
   };
 
@@ -47,9 +54,9 @@ export default function FormScheduleEvent() {
       {/* START DATE OF EVENT */}
       <div className="w-full mx-2 flex-1">
         {/* Note for user to understand the date boundaries. Added margin to seperate the date section from the event info */}
-        <p className={"text-xs mt-10 " + finalDateHidden}>Note: Start Date and End Date cannot be more than 90 days apart, and both must be in 2023.</p>
+        <p className="text-xs mt-10 ">Note: Start Date and End Date cannot be more than 90 days apart, and both must be in 2023.</p>
         <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
-          {firstDateTitle}
+          Start Date
         </div>
         <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
           <input
@@ -67,7 +74,7 @@ export default function FormScheduleEvent() {
       </div>
 
       {/* END DATE OF EVENT */}
-      <div className={"w-full mx-2 flex-1 " + finalDateHidden}>
+      <div className="w-full mx-2 flex-1 ">
         <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
           End Date
         </div>
