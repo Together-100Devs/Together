@@ -14,8 +14,17 @@ module.exports = {
     }
 
     events.forEach(e => (e.user = req.user._id));
+
+    // insertMany result doesn't populate user display name
     const result = await Event.insertMany(events);
-    res.status(201).json({ message: "Event created!", events: result });
+    // find newly added events and populate user with displayName
+    const ids = result.map(e => e._id);
+    const addedEvents = await Event.find({ _id: { $in: ids } })
+      .populate("user", "displayName")
+      .lean()
+      .exec();
+
+    res.status(201).json({ message: "Event created!", events: addedEvents });
   },
   getAll: async (req, res) => {
     // Get an array of ALL events
