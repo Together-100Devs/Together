@@ -152,7 +152,12 @@ Now that you have the copy, you will need access to the feature branch related t
 
 4. Create and checkout a branch for the task you are working on.
 
-   `git checkout -b a-descriptive-branch-name`
+   `git checkout -b branch-name`
+   
+   Name your branch using the following conventions based on the type of issue you're working on :
+
+   `feature/issue-{issue number}` : for issues with the 'enhancement' label
+   `bugfix/issue-{issue number}` : for issues with the 'bug' label
 
 5. Make any changes, save your work, and make necessary commits.
 
@@ -183,6 +188,8 @@ Now that you have the copy, you will need access to the feature branch related t
 > 💡 You can link your PR back to the issue it addresses by mentioning the issue ID number in the description box. Include a "closing" keyword if your PR completely resolves the issue mentioned GitHub will automatically close the issue upon merging the PR.
 
 3. A maintainer will review and test your changes and suggest edits if neccesary.
+
+> 💡 If you make your edits in your branch and commit/push, your pull request in github will automatically update to include that commit.
 
 4. Once everything is good your code will be merged. 👍
 

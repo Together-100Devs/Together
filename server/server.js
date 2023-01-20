@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
-const methodOverride = require("method-override");
 const flash = require("express-flash");
 const logger = require("morgan");
 //Use .env file in config folder
@@ -25,8 +24,6 @@ app.use(express.json());
 //Logging
 app.use(logger("dev"));
 
-//Use forms for put / delete
-app.use(methodOverride("_method"));
 
 // Setup Sessions - stored in MongoDB
 app.use(
@@ -61,7 +58,19 @@ app.use("/", mainRoutes);
 app.use("/events", eventsRoutes);
 app.get("'", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
-})
+});
+
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({ message: "Not found" });
+});
+
+// error handler
+app.use((err, req, res, next) => {
+  const { status = 500, message = "Server error", stack } = err;
+  console.log(stack);
+  res.status(status).json({ message });
+});
 
 //Connect To Database
 connectDB().then(() => {
