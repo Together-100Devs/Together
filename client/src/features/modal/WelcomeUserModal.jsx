@@ -25,7 +25,7 @@ const WelcomeUserModal = ({ handleClose, deleteNeedsToBeWelcome }) => {
         </div>
         <div>
          <h3>Hello, {auth.user.displayName}, We are happy to welcome you in Together. 
-            Looks, like you are all set!Cant wait for you to begin your journey with us!
+            Looks, like you are all set! Cant wait for you to begin your journey with us!
           </h3>
         </div>
        

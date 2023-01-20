@@ -37,4 +37,12 @@ router.get("/getDisplayName", (req, res) => {
   }
 });
 
+router.delete("/needsToBeWelcome", async (req, res) => {
+  if (req.user.needsToBeWelcome) {
+    req.user.needsToBeWelcome = undefined
+    await req.user.save();
+    res.json(req.user || null);
+  } 
+})
+
 module.exports = router;

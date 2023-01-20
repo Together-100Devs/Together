@@ -39,6 +39,7 @@ const useProvideAuth = () => {
     const updateUser = { ...user };
     delete updateUser.needsToBeWelcome;
     setUser(updateUser)
+    DataService.deleteNeedsToBeWelcome();
     console.log(user)
   }
 
