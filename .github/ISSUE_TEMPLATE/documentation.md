@@ -12,8 +12,9 @@ assignees: ""
 
 ## Links to relevant resources
 
-## Which Branch should this fix be Pulled into?
+## When you are finished:
 
-If this is an update to the Readme or Contributing.md, PR this into development.
+- If this is an update to the Readme or Contributing.md, PR this into development.
+- If this is an update to the Wiki, @ a maintainer so they can review your changes.
 
 _If you're interested in working on this feature, please comment so you can be assigned_
