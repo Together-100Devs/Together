@@ -8,9 +8,9 @@ const useProvideRouting = () => {
  
   // Redirect user to calendarPage on successful login:
   useEffect(() => {
-    if (user != null) {
+   
       setCurrentPage("calendarPage")
-    }
+    
   }, [user]);   
   
 
