@@ -122,6 +122,7 @@ Together is a new app designed for 100devs. Together is a group calendar for pub
 # 🚀 Getting Started
 ## 💻 Install
 
+- Read up on our [New Developer Onboarding](https://github.com/Caleb-Cohen/Together/wiki/02---Onboarding) in the wiki.
 - Fork and clone the repository to your local computer.
 - Complete and store `.env` file in the `server/config` folder
     - [(See .env template setup instructions)](https://github.com/Caleb-Cohen/Together/wiki/02---Onboarding#development-machine-setup)
@@ -132,9 +133,8 @@ Together is a new app designed for 100devs. Together is a group calendar for pub
 <br>
 
 ### 🤔 <strong>Still having troubles?</strong>
-You can check out our [New Developer Onboarding](https://github.com/Caleb-Cohen/Together/wiki/02---Onboarding) in our [wiki](https://github.com/Caleb-Cohen/Together/wiki).
 
-You can also join the discussion in the [Together Discord channel](https://discord.com/channels/735923219315425401/1038482732633825442) within [100Devs](https://leonnoel.com/100devs/).
+We highly encourage you to ask questions and join the discussion in the [Together Discord channel](https://discord.com/channels/735923219315425401/1038482732633825442) within [100Devs](https://leonnoel.com/100devs/). Our members are happy to help you get started!
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
