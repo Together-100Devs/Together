@@ -4,6 +4,19 @@ const mongoose = require("mongoose");
 const Joi = require("joi");
 
 const STRING_MAX_LENGTH = 280;
+// Event's starting date should be less than (strictly) EVENT_MAX_DATE
+const EVENT_MAX_DATE = "2024-01-01";
+// Recurring events should span no more than MAX_RECURRENCE_PERIOD number of days
+const MAX_RECURRENCE_PERIOD = 90;
+const DAYS_OF_WEEK = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
 
 const EventSchema = new mongoose.Schema(
   {
@@ -25,7 +38,7 @@ const EventSchema = new mongoose.Schema(
       validate: {
         validator: function (value) {
           const greaterThanToday = value > new Date() - 1000 * 60 * 60 * 26;
-          const limitTo2023 = value < new Date("2024-01-01");
+          const limitTo2023 = value < new Date(EVENT_MAX_DATE);
           return greaterThanToday && limitTo2023;
         },
       },
@@ -79,18 +92,18 @@ const createEventSchema = Joi.object({
   lastEventStart: Joi.date()
     // last event start date should not be earlier than first event start date
     .min(Joi.ref("firstEventStart"))
-    // at most 90 days from firstEventStart
+    // at most MAX_RECURRENCE_PERIOD days from firstEventStart
     .max(
       Joi.ref("firstEventStart", {
         adjust: val => {
           let date = new Date(val);
-          date.setDate(date.getDate() + 90);
+          date.setDate(date.getDate() + MAX_RECURRENCE_PERIOD);
           return date;
         },
       })
     )
     // Limit events to 2023
-    .less("2024-01-01")
+    .less(EVENT_MAX_DATE)
     // If recurring rate is 'noRecurr' lastEventStart should be equal to firstEventStart
     .when(Joi.ref("/recurring.rate"), {
       is: Joi.valid("noRecurr"),
@@ -98,8 +111,7 @@ const createEventSchema = Joi.object({
     })
     .required()
     .messages({
-      "date.max":
-        '"lastEventStart" must be within 90 days of "ref:firstEventStart"',
+      "date.max": `"lastEventStart" must be within ${MAX_RECURRENCE_PERIOD} days of "ref:firstEventStart"`,
     }),
   recurring: Joi.object({
     // Rate is either "noRecurr" or "weekly"
@@ -116,17 +128,7 @@ const createEventSchema = Joi.object({
       otherwise: Joi.array()
         .min(1)
         .max(7)
-        .items(
-          Joi.string().valid(
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday"
-          )
-        ),
+        .items(Joi.string().valid(...DAYS_OF_WEEK)),
     }).required(),
   }),
 });
