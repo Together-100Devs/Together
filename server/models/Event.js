@@ -1,7 +1,9 @@
+"use strict";
+
 const mongoose = require("mongoose");
 const Joi = require("joi");
 
-STRING_MAX_LENGTH = 280;
+const STRING_MAX_LENGTH = 280;
 
 const EventSchema = new mongoose.Schema(
   {
@@ -22,9 +24,9 @@ const EventSchema = new mongoose.Schema(
       required: true,
       validate: {
         validator: function (value) {
-          greateThanToday = value > new Date() - 1000 * 60 * 60 * 26;
-          limitTo2023 = value < new Date("2024-01-01");
-          return greateThanToday && limitTo2023;
+          const greaterThanToday = value > new Date() - 1000 * 60 * 60 * 26;
+          const limitTo2023 = value < new Date("2024-01-01");
+          return greaterThanToday && limitTo2023;
         },
       },
     },
