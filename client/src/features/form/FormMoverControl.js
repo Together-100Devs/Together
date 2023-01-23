@@ -44,7 +44,6 @@ const FormMoverControl = () => {
     switch (currentStep) {
       case 1:
 
-
         // Check if any values are empty string, null, undefined, and/or less than 2 characters
         // Side note: This is the only case where you"d ever want to use == instead of ===
 
@@ -52,17 +51,11 @@ const FormMoverControl = () => {
         checkForEmptyField("description");
         checkForEmptyField("location");
 
-
         setFormCreateEventErrors(errorArray);
         break;
 
       // 2nd page - FormScheduleEvent
       case 2:
-
-        // To start, if the event is not recurring, set startDate equal to endDate
-        if (formData["recurring"]["rate"] === "noRecurr") {
-          formData["finalDate"] = formData["initialDate"];
-        }
 
         // Empty Field Value Tests
         checkForEmptyField("initialDate");
@@ -77,21 +70,17 @@ const FormMoverControl = () => {
           errorArray.push("Error: Start date and End date cannot be more than 90 days apart");
         }
 
-        // Start Date cannot be after End Date, vica versa
-        if (parseISO(formData["finalDate"]) < parseISO(formData["initialDate"])) {
-          errorArray.push("Error: Start date cannot be after End date");
-        }
-
         // "Weekly" Recurring Event MUST include at least on day of week
         if (formData["recurring"]["rate"] === "weekly" && formData["recurring"]["days"].length === 0) {
           errorArray.push("Error: Weekly recurring event MUST include at least one day of the week");
         }
 
-        //Holding off on adding this now as it won't account for edge cases in event creation like 11pm to 12am.
-        // if ((formData["startTime"]) > formData["endTime"]) {
-        //   errorArray.push("Error: Start time cannot be after End time");
-        // }
-
+        // Compares the date + time combined (i.e. start and end datetime)
+        const startDateTime = new Date(formData["initialDate"] + " " + formData["startTime"]);
+        const endDateTime = new Date(formData["finalDate"] + " " + formData["endTime"]);
+        if (endDateTime < startDateTime) {
+          errorArray.push("Error: End time is before Start time");
+        }
 
         setFormScheduleEventErrors(errorArray);
         break;
