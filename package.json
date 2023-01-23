@@ -9,7 +9,7 @@
     "dev:server": "cross-env NODE_ENV=development npm run ts-exec server/server.js",
     "dev:mongo": "cross-env NODE_ENV=development npm run ts-exec server/dev-mongo",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix",
+    "lint:fix": "eslint . --fix",
     "ts-exec": "ts-node -r tsconfig-paths/register --project ./tsconfig.json --transpile-only"
   },
   "author": "",

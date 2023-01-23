@@ -1,6 +1,8 @@
-import Link from 'next/link';
-import HamburgerNav from "./HamburgerNav";
+import Link from "next/link";
+
 import { useAuthContext } from "client/contexts/AuthContext";
+
+import HamburgerNav from "./HamburgerNav";
 
 const NavButtons = ({ HomeIcon, LoginIcon, CalendarIcon }) => {
   const { isAuthenticated, logout } = useAuthContext();
@@ -33,7 +35,7 @@ const NavButtons = ({ HomeIcon, LoginIcon, CalendarIcon }) => {
         </div>
         <div className="text-mainGreen font-black text-lg tablet:text-xl text-center">
           <span>{isAuthenticated() ? "Log Out" : "Log In"}</span>
-          </div>
+        </div>
       </button>
       {/* Calendar Button */}
       <Link href='/calendar'>

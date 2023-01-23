@@ -3,14 +3,14 @@ import axios from "axios";
 // Get request
 const get = async () => {
 
-    const response = await axios.get('/events')
-    return response.data;
+  const response = await axios.get("/events")
+  return response.data;
 }
     
 // Post request
 const create = async userData => {
-const response = await axios.post('/events', userData)
-    return response.data;
+  const response = await axios.post("/events", userData)
+  return response.data;
 }
 
 // Put request

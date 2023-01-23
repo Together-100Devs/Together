@@ -1,5 +1,6 @@
-import React, { createContext, useContext } from 'react';
-import useProvideEvents from './useProvideEvents';
+import React, { createContext, useContext } from "react";
+
+import useProvideEvents from "./useProvideEvents";
 
 // Creating a named context
 const EventsContext = createContext();

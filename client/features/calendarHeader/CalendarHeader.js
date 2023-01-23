@@ -1,14 +1,20 @@
-import HeaderButton from "./components/HeaderButton";
-import { MdGroupAdd } from "react-icons/md";
-import { IoChatbubblesOutline } from "react-icons/io5";
+import Link from "next/link";
 import { BsCalendarPlusFill } from "react-icons/bs";
 import { FaHome, FaQuestion } from "react-icons/fa";
+import { IoChatbubblesOutline } from "react-icons/io5";
+import { MdGroupAdd } from "react-icons/md";
 import { RiArrowLeftCircleFill, RiArrowRightCircleFill } from "react-icons/ri";
-import MonthAndYear from "client/features/calendar/MonthAndYear";
-import Logo from "../../assets/images/togetherLogo.svg";
+
+
+
 import { useAuthContext } from "client/contexts/AuthContext";
 import { useFormModalContext } from "client/contexts/FormModalContext";
-import Link from "next/link";
+import MonthAndYear from "client/features/calendar/MonthAndYear";
+
+import Logo from "../../assets/images/togetherLogo.svg";
+
+import HeaderButton from "./components/HeaderButton";
+
 
 function CalendarHeader({ date }) {
   const formModal = useFormModalContext();
@@ -57,15 +63,15 @@ function CalendarHeader({ date }) {
       </section>
       <section className="flex space-x-3">
         <HeaderButton
-            Icon={IoChatbubblesOutline}
-            tooltipText="Feedback"
-            onClick={() => linkToUrl(GH_ISSUES_URL)}
-          />
-          <HeaderButton
-            Icon={FaQuestion}
-            tooltipText="Help"
-            onClick={() => linkToUrl(GH_ISSUES_URL)}
-          />
+          Icon={IoChatbubblesOutline}
+          tooltipText="Feedback"
+          onClick={() => linkToUrl(GH_ISSUES_URL)}
+        />
+        <HeaderButton
+          Icon={FaQuestion}
+          tooltipText="Help"
+          onClick={() => linkToUrl(GH_ISSUES_URL)}
+        />
         {isAuthenticated() ? (
           <HeaderButton
             Icon={RiArrowLeftCircleFill}

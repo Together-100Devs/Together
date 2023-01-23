@@ -1,4 +1,5 @@
 import React from "react";
+
 import DayCard from "./DayCard";
 
 const DayCardList = ({ data, firstDayOfMonth }) => {

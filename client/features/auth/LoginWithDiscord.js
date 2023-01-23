@@ -1,4 +1,5 @@
 import React from "react";
+
 import { useAuthContext } from "client/contexts/AuthContext";
 
 const LoginWithDiscord = ({ DiscordIcon }) => {

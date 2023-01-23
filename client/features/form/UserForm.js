@@ -1,9 +1,10 @@
 import { useFormContext } from "client/contexts/FormContext";
+
+import FormConfirm from "./FormConfirm";
+import FormCreateEvent from "./FormCreateEvent";
 import FormMover from "./FormMover";
 import FormMoverControl from "./FormMoverControl";
-import FormCreateEvent from "./FormCreateEvent";
 import FormScheduleEvent from "./FormScheduleEvent";
-import FormConfirm from "./FormConfirm";
 import FormSuccess from "./FormSuccess";
 
 // This is the code for the form where you add events to the calendar
@@ -37,7 +38,7 @@ const UserForm = () => {
         <FormMover />
 
         <div className="my-1 p-5">
-            {displayStep(currentStep)}
+          {displayStep(currentStep)}
         </div>
       </div>
       <div>

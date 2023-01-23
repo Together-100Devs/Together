@@ -1,7 +1,9 @@
+import { FaHome, FaChevronCircleLeft, FaChevronCircleRight, FaRegCalendarAlt } from "react-icons/fa";
+
+import { useAuthContext } from "client/contexts/AuthContext";
+
 import LogoContainer from "./LogoContainer";
 import NavButtons from "./NavButtons";
-import { FaHome, FaChevronCircleLeft, FaChevronCircleRight, FaRegCalendarAlt } from "react-icons/fa";
-import { useAuthContext } from "client/contexts/AuthContext";
 
 const NavContainer = () => {
   const { isAuthenticated } = useAuthContext();

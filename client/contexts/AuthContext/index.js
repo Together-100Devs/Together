@@ -1,5 +1,6 @@
-import React, { createContext, useContext } from 'react';
-import useProvideAuth from './useProvideAuth';
+import React, { createContext, useContext } from "react";
+
+import useProvideAuth from "./useProvideAuth";
 
 // Creating a named context
 const AuthContext = createContext();

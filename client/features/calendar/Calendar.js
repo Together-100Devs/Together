@@ -1,13 +1,15 @@
+import { parse } from "date-fns";
 import React, { useState, useEffect } from "react";
+
 // components
+import { useEventsContext } from "client/contexts/EventsContext";
+import DataService from "client/services/dataService";
+import { getMatchMonthAndYear, getEventsByDayNumber } from "client/utilities/calendar";
+
 import AllDays from "./AllDays";
 import DayCardList from "./DayCardList";
 // Utility functions
 // For getting real data
-import DataService from "client/services/dataService";
-import { getMatchMonthAndYear, getEventsByDayNumber } from "client/utilities/calendar";
-import { parse } from "date-fns";
-import { useEventsContext } from 'client/contexts/EventsContext';
 
 const Calendar = ({ date }) => {
   const { events, setEvents } = useEventsContext();

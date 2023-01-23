@@ -1,7 +1,8 @@
 import { useState } from "react";
+
+import { useEventsContext } from "client/contexts/EventsContext";
 import DataService from "client/services/dataService";
 import { dateToTimestamp } from "client/utilities/calendar";
-import { useEventsContext } from "client/contexts/EventsContext";
 
 const useProvideForm = () => {
   const { addEvents } = useEventsContext();

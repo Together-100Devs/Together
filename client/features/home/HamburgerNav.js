@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+
 import { useAuthContext } from "client/contexts/AuthContext";
 
 function HamburgerNav({ logo, logotext }) {

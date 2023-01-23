@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { useFormContext } from "client/contexts/FormContext";
-import FormRecurringDates from "./FormRecurringDates";
 import { format } from "date-fns";
+import React, { useState, useEffect } from "react";
+
+import { useFormContext } from "client/contexts/FormContext";
+
+import FormRecurringDates from "./FormRecurringDates";
 
 // This component contains location, and the start and end time, see the FormRecurringDates sub-component for details regarding the recurring events
 export default function FormScheduleEvent() {
@@ -32,9 +34,9 @@ export default function FormScheduleEvent() {
 
 
       {formScheduleEventErrors.map((error, index) => {
-        return <div class="alert alert-error shadow-lg text-red-700" key="index">
+        return <div className="alert alert-error shadow-lg text-red-700" key="index">
           <div>
-            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
             <span>{error}</span>
           </div>
         </div>
@@ -60,7 +62,7 @@ export default function FormScheduleEvent() {
             placeholder="Start Date"
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
             required
-            min={format(new Date(), 'yyyy-MM-dd')}
+            min={format(new Date(), "yyyy-MM-dd")}
             max='2023-12-31'
           />
         </div>
@@ -80,7 +82,7 @@ export default function FormScheduleEvent() {
             placeholder="endDate"
             className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
             required
-            min={format(new Date(), 'yyyy-MM-dd')}
+            min={format(new Date(), "yyyy-MM-dd")}
             max='2023-12-31'
           />
         </div>

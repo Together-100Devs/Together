@@ -1,10 +1,9 @@
-import { useState } from "react";
-
+import format from "date-fns/format";
 import getDaysInMonth from "date-fns/getDaysInMonth";
 import getMonth from "date-fns/getMonth";
 import getYear from "date-fns/getYear";
 import startOfMonth from "date-fns/startOfMonth";
-import format from "date-fns/format";
+import { useState } from "react";
 
 // Current date
 const useDate = () => {

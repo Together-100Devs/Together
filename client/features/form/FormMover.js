@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import { useFormContext } from "client/contexts/FormContext";
 
 // newStep (state) initial data example (fig: 1):
@@ -10,17 +11,17 @@ import { useFormContext } from "client/contexts/FormContext";
 // }
 
 const stepStatus = {
-  "current": {
+  current: {
     highlighted: true,
     selected: true,
     completed: true,
   },
-  "pending": {
+  pending: {
     highlighted: false,
     selected: false,
     completed: false,
   },
-  "completed": {
+  completed: {
     highlighted: false,
     selected: true,
     completed: true,
@@ -46,31 +47,31 @@ const FormMover = () => {
       // Update newStep object's status
       setNewStep((prevNewStep) =>
         prevNewStep.map((stepObject, count) => {
-            // Current step
-            if (count === stepNumber) {
-              // Update stepObject with current status
-              return {
-                ...stepObject,
-                ...stepStatus.current
-              };
-            }
-
-            // Completed steps
-            if (count < stepNumber) {
-              // Update stepObject with completed status
-              return {
-                ...stepObject,
-                ...stepStatus.completed
-              };
-            }
-
-            // Pending steps
-            // Update stepObject with pending status
+          // Current step
+          if (count === stepNumber) {
+            // Update stepObject with current status
             return {
               ...stepObject,
-              ...stepStatus.pending
+              ...stepStatus.current
             };
-          })
+          }
+
+          // Completed steps
+          if (count < stepNumber) {
+            // Update stepObject with completed status
+            return {
+              ...stepObject,
+              ...stepStatus.completed
+            };
+          }
+
+          // Pending steps
+          // Update stepObject with pending status
+          return {
+            ...stepObject,
+            ...stepStatus.pending
+          };
+        })
       );
     }
 

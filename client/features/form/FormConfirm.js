@@ -1,4 +1,5 @@
 import React from "react";
+
 import { useFormContext } from "client/contexts/FormContext";
 
 // This components displays all of the form data for the user to confirm 

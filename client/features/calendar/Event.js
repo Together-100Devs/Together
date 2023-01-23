@@ -1,6 +1,7 @@
 import React from "react";
-import { formatToLocalTime } from "client/utilities/calendar";
+
 import { useModalContext } from "client/contexts/ModalContext";
+import { formatToLocalTime } from "client/utilities/calendar";
 
 const Event = props => {
   const modal = useModalContext();

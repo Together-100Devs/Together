@@ -1,4 +1,5 @@
 const DiscordStrategy = require("passport-discord").Strategy;
+
 const User = require("../models/User");
 
 module.exports = function (passport) {

@@ -1,5 +1,5 @@
-const httpError = require("../utilities/httpError");
 const { Event } = require("../models/Event");
+const httpError = require("../utilities/httpError");
 
 /**
  * Checks if the number of different future recurring events

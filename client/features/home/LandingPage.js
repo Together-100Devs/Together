@@ -1,10 +1,13 @@
 import React from "react";
-import LongCard from "./LongCard";
+import { CgChevronDoubleRightO } from "react-icons/cg";
+
 import BottomCard from "./BottomCard";
+import HamburgerNav from "./HamburgerNav";
+import LongCard from "./LongCard";
 import NavContainer from "./NavContainer";
 import SmallCard from "./SmallCard";
-import { CgChevronDoubleRightO } from "react-icons/cg";
-import HamburgerNav from "./HamburgerNav";
+
+
 
 const LandingPage = () => {
   const cards = [
@@ -36,7 +39,7 @@ const LandingPage = () => {
           {" "}
           <a
             className="underline font-bold"
-            href={`https://communitytaught.org/`}
+            href={"https://communitytaught.org/"}
           >
             Community Taught
           </a>{" "}
@@ -45,11 +48,11 @@ const LandingPage = () => {
           <br></br>
           <a
             className="underline font-bold"
-            href={`https://communitytaught.org/resources/`}
+            href={"https://communitytaught.org/resources/"}
           >
             Additional Resources
           </a>
-          </>
+        </>
       )
     },
   ];
@@ -96,9 +99,9 @@ const LandingPage = () => {
               Interested in collaborating with us?{" "}
               <a
                 className="underline font-bold"
-                href={`https://github.com/Caleb-Cohen/Together`}
+                href={"https://github.com/Caleb-Cohen/Together"}
               >
-              <br></br>
+                <br></br>
                 Together GitHub
               </a>
             </p>

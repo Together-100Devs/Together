@@ -1,4 +1,5 @@
 import { FaDiscord } from "react-icons/fa";
+
 import LoginWithDiscord from "client/features/auth/LoginWithDiscord";
 
 const DiscordButton = () => (

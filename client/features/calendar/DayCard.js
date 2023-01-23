@@ -1,14 +1,16 @@
 import { isSameDay, format } from "date-fns";
 import React from "react";
-import Event from "./Event";
+
 import { useFormModalContext } from "client/contexts/FormModalContext";
+
+import Event from "./Event";
 
 const DayCard = ({ date, events }) => {
 
   const formModal = useFormModalContext();
 
   //Extracts month in long format from date object
-  const month = format(date, 'MMMM');
+  const month = format(date, "MMMM");
 
   //Extracts day from date object
   const day = date.getDate()

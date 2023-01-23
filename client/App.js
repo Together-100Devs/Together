@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import { useAuthContext } from "contexts/AuthContext";
+import { useRoutingContext } from "contexts/RoutingContext";
+import CalendarPage from "features/home/CalendarPage";
+import LandingPage from "features/home/LandingPage";
 import Modal from "features/modal/Modal";
 import RejectionModal from "features/modal/RejectionModal";
-import { useRoutingContext } from "contexts/RoutingContext";
-import { useAuthContext } from "contexts/AuthContext";
-import LandingPage from "features/home/LandingPage";
-import CalendarPage from "features/home/CalendarPage";
+import React, { useState } from "react";
 
 function App() {
   const routing = useRoutingContext();
@@ -14,7 +14,7 @@ function App() {
   //Sets rejection modal to true because updating state is a pain
   //Line 52 will prevent the modal from rendering unless user is not 100Dever
   const [rejectionModalOpen, setRejectionModalOpen] = useState(true)
-  const rejectionModalContext = { isOpen: rejectionModalOpen, handleClose:  () => { setRejectionModalOpen(false) }}
+  const rejectionModalContext = { isOpen: rejectionModalOpen, handleClose:  () => { setRejectionModalOpen(false) } }
 
   return (
     <>
@@ -34,13 +34,13 @@ function App() {
         </div>
       )}
       {routing.currentPage === "calendarPage" && (
-      <CalendarPage>
-        {isNot100Dever && (
-          <Modal context={rejectionModalContext}>
-            <RejectionModal handleClose={rejectionModalContext.handleClose}/>
-          </Modal>
-        )}
-      </CalendarPage>
+        <CalendarPage>
+          {isNot100Dever && (
+            <Modal context={rejectionModalContext}>
+              <RejectionModal handleClose={rejectionModalContext.handleClose}/>
+            </Modal>
+          )}
+        </CalendarPage>
       )}
     </>
   );
