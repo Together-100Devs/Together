@@ -18,17 +18,20 @@ function App() {
   const [rejectionModalOpen, setRejectionModalOpen] = useState(true)
   const rejectionModalContext = { isOpen: rejectionModalOpen, handleClose: () => { setRejectionModalOpen(false) } }
   const [welcomeUserModalOpen, setWelcomeUserModalOpen] = useState(false)
-  const welcomeUserModalContext = { isOpen: welcomeUserModalOpen, handleClose: () => { setWelcomeUserModalOpen(false) } }
+  const welcomeUserModalContext = { isOpen: welcomeUserModalOpen, handleClose: () => { 
+    setWelcomeUserModalOpen(false) 
+    deleteNeedsToBeWelcome()
+  }}
   useEffect(() => {
     if (auth.user)
       setWelcomeUserModalOpen(auth.needsToBeWelcome())
-  }, [auth.user])
+  }, [auth])
 
   return (
     <>
       {isAuthenticated &&  (
          <Modal context={welcomeUserModalContext}>
-          <WelcomeUserModal handleClose={welcomeUserModalContext.handleClose} deleteNeedsToBeWelcome={deleteNeedsToBeWelcome}  />
+          <WelcomeUserModal handleClose={welcomeUserModalContext.handleClose}/>
           </Modal>
       )}
       {routing.currentPage === "landingPage" && (
