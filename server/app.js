@@ -12,6 +12,7 @@ require("dotenv").config({ path: "./config/.env" });
 const mainRoutes = require("./routes/main");
 const eventsRoutes = require("./routes/events");
 const mockUser = require("./config/mockUser.json");
+const User = require("./models/User");
 
 // Passport config
 require("./config/passport")(passport);
@@ -46,8 +47,12 @@ if (
   process.env.MOCK_USER === "true"
 ) {
   console.log("In development - using mocked user");
-  app.use((req, res, next) => {
+  app.use(async (req, res, next) => {
     req.user = mockUser;
+    let user = await User.findOne({ _id: mockUser._id }).exec();
+    if (!user) {
+      await User.create(mockUser);
+    }
     next();
   });
 }
