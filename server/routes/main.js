@@ -4,7 +4,7 @@ const passport = require("passport");
 
 //Main Routes - simplified for now
 const authRedirectUrl =
-  process.env.OAUTH_REDIRECT_URL || "http://localhost:3000";
+  process.env.OAUTH_REDIRECT_URL || "http://localhost:2121";
 //Discord Authentication Routes
 router.get("/auth/discord", passport.authenticate("discord"));
 router.get("/auth/logout", (req, res) => {

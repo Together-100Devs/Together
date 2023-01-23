@@ -4,11 +4,11 @@ import { FaRegClock } from "react-icons/fa";
 // import { IoIosRepeat } from "react-icons/io";
 import { IoLocationOutline, IoPersonOutline } from "react-icons/io5";
 import { format, parseISO } from "date-fns";
-import { formatToLocalTime } from 'utilities/calendar';
-import togetherLogo from "../../assets/images/togetherLogo.svg";
-import { useModalContext } from "contexts/ModalContext";
+import { formatToLocalTime } from 'client/utilities/calendar';
+import togetherLogo from "../.././assets/images/togetherLogo.svg";
+import { useModalContext } from "client/contexts/ModalContext";
 import dataService from '../../services/dataService';
-import { useAuthContext } from "contexts/AuthContext";
+import { useAuthContext } from "client/contexts/AuthContext";
 
 
 const EventModal = () => {
