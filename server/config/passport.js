@@ -45,7 +45,7 @@ module.exports = function (passport) {
               bio: "",
               needsToBeWelcome: true,
             });
-            console.log(user)
+           
             return cb(null, user);
           } else {
             // it user already exists, update display name and avatar
