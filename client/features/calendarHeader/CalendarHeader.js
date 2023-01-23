@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link";
 import { BsCalendarPlusFill } from "react-icons/bs";
 import { FaHome, FaQuestion } from "react-icons/fa";
@@ -5,16 +6,12 @@ import { IoChatbubblesOutline } from "react-icons/io5";
 import { MdGroupAdd } from "react-icons/md";
 import { RiArrowLeftCircleFill, RiArrowRightCircleFill } from "react-icons/ri";
 
-
-
+import Logo from "client/assets/images/togetherLogo.svg";
 import { useAuthContext } from "client/contexts/AuthContext";
 import { useFormModalContext } from "client/contexts/FormModalContext";
 import MonthAndYear from "client/features/calendar/MonthAndYear";
 
-import Logo from "../../assets/images/togetherLogo.svg";
-
 import HeaderButton from "./components/HeaderButton";
-
 
 function CalendarHeader({ date }) {
   const formModal = useFormModalContext();
@@ -53,7 +50,7 @@ function CalendarHeader({ date }) {
         </Link>
       </section>
       <section className="flex items-center">
-        <img src={Logo} className="w-14" alt="Logo" />
+        <Image src={Logo} className="w-14" alt="Logo" />
         <MonthAndYear
           month={date?.month}
           year={date?.year}
