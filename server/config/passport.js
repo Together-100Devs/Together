@@ -52,7 +52,7 @@ module.exports = function (passport) {
             user.displayName = displayName;
             user.avatar = profile.avatar;
             const updatedUser = await user.save();
-            console.log(updatedUser)
+            
             return cb(null, updatedUser);
           }
         } catch (err) {
