@@ -1,14 +1,17 @@
+import { format, parseISO } from "date-fns";
 import React from "react";
-import { GrCalendar } from "react-icons/gr";
 import { FaRegClock } from "react-icons/fa";
+import { GrCalendar } from "react-icons/gr";
 // import { IoIosRepeat } from "react-icons/io";
 import { IoLocationOutline, IoPersonOutline } from "react-icons/io5";
-import { format, parseISO } from "date-fns";
-import { formatToLocalTime } from 'utilities/calendar';
-import togetherLogo from "../../assets/images/togetherLogo.svg";
-import { useModalContext } from "contexts/ModalContext";
-import dataService from '../../services/dataService';
-import { useAuthContext } from "contexts/AuthContext";
+
+import { useAuthContext } from "client/contexts/AuthContext";
+import { useModalContext } from "client/contexts/ModalContext";
+import { formatToLocalTime } from "client/utilities/calendar";
+
+import togetherLogo from "../.././assets/images/togetherLogo.svg";
+import dataService from "../../services/dataService";
+
 
 
 const EventModal = () => {
@@ -52,7 +55,7 @@ const EventModal = () => {
           <section className="flex m-3 gap-1 font-semibold">
             <GrCalendar className="mt-1" />
             <span className="">Day:</span>{" "}
-            <span>{format(parseISO(modal.activeEvent.startAt), 'M')}/{format(parseISO(modal.activeEvent.startAt), 'd')}/{format(parseISO(modal.activeEvent.startAt), 'y')}</span>
+            <span>{format(parseISO(modal.activeEvent.startAt), "M")}/{format(parseISO(modal.activeEvent.startAt), "d")}/{format(parseISO(modal.activeEvent.startAt), "y")}</span>
           </section>
 
           <section className="flex m-3 gap-1 font-semibold">

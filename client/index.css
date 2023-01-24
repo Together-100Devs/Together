@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-teal-light;
+  }
+}
+
+.modal {
+  width: clamp(10%, 500px, 50%);
+  min-height: 400px;
+  max-height: 100%;
+}

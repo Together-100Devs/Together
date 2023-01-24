@@ -5,3 +5,5 @@ build
 .DS_Store
 .mongo
 formLogic.txt
+.next
+dist

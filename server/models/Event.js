@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
 const Joi = require("joi");
+const mongoose = require("mongoose");
 
-STRING_MAX_LENGTH = 280;
+const STRING_MAX_LENGTH = 280;
 
 const EventSchema = new mongoose.Schema(
   {
@@ -22,8 +22,8 @@ const EventSchema = new mongoose.Schema(
       required: true,
       validate: {
         validator: function (value) {
-          greateThanToday = value > new Date() - 1000 * 60 * 60 * 26;
-          limitTo2023 = value < new Date("2024-01-01");
+          const greateThanToday = value > new Date() - 1000 * 60 * 60 * 26;
+          const limitTo2023 = value < new Date("2024-01-01");
           return greateThanToday && limitTo2023;
         },
       },
@@ -97,7 +97,7 @@ const createEventSchema = Joi.object({
     .required()
     .messages({
       "date.max":
-        '"lastEventStart" must be within 90 days of "ref:firstEventStart"',
+        "\"lastEventStart\" must be within 90 days of \"ref:firstEventStart\"",
     }),
   recurring: Joi.object({
     // Rate is either "noRecurr" or "weekly"

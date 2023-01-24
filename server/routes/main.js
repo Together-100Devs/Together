@@ -4,17 +4,17 @@ const passport = require("passport");
 
 //Main Routes - simplified for now
 const authRedirectUrl =
-  process.env.OAUTH_REDIRECT_URL || "http://localhost:3000";
+  process.env.OAUTH_REDIRECT_URL || "http://localhost:2121";
 //Discord Authentication Routes
 router.get("/auth/discord", passport.authenticate("discord"));
 router.get("/auth/logout", (req, res) => {
   req.logout(() => {
-    console.log('User has logged out.')
+    console.log("User has logged out.")
   })
   req.session.destroy((err) => {
-    if (err) console.log('Error : Failed to destroy the session during logout.', err)
+    if (err) console.log("Error : Failed to destroy the session during logout.", err)
     req.user = null
-    return res.json({ message: 'Logout successful.' })
+    return res.json({ message: "Logout successful." })
   })
 });
 router.get(
