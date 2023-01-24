@@ -9,6 +9,7 @@ const now = new Date();
 const earlier1hour = new Date(now).setHours(now.getHours() - 1);
 const inOneHour = new Date(now).setHours(now.getHours() + 1);
 const inTwoHours = new Date(now).setHours(now.getHours() + 2);
+const in73hours = new Date(now).setHours(now.getHours() + 73);
 const inThreeHours = new Date(now).setHours(now.getHours() + 3);
 const inMaxAllowed = new Date(now).setDate(
   now.getDate() + MAX_RECURRENCE_PERIOD + 1
@@ -53,7 +54,7 @@ const validFormDataRecurr = {
   },
   firstEventStart: inOneHour,
   firstEventEnd: inTwoHours,
-  lastEventStart: inOneHour,
+  lastEventStart: in73hours,
 };
 
 const missingTitle = {
