@@ -1,4 +1,8 @@
-const { MAX_RECURRENCE_PERIOD, EVENT_MAX_DATE } = require("../models/Event");
+const {
+  STRING_MAX_LENGTH,
+  MAX_RECURRENCE_PERIOD,
+  EVENT_MAX_DATE,
+} = require("../../models/Event");
 
 const now = new Date();
 
@@ -58,6 +62,11 @@ const missingTitle = {
 delete missingTitle["title"];
 
 const emptyTitle = { ...validFormDataNonRecurr, title: "" };
+
+const titleToLong = {
+  ...validFormDataNonRecurr,
+  title: "f".repeat(STRING_MAX_LENGTH + 1),
+};
 
 const firstEventStartWrongFormat = {
   ...validFormDataNonRecurr,
@@ -127,6 +136,7 @@ module.exports = {
   validFormDataRecurr,
   missingTitle,
   emptyTitle,
+  titleToLong,
   firstEventStartWrongFormat,
   startDateInThePast,
   startEqualsEnd,
