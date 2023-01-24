@@ -8,7 +8,7 @@ const MongoStore = require("connect-mongo")(session);
 const flash = require("express-flash");
 const logger = require("morgan");
 //Use .env file in config folder
-require("dotenv").config({ path: "./config/.env" });
+require("dotenv").config({ path: path.resolve(__dirname, "config", ".env") });
 const mainRoutes = require("./routes/main");
 const eventsRoutes = require("./routes/events");
 const mockUser = require("./config/mockUser.json");
