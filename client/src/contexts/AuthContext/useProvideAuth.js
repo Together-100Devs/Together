@@ -14,7 +14,11 @@ const useProvideAuth = () => {
   useEffect(() => {
     // If so, save user's information to the context
     DataService.getCurrentUser().then((response) => {
+      console.log(response.data)
       setUser(response.data);
+      if (response.data instanceof Object) {
+        setCurrentPage("calendarPage")
+      }
     });
   }, []);
   
@@ -35,11 +39,26 @@ const useProvideAuth = () => {
     return user === "User is not in 100Devs"
   }
 
+  // function check if user has needsToBeWelcome property
+  const needsToBeWelcome = () => {
+    return user.needsToBeWelcome;
+  }
+
+  // Delete property of needsToBeWelcome 
+  const deleteNeedsToBeWelcome = () => {
+    const updateUser = { ...user };
+    delete updateUser.needsToBeWelcome;
+    setUser(updateUser)
+    DataService.deleteNeedsToBeWelcome();
+  }
+
   return {
     user,
     logout,
     isAuthenticated,
     isNot100Dever,
+    needsToBeWelcome,
+    deleteNeedsToBeWelcome,
   };
 };
 
