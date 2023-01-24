@@ -6,7 +6,7 @@ const URL = axios.create({
 
 class DataService {
   create(msg) {
-    return URL.post(`/events/create`, msg);
+    return URL.post(`/events/`, msg);
   }
   getAll() {
     return URL.get("/events");
