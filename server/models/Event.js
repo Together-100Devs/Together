@@ -87,7 +87,7 @@ const createEventSchema = Joi.object({
     .required(),
   firstEventEnd: Joi.date()
     .timestamp()
-    .greater(Joi.ref("firstEventStart"))
+    // .greater(Joi.ref("firstEventStart"))
     .required(),
   lastEventStart: Joi.date()
     .timestamp()

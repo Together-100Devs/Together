@@ -85,14 +85,14 @@ describe("validateBody", () => {
       expect(next).not.toBeCalled();
     });
 
-    it("should error when 'firstEventEnd' equals to 'firstEventStart'", () => {
-      const req = mockRequest(sample.startEqualsEnd);
-      const next = mockNext();
-      expect(() => validateBody(createEventSchema)(req, null, next)).toThrow(
-        '"firstEventEnd" must be greater than "ref:firstEventStart"'
-      );
-      expect(next).not.toBeCalled();
-    });
+    // it("should error when 'firstEventEnd' equals to 'firstEventStart'", () => {
+    //   const req = mockRequest(sample.startEqualsEnd);
+    //   const next = mockNext();
+    //   expect(() => validateBody(createEventSchema)(req, null, next)).toThrow(
+    //     '"firstEventEnd" must be greater than "ref:firstEventStart"'
+    //   );
+    //   expect(next).not.toBeCalled();
+    // });
 
     it("should error when 'lastEventStart' is not equal to 'firstEventStart' for nonrecurring events", () => {
       const req = mockRequest(sample.lastGreaterThanFirstNonRecurr);
