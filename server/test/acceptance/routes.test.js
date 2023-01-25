@@ -36,16 +36,14 @@ describe("event routes", () => {
         .send(validFormDataNonRecurr);
       expect(res.statusCode).toBe(201);
       expect(res.body.message).toBe("Event created!");
-      const allEvents = await request(app).get("/events");
-      expect(allEvents.body).toHaveLength(1);
+      expect(res.body.events).toHaveLength(1);
     });
 
     it("should create recurring event", async () => {
       const res = await request(app).post("/events").send(validFormDataRecurr);
       expect(res.statusCode).toBe(201);
       expect(res.body.message).toBe("Event created!");
-      const allEvents = await request(app).get("/events");
-      expect(allEvents.body).toHaveLength(4);
+      expect(res.body.events).toHaveLength(4);
     });
   });
 });
