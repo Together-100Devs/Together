@@ -17,31 +17,32 @@ function App() {
   const rejectionModalContext = { isOpen: rejectionModalOpen, handleClose:  () => { setRejectionModalOpen(false) }}
 
   return (
-    <>
-      {isAuthenticated && (
-        <h3>Hello, {auth.user.displayName}, welcome to Together!</h3>
-      )}
+    <>     
+      
+
+//per inst: copy rej modal code below line 23
+      {
+  isAuthenticated && (
+    <h3>Hello, {auth.user.displayName}, welcome to Together!</h3>
+  )}
+{"}"}
+{
+  isNot100Dever && (
+    <Modal context={rejectionModalContext}>
+      <RejectionModal handleClose={rejectionModalContext.handleClose} />
+    </Modal>
+  )}
+{"}"}
       {routing.currentPage === "landingPage" && (
         <div className="bg-primary flex justify-center">
           <div className="w-full tablet:w-11/12 desktop:w-2/3">
             <LandingPage />
-            {isNot100Dever &&
-              <Modal context={rejectionModalContext}>
-                <RejectionModal handleClose={rejectionModalContext.handleClose}/>
-              </Modal>
-            }
+            //Removed rejection modal - dup code
           </div>
         </div>
       )}
-      {routing.currentPage === "calendarPage" && (
-      <CalendarPage>
-        {isNot100Dever && (
-          <Modal context={rejectionModalContext}>
-            <RejectionModal handleClose={rejectionModalContext.handleClose}/>
-          </Modal>
-        )}
-      </CalendarPage>
-      )}
+      {routing.currentPage === "calendarPage" && <CalendarPage />}
+
     </>
   );
 }

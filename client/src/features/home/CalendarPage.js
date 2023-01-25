@@ -8,8 +8,8 @@ import { useAuthContext } from "contexts/AuthContext";
 import { useFormModalContext } from "contexts/FormModalContext";
 import EventModal from "features/modal/EventModal";
 import { useModalContext } from "contexts/ModalContext";
-
-function CalendarPage() {
+ //lines 12-41 moved to new pages > CalendarPage.js location - Trizz
+/*function CalendarPage() {
   const auth = useAuthContext();
   const date = useDate();
   const formModal = useFormModalContext();
@@ -38,4 +38,4 @@ function CalendarPage() {
     </>
   );
 }
-export default CalendarPage;
+export default CalendarPage;*/
