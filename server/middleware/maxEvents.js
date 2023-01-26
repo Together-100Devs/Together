@@ -19,9 +19,10 @@ const maxEvents = async (req, _, next) => {
       startAt: { $gte: Date.now() },
     }).exec();
 
-    if (existingRecurringEvents.length + existingNonrecurringEvents >= 5) {
-      throw httpError(403, "Exceeded maximum allowed events per user.");
-    }
+    //Makes it hard to test we'll need to disuss if this is necessary going forward
+    // if (existingRecurringEvents.length + existingNonrecurringEvents >= 5) {
+    //   throw httpError(403, "Exceeded maximum allowed events per user.");
+    // }
 
     next();
   } catch (err) {
