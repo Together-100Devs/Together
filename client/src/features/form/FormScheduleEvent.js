@@ -27,11 +27,11 @@ export default function FormScheduleEvent() {
     <div>
       {formScheduleEventErrors.map((error, index) => {
         return (
-          <div class="alert alert-error shadow-lg text-red-700" key="index">
+          <div className="alert alert-error shadow-lg text-red-700" key="index">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="stroke-current flex-shrink-0 h-6 w-6"
+                className="stroke-current flex-shrink-0 h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
               >
