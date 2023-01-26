@@ -29,11 +29,20 @@ router.get(
 //The req.user, null, or a string "User is not in 100Devs"
 //Considering a string is truthy this .get distinguishes between the string and req.user
 router.get("/getDisplayName", (req, res) => {
+  
   if(req.session.isNot100Dever){
     res.json("User is not in 100Devs")
   } else {
     res.json(req.user || null);
   }
 });
+
+router.delete("/needsToBeWelcome", async (req, res) => {
+  if (req.user.needsToBeWelcome) {
+    req.user.needsToBeWelcome = undefined
+    await req.user.save();
+    res.json(req.user || null);
+  } 
+})
 
 module.exports = router;
