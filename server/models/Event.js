@@ -8,15 +8,7 @@ const STRING_MAX_LENGTH = 280;
 const EVENT_MAX_DATE = "2024-01-01";
 // Recurring events should span no more than MAX_RECURRENCE_PERIOD number of days
 const MAX_RECURRENCE_PERIOD = 90;
-const DAYS_OF_WEEK = [
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-  "Sunday",
-];
+const DAYS_OF_WEEK = ["1", "2", "3", "4", "5", "6", "0"];
 
 const EventSchema = new mongoose.Schema(
   {

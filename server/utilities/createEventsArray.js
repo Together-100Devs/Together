@@ -43,11 +43,12 @@ const createEventsArray = ({
     start: firstEventStart,
     end: lastEventStart,
   });
-
   // Filter out dates that are not recurring
-  const eventStartDates = dateRange.filter(date =>
-    recurring.days.includes(format(date, "cccc"))
-  );
+  const eventStartDates = dateRange.filter(date => {
+    console.log(date, date.getDay(), recurring.days);
+    // recurring.days.includes(format(date, "cccc"))
+    return recurring.days.includes(date.getDay().toString());
+  });
 
   // Recurring events have the same group id. This allows deleting them all at once by this id.
   const groupId = nanoid();
@@ -67,6 +68,8 @@ const createEventsArray = ({
     if (startAt > endAt) {
       endAt.setDate(endAt.getDate() + 1);
     }
+
+    console.log(date, new Date(startAt), new Date(endAt));
 
     return { title, description, location, groupId, startAt, endAt, rsvp: [] };
   });

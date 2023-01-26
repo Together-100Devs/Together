@@ -42,15 +42,7 @@ const validFormDataRecurr = {
   discordName: "test",
   recurring: {
     rate: "weekly",
-    days: [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday",
-    ],
+    days: ["1", "2", "3", "4", "5", "6", "0"],
   },
   firstEventStart: inOneHour,
   firstEventEnd: inTwoHours,
