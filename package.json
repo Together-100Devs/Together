@@ -14,7 +14,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "test": "jest --coverage"
+    "test": "jest --coverage server/test/unit/createEventsArray"
   },
   "author": "",
   "license": "MIT",

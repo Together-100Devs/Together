@@ -78,9 +78,9 @@ const FormMoverControl = () => {
         // Compares the date + time combined (i.e. start and end datetime)
         const startDateTime = new Date(formData["initialDate"] + " " + formData["startTime"]);
         const endDateTime = new Date(formData["finalDate"] + " " + formData["endTime"]);
-        if (endDateTime < startDateTime) {
-          errorArray.push("Error: End time is before Start time");
-        }
+        // if (endDateTime < startDateTime) {
+        //   errorArray.push("Error: End time is before Start time");
+        // }
 
         setFormScheduleEventErrors(errorArray);
         break;
