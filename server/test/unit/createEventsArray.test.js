@@ -58,9 +58,8 @@ const eventsArray2 = [
 /**
  *  ===== WET ======
  */
-// Recurring event every Tuesday UTC
-// Jan 28, 11:00AM UTC - Jan 28, 1:00PM UTC
-// Feb 15, 11:00AM UTC - Feb 15, 1:00PM UTC
+
+// start and end on the same UTC day
 const formData3 = {
   ...commonFormFields,
   recurring: {
@@ -93,9 +92,7 @@ const eventsArray3 = [
   },
 ];
 
-// Recurring event every Sunday UTC
-// Jan 28, 11:30PM UTC - Jan 29, 1:00AM UTC
-// Feb 15, 11:30PM UTC - Feb 16, 1:00AM UTC
+// start before, end after midnight UTC
 const formData4 = {
   ...commonFormFields,
   recurring: {
@@ -132,9 +129,7 @@ const eventsArray4 = [
  * ===== PST ======
  */
 
-// Recurring event every Tuesday PST
-// Jan 28, 11:00AM PST - Jan 28, 1:00PM PST
-// Feb 15, 11:00AM PST - Feb 15, 1:00PM PST
+// start and end on the same UTC day
 const formData5 = {
   ...commonFormFields,
   recurring: {
@@ -167,7 +162,7 @@ const eventsArray5 = [
   },
 ];
 
-// start before end after midnight utc
+// start before, end after midnight UTC
 const formData6 = {
   ...commonFormFields,
   recurring: {
@@ -200,7 +195,7 @@ const eventsArray6 = [
   },
 ];
 
-// start before end after midnight utc
+// start after, end after midnight UTC
 const formData7 = {
   ...commonFormFields,
   recurring: {
@@ -230,6 +225,109 @@ const eventsArray7 = [
     groupId: "1234",
     startAt: Date.parse("2023-02-12T16:00:00.000-08:00"),
     endAt: Date.parse("2023-02-12T18:00:00.000-08:00"),
+  },
+];
+
+/**
+ * ===== JST ======
+ */
+
+// start and end on same UTC day
+const formData8 = {
+  ...commonFormFields,
+  recurring: {
+    rate: "weekly",
+    days: ["6"],
+  },
+  firstEventStart: Date.parse("2023-01-28T11:00:00.000+09:00"),
+  firstEventEnd: Date.parse("2023-01-28T13:00:00.000+09:00"),
+  lastEventStart: Date.parse("2023-02-15T11:00:00.000+09:00"),
+};
+
+const eventsArray8 = [
+  {
+    ...commonEventFields,
+    groupId: "1234",
+    startAt: Date.parse("2023-01-28T11:00:00.000+09:00"),
+    endAt: Date.parse("2023-01-28T13:00:00.000+09:00"),
+  },
+  {
+    ...commonEventFields,
+    groupId: "1234",
+    startAt: Date.parse("2023-02-04T11:00:00.000+09:00"),
+    endAt: Date.parse("2023-02-04T13:00:00.000+09:00"),
+  },
+  {
+    ...commonEventFields,
+    groupId: "1234",
+    startAt: Date.parse("2023-02-11T11:00:00.000+09:00"),
+    endAt: Date.parse("2023-02-11T13:00:00.000+09:00"),
+  },
+];
+
+// start before, end after midnight UTC
+const formData9 = {
+  ...commonFormFields,
+  recurring: {
+    rate: "weekly",
+    days: ["5"], // Repeat on Saturdays JST, Fridays UTC
+  },
+  firstEventStart: Date.parse("2023-02-04T08:00:00.000+09:00"),
+  firstEventEnd: Date.parse("2023-02-04T10:00:00.000+09:00"),
+  lastEventStart: Date.parse("2023-02-20T08:00:00.000+09:00"),
+};
+
+const eventsArray9 = [
+  {
+    ...commonEventFields,
+    groupId: "1234",
+    startAt: Date.parse("2023-02-04T08:00:00.000+09:00"),
+    endAt: Date.parse("2023-02-04T10:00:00.000+09:00"),
+  },
+  {
+    ...commonEventFields,
+    groupId: "1234",
+    startAt: Date.parse("2023-02-11T08:00:00.000+09:00"),
+    endAt: Date.parse("2023-02-11T10:00:00.000+09:00"),
+  },
+  {
+    ...commonEventFields,
+    groupId: "1234",
+    startAt: Date.parse("2023-02-18T08:00:00.000+09:00"),
+    endAt: Date.parse("2023-02-18T10:00:00.000+09:00"),
+  },
+];
+
+// start before, end before midnight UTC
+const formData10 = {
+  ...commonFormFields,
+  recurring: {
+    rate: "weekly",
+    days: ["5"], // Repeat on Saturdays JST, Fridays UTC
+  },
+  firstEventStart: Date.parse("2023-02-04T02:00:00.000+09:00"),
+  firstEventEnd: Date.parse("2023-02-04T04:00:00.000+09:00"),
+  lastEventStart: Date.parse("2023-02-20T02:00:00.000+09:00"),
+};
+
+const eventsArray10 = [
+  {
+    ...commonEventFields,
+    groupId: "1234",
+    startAt: Date.parse("2023-02-04T02:00:00.000+09:00"),
+    endAt: Date.parse("2023-02-04T04:00:00.000+09:00"),
+  },
+  {
+    ...commonEventFields,
+    groupId: "1234",
+    startAt: Date.parse("2023-02-11T02:00:00.000+09:00"),
+    endAt: Date.parse("2023-02-11T04:00:00.000+09:00"),
+  },
+  {
+    ...commonEventFields,
+    groupId: "1234",
+    startAt: Date.parse("2023-02-18T02:00:00.000+09:00"),
+    endAt: Date.parse("2023-02-18T04:00:00.000+09:00"),
   },
 ];
 
@@ -299,6 +397,36 @@ describe("createEventsArray", () => {
       expect(res).toBeInstanceOf(Array);
       expect(res).toHaveLength(3);
       expect(res).toEqual(eventsArray7);
+    });
+  });
+
+  describe("recurring events created in Japan Standard Time (JST)", () => {
+    afterAll(() => {
+      jest.resetAllMocks();
+    });
+
+    it("should create a recurring event that starts and ends on the same date UTC", () => {
+      mockedNanoid.mockReturnValueOnce("1234");
+      const res = createEventsArray(formData8);
+      expect(res).toBeInstanceOf(Array);
+      expect(res).toHaveLength(3);
+      expect(res).toEqual(eventsArray8);
+    });
+
+    it("should create a recurring event that starts before midnight UTC and ends after midnight UTC", () => {
+      mockedNanoid.mockReturnValueOnce("1234");
+      const res = createEventsArray(formData9);
+      expect(res).toBeInstanceOf(Array);
+      expect(res).toHaveLength(3);
+      expect(res).toEqual(eventsArray9);
+    });
+
+    it("should create a recurring event that starts before midnight UTC and ends before midnight UTC", () => {
+      mockedNanoid.mockReturnValueOnce("1234");
+      const res = createEventsArray(formData10);
+      expect(res).toBeInstanceOf(Array);
+      expect(res).toHaveLength(3);
+      expect(res).toEqual(eventsArray10);
     });
   });
 });
