@@ -55,19 +55,24 @@ const createEventsArray = ({
 
   // Create recurring dates array with events information
   const events = eventStartDates.map(date => {
-    const startAt = new Date(firstEventStart);
-    startAt.setFullYear(date.getFullYear());
-    startAt.setMonth(date.getMonth());
+    let startAt = new Date(firstEventStart);
+    // The order of setting date, month, and year is important!
     startAt.setDate(date.getDate());
+    startAt.setMonth(date.getMonth());
+    startAt.setFullYear(date.getFullYear());
 
-    const endAt = new Date(firstEventEnd);
-    endAt.setFullYear(date.getFullYear());
-    endAt.setMonth(date.getMonth());
+    let endAt = new Date(firstEventEnd);
+    // The order of setting date, month, and year is important!
     endAt.setDate(date.getDate());
+    endAt.setMonth(date.getMonth());
+    endAt.setFullYear(date.getFullYear());
 
     if (startAt > endAt) {
       endAt.setDate(endAt.getDate() + 1);
     }
+
+    startAt = startAt.getTime();
+    endAt = endAt.getTime();
 
     return { title, description, location, groupId, startAt, endAt, rsvp: [] };
   });
