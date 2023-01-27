@@ -1,5 +1,5 @@
-const eachDayOfInterval = require("date-fns/eachDayOfInterval");
-const format = require("date-fns/format");
+"use strict";
+
 const { nanoid } = require("nanoid");
 
 /**
@@ -38,17 +38,15 @@ const createEventsArray = ({
     ];
   }
 
-  // Generate a range of dates in between initialDate & endDate (date-fns does not generate the time sadly)
-  const dateRange = eachDayOfInterval({
-    start: firstEventStart,
-    end: lastEventStart,
-  });
-  // Filter out dates that are not recurring
-  const eventStartDates = dateRange.filter(date => {
-    // console.log(date, date.getDay(), recurring.days);
-    // recurring.days.includes(format(date, "cccc"))
-    return recurring.days.includes(date.getDay().toString());
-  });
+  // Array of start times
+  const eventStartDates = [];
+  let iter = new Date(firstEventStart);
+  while (iter <= lastEventStart) {
+    if (recurring.days.includes(iter.getUTCDay().toString())) {
+      eventStartDates.push(new Date(iter));
+    }
+    iter.setDate(iter.getDate() + 1);
+  }
 
   // Recurring events have the same group id. This allows deleting them all at once by this id.
   const groupId = nanoid();
