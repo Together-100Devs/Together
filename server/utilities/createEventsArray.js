@@ -16,54 +16,30 @@ const createEventsArray = ({
   firstEventEnd,
   lastEventStart,
 }) => {
-  // If event is not recurring, generate just one event for dates array and return.
-  if (recurring.rate === "noRecurr") {
-    let [startAt, endAt] = [firstEventStart, firstEventEnd];
-    // If the starting time is greater than the ending time, then the ending time is the next day
-    if (firstEventStart > firstEventEnd) {
-      const date = new Date(firstEventEnd);
-      date.setDate(date.getDate() + 1);
-      endAt = date.getTime();
-    }
-    return [
-      {
-        title,
-        description,
-        location,
-        groupId: null,
-        startAt,
-        endAt,
-        rsvp: [],
-      },
-    ];
-  }
+  const { rate, days } = recurring;
 
   // Array of start times
   const eventStartDates = [];
   let iter = new Date(firstEventStart);
   while (iter <= lastEventStart) {
-    if (recurring.days.includes(iter.getUTCDay().toString())) {
+    const utcDay = iter.getUTCDay().toString();
+    // push to array if the recurring day in in the list, or if event is non-recurring
+    if (days.includes(utcDay) || rate === "noRecurr") {
       eventStartDates.push(new Date(iter));
     }
     iter.setDate(iter.getDate() + 1);
   }
 
   // Recurring events have the same group id. This allows deleting them all at once by this id.
-  const groupId = nanoid();
+  const groupId = rate === "noRecurr" ? null : nanoid();
 
-  // Create recurring dates array with events information
-  const events = eventStartDates.map(date => {
-    let startAt = new Date(firstEventStart);
-    // The order of setting date, month, and year is important!
-    startAt.setDate(date.getDate());
-    startAt.setMonth(date.getMonth());
-    startAt.setFullYear(date.getFullYear());
-
+  // Create dates array with events information
+  const events = eventStartDates.map(startAt => {
     let endAt = new Date(firstEventEnd);
     // The order of setting date, month, and year is important!
-    endAt.setDate(date.getDate());
-    endAt.setMonth(date.getMonth());
-    endAt.setFullYear(date.getFullYear());
+    endAt.setDate(startAt.getDate());
+    endAt.setMonth(startAt.getMonth());
+    endAt.setFullYear(startAt.getFullYear());
 
     if (startAt > endAt) {
       endAt.setDate(endAt.getDate() + 1);
