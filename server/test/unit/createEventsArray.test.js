@@ -376,7 +376,7 @@ describe("createEventsArray", () => {
       jest.resetAllMocks();
     });
 
-    it.each(recurringPST)("$description", ({ input, output }) => {
+    it.each(recurringJST)("$description", ({ input, output }) => {
       mockedNanoid.mockReturnValueOnce("1234");
       const res = createEventsArray(input);
       expect(res).toBeInstanceOf(Array);
