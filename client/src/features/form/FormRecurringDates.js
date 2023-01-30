@@ -163,9 +163,9 @@ export default function FormRecurringDates() {
             <input
               type="checkbox"
               onChange={handleDaysOfWeekChange}
-              value="0"
+              value="7"
               name="Sunday"
-              checked={!!formData.recurring.days.includes("0")}
+              checked={!!formData.recurring.days.includes("7")}
               className="mx-1 outline-non text-gray-800"
             />
             <p>Sunday</p>

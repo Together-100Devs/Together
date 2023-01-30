@@ -14,11 +14,12 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "test": "jest --coverage server/test/unit/createEventsArray"
+    "test": "jest server/test/unit/createEventsArray"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@js-temporal/polyfill": "^0.4.3",
     "connect-mongo": "^3.2.0",
     "date-fns": "^2.29.3",
     "dotenv": "^8.2.0",

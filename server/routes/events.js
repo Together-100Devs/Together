@@ -10,8 +10,8 @@ const { createEventSchema } = require("../models/Event");
 router.post(
   "/",
   auth.ensureAuth,
-  validateBody(createEventSchema),
-  maxEvents,
+  // validateBody(createEventSchema),
+  // maxEvents,
   eventsController.create
 );
 
