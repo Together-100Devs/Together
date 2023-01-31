@@ -33,33 +33,49 @@ const createEventsArray = ({
 }) => {
   const { rate, days } = recurring;
 
-  const firstStart = Temporal.PlainDateTime.from(
+  // Time on the clock when the first event starts
+  const plainFirstEventStart = Temporal.PlainDateTime.from(
     parseHtmlDatetime(initialDate, startTime)
-  ).toZonedDateTime(timeZone);
+  );
 
-  const lastStart = Temporal.PlainDateTime.from(
-    parseHtmlDatetime(finalDate, startTime)
-  ).toZonedDateTime(timeZone);
-
-  let firstEnd = Temporal.PlainDateTime.from(
+  // Time on the clock when the first event ends
+  const plainFirstEventEnd = Temporal.PlainDateTime.from(
     parseHtmlDatetime(initialDate, endTime)
-  ).toZonedDateTime(timeZone);
+  );
 
-  const diff = firstStart.until(firstEnd);
-  const duration = diff.sign <= 0 ? diff.add({ days: 1 }) : diff;
+  // Time on the clock when the last event starts
+  const plainLastEventStart = Temporal.PlainDateTime.from(
+    parseHtmlDatetime(finalDate, startTime)
+  );
+
+  // Duration is calculated based on the time clock independent of the timezone
+  // e.g. event on March 12, 1AM-2AM implies that the duration is 1 hour
+  const duration =
+    plainFirstEventStart.until(plainFirstEventEnd).sign === 1
+      ? plainFirstEventStart.until(plainFirstEventEnd)
+      : plainFirstEventStart.until(plainFirstEventEnd.add({ days: 1 }));
+
+  // Add timezone to the plain clock times
+  const zonedFirstEventStart = plainFirstEventStart.toZonedDateTime(timeZone);
+  const zonedLastEventStart = plainLastEventStart.toZonedDateTime(timeZone);
 
   // Array of start times
   const eventStartDates = [];
 
   let i = 0;
   while (
-    Temporal.ZonedDateTime.compare(firstStart.add({ days: i }), lastStart) <= 0
+    Temporal.ZonedDateTime.compare(
+      zonedFirstEventStart.add({ days: i }),
+      zonedLastEventStart
+    ) <= 0
   ) {
     if (
-      days.includes(firstStart.add({ days: i }).dayOfWeek.toString()) ||
+      days.includes(
+        zonedFirstEventStart.add({ days: i }).dayOfWeek.toString()
+      ) ||
       rate === "noRecurr"
     ) {
-      eventStartDates.push(firstStart.add({ days: i }));
+      eventStartDates.push(zonedFirstEventStart.add({ days: i }));
     }
     i += 1;
   }
