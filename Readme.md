@@ -165,10 +165,10 @@ We highly encourage you to ask questions and join the discussion in the [Togethe
 <br>
 
 If you're interested in contributing, you may:
-* read our [Contributing guide](.github/CONTRIBUTING.md);
-* join our [Discord channel](https://discord.com/channels/735923219315425401/1038482732633825442) within 100Devs to discuss your ideas;
-* Visit the [Issues tab](https://github.com/Caleb-Cohen/Together/issues) to request an issue or to open a new issue;
-* You can also convert a "draft todo" to an issue on the [MVP Tasks Project Board.](https://github.com/users/Caleb-Cohen/projects/1/views/1)
+* Read our [Contributing guide.](.github/CONTRIBUTING.md)
+* Join the [#Together thread](https://discord.com/channels/735923219315425401/1038482732633825442) within the 100Devs Discord to discuss your ideas.
+* Visit the [Issues tab](https://github.com/Caleb-Cohen/Together/issues) to request an issue or to open a new issue.
+* You can also convert a "draft todo" to an issue on the current [Project Board.](https://github.com/Caleb-Cohen/Together/projects?query=is%3Aopen)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
