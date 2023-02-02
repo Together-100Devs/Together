@@ -1,7 +1,12 @@
 const mongoose = require("mongoose");
 const Joi = require("joi");
 
-STRING_MAX_LENGTH = 280;
+const STRING_MAX_LENGTH = 280;
+// Event's starting date should be less than (strictly) EVENT_MAX_DATE
+const EVENT_MAX_DATE = "2024-01-01";
+// Recurring events should span no more than MAX_RECURRENCE_PERIOD number of days
+const MAX_RECURRENCE_PERIOD = 90;
+const DAYS_OF_WEEK = ["1", "2", "3", "4", "5", "6", "0"];
 
 const EventSchema = new mongoose.Schema(
   {
@@ -22,8 +27,8 @@ const EventSchema = new mongoose.Schema(
       required: true,
       validate: {
         validator: function (value) {
-          greateThanToday = value > new Date() - 1000 * 60 * 60 * 26;
-          limitTo2023 = value < new Date("2024-01-01");
+          const greateThanToday = value > new Date() - 1000 * 60 * 60 * 26;
+          const limitTo2023 = value < new Date("2024-01-01");
           return greateThanToday && limitTo2023;
         },
       },
@@ -66,45 +71,47 @@ const createEventSchema = Joi.object({
   location: Joi.string().trim().min(1).max(STRING_MAX_LENGTH).required(),
   discordName: Joi.string().trim().min(1).max(STRING_MAX_LENGTH).required(),
   firstEventStart: Joi.date()
-    // Subtract one day because time on server may differ from client
-    .min(new Date() - 60 * 60 * 24 * 1000)
+    .timestamp()
+    // Event should be in the future
+    .min("now")
     .required(),
   firstEventEnd: Joi.date()
-    // time on server may differ from the time on client
-    // the most extreme offsets are +12 and -14 hours from utc
-    .min(new Date() - 1000 * 60 * 60 * 26)
+    .timestamp()
+    // .greater(Joi.ref("firstEventStart"))
     .required(),
   lastEventStart: Joi.date()
-    // last event start date should not be earlier than first event start date
-    .min(Joi.ref("firstEventStart"))
-    // at most 90 days from firstEventStart
-    .max(
-      Joi.ref("firstEventStart", {
-        adjust: val => {
-          let date = new Date(val);
-          date.setDate(date.getDate() + 90);
-          return date;
-        },
-      })
-    )
-    // Limit events to 2023
-    .less("2024-01-01")
+    .timestamp()
     // If recurring rate is 'noRecurr' lastEventStart should be equal to firstEventStart
     .when(Joi.ref("/recurring.rate"), {
       is: Joi.valid("noRecurr"),
       then: Joi.ref("firstEventStart"),
     })
+    // If recurring rate is 'weekly' then
+    .when(Joi.ref("/recurring.rate"), {
+      is: Joi.valid("weekly"),
+      then: Joi.date()
+        // lastEventStart should be greater than or equal to firstEventStart
+        .min(Joi.ref("firstEventStart"))
+        // and at most MAX_RECURRENCE_PERIOD days from firstEventStart
+        .max(
+          Joi.ref("firstEventStart", {
+            adjust: function (value) {
+              const date = new Date(value);
+              date.setDate(date.getDate() + MAX_RECURRENCE_PERIOD);
+              return date;
+            },
+          })
+        ),
+    })
+    // Limit events to EVENT_MAX_DATE
+    .less(EVENT_MAX_DATE)
     .required()
     .messages({
-      "date.max":
-        '"lastEventStart" must be within 90 days of "ref:firstEventStart"',
+      "date.max": `"lastEventStart" must be within ${MAX_RECURRENCE_PERIOD} days of "ref:firstEventStart"`,
     }),
   recurring: Joi.object({
     // Rate is either "noRecurr" or "weekly"
-    rate: Joi.string()
-      .valid("noRecurr", "weekly")
-      .max(STRING_MAX_LENGTH)
-      .required(),
+    rate: Joi.string().valid("noRecurr", "weekly").required(),
     days: Joi.when(Joi.ref("rate"), {
       // if rate is noRecurr
       is: Joi.valid("noRecurr"),
@@ -114,19 +121,9 @@ const createEventSchema = Joi.object({
       otherwise: Joi.array()
         .min(1)
         .max(7)
-        .items(
-          Joi.string().valid(
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday"
-          )
-        ),
+        .items(Joi.string().valid(...DAYS_OF_WEEK)),
     }).required(),
-  }),
+  }).required(),
 });
 
 module.exports = {

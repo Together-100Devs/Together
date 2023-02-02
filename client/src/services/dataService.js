@@ -26,6 +26,10 @@ class DataService {
   logout() {
     return URL.get("/auth/logout")
   }
+
+  deleteNeedsToBeWelcome() {
+    return URL.delete("/needsToBeWelcome")
+  }
 }
 
 export default new DataService();
