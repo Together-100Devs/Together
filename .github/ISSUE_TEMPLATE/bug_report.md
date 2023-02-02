@@ -40,7 +40,7 @@ PR into [branchName]
  - Browser [e.g. stock browser, safari]
  - Version [e.g. 22]
 
-## Additional contex
+## Additional context
 Add any other context about the problem here.
 
 *If you're interested in working on this feature, please comment so you can be assigned*
