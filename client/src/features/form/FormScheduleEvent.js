@@ -37,6 +37,14 @@ export default function FormScheduleEvent() {
       </div>
 
       <p className="text-xs mt-10 ">Note: Start Date and End Date cannot be more than 90 days apart, and both must be in 2023.</p>
+
+      <div className="w-full mx-2 flex-1">
+        <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
+          Timezone: {Intl.DateTimeFormat().resolvedOptions().timeZone}
+        </div>
+      </div>
+
+        
       <div className="grid grid-cols-2">
 
         {/* START DATE OF EVENT */}

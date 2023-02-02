@@ -1,5 +1,5 @@
 import React from "react";
-import { GrCalendar } from "react-icons/gr";
+import { GrCalendar, GrLanguage } from "react-icons/gr";
 import { FaRegClock } from "react-icons/fa";
 // import { IoIosRepeat } from "react-icons/io";
 import { IoLocationOutline, IoPersonOutline } from "react-icons/io5";
@@ -60,6 +60,13 @@ const EventModal = () => {
             <span className=" "> Starts: {formatToLocalTime(modal.activeEvent.startAt)}</span>
             <span className="ml-9">Ends: {formatToLocalTime(modal.activeEvent.endAt)}</span>
           </section>
+
+          <section className="flex m-3 gap-1 font-semibold">
+            <GrLanguage className="mt-1" />
+            <span className="">Timezone:</span>{" "}
+            <span>{Intl.DateTimeFormat().resolvedOptions().timeZone}</span>
+          </section>
+          
         </div>
         <div className="description break-words w-auto min-h-20 my-2 p-2 border-solid border-black border-2 font-semibold rounded-xl bg-neutral-200/50">
           <p>Description: {modal.activeEvent.description}</p>
