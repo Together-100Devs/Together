@@ -12,7 +12,7 @@ Please select everything applicable. Please, do not delete any lines.
 - [ ] This change requires a documentation update
 
 ## Issue
-- [ ] Is this related to a specific issue? Is so please specify:
+- [ ] Is this related to a specific issue? If so, please specify:
 
 # Checklist:
 
