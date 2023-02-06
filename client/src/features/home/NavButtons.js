@@ -15,7 +15,7 @@ const NavButtons = ({ HomeIcon, LoginIcon, CalendarIcon }) => {
       {/* Home Button */}
       <button
         onClick={() => routing.setCurrentPage("landingPage")}
-        class="bg-white hidden tablet:block overflow-hidden container box-border rounded-3xl border-2 border-black tablet:w-auto desktop:5/12 tablet:h-28 desktop:w-auto desktop:h-auto tablet:px-8 tablet:py-3 desktop:px-9 desktop:py-6"
+        className="bg-white hidden tablet:block overflow-hidden container box-border rounded-3xl border-2 border-black tablet:w-auto desktop:5/12 tablet:h-28 desktop:w-auto desktop:h-auto tablet:px-8 tablet:py-3 desktop:px-9 desktop:py-6"
       >
         <div className="flex justify-center">
           <HomeIcon className="w-7 h-7 tablet:w-10 tablet:h-10 text-mainBlue" />
@@ -37,7 +37,7 @@ const NavButtons = ({ HomeIcon, LoginIcon, CalendarIcon }) => {
       {/* Calendar Button */}
       <button
         onClick={() => routing.setCurrentPage("calendarPage")}
-        class="hidden tablet:block tablet:overflow-hidden container box-border rounded-3xl border-2 border-black tablet:w-auto desktop:5/12 tablet:h-28 desktop:w-auto desktop:h-auto bg-white tablet:px-5 tablet:py-3 desktop:px-5 desktop:py-6"
+        className="hidden tablet:block tablet:overflow-hidden container box-border rounded-3xl border-2 border-black tablet:w-auto desktop:5/12 tablet:h-28 desktop:w-auto desktop:h-auto bg-white tablet:px-5 tablet:py-3 desktop:px-5 desktop:py-6"
       >
         <div className="flex justify-center">
           <CalendarIcon className="w-7 h-7 tablet:w-10 tablet:h-10 text-mainOrange" />
