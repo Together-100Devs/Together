@@ -5,7 +5,7 @@ const {
   validFormDataNonRecurr,
   validFormDataRecurr,
   missingTitle,
-} = require("../unit/sampleRequests");
+} = require("../unit/validateBodyMockData");
 
 const { Database } = require("../utils");
 
@@ -43,7 +43,7 @@ describe("event routes", () => {
       const res = await request(app).post("/events").send(validFormDataRecurr);
       expect(res.statusCode).toBe(201);
       expect(res.body.message).toBe("Event created!");
-      expect(res.body.events).toHaveLength(4);
+      expect(res.body.events).toHaveLength(6);
     });
   });
 });
