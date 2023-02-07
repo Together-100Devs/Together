@@ -24,29 +24,24 @@ function CalendarPage() {
   };
 
   return (
-    <>
-      <main
-        onWheel={handleWheelScroll}
-        className="flex flex-col gap-3 p-3 shadow-sm min-h-screen max-w-[1920px] mx-auto"
-      >
+    <FormProvider>
+      <main onWheel={handleWheelScroll} className="flex flex-col gap-3 p-3 shadow-sm min-h-screen max-w-[1920px] mx-auto">
         <CalendarHeader date={date} />
         <Calendar date={date} />
       </main>
       {auth?.user && (
-        <FormProvider>
-          <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
-            <Modal context={modal}>
-              <EventModal />
+        <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
+          <Modal context={modal}>
+            <EventModal />
+          </Modal>
+          {auth?.user && 
+            <Modal context={formModal}>
+              <UserForm />
             </Modal>
-            {auth?.user && (
-              <Modal context={formModal}>
-                <UserForm />
-              </Modal>
-            )}
-          </div>
-        </FormProvider>
+          }
+        </div>
       )}
-    </>
+      </FormProvider>
   );
 }
 export default CalendarPage;
