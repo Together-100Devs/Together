@@ -45,7 +45,7 @@ const DayCard = ({ date, events }) => {
         className="absolute bottom-0 right-0 items-center justify-center hidden w-6 h-6 mb-2 mr-2 text-white bg-gray-400 rounded group-hover:flex hover:bg-gray-500"
         onClick={() => {
           let chosenDate = `${date.getFullYear()}-${(date.getMonth()+1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`
-          setFormData(prevFormData => ({ ...prevFormData, initialDate: chosenDate }))
+          setFormData(prevFormData => ({ ...prevFormData, initialDate: chosenDate, finalDate: chosenDate }))
           formModal.handleOpen()
         }}
       >
