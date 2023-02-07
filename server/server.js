@@ -23,7 +23,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //Logging
-app.use(logger("dev"));
+/* istanbul ignore next  */
+if (process.env.NODE_ENV !== 'test') app.use(logger("dev"));
 
 // Setup Sessions - stored in MongoDB
 app.use(
@@ -42,6 +43,7 @@ app.use(express.static(path.join(__dirname, "..", "client", "build")));
 app.use(passport.initialize());
 app.use(passport.session());
 
+/* istanbul ignore next  */
 if (
   process.env.NODE_ENV === "development" &&
   process.env.MOCK_USER === "true"
@@ -73,6 +75,7 @@ app.use((req, res) => {
 });
 
 // error handler
+/* istanbul ignore next  */
 app.use((err, req, res, next) => {
   const { status = 500, message = "Server error", stack } = err;
   console.log(stack);
