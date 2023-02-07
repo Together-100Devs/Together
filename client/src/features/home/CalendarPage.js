@@ -15,14 +15,21 @@ function CalendarPage() {
   const formModal = useFormModalContext();
   const modal = useModalContext();
 
+  const handleWheelScroll = e => {
+    if (e.deltaY > 0) {
+      date.getNextMonth();
+    } else {
+      date.getPreviousMonth();
+    }
+  };
+
   return (
-    <>
-      <main className="flex flex-col gap-3 p-3 shadow-sm min-h-screen max-w-[1920px] mx-auto">
+    <FormProvider>
+      <main onWheel={handleWheelScroll} className="flex flex-col gap-3 p-3 shadow-sm min-h-screen max-w-[1920px] mx-auto">
         <CalendarHeader date={date} />
         <Calendar date={date} />
       </main>
       {auth?.user && (
-        <FormProvider>
         <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
           <Modal context={modal}>
             <EventModal />
@@ -33,9 +40,8 @@ function CalendarPage() {
             </Modal>
           }
         </div>
-      </FormProvider>
       )}
-    </>
+      </FormProvider>
   );
 }
 export default CalendarPage;

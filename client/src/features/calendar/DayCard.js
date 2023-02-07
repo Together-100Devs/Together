@@ -2,9 +2,11 @@ import { isSameDay, format } from "date-fns";
 import React from "react";
 import Event from "./Event";
 import { useFormModalContext } from "contexts/FormModalContext";
+import { useFormContext } from "contexts/FormContext";
 
 const DayCard = ({ date, events }) => {
-
+  const { setFormData } = useFormContext();
+  
   const formModal = useFormModalContext();
 
   //Extracts month in long format from date object
@@ -41,7 +43,11 @@ const DayCard = ({ date, events }) => {
 
       <button 
         className="absolute bottom-0 right-0 items-center justify-center hidden w-6 h-6 mb-2 mr-2 text-white bg-gray-400 rounded group-hover:flex hover:bg-gray-500"
-        onClick={formModal.handleOpen}
+        onClick={() => {
+          let chosenDate = `${date.getFullYear()}-${(date.getMonth()+1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`
+          setFormData(prevFormData => ({ ...prevFormData, initialDate: chosenDate, finalDate: chosenDate }))
+          formModal.handleOpen()
+        }}
       >
         <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
           <path
