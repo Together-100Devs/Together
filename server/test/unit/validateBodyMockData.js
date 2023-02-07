@@ -39,7 +39,7 @@ const validFormDataNonRecurr = {
   startTime: timeNow.toString().slice(0, 5),
   finalDate: dateNow.toString(),
   endTime: timeIn1hour.toString().slice(0, 5),
-  timeZone: "Europe/London",
+  timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
 };
 
 const validFormDataRecurr = {
@@ -55,7 +55,7 @@ const validFormDataRecurr = {
   startTime: timeNow.toString().slice(0, 5),
   finalDate: dateIn5Days.toString(),
   endTime: timeIn1hour.toString().slice(0, 5),
-  timeZone: "Europe/London",
+  timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
 };
 
 const missingTitle = {
