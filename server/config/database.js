@@ -8,8 +8,7 @@ const connectDB = async () => {
       useFindAndModify: false,
       useCreateIndex: true,
     });
-
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
+    return conn
   } catch (err) {
     console.error(err);
     process.exit(1);
