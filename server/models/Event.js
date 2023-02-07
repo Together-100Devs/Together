@@ -2,13 +2,14 @@
 
 const mongoose = require("mongoose");
 const Joi = require("joi");
+const { Temporal } = require("@js-temporal/polyfill");
 
 const STRING_MAX_LENGTH = 280;
 // Event's starting date should be less than (strictly) EVENT_MAX_DATE
 const EVENT_MAX_DATE = "2024-01-01";
 // Recurring events should span no more than MAX_RECURRENCE_PERIOD number of days
 const MAX_RECURRENCE_PERIOD = 90;
-const DAYS_OF_WEEK = ["1", "2", "3", "4", "5", "6", "0"];
+const DAYS_OF_WEEK = ["1", "2", "3", "4", "5", "6", "7"];
 
 const EventSchema = new mongoose.Schema(
   {
@@ -72,45 +73,18 @@ const createEventSchema = Joi.object({
   description: Joi.string().trim().min(1).max(STRING_MAX_LENGTH).required(),
   location: Joi.string().trim().min(1).max(STRING_MAX_LENGTH).required(),
   discordName: Joi.string().trim().min(1).max(STRING_MAX_LENGTH).required(),
-  firstEventStart: Joi.date()
-    .timestamp()
-    // Event should be in the future
-    .min("now")
+  initialDate: Joi.string()
+    .pattern(/^\d{4}-\d{2}-\d{2}/)
     .required(),
-  firstEventEnd: Joi.date()
-    .timestamp()
-    // .greater(Joi.ref("firstEventStart"))
+  finalDate: Joi.string()
+    .pattern(/^\d{4}-\d{2}-\d{2}/)
     .required(),
-  lastEventStart: Joi.date()
-    .timestamp()
-    // If recurring rate is 'noRecurr' lastEventStart should be equal to firstEventStart
-    .when(Joi.ref("/recurring.rate"), {
-      is: Joi.valid("noRecurr"),
-      then: Joi.ref("firstEventStart"),
-    })
-    // If recurring rate is 'weekly' then
-    .when(Joi.ref("/recurring.rate"), {
-      is: Joi.valid("weekly"),
-      then: Joi.date()
-        // lastEventStart should be greater than or equal to firstEventStart
-        .min(Joi.ref("firstEventStart"))
-        // and at most MAX_RECURRENCE_PERIOD days from firstEventStart
-        .max(
-          Joi.ref("firstEventStart", {
-            adjust: function (value) {
-              const date = new Date(value);
-              date.setDate(date.getDate() + MAX_RECURRENCE_PERIOD);
-              return date;
-            },
-          })
-        ),
-    })
-    // Limit events to EVENT_MAX_DATE
-    .less(EVENT_MAX_DATE)
-    .required()
-    .messages({
-      "date.max": `"lastEventStart" must be within ${MAX_RECURRENCE_PERIOD} days of "ref:firstEventStart"`,
-    }),
+  startTime: Joi.string()
+    .pattern(/^\d{2}:\d{2}$/)
+    .required(),
+  endTime: Joi.string()
+    .pattern(/^\d{2}:\d{2}$/)
+    .required(),
   recurring: Joi.object({
     // Rate is either "noRecurr" or "weekly"
     rate: Joi.string().valid("noRecurr", "weekly").required(),
@@ -126,7 +100,50 @@ const createEventSchema = Joi.object({
         .items(Joi.string().valid(...DAYS_OF_WEEK)),
     }).required(),
   }).required(),
-});
+  timeZone: Joi.string().min(1).max(STRING_MAX_LENGTH).required(),
+}).custom((value, helpers) => {
+  const { initialDate, finalDate, startTime, timeZone, recurring } = value;
+
+  const plainInitialDate = Temporal.PlainDate.from(initialDate);
+  const plainFinalDate = Temporal.PlainDate.from(finalDate);
+  const plainMaxDate = Temporal.PlainDate.from(EVENT_MAX_DATE);
+
+  const eventStart = Temporal.ZonedDateTime.from(
+    `${initialDate}T${startTime}[${timeZone}]`
+  ).epochMilliseconds;
+
+  if (eventStart < Date.now()) {
+    return helpers.message("Event should start in the future");
+  }
+
+  if (recurring.rate === "noRecurr" && initialDate !== finalDate) {
+    return helpers.message(
+      "finalDate should be equal to initialDate for non-recurring events"
+    );
+  }
+
+  if (
+    recurring.rate !== "noRecurr" &&
+    Temporal.PlainDate.compare(plainFinalDate, plainInitialDate) === -1
+  ) {
+    return helpers.message(
+      "finalDate must be greater than or equal to initialDate for recurring events"
+    );
+  }
+
+  if (
+    plainInitialDate.until(plainFinalDate).total({ unit: "days" }) >
+    MAX_RECURRENCE_PERIOD
+  ) {
+    return helpers.message(
+      `finalDate must be within ${MAX_RECURRENCE_PERIOD} days of initialDate`
+    );
+  }
+
+  if (Temporal.PlainDate.compare(plainFinalDate, plainMaxDate) > 0) {
+    return helpers.message(`finalDate must be before ${EVENT_MAX_DATE}`);
+  }
+}, "custom date-time validation");
 
 module.exports = {
   Event,

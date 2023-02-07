@@ -1,10 +1,12 @@
+"use strict";
+
 const validateBody = require("../../middleware/validateBody");
 const {
   createEventSchema,
   MAX_RECURRENCE_PERIOD,
   EVENT_MAX_DATE,
 } = require("../../models/Event");
-const sample = require("./sampleRequests");
+const sample = require("./validateBodyMockData");
 
 const mockRequest = body => ({ body });
 const mockNext = () => jest.fn();
@@ -67,11 +69,11 @@ describe("validateBody", () => {
   });
 
   describe("date fields", () => {
-    it('should error when "firstEventStart" is in wrong format', () => {
-      const req = mockRequest(sample.firstEventStartWrongFormat);
+    it('should error when "initialDate" is in wrong format', () => {
+      const req = mockRequest(sample.initialDateWrongFormat);
       const next = mockNext();
       expect(() => validateBody(createEventSchema)(req, null, next)).toThrow(
-        '"firstEventStart" must be in timestamp or number of milliseconds format'
+        /fails to match the required pattern/
       );
       expect(next).not.toBeCalled();
     });
@@ -80,65 +82,43 @@ describe("validateBody", () => {
       const req = mockRequest(sample.startDateInThePast);
       const next = mockNext();
       expect(() => validateBody(createEventSchema)(req, null, next)).toThrow(
-        '"firstEventStart" must be greater than or equal to "now"'
+        /Event should start in the future/
       );
       expect(next).not.toBeCalled();
     });
 
-    // it("should error when 'firstEventEnd' equals to 'firstEventStart'", () => {
-    //   const req = mockRequest(sample.startEqualsEnd);
-    //   const next = mockNext();
-    //   expect(() => validateBody(createEventSchema)(req, null, next)).toThrow(
-    //     '"firstEventEnd" must be greater than "ref:firstEventStart"'
-    //   );
-    //   expect(next).not.toBeCalled();
-    // });
-
-    it("should error when 'lastEventStart' is not equal to 'firstEventStart' for nonrecurring events", () => {
-      const req = mockRequest(sample.lastGreaterThanFirstNonRecurr);
+    it("should error when 'finalDate' is not equal to 'initialDate' for nonrecurring events", () => {
+      const req = mockRequest(sample.finalDateGreaterThanStartDateNonrecurr);
       const next = mockNext();
       expect(() => validateBody(createEventSchema)(req, null, next)).toThrow(
-        '"lastEventStart" must be [ref:firstEventStart]'
+        /finalDate should be equal to initialDate for non-recurring events/
       );
       expect(next).not.toBeCalled();
     });
 
-    it("should error when 'lastEventStart' is less than 'firstEventStart' for recurring events", () => {
-      const req = mockRequest(sample.lastLessThanFirstRecurr);
+    it("should error when 'finalDate' is before 'initialDate' for recurring events", () => {
+      const req = mockRequest(sample.finalDateLessThanStartDateRecurr);
       const next = mockNext();
       expect(() => validateBody(createEventSchema)(req, null, next)).toThrow(
-        '"lastEventStart" must be greater than or equal to "ref:firstEventStart"'
+        /finalDate must be greater than or equal to initialDate for recurring events/
       );
       expect(next).not.toBeCalled();
     });
 
-    it(`should error when 'lastEventStart' is more than ${MAX_RECURRENCE_PERIOD} days from 'firstEventStart' for recurring events`, () => {
+    it(`should error when 'finalDate' is more than ${MAX_RECURRENCE_PERIOD} days from 'initialDate' for recurring events`, () => {
       const req = mockRequest(sample.exceedMaxPeriod);
       const next = mockNext();
       expect(() => validateBody(createEventSchema)(req, null, next)).toThrow(
-        `"lastEventStart" must be within ${MAX_RECURRENCE_PERIOD} days of "ref:firstEventStart"`
+        /must be within/
       );
       expect(next).not.toBeCalled();
     });
 
     it(`should error when recurring event starts before and ends after ${EVENT_MAX_DATE}`, () => {
-      const req = mockRequest(sample.startBeforeEndAfter);
+      const req = mockRequest(sample.startBeforeEndAfterMAX);
       const next = mockNext();
       expect(() => validateBody(createEventSchema)(req, null, next)).toThrow(
-        `"lastEventStart" must be less than "${new Date(
-          EVENT_MAX_DATE
-        ).toISOString()}"`
-      );
-      expect(next).not.toBeCalled();
-    });
-
-    it(`should error when recurring event starts and ends after ${EVENT_MAX_DATE}`, () => {
-      const req = mockRequest(sample.startAfterEndAfter);
-      const next = mockNext();
-      expect(() => validateBody(createEventSchema)(req, null, next)).toThrow(
-        `"lastEventStart" must be less than "${new Date(
-          EVENT_MAX_DATE
-        ).toISOString()}"`
+        /finalDate must be before/
       );
       expect(next).not.toBeCalled();
     });

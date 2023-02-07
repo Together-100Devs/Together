@@ -1,3 +1,5 @@
+"use strict";
+
 const express = require("express");
 const router = express.Router();
 const eventsController = require("../controllers/events");
@@ -10,7 +12,7 @@ const { createEventSchema } = require("../models/Event");
 router.post(
   "/",
   auth.ensureAuth,
-  // validateBody(createEventSchema),
+  validateBody(createEventSchema),
   // maxEvents,
   eventsController.create
 );
