@@ -12,10 +12,11 @@ Please select everything applicable. Please, do not delete any lines.
 - [ ] This change requires a documentation update
 
 ## Issue
-- [ ] Is this related to a specific issue? Is so please specify:
+- [ ] Is this related to a specific issue? If so, please specify:
 
 # Checklist:
 
+- [ ] This PR is up to date with the development branch, and merge conflicts have been resolved
 - [ ] I have executed `npm run lint` and resolved any outstanding errors. Most issues can be solved by executing `npm run format`
 - [ ] My code follows the style guidelines of this project
 - [ ] I have performed a self-review of my own code

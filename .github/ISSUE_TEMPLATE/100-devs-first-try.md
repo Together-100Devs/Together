@@ -17,7 +17,7 @@ This issue has been opened specifically to give 100Devs members a chance to get 
 ### Creating your branch
 - Fork the Together repository.
 - Navigate to the development branch using `git checkout development`.
-- Create a new branch using `git branch -b your-branch-name-here`.
+- Create a new branch using `git checkout -b your-branch-name-here`.
 - If you have questions, more instructions about this can be found in our [contributing document.](https://github.com/CalebCohen/Together/blob/development/.github/CONTRIBUTING.md)
 
 ### Setting up a local server

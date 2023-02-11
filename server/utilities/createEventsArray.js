@@ -16,57 +16,37 @@ const createEventsArray = ({
   firstEventEnd,
   lastEventStart,
 }) => {
-  // If event is not recurring, generate just one event for dates array and return.
-  if (recurring.rate === "noRecurr") {
-    let [startAt, endAt] = [firstEventStart, firstEventEnd];
-    // If the starting time is greater than the ending time, then the ending time is the next day
-    if (firstEventStart > firstEventEnd) {
-      const date = new Date(firstEventEnd);
-      date.setDate(date.getDate() + 1);
-      endAt = date.getTime();
+  const { rate, days } = recurring;
+
+  // Array of start times
+  const eventStartDates = [];
+  let iter = new Date(firstEventStart);
+  while (iter <= lastEventStart) {
+    const utcDay = iter.getUTCDay().toString();
+    // push to array if the recurring day in in the list, or if event is non-recurring
+    if (days.includes(utcDay) || rate === "noRecurr") {
+      eventStartDates.push(new Date(iter));
     }
-    return [
-      {
-        title,
-        description,
-        location,
-        groupId: null,
-        startAt,
-        endAt,
-        rsvp: [],
-      },
-    ];
+    iter.setDate(iter.getDate() + 1);
   }
 
-  // Generate a range of dates in between initialDate & endDate (date-fns does not generate the time sadly)
-  const dateRange = eachDayOfInterval({
-    start: firstEventStart,
-    end: lastEventStart,
-  });
-
-  // Filter out dates that are not recurring
-  const eventStartDates = dateRange.filter(date =>
-    recurring.days.includes(format(date, "cccc"))
-  );
-
   // Recurring events have the same group id. This allows deleting them all at once by this id.
-  const groupId = nanoid();
+  const groupId = rate === "noRecurr" ? null : nanoid();
 
-  // Create recurring dates array with events information
-  const events = eventStartDates.map(date => {
-    const startAt = new Date(firstEventStart);
-    startAt.setFullYear(date.getFullYear());
-    startAt.setMonth(date.getMonth());
-    startAt.setDate(date.getDate());
-
-    const endAt = new Date(firstEventEnd);
-    endAt.setFullYear(date.getFullYear());
-    endAt.setMonth(date.getMonth());
-    endAt.setDate(date.getDate());
+  // Create dates array with events information
+  const events = eventStartDates.map(startAt => {
+    let endAt = new Date(firstEventEnd);
+    // The order of setting date, month, and year is important!
+    endAt.setDate(startAt.getDate());
+    endAt.setMonth(startAt.getMonth());
+    endAt.setFullYear(startAt.getFullYear());
 
     if (startAt > endAt) {
       endAt.setDate(endAt.getDate() + 1);
     }
+
+    startAt = startAt.getTime();
+    endAt = endAt.getTime();
 
     return { title, description, location, groupId, startAt, endAt, rsvp: [] };
   });

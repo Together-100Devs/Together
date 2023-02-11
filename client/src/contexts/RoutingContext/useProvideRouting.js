@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import {useAuthContext} from '../AuthContext/'
+
 
 const useProvideRouting = () => {
   const [currentPage, setCurrentPage] = useState('landingPage');
