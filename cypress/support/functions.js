@@ -23,7 +23,7 @@ export const getMonthAndYear = (date = new Date()) => {
 };
 
 export const getHoursAndMinutes = date => {
-  return `${date.getHours()}:${date.getMinutes().toString().padStart(2, "0")}`;
+  return `${date.getHours()%12}:${date.getMinutes().toString().padStart(2, "0")}`;
 };
 
 export const createOffsetDate = (date, what, amount) => {
