@@ -59,8 +59,8 @@ describe("View Event Modal", () => {
 
           tgt.modal.get(0).contains("Test Title");
           tgt.modal.get(0).contains("Description: Test Description");
-          tgt.modal.get(0).contains("Starts: " + getHoursAndMinutes(starts));
-          tgt.modal.get(0).contains("Ends: " + getHoursAndMinutes(ends));
+          tgt.modal.get(0).contains(".dateTime", getHoursAndMinutes(starts));
+          tgt.modal.get(0).contains(".dateTime", getHoursAndMinutes(ends));
           tgt.modal
             .get(0)
             .contains(
