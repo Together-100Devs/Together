@@ -19,6 +19,7 @@ jobs:
   review-pull-request:
     name: Run tests to review pull requests
     runs-on: ubuntu-latest
+    environment: DEV
 
     steps:
       - name: Check out Git repository
