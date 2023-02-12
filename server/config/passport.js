@@ -10,6 +10,9 @@ module.exports = function (passport) {
     User.findById(id, (err, user) => done(err, user));
   });
 
+  // Conditionally require & execute the mocking module as `nock` is not installed in production
+  if (process.env.NODE_ENV === "test") require('../test/passport-discord-mocking')();
+
   //Discord authentication
   passport.use(
     new DiscordStrategy(
@@ -43,13 +46,16 @@ module.exports = function (passport) {
               avatar: profile.avatar,
               socials: [],
               bio: "",
+              needsToBeWelcome: true,
             });
+           
             return cb(null, user);
           } else {
             // it user already exists, update display name and avatar
             user.displayName = displayName;
             user.avatar = profile.avatar;
             const updatedUser = await user.save();
+            
             return cb(null, updatedUser);
           }
         } catch (err) {

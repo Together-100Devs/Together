@@ -1,6 +1,7 @@
 {
   "scripts": {
     "start": "node server.js",
+    "start:coverage": "nyc --silent node server.js",
     "dev": "concurrently \"npm run dev:mongo\" \"nodemon server.js\"",
     "dev:mongo": "node dev-mongo"
   }

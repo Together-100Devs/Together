@@ -9,7 +9,7 @@ async function run() {
     console.log('DB_STRING is not localhost, not running local mongo')
     return
   }
-  const dbPath = path.join(__dirname, '..', '.mongo');
+  const dbPath = path.join(__dirname, '..', process.env.NODE_ENV === 'test' ? '.mongo-test' : '.mongo');
 
   if (!fs.existsSync(dbPath)) {
     fs.mkdirSync(dbPath);

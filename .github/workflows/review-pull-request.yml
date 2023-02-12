@@ -1,0 +1,43 @@
+name: Review Pull Request
+
+on: 
+
+  push:
+    branches:
+      - main
+      - development
+  pull_request:
+    branches:
+      - main
+      - development
+
+permissions:
+  checks: write
+  contents: write
+
+jobs:
+  review-pull-request:
+    name: Run tests to review pull requests
+    runs-on: ubuntu-latest
+    environment: DEV
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with: 
+          node-version: 16.15.0
+        
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Run linters
+        uses: wearerequired/lint-action@v2
+        with:
+          eslint: true
+      
+      - name: Run Front end test
+        run: npm run test-frontend
+
