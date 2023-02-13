@@ -4,6 +4,7 @@ module.exports = {
     es2021: true,
     node: true,
     browser: true,
+    "cypress/globals": true
   },
   extends: ["eslint:recommended", "plugin:react/recommended", "prettier"],
   parserOptions: {
@@ -16,7 +17,7 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "react-hooks", "prettier"],
+  plugins: ["react", "react-hooks", "prettier", "cypress"],
   rules: {
     indent: [
       "error",
