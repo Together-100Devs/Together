@@ -22,7 +22,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //Logging
-app.use(logger("dev"));
+/* istanbul ignore next  */
+if (process.env.NODE_ENV !== "test") app.use(logger("dev"));
 
 // Setup Sessions - stored in MongoDB
 app.use(
@@ -42,11 +43,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Allows to use a mock user in development and testing environments
+/* istanbul ignore next  */
 if (
   ["development", "test"].includes(process.env.NODE_ENV) &&
   process.env.MOCK_USER === "true"
 ) {
-  console.log("In development - using mocked user");
+  if (process.env.NODE_ENV !== "test") {
+    console.log("In development - using mocked user");
+  }
   app.use(async (req, res, next) => {
     req.user = mockUser;
     let user = await User.findOne({ _id: mockUser._id }).exec();
@@ -73,6 +77,7 @@ app.use((req, res) => {
 });
 
 // error handler
+/* istanbul ignore next  */
 app.use((err, req, res, next) => {
   const { status = 500, message = "Server error", stack } = err;
   console.log(stack);
