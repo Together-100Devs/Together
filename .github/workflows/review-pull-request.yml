@@ -18,6 +18,7 @@ permissions:
 jobs:
   review-pull-request:
     name: Run tests to review pull requests
+    timeout-minutes: 30
     runs-on: ubuntu-latest
     environment: DEV
     env: 
