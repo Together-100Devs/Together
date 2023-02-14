@@ -80,7 +80,9 @@ app.use((req, res) => {
 /* istanbul ignore next  */
 app.use((err, req, res, next) => {
   const { status = 500, message = "Server error", stack } = err;
-  console.log(stack);
+  if (process.env.NODE_ENV !== "test") {
+    console.log(stack);
+  }
   res.status(status).json({ message });
 });
 
