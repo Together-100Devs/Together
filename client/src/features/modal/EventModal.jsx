@@ -17,7 +17,6 @@ const EventModal = () => {
   const { user } = useAuthContext();
   const userId = user?._id;
   const authorCheck = userId === modal.activeEvent.user._id;
-  console.log(modal.activeEvent.groupId)
 
   return (
     <div className="flex flex-col items-center py-0 px-2rem rounded-xl bg-white pb-4">
