@@ -20,7 +20,7 @@ const useProvideAuth = () => {
         setCurrentPage("calendarPage")
       }
     });
-  }, []);
+  }, [setCurrentPage]);
   
   const logout = () => {
     DataService.logout();
