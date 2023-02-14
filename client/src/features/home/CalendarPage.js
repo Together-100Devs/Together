@@ -8,11 +8,12 @@ import { useAuthContext } from "contexts/AuthContext";
 import { useFormModalContext } from "contexts/FormModalContext";
 import EventModal from "features/modal/EventModal";
 import { useModalContext } from "contexts/ModalContext";
+import RejectionModal from "features/modal/RejectionModal";
 
 function CalendarPage() {
   const auth = useAuthContext();
   const date = useDate();
-  const formModal = useFormModalContext();
+  const formModal = useFormModalContext()
   const modal = useModalContext();
 
   const handleWheelScroll = e => {
@@ -29,18 +30,14 @@ function CalendarPage() {
         <CalendarHeader date={date} />
         <Calendar date={date} />
       </main>
-      {auth?.user && (
         <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
           <Modal context={modal}>
             <EventModal />
           </Modal>
-          {auth?.user && 
             <Modal context={formModal}>
-              <UserForm />
+              {auth?.user ? ( <UserForm /> ) : ( <RejectionModal handleClose={formModal.handleClose}/> )}
             </Modal>
-          }
         </div>
-      )}
       </FormProvider>
   );
 }
