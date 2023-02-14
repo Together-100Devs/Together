@@ -1,5 +1,3 @@
-const eachDayOfInterval = require("date-fns/eachDayOfInterval");
-const format = require("date-fns/format");
 const { nanoid } = require("nanoid");
 
 /**

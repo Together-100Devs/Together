@@ -76,7 +76,7 @@ app.use((req, res) => {
 
 // error handler
 /* istanbul ignore next  */
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   const { status = 500, message = "Server error", stack } = err;
   console.log(stack);
   res.status(status).json({ message });
