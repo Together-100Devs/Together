@@ -104,9 +104,11 @@ describe("Event Creation Form", () => {
         description: "Test Description",
         location: "Test Location",
         discordName: "100Dever#0001",
-        firstEventStart,
-        firstEventEnd,
-        lastEventStart,
+        initialDate: startDate,
+        finalDate: endDate,
+        startTime,
+        endTime,
+        timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
         recurring,
       });
     });
@@ -163,12 +165,6 @@ describe("Event Creation Form", () => {
     );
 
     tgt.createForm.input.endDate().type(dateString);
-    tgt.createForm.input
-      .endTime()
-      .type(dateToHHMM(createOffsetDate(now, "Minutes", -1)));
-    tgt.createForm.button.next().click();
-    expectFormErrors("End time is before Start time");
-
     tgt.createForm.input.endTime().type(endTimeString);
     tgt.createForm.button.next().click();
     expectFormErrors();
