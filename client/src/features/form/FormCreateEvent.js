@@ -49,14 +49,15 @@ export default function FormCreateEvent() {
             Description
           </div>
           <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
-            <input
+            <textarea
               type="text"
               onChange={handleChange}
               value={formData["description"] || ""}
               name="description"
               placeholder="Description"
               className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
-            />
+              rows="8" >
+            </textarea>
           </div>
         </div>
 
