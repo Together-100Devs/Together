@@ -13,7 +13,7 @@ import RejectionModal from "features/modal/RejectionModal";
 function CalendarPage() {
   const auth = useAuthContext();
   const date = useDate();
-  const formModal = useFormModalContext()
+  const formModal = useFormModalContext();
   const modal = useModalContext();
 
   const handleWheelScroll = e => {

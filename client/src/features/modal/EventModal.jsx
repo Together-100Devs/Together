@@ -100,13 +100,16 @@ const EventModal = () => {
             <IoLocationOutline className="mt-1" />{" "}
             <span>Location: {modal.activeEvent.location}</span>
           </section>
-          {user && 
+          {user 
+          ? <>
             <section className="flex m-3 gap-1 font-semibold">
               <IoPersonOutline className="mt-1" />{" "}
                 <span>
                   Event Author: {modal.activeEvent.user?.displayName || "Deleted"}
                 </span>
           </section>
+          </>
+          : <span className="flex m-3 gap-1 font-semibold"> Event Author: Must be logged in to view author </span>
           }
         </div>
       </div>
