@@ -12,7 +12,6 @@ import { useAuthContext } from "contexts/AuthContext";
 
 const EventModal = () => {
   const modal = useModalContext();
-
   //grabs user compares user from context and event author
   //displays delete buttons if true
   const { user } = useAuthContext();
@@ -40,7 +39,7 @@ const EventModal = () => {
           Delete Specific Event
         </button>
       )}
-      {authorCheck && (
+      {authorCheck && modal.activeEvent.groupId && (
         <button
           className="w-auto h-10 mt-5 px-2 border-solid border-2 border-gray outline-none rounded font-semibold text-xl hover:bg-teal-600 active:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-300 inline-block"
           onClick={() =>
