@@ -25,10 +25,11 @@ describe("Calendar", () => {
       // Clicking the Add Event and + buttons should do nothing
       tgt.landing.button.calendar().click();
       tgt.calendar.button.addEvent().click();
-      tgt.modal.get().should("not.exist");
+      tgt.modal.get().contains("Unfortunately");
+      tgt.modal.close();
 
       cy.contains("10").parent().find("button").click({ force: true });
-      tgt.modal.get().should("not.exist");
+      tgt.modal.get().contains("Unfortunately");
     });
   });
 
