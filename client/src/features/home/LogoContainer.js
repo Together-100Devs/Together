@@ -1,7 +1,5 @@
-import { useRoutingContext } from "contexts/RoutingContext";
 
 const LogoContainer = ({ logo, logotext }) => {
-  const routing = useRoutingContext();
   return (
     <div
       className="self-center p-3 hidden tablet:inline-flex desktop:inline-flex overflow-hidden rounded-3xl border-2 border-black laptop:w-5/12 tablet:h-28 desktop:w-auto desktop:h-auto bg-white tablet:px-auto tablet:py-3 desktop:px-10 desktop:py-5"

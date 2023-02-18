@@ -1,10 +1,12 @@
 module.exports = {
   ensureAuth: function (req, res, next) {
     if (req.isAuthenticated()) {
-      console.log("user is authenticated, proceeeding")
+      /* istanbul ignore next  */
+      if (process.env.NODE_ENV !== 'test') console.log("user is authenticated, proceeeding")
       return next();
     } else {
-      console.log("user is not authenticated")
+      /* istanbul ignore next  */
+      if (process.env.NODE_ENV !== 'test') console.log("user is not authenticated")
       res.sendStatus(401);
     }
   },

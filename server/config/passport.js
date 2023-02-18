@@ -10,6 +10,9 @@ module.exports = function (passport) {
     User.findById(id, (err, user) => done(err, user));
   });
 
+  // Conditionally require & execute the mocking module as `nock` is not installed in production
+  if (process.env.NODE_ENV === "test") require('../test/passport-discord-mocking')();
+
   //Discord authentication
   passport.use(
     new DiscordStrategy(
