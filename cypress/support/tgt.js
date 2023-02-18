@@ -73,7 +73,7 @@ export default {
     alerts: () => modal.get(0).get(".alert"),
     input: {
       title: () => modal.get(0).get('input[name="title"]'),
-      description: () => modal.get(0).get('input[name="description"]'),
+      description: () => modal.get(0).get('textarea[name="description"]'),
       location: () => modal.get(0).get('input[name="location"]'),
       startDate: () => modal.get(0).get('input[name="initialDate"]'),
       startTime: () => modal.get(0).get('input[name="startTime"]'),
