@@ -63,6 +63,7 @@
     "http-proxy-middleware": "^2.0.6",
     "jest": "^27.5.1",
     "jsbi": "^4.3.0",
+    "husky": "^8.0.3",
     "json-server": "^0.17.1",
     "lint-staged": "^13.1.2",
     "mongodb-memory-server": "^8.10.1",
