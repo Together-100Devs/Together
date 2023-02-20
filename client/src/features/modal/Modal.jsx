@@ -3,7 +3,6 @@ import Backdrop from "./Backdrop";
 import { motion } from "framer-motion";
 
 const Modal = ({ children, context }) => {
-
   const dropIn = {
     hidden: {
       y: "-100vh",
@@ -32,7 +31,7 @@ const Modal = ({ children, context }) => {
         exitBeforeEnter={true}
         onExitComplete={() => null}
       >
-        {context.isOpen &&
+        {context.isOpen && (
           <Backdrop onClick={context.handleClose}>
             <motion.div
               className="modal overflow-y-auto"
@@ -45,7 +44,7 @@ const Modal = ({ children, context }) => {
               {children}
             </motion.div>
           </Backdrop>
-        }
+        )}
       </AnimatePresence>
     </div>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import { useFormContext } from "contexts/FormContext";
 
-// This components displays all of the form data for the user to confirm 
+// This components displays all of the form data for the user to confirm
 export default function FormConfirm() {
   const { formData } = useFormContext();
 
@@ -72,7 +72,7 @@ export default function FormConfirm() {
             <p>{formData["startTime"]}</p>
           </div>
         </div>
-    
+
         <div className="w-full mx-2 flex-1">
           <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
             End Time
@@ -82,8 +82,6 @@ export default function FormConfirm() {
           </div>
         </div>
       </div>
-
-      
 
       <div className="w-full mx-2 flex-1">
         <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">

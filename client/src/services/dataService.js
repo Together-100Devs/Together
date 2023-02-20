@@ -15,22 +15,22 @@ class DataService {
     return URL.get(`/events/${id}`);
   }
   deleteEvent(id) {
-    return URL.delete(`/events/${id}`)
+    return URL.delete(`/events/${id}`);
   }
   deleteAllEvents(groupId) {
-    return URL.delete(`/events/deleteAllEvents/${groupId}`)
+    return URL.delete(`/events/deleteAllEvents/${groupId}`);
   }
   getCurrentUser() {
     return URL.get("/getDisplayName");
   }
   logout() {
-    return URL.get("/auth/logout")
+    return URL.get("/auth/logout");
   }
 
   deleteNeedsToBeWelcome() {
-    return URL.delete("/needsToBeWelcome")
+    return URL.delete("/needsToBeWelcome");
   }
 }
 
 const dataService = new DataService();
-export default dataService
+export default dataService;
