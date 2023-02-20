@@ -54,7 +54,7 @@ const useProvideForm = () => {
     setFormData,
     setFormCreateEventErrors,
     setFormScheduleEventErrors,
-    setCurrentStep
+    setCurrentStep,
   };
 };
 

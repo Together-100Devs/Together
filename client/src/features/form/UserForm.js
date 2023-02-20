@@ -9,12 +9,10 @@ import { useFormModalContext } from "contexts/FormModalContext";
 
 // This is the code for the form where you add events to the calendar
 const UserForm = () => {
-  
   // Specifically extract the currentStep and totalSteps from userFormContext
   const { currentStep, totalSteps } = useFormContext();
 
   const modal = useFormModalContext();
-
 
   // Called to display different parts of the form based on the latest step.
   const displayStep = step => {
@@ -38,7 +36,7 @@ const UserForm = () => {
   return (
     <div className="md:w mx-auto shadow-xl rounded-2xl pb-2 bg-white">
       <div className="container horizontal mt-5">
-        <div className="flex flex-col items-center"> 
+        <div className="flex flex-col items-center">
           <button
             className="w-auto h-12 mt-5 px-2 border-solid border-2 border-gray outline-none rounded font-semibold text-xl hover:bg-teal-600 active:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-300"
             onClick={modal.handleClose}
@@ -48,16 +46,12 @@ const UserForm = () => {
         </div>
         <FormMover />
 
-        <div className="my-1 p-5">
-            {displayStep(currentStep)}
-        </div>
+        <div className="my-1 p-5">{displayStep(currentStep)}</div>
       </div>
       <div>
         {/* if currentStep isn't the last step (in the case of a bug/edge case), FormMoverControl won't render */}
         {/* This makes sure that the steps don't keep counting in the mover control */}
-        {currentStep !== totalSteps.length && (
-          <FormMoverControl />
-        )}
+        {currentStep !== totalSteps.length && <FormMoverControl />}
       </div>
     </div>
   );

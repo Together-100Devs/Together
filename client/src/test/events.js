@@ -2,16 +2,15 @@ import axios from "axios";
 
 // Get request
 const get = async () => {
+  const response = await axios.get("/events");
+  return response.data;
+};
 
-    const response = await axios.get('/events')
-    return response.data;
-}
-    
 // Post request
 const create = async userData => {
-const response = await axios.post('/events', userData)
-    return response.data;
-}
+  const response = await axios.post("/events", userData);
+  return response.data;
+};
 
 // Put request
 const update = async (id, newUserData) => {
@@ -22,14 +21,12 @@ const update = async (id, newUserData) => {
 // Delete request
 const remove = async id => {
   try {
-
-    const response = await axios.delete(`/events/${id}/`)
+    const response = await axios.delete(`/events/${id}/`);
     return response.data;
   } catch (error) {
     console.log(error);
   }
-}
-
+};
 
 const crud = {
   get,
@@ -38,4 +35,4 @@ const crud = {
   remove,
 };
 
-export default crud
+export default crud;

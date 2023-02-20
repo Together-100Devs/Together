@@ -42,10 +42,8 @@
   <a href="https://discord.com/channels/735923219315425401/1038482732633825442">Contact us!</a>
 </div>
 
-
 <br/>
 <br/>
-
 
 <div align="center" id="top">
 <table>
@@ -54,12 +52,12 @@
       <details open="open">
   <summary>Table of Contents</summary>
 
-  - [About](#-about)
-    - [Built With](#-built-with)
-  - [Getting Started](#-getting-started)
-    - [Install](#-install)
-  - [Contributions](#%EF%B8%8F-contributions)
-  - [Acknowledgements](#-acknowledgements)
+- [About](#-about)
+  - [Built With](#-built-with)
+- [Getting Started](#-getting-started)
+  - [Install](#-install)
+- [Contributions](#%EF%B8%8F-contributions)
+- [Acknowledgements](#-acknowledgements)
 
   </details>
     </td>
@@ -67,7 +65,6 @@
   </tr>
 </table>
 </div>
-
 
 <br/>
 <br/>
@@ -113,22 +110,22 @@ Together is a new app designed for 100devs. Together is a group calendar for pub
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
 <br>
 <div align='center'>
   <img src="docs/images/divider.png">
 </div>
 
 # 🚀 Getting Started
+
 ## 💻 Install
 
 - Read up on our [New Developer Onboarding](https://github.com/Caleb-Cohen/Together/wiki/02---Onboarding) in the wiki.
 - Fork and clone the repository to your local computer.
 - Complete and store `.env` file in the `server/config` folder
-    - [(See .env template setup instructions)](https://github.com/Caleb-Cohen/Together/wiki/02---Onboarding#development-machine-setup)
+  - [(See .env template setup instructions)](https://github.com/Caleb-Cohen/Together/wiki/02---Onboarding#development-machine-setup)
 - `npm install` in the root folder. installs the required dependencies.
 - `npm run dev-concurrent` in the root folder. This starts the front-end and back-end in one terminal.
-    - This runs a local instance of mongodb. You can connect to it by connecting to `mongodb://127.0.0.1:27017/` with any MongoDB client like [Compass](https://www.mongodb.com/products/compass).
+  - This runs a local instance of mongodb. You can connect to it by connecting to `mongodb://127.0.0.1:27017/` with any MongoDB client like [Compass](https://www.mongodb.com/products/compass).
 
 <br>
 
@@ -138,14 +135,13 @@ We highly encourage you to ask questions and join the discussion in the [Togethe
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
 <div align='center'>
   <img src="docs/images/divider.png">
 </div>
 
 # 🛠️ Contributions
 
- ### Thanks go to these wonderful people for their contributions to <em>Together</em>:
+### Thanks go to these wonderful people for their contributions to <em>Together</em>:
 
  <br>
 
@@ -154,7 +150,6 @@ We highly encourage you to ask questions and join the discussion in the [Togethe
     <img src="https://contrib.rocks/image?repo=Caleb-Cohen/Together&max=100"/>
   </a> 
 </div>
-
 
 <br>
 
@@ -165,14 +160,13 @@ We highly encourage you to ask questions and join the discussion in the [Togethe
 <br>
 
 If you're interested in contributing, you may:
-* Read our [Contributing guide.](.github/CONTRIBUTING.md)
-* Join the [#Together thread](https://discord.com/channels/735923219315425401/1038482732633825442) within the 100Devs Discord to discuss your ideas.
-* Visit the [Issues tab](https://github.com/Caleb-Cohen/Together/issues) to request an issue or to open a new issue.
-* You can also convert a "draft todo" to an issue on the current [Project Board.](https://github.com/Caleb-Cohen/Together/projects?query=is%3Aopen)
+
+- Read our [Contributing guide.](.github/CONTRIBUTING.md)
+- Join the [#Together thread](https://discord.com/channels/735923219315425401/1038482732633825442) within the 100Devs Discord to discuss your ideas.
+- Visit the [Issues tab](https://github.com/Caleb-Cohen/Together/issues) to request an issue or to open a new issue.
+- You can also convert a "draft todo" to an issue on the current [Project Board.](https://github.com/Caleb-Cohen/Together/projects?query=is%3Aopen)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 <div align='center'>
   <img src="docs/images/divider.png">
@@ -196,10 +190,8 @@ If you're interested in contributing, you may:
 </table>
 </div>
 
-
 <br/>
 <p align="right">(<a href="#top">back to top</a>)</p>
 <div align="center">
   <img width="60%" src="docs/images/coolkidspitchmeeting.png" alt="Two girls sitting on a sofa"/>
 </div>
-

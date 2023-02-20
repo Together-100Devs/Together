@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 const modal = {
-  ANIMATION_DELAY: Cypress.env('CYPRESS_NO_DELAYS') ? 0 : 1000,
+  ANIMATION_DELAY: Cypress.env("CYPRESS_NO_DELAYS") ? 0 : 1000,
   /**
    * @param {number} delay Delay while waiting for animation, none if 0
    */

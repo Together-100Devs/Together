@@ -10,7 +10,7 @@ function HamburgerNav({ logo, logotext }) {
     { name: "CALENDAR", link: "calendarPage", type: "button" },
   ];
 
-  if(!isAuthenticated()){
+  if (!isAuthenticated()) {
     Links.push({ name: "LOG IN", link: "/auth/discord", type: "a" });
   } else {
     Links.push({ name: "LOG OUT", onClick: logout, type: "button" });
@@ -40,9 +40,7 @@ function HamburgerNav({ logo, logotext }) {
             return (
               <li key={Link.name} className="text-xl my-7">
                 {Link.type === "button" && (
-                  <button onClick={Link.onClick}>
-                    {Link.name}
-                  </button>
+                  <button onClick={Link.onClick}>{Link.name}</button>
                 )}
                 {Link.type === "a" && (
                   <a

@@ -1,5 +1,5 @@
-import React, { createContext, useContext } from 'react';
-import useProvideAuth from './useProvideAuth';
+import React, { createContext, useContext } from "react";
+import useProvideAuth from "./useProvideAuth";
 
 // Creating a named context
 const AuthContext = createContext();
@@ -13,7 +13,7 @@ export const useAuthContext = () => {
 // Note: A provider is a special component that pass the context to its children to access the context's value
 const AuthProvider = ({ children }) => {
   const auth = useProvideAuth();
-  return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>
-}
+  return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>;
+};
 
 export default AuthProvider;

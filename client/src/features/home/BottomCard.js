@@ -10,7 +10,7 @@ const BottomCard = ({ heading, title, description, img }) => (
           {description}
         </div>
       </div>
-      <div className=" tablet:w-1/3 self-center tablet:pr-10 "> 
+      <div className=" tablet:w-1/3 self-center tablet:pr-10 ">
         <img src={img} alt="two people sitting" />
       </div>
     </section>

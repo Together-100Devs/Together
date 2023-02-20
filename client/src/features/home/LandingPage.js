@@ -23,18 +23,18 @@ const LandingPage = () => {
           engineering training program run by Leon Noel. It is 100% free and
           requires absolutely no previous technical experience.
         </>
-      )
+      ),
     },
     {
       heading: "Contributing to Together",
-      description: "We are currently working on video resources for individuals that would like to learn more about how to contribute to Together and how Together works. Follow along on our Youtube when it is ready!",
+      description:
+        "We are currently working on video resources for individuals that would like to learn more about how to contribute to Together and how Together works. Follow along on our Youtube when it is ready!",
     },
     {
       heading: "Community Taught",
       description: (
         <>
-          Keep track of your 100devs course progress using 
-          {" "}
+          Keep track of your 100devs course progress using{" "}
           <a
             className="underline font-bold"
             href={`https://communitytaught.org/`}
@@ -50,8 +50,8 @@ const LandingPage = () => {
           >
             Additional Resources
           </a>
-          </>
-      )
+        </>
+      ),
     },
   ];
 
@@ -87,10 +87,11 @@ const LandingPage = () => {
         description={
           <>
             <p>
-              Together is a community-driven open source project backed by members of 100devs.
-              Together is not only designed to be a valuable tool to the 100devs community but also
-              provides an additional opportunity for students to learn in a group environment.
-              Together is open to all varying skill sets and encourages peer programming. 
+              Together is a community-driven open source project backed by
+              members of 100devs. Together is not only designed to be a valuable
+              tool to the 100devs community but also provides an additional
+              opportunity for students to learn in a group environment. Together
+              is open to all varying skill sets and encourages peer programming.
             </p>
             <p>
               <br></br>
@@ -99,7 +100,7 @@ const LandingPage = () => {
                 className="underline font-bold"
                 href={`https://github.com/Caleb-Cohen/Together`}
               >
-              <br></br>
+                <br></br>
                 Together GitHub
               </a>
             </p>
