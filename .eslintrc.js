@@ -6,7 +6,7 @@ module.exports = {
     browser: true,
     "cypress/globals": true
   },
-  extends: ["eslint:recommended", "plugin:react/recommended", "prettier"],
+  extends: ["eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended"],
   parserOptions: {
     ecmaVersion: 12,
   },
