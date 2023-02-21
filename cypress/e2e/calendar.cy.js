@@ -66,6 +66,7 @@ describe("Calendar", () => {
 
     cy.get("main").trigger("wheel", { deltaY: -1 });
     tgt.calendar.currentMonthAndYear().contains("January, 2023");
+    cy.wait(200);
 
     cy.get("main").trigger("wheel", { deltaY: 1 });
     tgt.calendar.currentMonthAndYear().contains("February, 2023");
