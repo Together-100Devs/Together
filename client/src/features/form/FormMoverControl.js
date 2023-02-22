@@ -75,10 +75,10 @@ const FormMoverControl = () => {
           errorArray.push("Error: Weekly recurring event MUST include at least one day of the week");
         }
 
-        // Compares the date + time combined (i.e. start and end datetime)
-        const startDateTime = new Date(formData["initialDate"] + " " + formData["startTime"]);
-        const endDateTime = new Date(formData["finalDate"] + " " + formData["endTime"]);
-        if (endDateTime < startDateTime) {
+        // initialDate should be the same as or before the finalDate
+        const initialDate = new Date(formData.initialDate);
+        const finalDate = new Date(formData.finalDate);
+        if (finalDate < initialDate) {
           errorArray.push("Error: End time is before Start time");
         }
 

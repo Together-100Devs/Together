@@ -3,5 +3,9 @@ node_modules
 .vscode
 build
 .DS_Store
-.mongo
+.mongo*
 formLogic.txt
+coverage
+.nyc_output
+cypress/screenshots
+cypress/videos

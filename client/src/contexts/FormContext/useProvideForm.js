@@ -1,6 +1,5 @@
 import { useState } from "react";
 import DataService from "services/dataService";
-import { dateToTimestamp } from "utilities/calendar";
 import { useEventsContext } from "contexts/EventsContext";
 
 const useProvideForm = () => {
@@ -25,29 +24,10 @@ const useProvideForm = () => {
 
     // Submit form to server
     if (newStep === 4) {
-      const { initialDate, startTime, finalDate, endTime, ...rest } = formData;
-      // start and end timestamps of the earliest possible event
-      const firstEventStart = dateToTimestamp(initialDate, startTime);
-      const firstEventEnd = dateToTimestamp(initialDate, endTime);
-      // start timestamp of the last possible event
-      const lastEventStart = dateToTimestamp(finalDate, startTime);
-
-      const recurrOffset =
-        new Date(firstEventStart).getUTCDay() -
-        new Date(firstEventStart).getDay();
-      // console.log(`recurrOffset: ${recurrOffset}`);
-
-      const { days } = formData.recurring;
-      const daysWithOffset = days.map(e =>
-        String((Number(e) + recurrOffset + 7) % 7)
-      );
-
-      // console.log(formData.recurring.days);
-      formData.recurring.days = daysWithOffset;
-      // console.log(formData.recurring.days);
-
+      // User timezone
+      const { timeZone } = Intl.DateTimeFormat().resolvedOptions();
       // Event data to be sent to the backend
-      const event = { ...rest, firstEventStart, firstEventEnd, lastEventStart };
+      const event = { ...formData, timeZone };
 
       let response;
       try {

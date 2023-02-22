@@ -190,10 +190,10 @@ export default function FormConfirm() {
             <div className="flex space-x-4 items-center">
               <input
                 type="checkbox"
-                value="0"
+                value="7"
                 name="Sunday"
                 readOnly
-                checked={!!formData.recurring.days.includes("0")}
+                checked={!!formData.recurring.days.includes("7")}
                 className="mx-1 outline-non text-gray-800"
               />
               <p>Sunday</p>
