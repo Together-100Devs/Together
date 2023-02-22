@@ -11,9 +11,9 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:prettier/recommended",
   ],
-  "globals": {
-    "jest": true
-    },
+  globals: {
+    jest: true,
+  },
   parserOptions: {
     ecmaVersion: 12,
   },
@@ -46,6 +46,7 @@ module.exports = {
         after: true,
       },
     ],
+    "no-unused-vars": ["warn", { argsIgnorePattern: "(^_$)|(^index$)" }],
     "no-console": 0,
     "react/prop-types": 0,
     "react/jsx-indent": [2, 2],
