@@ -72,6 +72,15 @@ describe("Calendar", () => {
     tgt.calendar.currentMonthAndYear().contains("February, 2023");
   });
 
+    it("Fast scrolling doesn't change too many months", () => {
+    setToTenthOfFebruary2023();
+
+    tgt.landing.button.calendar().click();
+    cy.get("main").trigger("wheel", { deltaY: -1 }).trigger("wheel", { deltaY: -1 });
+    tgt.calendar.currentMonthAndYear().contains("January, 2023");
+
+  });
+
   it("Shows events only for the correct month", () => {
     const now = ensureInMiddleOfMonthAndDay();
     const nextMonth = createOffsetDate(now, "Month", 1);
