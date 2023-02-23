@@ -6,20 +6,21 @@ import { useFormContext } from "contexts/FormContext";
 
 const DayCard = ({ date, events }) => {
   const { setFormData } = useFormContext();
-  
+
   const formModal = useFormModalContext();
 
   //Extracts month in long format from date object
-  const month = format(date, 'MMMM');
+  const month = format(date, "MMMM");
 
   //Extracts day from date object
-  const day = date.getDate()
+  const day = date.getDate();
 
   //Checks if current day matches date
-  const sameDayCheck = isSameDay(date, new Date())
+  const sameDayCheck = isSameDay(date, new Date());
 
   //Aplies styling if isSameDay is true
-  const currentDayStyles = sameDayCheck === true ? { backgroundColor: "#BFD0D8" } : {};
+  const currentDayStyles =
+    sameDayCheck === true ? { backgroundColor: "#BFD0D8" } : {};
 
   // Sort events by startAt property
   let sortedEvents = [...events].sort(
@@ -41,12 +42,18 @@ const DayCard = ({ date, events }) => {
         ))}
       </div>
 
-      <button 
+      <button
         className="absolute bottom-0 right-0 items-center justify-center hidden w-6 h-6 mb-2 mr-2 text-white bg-gray-400 rounded group-hover:flex hover:bg-gray-500"
         onClick={() => {
-          let chosenDate = `${date.getFullYear()}-${(date.getMonth()+1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`
-          setFormData(prevFormData => ({ ...prevFormData, initialDate: chosenDate, finalDate: chosenDate }))
-          formModal.handleOpen()
+          let chosenDate = `${date.getFullYear()}-${(date.getMonth() + 1)
+            .toString()
+            .padStart(2, "0")}-${date.getDate().toString().padStart(2, "0")}`;
+          setFormData(prevFormData => ({
+            ...prevFormData,
+            initialDate: chosenDate,
+            finalDate: chosenDate,
+          }));
+          formModal.handleOpen();
         }}
       >
         <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">

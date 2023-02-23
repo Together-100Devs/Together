@@ -3,7 +3,6 @@ const app = require("../../app");
 const {
   validFormDataNonRecurr,
   validFormDataRecurr,
-  missingTitle,
 } = require("../unit/validateBodyMockData");
 
 const { Database } = require("../utils");

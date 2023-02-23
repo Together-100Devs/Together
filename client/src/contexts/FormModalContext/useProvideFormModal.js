@@ -7,22 +7,22 @@ const useProvideFormModal = () => {
 
   const handleOpen = () => {
     setIsOpen(true);
-  }
+  };
 
   const handleClose = () => {
     setIsOpen(false);
-  }
+  };
 
   const handleToggle = () => {
     setIsOpen(prevState => !prevState);
-  }
+  };
 
   return {
     isOpen,
     handleOpen,
     handleClose,
-    handleToggle
-  }
+    handleToggle,
+  };
 };
 
 export default useProvideFormModal;
