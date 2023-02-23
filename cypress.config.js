@@ -2,7 +2,7 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   env: {
-    CYPRESS_NO_DELAYS: process.env.CYPRESS_NO_DELAYS
+    CYPRESS_NO_DELAYS: process.env.CYPRESS_NO_DELAYS,
   },
   e2e: {
     baseUrl: "http://localhost:3000",

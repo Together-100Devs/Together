@@ -1,5 +1,5 @@
-import React, { createContext, useContext } from 'react';
-import useProvideForm from './useProvideForm';
+import React, { createContext, useContext } from "react";
+import useProvideForm from "./useProvideForm";
 
 // Creating a named context
 const FormContext = createContext();
@@ -13,7 +13,9 @@ export const useFormContext = () => {
 // Note: a provider is a special component that pass the context to its children to access
 const FormProvider = ({ children }) => {
   const formData = useProvideForm();
-  return <FormContext.Provider value={formData}>{children}</FormContext.Provider>;
+  return (
+    <FormContext.Provider value={formData}>{children}</FormContext.Provider>
+  );
 };
 
 export default FormProvider;
