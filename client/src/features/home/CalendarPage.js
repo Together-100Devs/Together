@@ -9,19 +9,27 @@ import { useFormModalContext } from "contexts/FormModalContext";
 import EventModal from "features/modal/EventModal";
 import { useModalContext } from "contexts/ModalContext";
 import RejectionModal from "features/modal/RejectionModal";
+import { useRef } from "react";
 
 function CalendarPage() {
   const auth = useAuthContext();
   const date = useDate();
   const formModal = useFormModalContext();
   const modal = useModalContext();
+  const canScrollMonthRef = useRef(true);
 
   const handleWheelScroll = e => {
+    if (!canScrollMonthRef.current) return;
+    canScrollMonthRef.current = false;
+
     if (e.deltaY > 0) {
       date.getNextMonth();
     } else {
       date.getPreviousMonth();
     }
+    setTimeout(() => {
+      canScrollMonthRef.current = true;
+    }, 200);
   };
 
   return (
