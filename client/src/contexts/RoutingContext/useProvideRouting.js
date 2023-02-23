@@ -1,13 +1,12 @@
 import { useState } from "react";
 
-
 const useProvideRouting = () => {
-  const [currentPage, setCurrentPage] = useState('landingPage');
+  const [currentPage, setCurrentPage] = useState("landingPage");
 
   return {
     currentPage,
-    setCurrentPage
-  } 
-}
+    setCurrentPage,
+  };
+};
 
 export default useProvideRouting;

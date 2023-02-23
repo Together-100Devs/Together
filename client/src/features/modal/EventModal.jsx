@@ -18,7 +18,6 @@ const EventModal = () => {
   const userId = user?._id;
   const authorCheck = userId === modal.activeEvent.user._id;
 
-
   return (
     <div className="flex flex-col items-center py-0 px-2rem rounded-xl bg-white pb-4">
       <button
@@ -99,17 +98,22 @@ const EventModal = () => {
             <IoLocationOutline className="mt-1" />{" "}
             <span>Location: {modal.activeEvent.location}</span>
           </section>
-          {user 
-          ? <>
-            <section className="flex m-3 gap-1 font-semibold">
-              <IoPersonOutline className="mt-1" />{" "}
+          {user ? (
+            <>
+              <section className="flex m-3 gap-1 font-semibold">
+                <IoPersonOutline className="mt-1" />{" "}
                 <span>
-                  Event Author: {modal.activeEvent.user?.displayName || "Deleted"}
+                  Event Author:{" "}
+                  {modal.activeEvent.user?.displayName || "Deleted"}
                 </span>
-          </section>
-          </>
-          : <span className="flex m-3 gap-1 font-semibold"> Event Author: Must be logged in to view author </span>
-          }
+              </section>
+            </>
+          ) : (
+            <span className="flex m-3 gap-1 font-semibold">
+              {" "}
+              Event Author: Must be logged in to view author{" "}
+            </span>
+          )}
         </div>
       </div>
     </div>

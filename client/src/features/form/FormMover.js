@@ -10,22 +10,22 @@ import { useFormContext } from "contexts/FormContext";
 // }
 
 const stepStatus = {
-  "current": {
+  current: {
     highlighted: true,
     selected: true,
     completed: true,
   },
-  "pending": {
+  pending: {
     highlighted: false,
     selected: false,
     completed: false,
   },
-  "completed": {
+  completed: {
     highlighted: false,
     selected: true,
     completed: true,
-  }
-}
+  },
+};
 
 const FormMover = () => {
   const { currentStep, totalSteps } = useFormContext();
@@ -35,7 +35,7 @@ const FormMover = () => {
       description: step,
       completed: false,
       highlighted: index === 0 ? true : false,
-      selected: index === 0 ? true : false
+      selected: index === 0 ? true : false,
     }))
   );
 
@@ -44,35 +44,35 @@ const FormMover = () => {
     const updateStepStatus = () => {
       const stepNumber = currentStep - 1;
       // Update newStep object's status
-      setNewStep((prevNewStep) =>
+      setNewStep(prevNewStep =>
         prevNewStep.map((stepObject, count) => {
-            // Current step
-            if (count === stepNumber) {
-              // Update stepObject with current status
-              return {
-                ...stepObject,
-                ...stepStatus.current
-              };
-            }
-
-            // Completed steps
-            if (count < stepNumber) {
-              // Update stepObject with completed status
-              return {
-                ...stepObject,
-                ...stepStatus.completed
-              };
-            }
-
-            // Pending steps
-            // Update stepObject with pending status
+          // Current step
+          if (count === stepNumber) {
+            // Update stepObject with current status
             return {
               ...stepObject,
-              ...stepStatus.pending
+              ...stepStatus.current,
             };
-          })
+          }
+
+          // Completed steps
+          if (count < stepNumber) {
+            // Update stepObject with completed status
+            return {
+              ...stepObject,
+              ...stepStatus.completed,
+            };
+          }
+
+          // Pending steps
+          // Update stepObject with pending status
+          return {
+            ...stepObject,
+            ...stepStatus.pending,
+          };
+        })
       );
-    }
+    };
 
     updateStepStatus();
   }, [currentStep]);

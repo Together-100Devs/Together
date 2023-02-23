@@ -7,7 +7,7 @@ import DayCardList from "./DayCardList";
 import DataService from "services/dataService";
 import { getMatchMonthAndYear, getEventsByDayNumber } from "utilities/calendar";
 import { parse } from "date-fns";
-import { useEventsContext } from 'contexts/EventsContext';
+import { useEventsContext } from "contexts/EventsContext";
 
 const Calendar = ({ date }) => {
   const { events, setEvents } = useEventsContext();

@@ -95,10 +95,6 @@ describe("Event Creation Form", () => {
     cy.wait("@createEvent", { timeout: 10000 }).then(({ request }) => {
       const body = request.body;
 
-      const firstEventStart = new Date(startDate + "T" + startTime).getTime();
-      const firstEventEnd = new Date(startDate + "T" + endTime).getTime();
-      const lastEventStart = new Date(endDate + "T" + startTime).getTime();
-
       expect(body).to.deep.equal({
         title: "Test Title",
         description: "Test Description",

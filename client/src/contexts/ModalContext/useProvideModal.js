@@ -8,15 +8,15 @@ const useProvideModal = () => {
 
   const handleOpen = () => {
     setIsOpen(true);
-  }
+  };
 
   const handleClose = () => {
     setIsOpen(false);
-  }
+  };
 
   const handleToggle = () => {
     setIsOpen(prevState => !prevState);
-  }
+  };
 
   return {
     isOpen,
@@ -24,8 +24,8 @@ const useProvideModal = () => {
     handleClose,
     handleToggle,
     activeEvent,
-    setActiveEvent
-  }
+    setActiveEvent,
+  };
 };
 
 export default useProvideModal;

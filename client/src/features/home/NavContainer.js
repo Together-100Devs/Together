@@ -1,6 +1,11 @@
 import LogoContainer from "./LogoContainer";
 import NavButtons from "./NavButtons";
-import { FaHome, FaChevronCircleLeft, FaChevronCircleRight, FaRegCalendarAlt } from "react-icons/fa";
+import {
+  FaHome,
+  FaChevronCircleLeft,
+  FaChevronCircleRight,
+  FaRegCalendarAlt,
+} from "react-icons/fa";
 import { useAuthContext } from "contexts/AuthContext";
 
 const NavContainer = () => {
@@ -11,7 +16,9 @@ const NavContainer = () => {
       <LogoContainer logo={"./logoicon.png"} logotext={"./logotext.png"} />
       <NavButtons
         HomeIcon={FaHome}
-        LoginIcon={isAuthenticated() ? FaChevronCircleLeft : FaChevronCircleRight}
+        LoginIcon={
+          isAuthenticated() ? FaChevronCircleLeft : FaChevronCircleRight
+        }
         CalendarIcon={FaRegCalendarAlt}
       />
     </nav>
