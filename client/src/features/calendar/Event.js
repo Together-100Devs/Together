@@ -20,7 +20,7 @@ const Event = props => {
           props.event.confirmed ? confirmedCss : unconfirmedCSss
         } rounded-full`}
       ></span>
-      <span className="ml-2 font-light leading-none">
+      <span className="ml-2 text-xs font-light leading-none whitespace-nowrap">
         {formatToLocalTime(props.event.startAt)}
       </span>
       <span className="ml-2 font-medium leading-none truncate">
