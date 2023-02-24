@@ -4,8 +4,8 @@ import RejectionModal from "features/modal/RejectionModal";
 import WelcomeUserModal from "features/modal/WelcomeUserModal";
 import { useRoutingContext } from "contexts/RoutingContext";
 import { useAuthContext } from "contexts/AuthContext";
-import LandingPage from "features/home/LandingPage";
-import CalendarPage from "features/home/CalendarPage";
+import LandingPage from "pages/LandingPage";
+import CalendarPage from "pages/CalendarPage";
 
 function App() {
   const routing = useRoutingContext();
@@ -41,29 +41,14 @@ function App() {
           <WelcomeUserModal handleClose={welcomeUserModalContext.handleClose} />
         </Modal>
       )}
-      {routing.currentPage === "landingPage" && (
-        <div className="bg-primary flex justify-center">
-          <div className="w-full tablet:w-11/12 desktop:w-2/3">
-            <LandingPage />
-            {isNot100Dever && (
-              <Modal context={rejectionModalContext}>
-                <RejectionModal
-                  handleClose={rejectionModalContext.handleClose}
-                />
-              </Modal>
-            )}
-          </div>
-        </div>
+      {isNot100Dever && (
+        <Modal context={rejectionModalContext}>
+          <RejectionModal handleClose={rejectionModalContext.handleClose} />
+        </Modal>
       )}
-      {routing.currentPage === "calendarPage" && (
-        <CalendarPage>
-          {isNot100Dever && (
-            <Modal context={rejectionModalContext}>
-              <RejectionModal handleClose={rejectionModalContext.handleClose} />
-            </Modal>
-          )}
-        </CalendarPage>
-      )}
+
+      {routing.currentPage === "landingPage" && <LandingPage />}
+      {routing.currentPage === "calendarPage" && <CalendarPage />}
     </>
   );
 }
