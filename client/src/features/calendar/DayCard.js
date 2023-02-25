@@ -3,10 +3,10 @@ import React from "react";
 import Event from "./Event";
 import { useFormModalContext } from "contexts/FormModalContext";
 import { useFormContext } from "contexts/FormContext";
+import startOfDay from "date-fns/startOfDay";
 
 const DayCard = ({ date, events }) => {
   const { setFormData } = useFormContext();
-
   const formModal = useFormModalContext();
 
   //Extracts month in long format from date object
@@ -16,11 +16,7 @@ const DayCard = ({ date, events }) => {
   const day = date.getDate();
 
   //Checks if current day matches date
-  const sameDayCheck = isSameDay(date, new Date());
-
-  //Aplies styling if isSameDay is true
-  const currentDayStyles =
-    sameDayCheck === true ? { backgroundColor: "#BFD0D8" } : {};
+  const sameDayCheck = isSameDay(startOfDay(date), new Date());
 
   // Sort events by startAt property
   let sortedEvents = [...events].sort(
@@ -29,10 +25,15 @@ const DayCard = ({ date, events }) => {
 
   return (
     <div
-      className="relative flex flex-col bg-white group"
-      style={currentDayStyles}
+      className={`relative flex flex-col bg-white group ${
+        sameDayCheck ? "border-[3px] border-teal-light" : "bg-white"
+      }`}
     >
-      <span className="mx-2 my-1 text-xs font-bold">
+      <span
+        className={`block px-2 py-1 text-xs font-bold ${
+          sameDayCheck && "bg-teal-light"
+        }`}
+      >
         {day} {day === 1 && month}
       </span>
 
