@@ -8,8 +8,8 @@ const AllDays = () => {
       <div className="pl-1 text-md font-bold">Wed</div>
       <div className="pl-1 text-md font-bold">Thu</div>
       <div className="pl-1 text-md font-bold">Fri</div>
-      <div className="pl-1 text-md font-bold">Sat</div>
-      <div className="pl-1 text-md font-bold">Sun</div>
+      <div className="pl-1 text-md font-bold text-[#E0835D]">Sat</div>
+      <div className="pl-1 text-md font-bold text-[#E0835D]">Sun</div>
     </div>
   );
 };
