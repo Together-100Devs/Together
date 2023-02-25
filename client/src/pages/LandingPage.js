@@ -63,7 +63,7 @@ const LandingPage = () => {
           <NavContainer />
           <LongCard
             img={"/Homeoffice.png"}
-            heading="Welcome!"
+            heading="Welcome"
             title="Together"
             description=" is a new app designed for
               100Devs. Together is a group calendar for public events, so you can
