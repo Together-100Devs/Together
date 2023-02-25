@@ -17,7 +17,7 @@ const RejectionModal = ({ handleClose }) => {
         <div>
           <h3>
             Unfortunately, only 100Devs users are allowed to login to add and
-            delete events at this time. If you'd like to join click the link
+            delete events at this time. If you would like to join click the link
             below!
           </h3>
         </div>
