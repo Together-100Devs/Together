@@ -23,7 +23,9 @@ const DayCardList = ({ data, firstDayOfMonth }) => {
   const numRows = Math.ceil(totalDays / 7);
 
   return (
-    <div className={`grid flex-grow w-full h-auto grid-cols-7 grid-rows-${numRows} gap-px pt-px mt-1 bg-gray-200`}>
+    <div
+      className={`grid flex-grow w-full h-auto grid-cols-7 grid-rows-${numRows} gap-px pt-px mt-1 bg-gray-200`}
+    >
       {/* Empty div used for days that are not in the month */}
       {daysFromPrevMonth.map(day => (
         <div key={`day-${day}`}></div>

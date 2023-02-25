@@ -13,12 +13,13 @@ Please select everything applicable. Please, do not delete any lines.
 - [ ] This change requires an update to testing
 
 ## Issue
+
 - [ ] Is this related to a specific issue? If so, please specify:
 
 # Checklist:
 
 - [ ] This PR is up to date with the development branch, and merge conflicts have been resolved
-- [ ] I have executed `npm run test-frontend` and all tests have passed successfully or I have included details within my PR on the failure
+- [ ] I have executed `npm run test` and all tests have passed successfully or I have included details within my PR on the failure. Some windows users may not be able to execute this command. Please proceed with the PR if that is the case. 
 - [ ] I have executed `npm run lint` and resolved any outstanding errors. Most issues can be solved by executing `npm run format`
 - [ ] My code follows the style guidelines of this project
 - [ ] I have performed a self-review of my own code

@@ -13,7 +13,11 @@ export const useFormModalContext = () => {
 // Note: a provider is a special component that pass the context to its children to access
 const FormModalProvider = ({ children }) => {
   const formModal = useProvideFormModal();
-  return <FormModalContext.Provider value={formModal}>{children}</FormModalContext.Provider>;
+  return (
+    <FormModalContext.Provider value={formModal}>
+      {children}
+    </FormModalContext.Provider>
+  );
 };
 
 export default FormModalProvider;

@@ -11,15 +11,17 @@
     "start-client": "npm --prefix client start",
     "start-mockServer": "npm --prefix client run dev",
     "dev-concurrent-mockServer": "concurrently \"npm:start-client\" \"npm:start-mockServer\"",
-    "lint": "eslint .",
+    "lint": "eslint . && npm run prettier",
     "lint:fix": "eslint --fix",
+    "prettier": "prettier --check './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "test-backend": "cross-env NODE_ENV=test MOCK_USER=true jest --coverage --coverage-reporters=\"json\" && mkdir -p .nyc_output && mv coverage/coverage-final.json .nyc_output/coverage-final.json",
     "coverage-concurrent": "concurrently 'npm --prefix client run start:coverage' 'npm --prefix server run start:coverage' 'npm --prefix server run dev:mongo'",
     "wait-for-coverage-concurrent": "cross-env MOCK_USER=false BROWSER=none DISABLE_ESLINT_PLUGIN=true NODE_ENV=test DB_STRING=mongodb://127.0.0.1:27017/ DISCORD_CLIENT_ID=1 DISCORD_CLIENT_SECRET=1 start-server-and-test coverage-concurrent http://127.0.0.1:3000",
     "test-frontend": "npm run wait-for-coverage-concurrent -- 'cypress run'; nyc merge server/.nyc_output .nyc_output/server.json && nyc report --reporter html --reporter lcov",
     "dev-frontend-tests": "npm run wait-for-coverage-concurrent -- 'cypress open'",
-    "test": "concurrently \"npm:test-backend\" \"npm:test-frontend\""
+    "test": "concurrently \"npm:test-backend\" \"npm:test-frontend\"",
+    "prepare": "husky install"
   },
   "author": "",
   "license": "MIT",
@@ -61,9 +63,11 @@
     "formidable": "^2.1.2",
     "framer-motion": "^8.5.0",
     "http-proxy-middleware": "^2.0.6",
+    "husky": "^8.0.3",
     "jest": "^27.5.1",
     "jsbi": "^4.3.0",
     "json-server": "^0.17.1",
+    "lint-staged": "^13.1.2",
     "mongodb-memory-server": "^8.10.1",
     "nock": "^13.2.9",
     "nodemon": "^2.0.20",
@@ -80,6 +84,12 @@
     "tailwindcss": "^3.2.2",
     "validator": "^13.6.0",
     "web-vitals": "^2.1.4"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   },
   "browserslist": {
     "production": [

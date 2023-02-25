@@ -28,10 +28,10 @@ function CalendarHeader({ date }) {
   };
 
   return (
-    <header className="flex items-center px-5 py-2 bg-white justify-between">
+    <header className="flex items-center px-5 py-3 bg-white justify-between">
       <section className="flex space-x-3">
-        <HeaderButton 
-          Icon={BsCalendarPlusFill} 
+        <HeaderButton
+          Icon={BsCalendarPlusFill}
           tooltipText="Add Event"
           onClick={formModal.handleOpen}
         />
@@ -57,15 +57,15 @@ function CalendarHeader({ date }) {
       </section>
       <section className="flex space-x-3">
         <HeaderButton
-            Icon={IoChatbubblesOutline}
-            tooltipText="Feedback"
-            onClick={() => linkToUrl(GH_ISSUES_URL)}
-          />
-          <HeaderButton
-            Icon={FaQuestion}
-            tooltipText="Help"
-            onClick={() => linkToUrl(GH_ISSUES_URL)}
-          />
+          Icon={IoChatbubblesOutline}
+          tooltipText="Feedback"
+          onClick={() => linkToUrl(GH_ISSUES_URL)}
+        />
+        <HeaderButton
+          Icon={FaQuestion}
+          tooltipText="Help"
+          onClick={() => linkToUrl(GH_ISSUES_URL)}
+        />
         {isAuthenticated() ? (
           <HeaderButton
             Icon={RiArrowLeftCircleFill}

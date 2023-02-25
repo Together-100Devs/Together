@@ -11,7 +11,8 @@ module.exports = function (passport) {
   });
 
   // Conditionally require & execute the mocking module as `nock` is not installed in production
-  if (process.env.NODE_ENV === "test") require('../test/passport-discord-mocking')();
+  if (process.env.NODE_ENV === "test")
+    require("../test/passport-discord-mocking")();
 
   //Discord authentication
   passport.use(
@@ -22,7 +23,8 @@ module.exports = function (passport) {
         clientSecret: process.env.DISCORD_CLIENT_SECRET,
         callbackURL: "/auth/discord/callback",
         // pulls discord username without email, and returns basic information about all the user's current guilds / servers.
-        scope: ["identify", "guilds"], passReqToCallback : true
+        scope: ["identify", "guilds"],
+        passReqToCallback: true,
       },
       async function (currentReq, accessToken, refreshToken, profile, cb) {
         const displayName = `${profile.username}#${profile.discriminator}`;
@@ -30,8 +32,8 @@ module.exports = function (passport) {
           server => server.id === "735923219315425401"
         );
 
-        if (!is100Dever){
-          currentReq.session.isNot100Dever = true
+        if (!is100Dever) {
+          currentReq.session.isNot100Dever = true;
           return cb(null, false);
         }
         // Check if user exists in DB
@@ -48,14 +50,14 @@ module.exports = function (passport) {
               bio: "",
               needsToBeWelcome: true,
             });
-           
+
             return cb(null, user);
           } else {
             // it user already exists, update display name and avatar
             user.displayName = displayName;
             user.avatar = profile.avatar;
             const updatedUser = await user.save();
-            
+
             return cb(null, updatedUser);
           }
         } catch (err) {

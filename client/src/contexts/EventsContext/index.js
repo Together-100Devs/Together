@@ -1,5 +1,5 @@
-import React, { createContext, useContext } from 'react';
-import useProvideEvents from './useProvideEvents';
+import React, { createContext, useContext } from "react";
+import useProvideEvents from "./useProvideEvents";
 
 // Creating a named context
 const EventsContext = createContext();
@@ -13,7 +13,11 @@ export const useEventsContext = () => {
 // Note: a provider is a special component that pass the context to its children to access
 const EventsProvider = ({ children }) => {
   const eventsData = useProvideEvents();
-  return <EventsContext.Provider value={eventsData}>{children}</EventsContext.Provider>;
+  return (
+    <EventsContext.Provider value={eventsData}>
+      {children}
+    </EventsContext.Provider>
+  );
 };
 
 export default EventsProvider;

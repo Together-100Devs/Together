@@ -13,7 +13,9 @@ export const useModalContext = () => {
 // Note: a provider is a special component that pass the context to its children to access
 const ModalProvider = ({ children }) => {
   const modal = useProvideModal();
-  return <ModalContext.Provider value={modal}>{children}</ModalContext.Provider>;
+  return (
+    <ModalContext.Provider value={modal}>{children}</ModalContext.Provider>
+  );
 };
 
 export default ModalProvider;
