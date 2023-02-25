@@ -28,7 +28,7 @@ function CalendarHeader({ date }) {
   };
 
   return (
-    <header className="flex items-center px-5 py-2 bg-white justify-between">
+    <header className="flex items-center px-5 py-3 bg-white justify-between">
       <section className="flex space-x-3">
         <HeaderButton
           Icon={BsCalendarPlusFill}
