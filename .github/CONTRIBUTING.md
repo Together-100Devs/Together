@@ -31,10 +31,9 @@ This graph approximates the structure of the official repository and some exampl
 %% The graph doesn't render in the GitHub mobile app or in code editors.
 %% Enjoy this ASCII art instead.
 %%
-%%               MVP               v1.0
-%% main        o--o-----------------o
-%%                 \               /
-%% development      o---------o---o
+%%               MVP              v1.0
+%% main        o--o------------o---o
+%%                 \          /   /
 %%                  |\       /   /
 %% a_new_feature    | o--o--o   /
 %%                  \          /
@@ -49,9 +48,6 @@ This graph approximates the structure of the official repository and some exampl
 gitGraph
   commit tag: "MVP"
   commit
-  branch development
-  checkout development
-  commit
   branch a_new_feature
   branch another_feature
   commit
@@ -59,14 +55,13 @@ gitGraph
   commit
   commit
   checkout another_feature
-  checkout development
+  checkout main
   merge a_new_feature
   checkout another_feature
   commit
-  checkout development
-  merge another_feature
   checkout main
-  merge development tag: "v1.0"
+  merge another_feature
+  commit tag: "v1.0"
 ```
 
 > 💡 (Don't be intimidated by this graph. It also confuses most of us.)
@@ -75,9 +70,7 @@ We are currently using a GitFlow-inspired workflow. GitFlow allows the productio
 
 The `main` branch is for stable production code. This branch is the working version of the Together app.
 
-The `development` branch is a stable branch for testing code on the server before merging into main. `development` is also the default branch when forking the project.
-
-Multiple `feature` branches can be checked out from the `development` branch. These `feature` branches are tied to various issues and are used to add new code. When ready, The `feature` branches are tested and merged into the `development` branch before the `development` branch is merged into `main.`
+Multiple `feature` branches can be checked out from the `main` branch. These `feature` branches are tied to various issues and are used to add new code. When ready, The `feature` branches are tested and merged into the `main` branch.
 
 ## Issues
 
@@ -115,7 +108,7 @@ Use the following process to make changes after an issue has been assigned to yo
 3. Click Create fork.  
    ![Screenshot of create fork button on GitHub](assets/contributing-create-fork.jpg)
 
-> 💡 Your new fork will include the `development` branch as the default branch.
+> 💡 Your new fork will include the `main` branch as the default branch.
 
 #### Cloning your fork
 
