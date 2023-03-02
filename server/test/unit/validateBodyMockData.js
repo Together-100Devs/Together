@@ -24,7 +24,7 @@ const timeNow = Temporal.Now.plainTimeISO().round({
   smallestUnit: "minute",
   roundingMode: "ceil",
 });
-const timeIn1hour = timeNow.subtract({ hours: 1 });
+const timeIn1hour = timeNow.add({ hours: 1 });
 
 const validFormDataNonRecurr = {
   title: "test",
@@ -119,6 +119,12 @@ const invalidDayName = {
   recurring: { rate: "weekly", days: ["January!"] },
 };
 
+const startIn5Days = {
+  ...validFormDataNonRecurr,
+  initialDate: dateIn5Days.toString(),
+  finalDate: dateIn5Days.toString(),
+};
+
 module.exports = {
   validFormDataNonRecurr,
   validFormDataRecurr,
@@ -135,4 +141,5 @@ module.exports = {
   invalidRate,
   invalidNonRecurDays,
   invalidDayName,
+  startIn5Days,
 };
