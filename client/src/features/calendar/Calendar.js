@@ -5,18 +5,13 @@ import DayCardList from "./DayCardList";
 // Utility functions
 // For getting real data
 import DataService from "services/dataService";
-import { getMatchMonthAndYear, getEventsByDayNumber } from "utilities/calendar";
+import { getEventsByDayNumber } from "utilities/calendar";
 import { parse } from "date-fns";
 import { useEventsContext } from "contexts/EventsContext";
 
 const Calendar = ({ date }) => {
   const { events, setEvents } = useEventsContext();
   const [loading, setLoading] = useState(true);
-  const eventsInSelectedMonth = getMatchMonthAndYear(
-    date.month,
-    date.year,
-    events
-  );
   // An array of days containing events for populating the calendar
   const days = Array.from({ length: date.daysInMonth }, (_, i) => {
     const currentDay = i + 1;
@@ -29,7 +24,7 @@ const Calendar = ({ date }) => {
     );
     return {
       date: dateObject,
-      events: getEventsByDayNumber(currentDay, eventsInSelectedMonth),
+      events: getEventsByDayNumber(currentDay, events),
     };
   });
 
@@ -38,12 +33,12 @@ const Calendar = ({ date }) => {
     // Fetch events from server
     const fetch = async () => {
       // Database data from server
-      const response = await DataService.getAll();
+      const response = await DataService.getAll(date.monthStart, date.monthEnd);
       setEvents(response.data);
     };
 
     fetch().then(setLoading(false)).catch(setLoading(false));
-  }, [setEvents]);
+  }, [setEvents, date]);
 
   // Render nothing while fetching for data from server
   if (loading) return null;
