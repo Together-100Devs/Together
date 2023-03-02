@@ -1,17 +1,5 @@
 import { parseISO, format } from "date-fns";
 
-export const getMatchMonthAndYear = (monthToMatch, yearToMatch, events) => {
-  if (!events.length) return [];
-
-  const allMatchedEvents = events.filter(event => {
-    const isoDate = parseISO(event.startAt);
-    const monthInString = format(isoDate, "LLLL"); // December
-    const year = isoDate.getFullYear();
-    return monthToMatch === monthInString && year === yearToMatch;
-  });
-  return allMatchedEvents;
-};
-
 export const getEventsByDayNumber = (currentDay, allEvents) => {
   if (!allEvents.length) return [];
 
