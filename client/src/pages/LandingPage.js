@@ -6,6 +6,7 @@ import NavContainer from "../features/home/NavContainer";
 import SmallCard from "../features/home/SmallCard";
 import { CgChevronDoubleRightO } from "react-icons/cg";
 import HamburgerNav from "../features/home/HamburgerNav";
+import { FaGithub } from "react-icons/fa";
 
 const LandingPage = () => {
   const cards = [
@@ -95,18 +96,24 @@ const LandingPage = () => {
                   additional opportunity for students to learn in a group
                   environment. Together is open to all varying skill sets and
                   encourages peer programming.
-                </p>
-                <p>
                   <br></br>
                   Interested in collaborating with us?{" "}
-                  <a
-                    className="underline font-bold"
-                    href={`https://github.com/Caleb-Cohen/Together`}
-                  >
-                    <br></br>
-                    Together GitHub
-                  </a>
                 </p>
+                <>
+                  <div className="flex justify-center pt-10 tablet:pt-5">
+                    <div className=" flex w-64 tablet:w-auto border-2 border-slate-400 bg-white rounded-xl ">
+                      <div className="px-2 tablet:px-10 py-2 m-3 bg-accent rounded-lg tablet:text-xl font-bold">
+                        <a
+                          className="inline-flex w-52 tablet:w-auto pt-2 tracking-widest text-center"
+                          href={`https://github.com/Caleb-Cohen/Together`}
+                        >
+                          <FaGithub className="w-7 h-7 mr-2" />
+                          Together GitHub
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </>
               </>
             }
             img={"/threeHumans.png"}
