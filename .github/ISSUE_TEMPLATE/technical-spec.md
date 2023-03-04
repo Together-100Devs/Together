@@ -1,6 +1,6 @@
 ---
 name: Technical Spec
-about:
+about: For creating technical specifications. 
 title: ""
 labels: "Tech Spec"
 assignees: ""
