@@ -70,7 +70,7 @@ const Calendar = ({ date }) => {
   }, [setEvents, date.monthStart, date.monthEnd]);
 
   // Render nothing while fetching for data from server
-  if (status === Status.LOADING) return null;
+  // if (status === Status.LOADING) return null;
 
   return (
     <div className="flex flex-grow h-full w-full overflow-auto text-gray-700 bg-white">
