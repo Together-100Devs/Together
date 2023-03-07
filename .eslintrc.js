@@ -26,6 +26,12 @@ module.exports = {
   },
   plugins: ["react", "react-hooks", "prettier", "cypress"],
   rules: {
+    "prettier/prettier": [
+      "error",
+      {
+        endOfLine: "auto",
+      },
+    ],
     indent: [
       "error",
       2,

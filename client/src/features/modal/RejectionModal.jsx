@@ -17,8 +17,8 @@ const RejectionModal = ({ handleClose }) => {
         <div>
           <h3>
             Unfortunately, only 100Devs users are allowed to login to add and
-            delete events at this time. If you'd like to join click the link
-            below!
+            delete events at this time. If you&apos;d like to join click the
+            link below!
           </h3>
         </div>
         <button className="w-auto h-8 mt-5 px-2 border-solid border-2 border-gray outline-none rounded font-semibold text-lg hover:bg-teal-600 active:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-300">
