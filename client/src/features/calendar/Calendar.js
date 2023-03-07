@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 // components
 import AllDays from "./AllDays";
 import DayCardList from "./DayCardList";
@@ -17,12 +17,10 @@ const Status = {
 };
 
 const Calendar = ({ date }) => {
-  const { events, setEvents } = useEventsContext();
+  const { events, setEvents, cache } = useEventsContext();
   // status and errors or api calls
   const [status, setStatus] = useState(Status.IDLE);
   const [error, setError] = useState(null);
-  // cache to store api call arguments
-  const cache = useRef([]);
 
   const eventsInSelectedMonth = getMatchMonthAndYear(
     date.month,
@@ -67,7 +65,7 @@ const Calendar = ({ date }) => {
           setStatus(Status.REJECTED);
         });
     }
-  }, [setEvents, date.monthStart, date.monthEnd]);
+  }, [setEvents, date.monthStart, date.monthEnd, cache]);
 
   // Render nothing while fetching for data from server
   // if (status === Status.LOADING) return null;
