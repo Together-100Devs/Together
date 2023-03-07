@@ -35,12 +35,7 @@ module.exports = {
       // load all events
       dbQuery = {};
     } else {
-      dbQuery = {
-        $or: [
-          { startAt: { $gte: from, $lt: to } },
-          { endAt: { $gte: from, $lt: to } },
-        ],
-      };
+      dbQuery = { startAt: { $gte: from, $lt: to } };
     }
 
     const events = await Event.find(dbQuery)
