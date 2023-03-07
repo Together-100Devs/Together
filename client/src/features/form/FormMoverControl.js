@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useFormContext } from "contexts/FormContext";
-import { parseISO, sub } from "date-fns";
+import { parseISO, sub, isAfter, isSameDay } from "date-fns";
 
 const FormMoverControl = () => {
   const {
@@ -90,10 +90,32 @@ const FormMoverControl = () => {
         }
 
         // initialDate should be the same as or before the finalDate
-        const initialDate = new Date(formData.initialDate);
-        const finalDate = new Date(formData.finalDate);
-        if (finalDate < initialDate) {
-          errorArray.push("Error: End time is before Start time");
+        const initialDate = new Date(
+          `${formData.initialDate}T${formData.startTime}:00`
+        );
+        const finalDate = new Date(
+          `${formData.finalDate}T${formData.endTime}:00`
+        );
+        const currentDate = new Date();
+        if (isAfter(initialDate, finalDate)) {
+          errorArray.push("Error: End date/time is before Start date/time");
+        }
+
+        // Validate if not reoccuring is checked that user must have same initial and final date
+        if (
+          formData["recurring"]["rate"] === "noRecurr" &&
+          !isSameDay(initialDate, finalDate)
+        ) {
+          errorArray.push(
+            "Error: If event is not reoccuring start date and end date must be the same day"
+          );
+        }
+
+        // Validate that start date and time is after the current time
+        if (isAfter(currentDate, initialDate)) {
+          errorArray.push(
+            "Error: start date/time must be after the current time"
+          );
         }
 
         setFormScheduleEventErrors(errorArray);
