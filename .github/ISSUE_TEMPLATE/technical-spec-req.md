@@ -1,8 +1,8 @@
 ---
-name: Technical Spec
+name: Technical Spec Request
 about: For creating technical specifications. 
 title: ""
-labels: "Tech Spec"
+labels: "Tech Spec Request"
 assignees: ""
 ---
 
