@@ -4,6 +4,7 @@ import { IoChatbubblesOutline } from "react-icons/io5";
 import { BsCalendarPlusFill } from "react-icons/bs";
 import { FaHome, FaQuestion } from "react-icons/fa";
 import { RiArrowLeftCircleFill, RiArrowRightCircleFill } from "react-icons/ri";
+import { BsCalendarCheck } from "react-icons/bs";
 import MonthAndYear from "features/calendar/MonthAndYear";
 import Logo from "../../assets/images/togetherLogo.svg";
 import { useAuthContext } from "contexts/AuthContext";
@@ -34,6 +35,11 @@ function CalendarHeader({ date }) {
           Icon={BsCalendarPlusFill}
           tooltipText="Add Event"
           onClick={formModal.handleOpen}
+        />
+        <HeaderButton
+          Icon={BsCalendarCheck}
+          tooltipText={"Jump to current month"}
+          onClick={() => date.getCurrentMonth()}
         />
         <HeaderButton
           Icon={MdGroupAdd}
