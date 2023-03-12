@@ -39,6 +39,7 @@ const Calendar = ({ date }) => {
     const fetch = async () => {
       // Database data from server
       const response = await DataService.getAll();
+      await Promise(resolve => setTimeout(resolve, 3000));
       setEvents(response.data);
     };
 
@@ -46,14 +47,18 @@ const Calendar = ({ date }) => {
   }, [setEvents]);
 
   // Render nothing while fetching for data from server
-  if (loading) return null;
+  // if (loading) return null;
 
   return (
     <div className="flex flex-grow h-full w-full overflow-auto text-gray-700 bg-white">
-      <div className="flex flex-col flex-grow">
-        <AllDays />
-        <DayCardList data={days} firstDayOfMonth={date.firstDay} />
-      </div>
+      {loading ? (
+        <div className="animate-pulse"></div>
+      ) : (
+        <div className="flex flex-col flex-grow">
+          <AllDays />
+          <DayCardList data={days} firstDayOfMonth={date.firstDay} />
+        </div>
+      )}
     </div>
   );
 };
