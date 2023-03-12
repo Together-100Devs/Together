@@ -1,10 +1,11 @@
 import HeaderButton from "./components/HeaderButton";
+import TodayButton from "./components/TodayButton";
+
 import { MdGroupAdd } from "react-icons/md";
 import { IoChatbubblesOutline } from "react-icons/io5";
 import { BsCalendarPlusFill } from "react-icons/bs";
 import { FaHome, FaQuestion } from "react-icons/fa";
 import { RiArrowLeftCircleFill, RiArrowRightCircleFill } from "react-icons/ri";
-import { BsCalendarCheck } from "react-icons/bs";
 import MonthAndYear from "features/calendar/MonthAndYear";
 import Logo from "../../assets/images/togetherLogo.svg";
 import { useAuthContext } from "contexts/AuthContext";
@@ -36,11 +37,7 @@ function CalendarHeader({ date }) {
           tooltipText="Add Event"
           onClick={formModal.handleOpen}
         />
-        <HeaderButton
-          Icon={BsCalendarCheck}
-          tooltipText={"Jump to current month"}
-          onClick={() => date.getCurrentMonth()}
-        />
+
         <HeaderButton
           Icon={MdGroupAdd}
           tooltipText="Join Team"
@@ -52,13 +49,18 @@ function CalendarHeader({ date }) {
           onClick={() => setCurrentPage("landingPage")}
         />
       </section>
-      <section className="flex items-center">
-        <img src={Logo} className="w-14" alt="Logo" />
+      <section className="flex items-center space-x-3">
+        <img src={Logo} className="max-w-none" alt="Logo" />
         <MonthAndYear
           month={date?.month}
           year={date?.year}
           handleNextMonth={date?.getNextMonth}
           handlePreviousMonth={date?.getPreviousMonth}
+        />
+        <TodayButton
+          text={"Today"}
+          tooltipText={"Jump to current month"}
+          onClick={() => date.getCurrentMonth()}
         />
       </section>
       <section className="flex space-x-3">
