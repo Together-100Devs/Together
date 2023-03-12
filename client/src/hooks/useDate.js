@@ -23,6 +23,9 @@ const useDate = () => {
   const getPreviousMonth = () => {
     setDate(prevDate => new Date(getYear(prevDate), getMonth(prevDate) - 1));
   };
+  const getCurrentMonth = () => {
+    setDate(prevDate => new Date());
+  };
 
   return {
     year,
@@ -31,6 +34,7 @@ const useDate = () => {
     firstDay,
     getNextMonth,
     getPreviousMonth,
+    getCurrentMonth,
   };
 };
 
