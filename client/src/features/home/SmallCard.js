@@ -5,7 +5,7 @@ const SmallCard = ({ heading, description, index }) => {
   let colorIndex = (index + 1) % cardColors.length;
   return (
     <div
-      className={`text-white p-6 xl:py-10 text-center border-2 border-black rounded-xl shadow-lg ${cardColors[colorIndex]} w-full lg:h-80`}
+      className={`text-white p-6 xl:py-10 text-center border-2 border-black rounded-2xl shadow-lg ${cardColors[colorIndex]} w-full lg:h-80`}
     >
       <h1 className="font-bold text-center pb-7 text-lg lg:text-xl xl:text-2xl">
         {heading}

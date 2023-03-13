@@ -1,6 +1,6 @@
 const LogoContainer = ({ logo, logotext }) => {
   return (
-    <div className="rounded-lg border-2 border-black bg-white px-5 flex justify-center items-center">
+    <div className="rounded-2xl border-2 border-black bg-white px-5 flex justify-center items-center">
       <img
         className="w-10 h-10 lg:w-14 lg:h-14 xl:w-16 xl:h-16"
         src={logo}
