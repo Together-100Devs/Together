@@ -16,8 +16,4 @@ assignees: ""
 
 Add any other context or screenshots about the feature request here.
 
-## Which Branch should this fix be Pulled into?
-
-PR into [branchName]
-
 _If you're interested in working on this feature, please comment so you can be assigned_
