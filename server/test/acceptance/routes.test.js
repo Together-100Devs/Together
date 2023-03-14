@@ -5,7 +5,7 @@ const {
   validFormDataRecurr,
 } = require("../unit/validateBodyMockData");
 
-const { Database } = require("../utils");
+const { Database, asGuest } = require("../utils");
 
 describe("event routes", () => {
   const testDb = new Database();
@@ -16,6 +16,35 @@ describe("event routes", () => {
 
   afterEach(async () => {
     await testDb.tearDown();
+  });
+
+  describe("GET /events/:id", function () {
+    it("returns the event", async () => {
+      const createEventRes = await request(app)
+        .post("/events")
+        .send(validFormDataNonRecurr);
+      const event = createEventRes.body.events[0];
+
+      const eventRes = await request(app).get(`/events/${event._id}`);
+
+      expect(eventRes.statusCode).toBe(200);
+      expect(eventRes.body.title).toBe(validFormDataNonRecurr.title);
+    });
+
+    it("returns the event and excludes user data when accessed as a guest", async () => {
+      const createEventRes = await request(app)
+        .post("/events")
+        .send(validFormDataNonRecurr);
+      const event = createEventRes.body.events[0];
+
+      const eventRes = await asGuest(async () => {
+        return request(app).get(`/events/${event._id}`);
+      });
+
+      expect(eventRes.statusCode).toBe(200);
+      expect(eventRes.body.title).toBe(validFormDataNonRecurr.title);
+      expect(eventRes.body.user).toBe(undefined);
+    });
   });
 
   describe("GET /events", function () {
@@ -36,6 +65,21 @@ describe("event routes", () => {
       expect(res.statusCode).toBe(200);
       expect(res.body).toBeInstanceOf(Array);
       expect(res.body).toHaveLength(1);
+    });
+
+    it("returns array of events and excludes user data when accessed as a guest", async () => {
+      const agent = request.agent(app);
+      const resPost = await request(app)
+        .post("/events")
+        .send(validFormDataNonRecurr);
+
+      const eventsRes = await asGuest(async () => {
+        return request(app).get("/events");
+      });
+
+      expect(eventsRes.statusCode).toBe(200);
+      expect(eventsRes.body).toHaveLength(1);
+      expect(eventsRes.body[0].user).toBe(undefined);
     });
   });
 
