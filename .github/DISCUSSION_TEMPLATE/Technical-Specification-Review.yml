@@ -1,0 +1,69 @@
+title: Technical Specification Review
+labels: ["tech spec"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Technical Specification Review
+
+        This is a template for documenting the technical specifications of a project.
+
+        Please fill out the fields below to the best of your ability. The **Summary** field is required, but the others are optional.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Provide a short (1-2 sentences) overview of the project, including its purpose and goals.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: Define the scope of the project, including what is within scope and what is out of scope.
+  - type: textarea
+    id: data-model
+    attributes:
+      label: Data Model
+      description: Define any changes to data models, including any added or removed indices or relations.
+  - type: textarea
+    id: user-stories
+    attributes:
+      label: User Stories
+      description: List the ways the user will interact with the project. e.g. "User will be able to edit their profile."
+  - type: textarea
+    id: implementation-details
+    attributes:
+      label: Implementation Details
+      description: Provide details around how the feature will be implemented, and justify any decisions made.
+      value: |
+        * We are using server-side rendering via Next.js instead of client-side rendering because XYZ.
+        * To get a user's information from Discord, we will use the provided code to generate an access token from Discord's OAuth API, and then use that access token to hit various endpoints to get user's profile and guild data.
+        
+  - type: textarea
+    id: apis
+    attributes:
+      label: APIs
+      description: Define new API endpoints of the project, including the endpoints, methods, and request/response formats.
+  - type: textarea
+    id: security-privacy
+    attributes:
+      label: Security/Privacy
+      description: Call out any security or privacy concerns, and what can be done to mitigate them.
+  - type: textarea
+    id: testing
+    attributes:
+      label: Testing
+      description: Describe the testing approach and strategy for the project, including unit tests, integration tests, and end-to-end tests.
+  - type: textarea
+    id: open-questions
+    attributes:
+      label: Open Questions
+      description: Use this space to ask any questions of which you're not sure of the answer, whether it be a technical question or an implementation detail.
+  - type: textarea
+    id: deployment
+    attributes:
+      label: Deployment
+      description: Describe any special considerations needed when deploying the project. For example, if there are breaking schema changes, how do we migrate existing data?
+
