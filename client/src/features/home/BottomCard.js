@@ -1,19 +1,39 @@
 import "../../index.css";
+import { FaGithub } from "react-icons/fa";
 
 const BottomCard = ({ heading, title, description, img }) => (
-  <div className="p-6 mt-6">
-    <section className="tablet:flex tablet:justify-between h-fit border-solid border-2 border-black rounded-lg shadow-lg bg-secondary py-16 tablet:pt-10 px-6 tab">
-      <div className=" tablet:w-2/3 tablet:px-20">
-        <h3 className=" text-center text-2xl font-bold pb-10">{heading}</h3>
-        <div className="font-semibold text-sm tablet:text-base laptop:text-lg">
-          <span className="font-bold">{title}</span>
-          {description}
+  <section className="border-solid border-2 border-black rounded-2xl bg-secondary flex justify-center py-6 flex-col lg:flex-row xl:gap-10 w-full">
+    <div className="flex flex-col items-center gap-8 text-center w-full lg:max-w-xl">
+      <h2 className="text-2xl font-bold lg:text-3xl xl:text-4xl">{heading}</h2>
+      <p className="px-10 font-medium">
+        <span className="font-bold">{title}</span>
+        {description}
+      </p>
+      <div className="flex flex-col items-center gap-1">
+        <span className="font-semibold text-center">
+          Interested in collaborating with us?
+        </span>
+        <div className="flex border-2 border-slate-400 bg-white rounded-2xl">
+          <div className="py-3 px-8 m-3 bg-accent rounded-lg font-bold">
+            <a
+              href="https://github.com/Caleb-Cohen/Together"
+              className="flex items-center justify-center tracking-widest gap-3"
+              type="submit"
+            >
+              <FaGithub className="w-7 h-7" />
+              Together GitHub
+            </a>
+          </div>
         </div>
       </div>
-      <div className=" tablet:w-1/3 self-center tablet:pr-10 ">
-        <img src={img} alt="two people sitting" />
-      </div>
-    </section>
-  </div>
+    </div>
+    <div className="flex items-center justify-center">
+      <img
+        src={img}
+        alt="three people sitting"
+        className="object-cover w-96 lg:w-full h-full"
+      />
+    </div>
+  </section>
 );
 export default BottomCard;

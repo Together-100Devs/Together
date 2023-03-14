@@ -3,16 +3,21 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     screens: {
-      // => @media (0-639px) will run bg-primary (default)
+      //think of each breakpoint as starting with "X pixels"
+      //so using md: means we want to apply styles to screen widths of 768px or greater
+      sm: "640px",
+      // => @media (min-width: 640px) { ... }
+      md: "768px",
+      // => @media (min-width: 768px) { ... }
 
-      tablet: "640px",
-      // => sm @media (min-width: 640px)  640 -1023px this will run
+      lg: "1024px",
+      // => @media (min-width: 1024px) { ... }
 
-      laptop: "1024px",
-      // => lg @media (min-width: 1024px) 1024 -1079px this will run
+      xl: "1280px",
+      // => @media (min-width: 1280px) { ... }
 
-      desktop: "1280px",
-      // => xl @media (min-width: 1280px) 1280 -> beyond this will run
+      "2xl": "1536px",
+      // => @media (min-width: 1536px) { ... }
     },
     fontFamily: {
       inconsolata: ["Inconsolata", "monospace"],
