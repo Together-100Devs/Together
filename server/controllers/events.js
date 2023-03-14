@@ -26,21 +26,28 @@ module.exports = {
 
     res.status(201).json({ message: "Event created!", events: addedEvents });
   },
+
   getAll: async (req, res) => {
-    // Get an array of ALL events
-    const events = await Event.find()
-      .populate("user", "displayName")
-      .lean()
-      .exec();
+    // Build Mongoose query
+    // If user is not authenticated, exclude event creator's name and id
+    const query = !req.user
+      ? Event.find().select("-user")
+      : Event.find().populate("user", "displayName");
+
+    const events = await query.lean();
 
     // return all events
     res.json(events);
   },
+
   getOne: async (req, res) => {
     const { id } = req.params;
 
     // Get event by id
-    const event = await Event.findById(id).lean().exec();
+    const event = await Event.findById(id)
+      .select(req.user ? "" : "-user")
+      .lean()
+      .exec();
 
     // Check if event exists
     if (!event) {
@@ -49,6 +56,7 @@ module.exports = {
 
     res.json(event);
   },
+
   deleteEvent: async (req, res) => {
     const { id } = req.params;
 
@@ -63,6 +71,7 @@ module.exports = {
 
     res.sendStatus(204);
   },
+
   deleteAllEvents: async (req, res) => {
     const { groupId } = req.params;
 
