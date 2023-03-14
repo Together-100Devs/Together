@@ -68,10 +68,7 @@ describe("event routes", () => {
     });
 
     it("returns array of events and excludes user data when accessed as a guest", async () => {
-      const agent = request.agent(app);
-      const resPost = await request(app)
-        .post("/events")
-        .send(validFormDataNonRecurr);
+      await request(app).post("/events").send(validFormDataNonRecurr);
 
       const eventsRes = await asGuest(async () => {
         return request(app).get("/events");
