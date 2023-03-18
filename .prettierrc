@@ -1,6 +1,6 @@
 {
   "arrowParens": "avoid",
-  "endOfLine": "auto",
+  "endOfLine": "lf",
   "tabWidth": 2,
   "trailingComma": "es5",
   "bracketSpacing": true
