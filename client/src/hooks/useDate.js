@@ -12,6 +12,8 @@ const useDate = () => {
   const year = getYear(date);
   // Month in string format; e.g. 'November'
   const month = format(date, "LLLL");
+  const monthStart = new Date(date.getFullYear(), date.getMonth()).getTime();
+  const monthEnd = new Date(date.getFullYear(), date.getMonth() + 1).getTime();
   const daysInMonth = getDaysInMonth(date);
   // First day of the month; e.g. 'Tue'
   const firstDay = format(startOfMonth(date), "E");
@@ -27,6 +29,8 @@ const useDate = () => {
   return {
     year,
     month,
+    monthStart,
+    monthEnd,
     daysInMonth,
     firstDay,
     getNextMonth,

@@ -27,13 +27,22 @@ module.exports = {
     res.status(201).json({ message: "Event created!", events: addedEvents });
   },
   getAll: async (req, res) => {
-    // Get an array of ALL events
-    const events = await Event.find()
+    // start and end are expected to be timestamps or ISO dates
+    const { from, to } = req.query;
+
+    let dbQuery;
+    if (!from && !to) {
+      // load all events
+      dbQuery = {};
+    } else {
+      dbQuery = { startAt: { $gte: from, $lt: to } };
+    }
+
+    const events = await Event.find(dbQuery)
       .populate("user", "displayName")
       .lean()
       .exec();
 
-    // return all events
     res.json(events);
   },
   getOne: async (req, res) => {
