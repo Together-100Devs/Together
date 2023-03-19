@@ -33,10 +33,10 @@ module.exports = {
         SwitchCase: 1,
       },
     ],
-    // "linebreak-style": [
-    //   "error",
-    //   process.platform === "win32" ? "windows" : "unix",
-    // ],
+    "linebreak-style": [
+      "error",
+      process.platform === "win32" ? "windows" : "unix",
+    ],
     eqeqeq: "error",
     "object-curly-spacing": ["error", "always"],
     "arrow-spacing": [
