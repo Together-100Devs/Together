@@ -3,6 +3,7 @@ const app = require("../../app");
 const {
   validFormDataNonRecurr,
   validFormDataRecurr,
+  startIn5Days,
 } = require("../unit/validateBodyMockData");
 
 const { Database } = require("../utils");
@@ -26,7 +27,7 @@ describe("event routes", () => {
       expect(res.body).toHaveLength(0);
     });
 
-    it("should return an array of events if they exist", async () => {
+    it("should return an array of all events", async () => {
       const resPost = await request(app)
         .post("/events")
         .send(validFormDataNonRecurr);
@@ -36,6 +37,25 @@ describe("event routes", () => {
       expect(res.statusCode).toBe(200);
       expect(res.body).toBeInstanceOf(Array);
       expect(res.body).toHaveLength(1);
+    });
+
+    it("should return an array of events in specified date range", async () => {
+      await request(app).post("/events").send(startIn5Days);
+
+      const now = new Date();
+      const start = now.getTime();
+      const in3Days = new Date().setDate(now.getDate() + 3);
+      const in10Days = new Date().setDate(now.getDate() + 10);
+
+      const res = await request(app).get(`/events?from=${start}&to=${in3Days}`);
+      expect(res.statusCode).toBe(200);
+      expect(res.body).toHaveLength(0);
+
+      const res2 = await request(app).get(
+        `/events?from=${in3Days}&to=${in10Days}`
+      );
+      expect(res2.statusCode).toBe(200);
+      expect(res2.body).toHaveLength(1);
     });
   });
 

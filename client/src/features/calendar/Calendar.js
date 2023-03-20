@@ -9,14 +9,25 @@ import { getMatchMonthAndYear, getEventsByDayNumber } from "utilities/calendar";
 import { parse } from "date-fns";
 import { useEventsContext } from "contexts/EventsContext";
 
+const Status = {
+  IDLE: "idle",
+  LOADING: "loading",
+  RESOLVED: "resolved",
+  REJECTED: "rejected",
+};
+
 const Calendar = ({ date }) => {
-  const { events, setEvents } = useEventsContext();
-  const [loading, setLoading] = useState(true);
+  const { events, setEvents, cache } = useEventsContext();
+  // status and errors or api calls
+  const [status, setStatus] = useState(Status.IDLE);
+  const [error, setError] = useState(null);
+
   const eventsInSelectedMonth = getMatchMonthAndYear(
     date.month,
     date.year,
     events
   );
+
   // An array of days containing events for populating the calendar
   const days = Array.from({ length: date.daysInMonth }, (_, i) => {
     const currentDay = i + 1;
@@ -34,36 +45,40 @@ const Calendar = ({ date }) => {
   });
 
   useEffect(() => {
-    setLoading(true);
     // Fetch events from server
     const fetch = async () => {
       // Database data from server
-      const response = await DataService.getAll();
-      // if you want to test the loading behavior
-      // await new Promise(resolve => setTimeout(resolve, 20_000));
-      setEvents(response.data);
+      const response = await DataService.getAll(date.monthStart, date.monthEnd);
+      return response.data;
     };
-
-    fetch()
-      .then(() => {
-        setLoading(false);
-      })
-      .catch(e => {
-        alert(e);
-        setLoading(false);
-      });
-  }, [setEvents]);
+    // if the same call has already been made, do not repeat it
+    if (!cache.current.includes(date.monthStart)) {
+      setStatus(Status.LOADING);
+      cache.current.push(date.monthStart);
+      fetch()
+        .then(data => {
+          setEvents(prev => [...prev, ...data]);
+          setStatus(Status.RESOLVED);
+        })
+        .catch(error => {
+          setError(error.message);
+          setStatus(Status.REJECTED);
+        });
+    }
+  }, [setEvents, date.monthStart, date.monthEnd, cache]);
 
   // while we are loading events, add the "animate-pulse" class to show skeleteon loading effect
   let classNames =
     "flex flex-grow h-full w-full overflow-auto text-gray-700 bg-white";
-  if (loading) {
+  if (Status.LOADING) {
     classNames += " animate-pulse";
   }
 
   return (
     <div className={classNames}>
       <div className="flex flex-col flex-grow">
+        {/* render error message if there was an error fetching data */}
+        {status === Status.REJECTED && <div>{error}</div>}
         <AllDays />
         <DayCardList data={days} firstDayOfMonth={date.firstDay} />
       </div>
