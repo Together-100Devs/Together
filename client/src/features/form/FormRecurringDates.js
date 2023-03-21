@@ -4,16 +4,16 @@ import { useFormContext } from "contexts/FormContext";
 // Handles if your events are recurring and on which days of the week they will recur
 export default function FormRecurringDates() {
   const { formData, setFormData } = useFormContext();
-  const [recurringDaysHidden, setRecurringDaysHidden] = useState("");
+  const [disabledDays, setDisabledDays] = useState(false);
 
   // This handles how the "days of the week" checkboxes should be hidden when the event is non-recurring
   useEffect(() => {
     // If Not Recurring, set days of week checkboxes to be invisible
     if (formData.recurring.rate === "noRecurr") {
-      setRecurringDaysHidden("hidden");
       formData.recurring.days = []; // Reset days array
+      setDisabledDays(true);
     } else {
-      setRecurringDaysHidden("");
+      setDisabledDays(false);
     }
   }, [formData.recurring, formData.recurring.rate]);
 
@@ -81,7 +81,7 @@ export default function FormRecurringDates() {
 
         {/* DAYS OF WEEK TO REPEAT EVENT */}
         {/* MONDAY */}
-        <div className={" mx-7 " + recurringDaysHidden}>
+        <div>
           {" "}
           {/* This useState changed between "" and "hidden" to hide these checkboxes as needed */}
           <div className="  flex space-x-4 items-center">
@@ -93,6 +93,7 @@ export default function FormRecurringDates() {
               id="Monday"
               checked={!!formData.recurring.days.includes("1")}
               className="mx-1 outline-non text-gray-800"
+              disabled={disabledDays}
             />
             <p>Monday</p>
           </div>
@@ -106,6 +107,7 @@ export default function FormRecurringDates() {
               id="Tuesday"
               checked={!!formData.recurring.days.includes("2")}
               className=" mx-1 outline-non text-gray-800"
+              disabled={disabledDays}
             />
             <p>Tuesday</p>
           </div>
@@ -119,6 +121,7 @@ export default function FormRecurringDates() {
               id="Wednesday"
               checked={!!formData.recurring.days.includes("3")}
               className=" mx-1 outline-non text-gray-800"
+              disabled={disabledDays}
             />
             <p>Wednesday</p>
           </div>
@@ -131,6 +134,7 @@ export default function FormRecurringDates() {
               name="Thursday"
               checked={!!formData.recurring.days.includes("4")}
               className="mx-1 outline-non text-gray-800"
+              disabled={disabledDays}
             />
             <p>Thursday</p>
           </div>
@@ -143,6 +147,7 @@ export default function FormRecurringDates() {
               name="Friday"
               checked={!!formData.recurring.days.includes("5")}
               className=" mx-1 outline-non text-gray-800"
+              disabled={disabledDays}
             />
             <p>Friday</p>
           </div>
@@ -155,6 +160,7 @@ export default function FormRecurringDates() {
               name="Saturday"
               checked={!!formData.recurring.days.includes("6")}
               className="mx-1 outline-non text-gray-800"
+              disabled={disabledDays}
             />
             <p>Saturday</p>
           </div>
@@ -167,6 +173,7 @@ export default function FormRecurringDates() {
               name="Sunday"
               checked={!!formData.recurring.days.includes("7")}
               className="mx-1 outline-non text-gray-800"
+              disabled={disabledDays}
             />
             <p>Sunday</p>
           </div>
