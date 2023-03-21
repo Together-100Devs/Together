@@ -20,6 +20,11 @@ describe("event routes", () => {
   });
 
   describe("GET /events/:id", function () {
+    it("returns 404 if event doesn't exist", async () => {
+      const eventRes = await request(app).get("/events/9999");
+      expect(eventRes.statusCode).toBe(404);
+    });
+
     it("returns the event", async () => {
       const createEventRes = await request(app)
         .post("/events")
