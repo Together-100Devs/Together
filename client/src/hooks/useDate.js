@@ -24,7 +24,7 @@ const useDate = () => {
     setDate(prevDate => new Date(getYear(prevDate), getMonth(prevDate) - 1));
   };
   const getCurrentMonth = () => {
-    setDate(prevDate => new Date());
+    setDate(() => new Date());
   };
 
   return {
