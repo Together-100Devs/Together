@@ -67,11 +67,15 @@ const Calendar = ({ date }) => {
     }
   }, [setEvents, date.monthStart, date.monthEnd, cache]);
 
-  // Render nothing while fetching for data from server
-  // if (status === Status.LOADING) return null;
+  // while we are loading events, add the "animate-pulse" class to show skeleteon loading effect
+  let classNames =
+    "flex flex-grow h-full w-full overflow-auto text-gray-700 bg-white";
+  if (Status.LOADING) {
+    classNames += " animate-pulse";
+  }
 
   return (
-    <div className="flex flex-grow h-full w-full overflow-auto text-gray-700 bg-white">
+    <div className={classNames}>
       <div className="flex flex-col flex-grow">
         {/* render error message if there was an error fetching data */}
         {status === Status.REJECTED && <div>{error}</div>}
