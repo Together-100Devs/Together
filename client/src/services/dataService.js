@@ -8,8 +8,8 @@ class DataService {
   create(msg) {
     return URL.post(`/events/`, msg);
   }
-  getAll() {
-    return URL.get("/events");
+  getAll(from, to) {
+    return URL.get("/events", { params: { from, to } });
   }
   getById(id) {
     return URL.get(`/events/${id}`);

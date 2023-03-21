@@ -9,11 +9,11 @@ const LoginWithDiscord = ({ DiscordIcon }) => {
     return (
       <form action="/auth/discord">
         <button
-          className=" inline-flex w-52 tablet:w-auto pt-2 tracking-widest"
+          className="flex items-center justify-center tracking-widest gap-3"
           type="submit"
         >
-          <DiscordIcon className="w-7 h-7 mr-2" />
-          Login with Discord
+          <DiscordIcon className="w-7 h-7" />
+          <span>Login with Discord</span>
         </button>
       </form>
     );
@@ -21,7 +21,12 @@ const LoginWithDiscord = ({ DiscordIcon }) => {
 
   return (
     <div>
-      <button onClick={auth.logout}>Logout</button>
+      <button
+        onClick={auth.logout}
+        className="flex items-center justify-center tracking-widest gap-3"
+      >
+        Logout
+      </button>
     </div>
   );
 };

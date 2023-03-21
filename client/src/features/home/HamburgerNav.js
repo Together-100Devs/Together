@@ -19,8 +19,8 @@ function HamburgerNav({ logo, logotext }) {
   let [open, setOpen] = useState(false);
 
   return (
-    <nav className="shadow-md w-full fixed top-0 left-0 tablet:hidden">
-      <div className="tablet:flex bg-white py-6 px-7">
+    <nav className="shadow-md w-full fixed top-0 left-0 md:hidden">
+      <div className="flex bg-white py-6 px-7">
         <div className="cursor-pointer flex items-center">
           <img className="mr-1 pt-2 w-7" src={logo} alt="logo icon" />
           <img className="mr-1 pt-2 w-20" src={logotext} alt="logo text" />

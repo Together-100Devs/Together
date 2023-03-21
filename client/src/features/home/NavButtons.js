@@ -11,40 +11,40 @@ const NavButtons = ({ HomeIcon, LoginIcon, CalendarIcon }) => {
   };
 
   return (
-    <div className="flex flex-row self-center tablet:space-x-2">
+    <div className="flex flex-row gap-2">
       {/* Home Button */}
       <button
         onClick={() => routing.setCurrentPage("landingPage")}
-        className="bg-white hidden tablet:block overflow-hidden container box-border rounded-3xl border-2 border-black tablet:w-auto desktop:5/12 tablet:h-28 desktop:w-auto desktop:h-auto tablet:px-8 tablet:py-3 desktop:px-9 desktop:py-6"
+        className="bg-white border-2 border-black rounded-2xl flex flex-col justify-center items-center p-1 w-24 h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32"
       >
         <div className="flex justify-center">
-          <HomeIcon className="w-7 h-7 tablet:w-10 tablet:h-10 text-mainBlue" />
+          <HomeIcon className="text-mainBlue w-7 h-7 lg:w-10 lg:h-10" />
         </div>
-        <div className="text-mainBlue font-black text-lg tablet:text-xl text-center">
+        <div className="text-mainBlue font-black text-lg lg:text-xl xl:text-2xl">
           <span>Home</span>
         </div>
       </button>
       {/* Log In & Log Out Button */}
       <button
-        className="hidden tablet:block overflow-hidden container box-border rounded-3xl border-2 border-black tablet:w-auto desktop:5/12 tablet:h-28 desktop:h-auto bg-white tablet:px-8 tablet:py-3 desktop:px-8 desktop:py-6"
+        className="bg-white border-2 border-black rounded-2xl flex flex-col justify-center items-center p-1 w-24 h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32"
         onClick={isAuthenticated() ? logout : handleLogin}
       >
         <div className="flex justify-center">
-          <LoginIcon className="w-7 h-7 tablet:w-10 tablet:h-10 text-mainGreen" />
+          <LoginIcon className="text-mainGreen w-7 h-7 lg:w-10 lg:h-10" />
         </div>
-        <div className="text-mainGreen font-black text-lg tablet:text-xl text-center">
+        <div className="text-mainGreen font-black text-lg lg:text-xl xl:text-2xl">
           <span>{isAuthenticated() ? "Log Out" : "Log In"}</span>
         </div>
       </button>
       {/* Calendar Button */}
       <button
         onClick={() => routing.setCurrentPage("calendarPage")}
-        className="hidden tablet:block tablet:overflow-hidden container box-border rounded-3xl border-2 border-black tablet:w-auto desktop:5/12 tablet:h-28 desktop:w-auto desktop:h-auto bg-white tablet:px-5 tablet:py-3 desktop:px-5 desktop:py-6"
+        className="bg-white border-2 border-black rounded-2xl flex flex-col justify-center items-center p-1 w-24 h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32"
       >
         <div className="flex justify-center">
-          <CalendarIcon className="w-7 h-7 tablet:w-10 tablet:h-10 text-mainOrange" />
+          <CalendarIcon className="text-mainOrange w-7 h-7 lg:w-10 lg:h-10" />
         </div>
-        <div className="text-mainOrange font-black text-lg tablet:text-xl text-center">
+        <div className="text-mainOrange font-black text-lg lg:text-xl xl:text-2xl">
           <span>Calendar</span>
         </div>
       </button>

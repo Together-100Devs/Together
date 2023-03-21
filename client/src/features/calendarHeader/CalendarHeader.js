@@ -1,4 +1,6 @@
 import HeaderButton from "./components/HeaderButton";
+import TodayButton from "./components/TodayButton";
+
 import { MdGroupAdd } from "react-icons/md";
 import { IoChatbubblesOutline } from "react-icons/io5";
 import { BsCalendarPlusFill } from "react-icons/bs";
@@ -35,6 +37,7 @@ function CalendarHeader({ date }) {
           tooltipText="Add Event"
           onClick={formModal.handleOpen}
         />
+
         <HeaderButton
           Icon={MdGroupAdd}
           tooltipText="Join Team"
@@ -46,13 +49,18 @@ function CalendarHeader({ date }) {
           onClick={() => setCurrentPage("landingPage")}
         />
       </section>
-      <section className="flex items-center">
-        <img src={Logo} className="w-14" alt="Logo" />
+      <section className="flex items-center space-x-3">
+        <img src={Logo} className="max-w-none" alt="Logo" />
         <MonthAndYear
           month={date?.month}
           year={date?.year}
           handleNextMonth={date?.getNextMonth}
           handlePreviousMonth={date?.getPreviousMonth}
+        />
+        <TodayButton
+          text={"Today"}
+          tooltipText={"Jump to current month"}
+          onClick={() => date.getCurrentMonth()}
         />
       </section>
       <section className="flex space-x-3">

@@ -28,16 +28,16 @@ module.exports = {
   },
 
   getAll: async (req, res) => {
-    // Build Mongoose query
-    // If user is not authenticated, exclude event creator's name and id
+    const { from, to } = req.query;
+
+    let where = {};
+    if (from || to) where = { startAt: { $gte: from, $lt: to } };
+
     const query = !req.user
-      ? Event.find().select("-user")
-      : Event.find().populate("user", "displayName");
+      ? Event.find(where).select("-user")
+      : Event.find(where).populate("user", "displayName");
 
-    const events = await query.lean();
-
-    // return all events
-    res.json(events);
+    res.json(await query.lean());
   },
 
   getOne: async (req, res) => {
@@ -46,8 +46,7 @@ module.exports = {
     // Get event by id
     const event = await Event.findById(id)
       .select(req.user ? "" : "-user")
-      .lean()
-      .exec();
+      .lean();
 
     // Check if event exists
     if (!event) {
