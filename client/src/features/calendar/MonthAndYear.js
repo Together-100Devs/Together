@@ -42,7 +42,7 @@ const MonthAndYear = ({
           </svg>
         </button>
       </div>
-      <h2 className="ml-2 w-[16ch] text-3xl font-bold leading-none">
+      <h2 className="ml-2 w-[14ch] text-3xl font-bold leading-none">
         {month}, {year}
       </h2>
     </div>
