@@ -26,30 +26,27 @@ module.exports = {
 
     res.status(201).json({ message: "Event created!", events: addedEvents });
   },
+
   getAll: async (req, res) => {
-    // start and end are expected to be timestamps or ISO dates
     const { from, to } = req.query;
 
-    let dbQuery;
-    if (!from && !to) {
-      // load all events
-      dbQuery = {};
-    } else {
-      dbQuery = { startAt: { $gte: from, $lt: to } };
-    }
+    let where = {};
+    if (from || to) where = { startAt: { $gte: from, $lt: to } };
 
-    const events = await Event.find(dbQuery)
-      .populate("user", "displayName")
-      .lean()
-      .exec();
+    const query = !req.user
+      ? Event.find(where).select("-user")
+      : Event.find(where).populate("user", "displayName");
 
-    res.json(events);
+    res.json(await query.lean());
   },
+
   getOne: async (req, res) => {
     const { id } = req.params;
 
     // Get event by id
-    const event = await Event.findById(id).lean().exec();
+    const event = await Event.findById(id)
+      .select(req.user ? "" : "-user")
+      .lean();
 
     // Check if event exists
     if (!event) {
@@ -58,6 +55,7 @@ module.exports = {
 
     res.json(event);
   },
+
   deleteEvent: async (req, res) => {
     const { id } = req.params;
 
@@ -72,6 +70,7 @@ module.exports = {
 
     res.sendStatus(204);
   },
+
   deleteAllEvents: async (req, res) => {
     const { groupId } = req.params;
 

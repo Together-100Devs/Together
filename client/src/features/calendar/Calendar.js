@@ -70,7 +70,7 @@ const Calendar = ({ date }) => {
   // while we are loading events, add the "animate-pulse" class to show skeleteon loading effect
   let classNames =
     "flex flex-grow h-full w-full overflow-auto text-gray-700 bg-white";
-  if (Status.LOADING) {
+  if (status === Status.LOADING) {
     classNames += " animate-pulse";
   }
 
