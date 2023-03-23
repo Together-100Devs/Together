@@ -97,6 +97,7 @@ export default function FormConfirm() {
                 label="weekly"
                 readOnly
                 checked={!!(formData.recurring.rate === "weekly")}
+                disabled={formData.recurring.rate === "noRecurr"}
                 className="  mx-1 outline-non text-gray-800"
               />
               <p>Weekly</p>
@@ -110,6 +111,7 @@ export default function FormConfirm() {
                 label="noRecurr"
                 readOnly
                 checked={!!(formData.recurring.rate === "noRecurr")}
+                disabled={!!(formData.recurring.rate !== "noRecurr")}
                 className="  mx-1 outline-non text-gray-800"
               />
               <p>No Recurring</p>
@@ -124,6 +126,10 @@ export default function FormConfirm() {
                 id="Monday"
                 readOnly
                 checked={!!formData.recurring.days.includes("1")}
+                disabled={
+                  formData.recurring.rate === "noRecurr" ||
+                  !formData.recurring.days.includes("1")
+                }
                 className="mx-1 outline-non text-gray-800"
               />
               <p>Monday</p>
@@ -136,6 +142,10 @@ export default function FormConfirm() {
                 id="Tuesday"
                 readOnly
                 checked={!!formData.recurring.days.includes("2")}
+                disabled={
+                  formData.recurring.rate === "noRecurr" ||
+                  !formData.recurring.days.includes("2")
+                }
                 className=" mx-1 outline-non text-gray-800"
               />
               <p>Tuesday</p>
@@ -148,6 +158,10 @@ export default function FormConfirm() {
                 id="Wednesday"
                 readOnly
                 checked={!!formData.recurring.days.includes("3")}
+                disabled={
+                  formData.recurring.rate === "noRecurr" ||
+                  !formData.recurring.days.includes("3")
+                }
                 className=" mx-1 outline-non text-gray-800"
               />
               <p>Wednesday</p>
@@ -159,6 +173,10 @@ export default function FormConfirm() {
                 name="Thursday"
                 readOnly
                 checked={!!formData.recurring.days.includes("4")}
+                disabled={
+                  formData.recurring.rate === "noRecurr" ||
+                  !formData.recurring.days.includes("4")
+                }
                 className="mx-1 outline-non text-gray-800"
               />
               <p>Thursday</p>
@@ -170,6 +188,10 @@ export default function FormConfirm() {
                 name="Friday"
                 readOnly
                 checked={!!formData.recurring.days.includes("5")}
+                disabled={
+                  formData.recurring.rate === "noRecurr" ||
+                  !formData.recurring.days.includes("5")
+                }
                 className=" mx-1 outline-non text-gray-800"
               />
               <p>Friday</p>
@@ -181,6 +203,10 @@ export default function FormConfirm() {
                 name="Saturday"
                 readOnly
                 checked={!!formData.recurring.days.includes("6")}
+                disabled={
+                  formData.recurring.rate === "noRecurr" ||
+                  !formData.recurring.days.includes("6")
+                }
                 className="mx-1 outline-non text-gray-800"
               />
               <p>Saturday</p>
@@ -192,6 +218,10 @@ export default function FormConfirm() {
                 name="Sunday"
                 readOnly
                 checked={!!formData.recurring.days.includes("7")}
+                disabled={
+                  formData.recurring.rate === "noRecurr" ||
+                  !formData.recurring.days.includes("7")
+                }
                 className="mx-1 outline-non text-gray-800"
               />
               <p>Sunday</p>

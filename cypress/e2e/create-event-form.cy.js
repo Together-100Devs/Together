@@ -19,9 +19,12 @@ describe("Event Creation Form", () => {
       "Saturday",
       "Sunday",
     ]) {
-      cy.get(`input[name="${day}"]`).should(
-        `${should ? "" : "not."}be.visible`
-      );
+      const input = cy.get(`input[name="${day}"]`);
+      if (should) {
+        input.should("be.visible");
+      } else {
+        input.should("be.disabled");
+      }
     }
   };
 
