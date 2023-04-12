@@ -3,7 +3,7 @@ import DataService from "services/dataService";
 import { useEventsContext } from "contexts/EventsContext";
 
 const useProvideForm = () => {
-  const { addEvents } = useEventsContext();
+  const { addEvents, cache } = useEventsContext();
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = ["Description", "Schedule", "Confirm", "Success"];
 
@@ -40,7 +40,14 @@ const useProvideForm = () => {
       }
 
       const events = response.data.events;
-      addEvents(events);
+      addEvents(
+        events.filter(e => {
+          const s = new Date(e.startAt);
+          const month = s.getMonth();
+          const year = s.getFullYear();
+          return cache.current.includes(new Date(year, month).getTime());
+        })
+      );
     }
   };
 
