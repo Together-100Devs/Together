@@ -1,10 +1,9 @@
 ---
 name: Technical Specification
 about: High level architecture for new systems/features
-title: 'Tech spec: '
+title: "Tech spec: "
 labels: tech spec
-assignees: ''
-
+assignees: ""
 ---
 
 ## Guidelines
@@ -17,7 +16,7 @@ When writing tech specs, err on the side of decreasing scope instead of increasi
 
 Not every section requires a response. Just leave `N/A` under a section if it's not applicable.
 
-When completed please post to discussion board. 
+When completed please post to discussion board.
 
 **Delete the text above before submitting**
 
@@ -41,8 +40,8 @@ List the ways the user will interact with the project. e.g. "User will be able t
 
 Provide details around how the feature will be implemented, and justify any decisions made. For example, this may include stuff that looks like:
 
-* We are using server-side rendering via Next.js instead of client-side rendering because XYZ.
-* To get a user's information from Discord, we will use the provided code to generate an access token from Discord's OAuth API, and then use that access token to hit various endpoints to get user's profile and guild data.
+- We are using server-side rendering via Next.js instead of client-side rendering because XYZ.
+- To get a user's information from Discord, we will use the provided code to generate an access token from Discord's OAuth API, and then use that access token to hit various endpoints to get user's profile and guild data.
 
 Provide pseudocode/code snippets if you think they are important for understanding the implementation.
 

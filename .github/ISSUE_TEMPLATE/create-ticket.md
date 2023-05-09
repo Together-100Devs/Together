@@ -1,15 +1,14 @@
 ---
 name: Create Ticket
 about: Tickets are pieces of work that can be picked up by the development team
-title: ''
+title: ""
 labels: ticket
-assignees: ''
-
+assignees: ""
 ---
 
 **Related Issues**
-Project: 
-Depends on: 
+Project:
+Depends on:
 
 **Description**
 Describe the task/bug to be done.

@@ -17,7 +17,9 @@ const LongCard = ({ heading, title, description, img }) => {
       <div className="flex flex-col items-center gap-8 text-center w-full lg:max-w-xl">
         {/* Display "heading, username" if logged in, or just the heading if logged out */}
         <h1 className="text-2xl font-bold lg:text-3xl xl:text-4xl">
-          {auth.user ? `${heading}, ${auth.user?.displayName?.split('#')[0]}!` : `${heading}!`}
+          {auth.user
+            ? `${heading}, ${auth.user?.displayName?.split("#")[0]}!`
+            : `${heading}!`}
         </h1>
         <p className="px-10 font-medium">
           <span className="font-bold">{title}</span>
