@@ -1,11 +1,10 @@
 import HamburgerNav from "./HamburgerNav";
-import { useRoutingContext } from "contexts/RoutingContext";
+import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "contexts/AuthContext";
 
 const NavButtons = ({ HomeIcon, LoginIcon, CalendarIcon }) => {
-  const routing = useRoutingContext();
   const { isAuthenticated, logout } = useAuthContext();
-
+  const navigate = useNavigate();
   const handleLogin = () => {
     window.location = "/auth/discord";
   };
@@ -14,7 +13,7 @@ const NavButtons = ({ HomeIcon, LoginIcon, CalendarIcon }) => {
     <div className="flex flex-row gap-2">
       {/* Home Button */}
       <button
-        onClick={() => routing.setCurrentPage("landingPage")}
+        onClick={() => navigate("/")}
         className="bg-white border-2 border-black rounded-2xl flex flex-col justify-center items-center p-1 w-24 h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32"
       >
         <div className="flex justify-center">
@@ -38,7 +37,7 @@ const NavButtons = ({ HomeIcon, LoginIcon, CalendarIcon }) => {
       </button>
       {/* Calendar Button */}
       <button
-        onClick={() => routing.setCurrentPage("calendarPage")}
+        onClick={() => navigate("calendar")}
         className="bg-white border-2 border-black rounded-2xl flex flex-col justify-center items-center p-1 w-24 h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32"
       >
         <div className="flex justify-center">
