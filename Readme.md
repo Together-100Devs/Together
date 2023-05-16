@@ -33,7 +33,7 @@
   <br/>
   <a href="https://github.com/Caleb-Cohen/Together/wiki">Project Wiki</a>
   ·
-  <a href="https://github.com/Caleb-Cohen/Together/blob/development/.github/CONTRIBUTING.md">Contributing guide</a>
+  <a href="https://github.com/Together-100Devs/Together/wiki/04-Contributing">Contributing guide</a>
   ·
   <a href="https://together.cyclic.app/"><strong>Link to project</strong></a>
   ·
@@ -161,7 +161,7 @@ We highly encourage you to ask questions and join the discussion in the [Togethe
 
 If you're interested in contributing, you may:
 
-- Read our [Contributing guide.](.github/CONTRIBUTING.md)
+- Read our [Contributing guide.](https://github.com/Together-100Devs/Together/wiki/04-Contributing)
 - Join the [#Together thread](https://discord.com/channels/735923219315425401/1038482732633825442) within the 100Devs Discord to discuss your ideas.
 - Visit the [Issues tab](https://github.com/Caleb-Cohen/Together/issues) to request an issue or to open a new issue.
 - You can also convert a "draft todo" to an issue on the current [Project Board.](https://github.com/Caleb-Cohen/Together/projects?query=is%3Aopen)
