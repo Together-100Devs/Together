@@ -58,6 +58,13 @@ describe("Event Creation Form", () => {
 
     tgt.createForm.input.location().type("Test Location");
 
+    const maxCharDescription = "a".repeat(281);
+    tgt.createForm.input.description().type(maxCharDescription);
+    tgt.createForm.button.next().click();
+    expectFormErrors("Description must be less than 280 characters.");
+    tgt.createForm.input.description().clear();
+    tgt.createForm.input.description().type("Test Description");
+
     cy.get('input[name="discordName"]')
       .should("have.value", "100Dever#0001")
       .should("be.disabled");

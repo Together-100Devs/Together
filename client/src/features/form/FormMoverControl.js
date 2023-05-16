@@ -55,7 +55,7 @@ const FormMoverControl = () => {
 
         checkForEmptyField("title");
         checkForEmptyField("description");
-        if (formData.description.length > 280) {
+        if (formData.description?.length > 280) {
           errorArray.push(
             "Error: Description must be less than 280 characters."
           );
