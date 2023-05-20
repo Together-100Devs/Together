@@ -46,9 +46,9 @@ const EventSchema = new mongoose.Schema(
         message: "should be greater than 'startAt' field",
       },
     },
-    status:{
+    status: {
       type: String,
-      default: 'pending',
+      default: "pending",
       maxLength: STRING_MAX_LENGTH,
       required: true,
     },
