@@ -48,7 +48,7 @@ const EventSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      default: "pending",
+      default: "active",
       maxLength: STRING_MAX_LENGTH,
       required: true,
     },
