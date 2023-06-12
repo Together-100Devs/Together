@@ -7,8 +7,12 @@ import RoutingProvider from "contexts/RoutingContext";
 import ModalProvider from "contexts/ModalContext";
 import EventsProvider from "contexts/EventsContext";
 import FormModalProvider from "contexts/FormModalContext";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+// const rootElement = document.getElementById("root");
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
 root.render(
   <React.StrictMode>
     <RoutingProvider>
@@ -16,7 +20,9 @@ root.render(
         <ModalProvider>
           <EventsProvider>
             <FormModalProvider>
-              <App />
+              <BrowserRouter>
+                <App />
+              </BrowserRouter>
             </FormModalProvider>
           </EventsProvider>
         </ModalProvider>
