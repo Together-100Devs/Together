@@ -37,6 +37,7 @@ describe("Event Creation Form", () => {
       .alerts()
       .each($alert => {
         const text = $alert.text().split("Error: ")[1];
+        console.log("expectingErrors", expectingErrors);
         expect(expectingErrors).to.include(text);
         expectingErrors.splice(expectingErrors.indexOf(text), 1);
       })
@@ -57,6 +58,15 @@ describe("Event Creation Form", () => {
     expectFormErrors("location field can't be empty");
 
     tgt.createForm.input.location().type("Test Location");
+
+    const maxCharDescription = "a".repeat(281);
+    tgt.createForm.input.description().clear().type(maxCharDescription);
+    tgt.createForm.button.next().click();
+    expectFormErrors(
+      "Description must be less than 280 characters. Current character count: 281."
+    );
+    tgt.createForm.input.description().clear();
+    tgt.createForm.input.description().type("Test Description");
 
     cy.get('input[name="discordName"]')
       .should("have.value", "100Dever#0001")
