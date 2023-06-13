@@ -37,6 +37,7 @@ describe("Event Creation Form", () => {
       .alerts()
       .each($alert => {
         const text = $alert.text().split("Error: ")[1];
+        console.log("expectingErrors", expectingErrors);
         expect(expectingErrors).to.include(text);
         expectingErrors.splice(expectingErrors.indexOf(text), 1);
       })
@@ -59,9 +60,11 @@ describe("Event Creation Form", () => {
     tgt.createForm.input.location().type("Test Location");
 
     const maxCharDescription = "a".repeat(281);
-    tgt.createForm.input.description().type(maxCharDescription);
+    tgt.createForm.input.description().clear().type(maxCharDescription);
     tgt.createForm.button.next().click();
-    expectFormErrors("Description must be less than 280 characters.");
+    expectFormErrors(
+      "Description must be less than 280 characters. Current character count: 281."
+    );
     tgt.createForm.input.description().clear();
     tgt.createForm.input.description().type("Test Description");
 
