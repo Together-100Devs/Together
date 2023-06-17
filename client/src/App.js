@@ -35,7 +35,7 @@ export default function App() {
   }, [auth]);
 
   return (
-    <Router>
+    <>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/calendar" element={<CalendarPage />} />
@@ -51,6 +51,6 @@ export default function App() {
           <RejectionModal handleClose={rejectionModalContext.handleClose} />
         </Modal>
       )}
-    </Router>
+    </>
   );
 }

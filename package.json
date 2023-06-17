@@ -43,7 +43,7 @@
     "nanoid": "^3.3.4",
     "passport": "^0.6.0",
     "passport-discord": "^0.1.4",
-    "react-router-dom": "^6.12.1"
+    "react-router-dom": "^6.13.0"
   },
   "devDependencies": {
     "@cypress/code-coverage": "^3.10.0",

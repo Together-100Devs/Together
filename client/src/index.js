@@ -7,21 +7,24 @@ import ModalProvider from "contexts/ModalContext";
 import EventsProvider from "contexts/EventsContext";
 import FormModalProvider from "contexts/FormModalContext";
 import { createRoot } from "react-dom/client";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 root.render(
-  <React.StrictMode>
-    <RoutingProvider>
-      <AuthProvider>
-        <ModalProvider>
-          <EventsProvider>
-            <FormModalProvider>
-              <App />
-            </FormModalProvider>
-          </EventsProvider>
-        </ModalProvider>
-      </AuthProvider>
-    </RoutingProvider>
-  </React.StrictMode>
+  <Router>
+    <React.StrictMode>
+      <RoutingProvider>
+        <AuthProvider>
+          <ModalProvider>
+            <EventsProvider>
+              <FormModalProvider>
+                <App />
+              </FormModalProvider>
+            </EventsProvider>
+          </ModalProvider>
+        </AuthProvider>
+      </RoutingProvider>
+    </React.StrictMode>
+  </Router>
 );

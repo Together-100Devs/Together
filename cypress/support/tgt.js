@@ -86,6 +86,7 @@ export default {
   nav: {
     button: {
       home: () => cy.contains("button", "Home"),
+      calendar: () => cy.contains("button", "Calendar"),
     },
     hamburger: {
       toggle: () => cy.get("nav > div > div").eq(1),
