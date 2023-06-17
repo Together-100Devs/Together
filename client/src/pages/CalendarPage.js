@@ -11,7 +11,7 @@ import { useModalContext } from "contexts/ModalContext";
 import RejectionModal from "features/modal/RejectionModal";
 import { useRef } from "react";
 
-export const CalendarPage = () => {
+function CalendarPage() {
   const auth = useAuthContext();
   const date = useDate();
   const formModal = useFormModalContext();
@@ -55,5 +55,5 @@ export const CalendarPage = () => {
       </div>
     </FormProvider>
   );
-};
+}
 export default CalendarPage;

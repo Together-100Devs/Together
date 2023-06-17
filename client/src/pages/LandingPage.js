@@ -6,7 +6,7 @@ import NavContainer from "../features/home/NavContainer";
 import SmallCard from "../features/home/SmallCard";
 import HamburgerNav from "../features/home/HamburgerNav";
 
-export const LandingPage = () => {
+const LandingPage = () => {
   const cards = [
     {
       heading: "Join 100devs",

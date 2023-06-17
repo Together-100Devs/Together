@@ -8,13 +8,13 @@ import CalendarPage from "pages/CalendarPage";
 import { AdminDashboard } from "pages/AdminDashboard";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-export default function App() {
+function App() {
   const auth = useAuthContext();
   const isAuthenticated = auth.isAuthenticated();
   const isNot100Dever = auth.isNot100Dever();
   const deleteNeedsToBeWelcome = auth.deleteNeedsToBeWelcome;
   //Sets rejection modal to true because updating state is a pain
-  //Line 53 will prevent the modal from rendering unless user is not 100Dever
+  //Line 49 will prevent the modal from rendering unless user is not 100Dever
   const [rejectionModalOpen, setRejectionModalOpen] = useState(true);
   const rejectionModalContext = {
     isOpen: rejectionModalOpen,
@@ -54,3 +54,4 @@ export default function App() {
     </>
   );
 }
+export default App;
