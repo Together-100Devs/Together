@@ -44,19 +44,21 @@ app.use(passport.session());
 
 // Allows to use a mock user in development and testing environments
 /* istanbul ignore next  */
-if (
-  ["development", "test"].includes(process.env.NODE_ENV) &&
-  process.env.MOCK_USER === "true"
-) {
+if (["development", "test"].includes(process.env.NODE_ENV)) {
   if (process.env.NODE_ENV !== "test") {
     console.log("In development - using mocked user");
   }
+
   app.use(async (req, res, next) => {
+    if (process.env.MOCK_USER !== "true") return next();
+
     req.user = mockUser;
-    let user = await User.findOne({ _id: mockUser._id }).exec();
-    if (!user) {
-      await User.create(mockUser);
-    }
+    await User.findOneAndUpdate(
+      { _id: mockUser._id },
+      { $setOnInsert: mockUser },
+      { upsert: true, new: true }
+    ).exec();
+
     next();
   });
 }

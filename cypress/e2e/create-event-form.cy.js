@@ -19,9 +19,12 @@ describe("Event Creation Form", () => {
       "Saturday",
       "Sunday",
     ]) {
-      cy.get(`input[name="${day}"]`).should(
-        `${should ? "" : "not."}be.visible`
-      );
+      const input = cy.get(`input[name="${day}"]`);
+      if (should) {
+        input.should("be.visible");
+      } else {
+        input.should("be.disabled");
+      }
     }
   };
 
@@ -34,6 +37,7 @@ describe("Event Creation Form", () => {
       .alerts()
       .each($alert => {
         const text = $alert.text().split("Error: ")[1];
+        console.log("expectingErrors", expectingErrors);
         expect(expectingErrors).to.include(text);
         expectingErrors.splice(expectingErrors.indexOf(text), 1);
       })
@@ -54,6 +58,15 @@ describe("Event Creation Form", () => {
     expectFormErrors("location field can't be empty");
 
     tgt.createForm.input.location().type("Test Location");
+
+    const maxCharDescription = "a".repeat(281);
+    tgt.createForm.input.description().clear().type(maxCharDescription);
+    tgt.createForm.button.next().click();
+    expectFormErrors(
+      "Description must be less than 280 characters. Current character count: 281."
+    );
+    tgt.createForm.input.description().clear();
+    tgt.createForm.input.description().type("Test Description");
 
     cy.get('input[name="discordName"]')
       .should("have.value", "100Dever#0001")
@@ -127,7 +140,8 @@ describe("Event Creation Form", () => {
       "Start Date field can't be empty",
       "End Date field can't be empty",
       "Start Time field can't be empty",
-      "End Time field can't be empty"
+      "End Time field can't be empty",
+      "start date/time must be after the current time"
     );
 
     tgt.createForm.input.noRecurring().should("be.checked");
@@ -143,21 +157,28 @@ describe("Event Creation Form", () => {
     tgt.createForm.input.startTime().type(startTimeString);
 
     tgt.createForm.button.next().click();
-    expectFormErrors("End Time field can't be empty");
+    expectFormErrors(
+      "End Time field can't be empty",
+      "If event is not reoccuring start date and end date must be the same day"
+    );
 
     tgt.createForm.input.endTime().type(endTimeString);
     tgt.createForm.input
       .endDate()
       .type(dateToYYYYMMDD(createOffsetDate(now, "Date", 1)));
     tgt.createForm.button.next().click();
-    expectFormErrors("End time is before Start time");
+    expectFormErrors(
+      "End date/time is before Start date/time",
+      "If event is not reoccuring start date and end date must be the same day"
+    );
 
     tgt.createForm.input
       .endDate()
       .type(dateToYYYYMMDD(createOffsetDate(now, "Date", 100)));
     tgt.createForm.button.next().click();
     expectFormErrors(
-      "Start date and End date cannot be more than 90 days apart"
+      "Start date and End date cannot be more than 90 days apart",
+      "If event is not reoccuring start date and end date must be the same day"
     );
 
     tgt.createForm.input.endDate().type(dateString);
@@ -200,7 +221,8 @@ describe("Event Creation Form", () => {
       "End Date field can't be empty",
       "Start Time field can't be empty",
       "End Time field can't be empty",
-      "Weekly recurring event MUST include at least one day of the week"
+      "Weekly recurring event MUST include at least one day of the week",
+      "start date/time must be after the current time"
     );
 
     cy.get('input[name="Tuesday"]').click();
@@ -210,7 +232,8 @@ describe("Event Creation Form", () => {
       "Start Date field can't be empty",
       "End Date field can't be empty",
       "Start Time field can't be empty",
-      "End Time field can't be empty"
+      "End Time field can't be empty",
+      "start date/time must be after the current time"
     );
 
     cy.get('input[name="Wednesday"]').click();

@@ -6,6 +6,23 @@
   body {
     @apply bg-teal-light;
   }
+  /* color values stored as variables -> used for customization of color opacity in tailwind.config.js  */
+  :root {
+    /* --color-primary: #F4F1F1; */
+    /* --color-secondary: #E1E9ED; */
+    --color-mainOrange: 224 131 93;
+    --color-mainGreen: 90 186 190;
+    --color-mainBlue: 62 166 215;
+    --color-discordBtn: 110 195 198;
+    /* --color-navBtn: #009BA0;
+    --color-navBtnLight: #66C3C6;
+    --color-teal: {
+      --color-teal-DEFAULT: #009BA0;
+      --color-teal-light: #BFD0D8;
+      --color-teal-lightest: #E0E8EC;
+    }; */
+    --color-accent: 255 132 53;
+  }
 }
 
 .modal {

@@ -1,13 +1,17 @@
 /// <reference types="cypress" />
 
-import { createOffsetDate, getHoursAndMinutes } from "../support/functions";
+import {
+  createOffsetDate,
+  ensureInMiddleOfMonthAndDay,
+  getHoursAndMinutes,
+} from "../support/functions";
 import tgt from "../support/tgt";
 
 describe("View Event Modal", () => {
   describe("Events can be viewed", () => {
     for (const by of ["100Dever", "Guest"]) {
       (by === "Guest" ? it.skip : it)("By " + by, () => {
-        const now = new Date();
+        const now = ensureInMiddleOfMonthAndDay();
         const tomorrow = createOffsetDate(now, "Date", 1);
         const tomorrowAndAnHour = createOffsetDate(tomorrow, "Hours", 1);
         const overmorrow = createOffsetDate(tomorrow, "Date", 1);
@@ -93,7 +97,7 @@ describe("View Event Modal", () => {
   });
 
   it("Can delete own events", () => {
-    const now = new Date();
+    const now = ensureInMiddleOfMonthAndDay();
     const tomorrow = createOffsetDate(now, "Date", 1);
     const tomorrowAndAnHour = createOffsetDate(tomorrow, "Hours", 1);
     const overmorrow = createOffsetDate(tomorrow, "Date", 1);

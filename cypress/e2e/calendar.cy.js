@@ -18,7 +18,7 @@ describe("Calendar", () => {
       tgt.landing.button.calendar().click();
       tgt.calendar.currentMonthAndYear().contains("February, 2023");
       // The current day - the 10th - should be highlighted differently
-      cy.contains("10").parent().invoke("attr", "style").should("exist");
+      cy.contains("10").parent().should("have.class", "border-teal-light");
     });
 
     it("Read-only", () => {

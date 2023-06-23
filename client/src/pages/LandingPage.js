@@ -4,7 +4,6 @@ import LongCard from "../features/home/LongCard";
 import BottomCard from "../features/home/BottomCard";
 import NavContainer from "../features/home/NavContainer";
 import SmallCard from "../features/home/SmallCard";
-import { CgChevronDoubleRightO } from "react-icons/cg";
 import HamburgerNav from "../features/home/HamburgerNav";
 
 const LandingPage = () => {
@@ -56,62 +55,48 @@ const LandingPage = () => {
   ];
 
   return (
-    <div className="bg-primary flex justify-center">
-      <div className="w-full tablet:w-11/12 desktop:w-2/3">
-        <div className="flex flex-wrap desktop:w-full pt-20 tablet:pt-0">
-          <HamburgerNav logo={"./logoicon.png"} logotext={"./logotext.png"} />
-          <NavContainer />
-          <LongCard
-            img={"/Homeoffice.png"}
-            heading="Welcome"
-            title="Together"
-            description=" is a new app designed for
+    <div className="flex flex-col items-center w-full pt-20 min-h-screen pb-10 md:pt-5 lg:text-lg bg-primary">
+      <HamburgerNav logo={"./logoicon.png"} logotext={"./logotext.png"} />
+      <div className="flex flex-col items-center gap-10 w-full p-4 max-w-xl md:max-w-3xl lg:max-w-5xl lg:gap-20 xl:max-w-7xl">
+        <NavContainer />
+        <LongCard
+          img={"/Homeoffice.png"}
+          heading="Welcome"
+          title="Together"
+          description=" is a new app designed for
               100Devs. Together is a group calendar for public events, so you can
               see what's going on in your community. We're making it
               easier to find out about the events that are happening in Discord and
               let you know how much fun they'll be!"
-          />
-          <div className="w-full p-6 text-center tablet:inline-flex tablet:space-x-10 tablet:p-6 tablet:w-full tablet:h-[27rem]">
-            {cards.map((cardData, index) => {
-              return (
-                <SmallCard
-                  heading={cardData.heading}
-                  description={cardData.description}
-                  Icon={CgChevronDoubleRightO}
-                  key={index}
-                  index={index}
-                />
-              );
-            })}
-          </div>
-          <BottomCard
-            heading="Who we are"
-            description={
-              <>
-                <p>
-                  Together is a community-driven open source project backed by
-                  members of 100devs. Together is not only designed to be a
-                  valuable tool to the 100devs community but also provides an
-                  additional opportunity for students to learn in a group
-                  environment. Together is open to all varying skill sets and
-                  encourages peer programming.
-                </p>
-                <p>
-                  <br></br>
-                  Interested in collaborating with us?{" "}
-                  <a
-                    className="underline font-bold"
-                    href={`https://github.com/Caleb-Cohen/Together`}
-                  >
-                    <br></br>
-                    Together GitHub
-                  </a>
-                </p>
-              </>
-            }
-            img={"/threeHumans.png"}
-          />
+        />
+        <div className="flex flex-col items-center gap-5 xl:gap-10 lg:flex-row lg:items-start lg:justify-center">
+          {cards.map((cardData, index) => {
+            return (
+              <SmallCard
+                heading={cardData.heading}
+                description={cardData.description}
+                key={index}
+                index={index}
+              />
+            );
+          })}
         </div>
+        <BottomCard
+          heading="Who we are"
+          description={
+            <>
+              <p>
+                Together is a community-driven open source project backed by
+                members of 100devs. Together is not only designed to be a
+                valuable tool to the 100devs community but also provides an
+                additional opportunity for students to learn in a group
+                environment. Together is open to all varying skill sets and
+                encourages peer programming.
+              </p>
+            </>
+          }
+          img={"/threeHumans.png"}
+        />
       </div>
     </div>
   );
