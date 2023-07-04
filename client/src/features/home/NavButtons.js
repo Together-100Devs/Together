@@ -1,9 +1,11 @@
 import HamburgerNav from "./HamburgerNav";
 import { useRoutingContext } from "contexts/RoutingContext";
 import { useAuthContext } from "contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const NavButtons = ({ HomeIcon, LoginIcon, CalendarIcon }) => {
   const routing = useRoutingContext();
+  const navigate = useNavigate();
   const { isAuthenticated, logout } = useAuthContext();
 
   const handleLogin = () => {
@@ -37,8 +39,9 @@ const NavButtons = ({ HomeIcon, LoginIcon, CalendarIcon }) => {
         </div>
       </button>
       {/* Calendar Button */}
+
       <button
-        onClick={() => routing.setCurrentPage("calendarPage")}
+        onClick={() => navigate("calendar")}
         className="bg-white border-2 border-black rounded-2xl flex flex-col justify-center items-center p-1 w-24 h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32"
       >
         <div className="flex justify-center">
