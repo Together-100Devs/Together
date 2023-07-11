@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useAuthContext } from "contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function HamburgerNav({ logo, logotext }) {
+  const navigate = useNavigate();
   const { isAuthenticated, logout } = useAuthContext();
 
   let Links = [
-    { name: "HOME", link: "landingPage", type: "button" },
-    { name: "CALENDAR", link: "calendarPage", type: "button" },
+    { name: "HOME", link: "/", type: "button" },
+    { name: "CALENDAR", link: "calendar", type: "button" },
   ];
 
   if (!isAuthenticated()) {
@@ -40,7 +42,9 @@ function HamburgerNav({ logo, logotext }) {
             return (
               <li key={Link.name} className="text-xl my-7">
                 {Link.type === "button" && (
-                  <button onClick={Link.onClick}>{Link.name}</button>
+                  <button onClick={() => navigate(Link.link)}>
+                    {Link.name}
+                  </button>
                 )}
                 {Link.type === "a" && (
                   <a

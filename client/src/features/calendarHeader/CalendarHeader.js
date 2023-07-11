@@ -9,13 +9,13 @@ import { RiArrowLeftCircleFill, RiArrowRightCircleFill } from "react-icons/ri";
 import MonthAndYear from "features/calendar/MonthAndYear";
 import Logo from "../../assets/images/togetherLogo.svg";
 import { useAuthContext } from "contexts/AuthContext";
-import { useRoutingContext } from "contexts/RoutingContext";
 import { useFormModalContext } from "contexts/FormModalContext";
+import { useNavigate } from "react-router-dom";
 
 function CalendarHeader({ date }) {
+  const navigate = useNavigate();
   const formModal = useFormModalContext();
   const { isAuthenticated, logout } = useAuthContext();
-  const { setCurrentPage } = useRoutingContext();
   const DISCORD_THREAD_URL =
     "discord://discord.com/channels/735923219315425401/1038482732633825442";
 
@@ -46,7 +46,7 @@ function CalendarHeader({ date }) {
         <HeaderButton
           Icon={FaHome}
           tooltipText={"Home"}
-          onClick={() => setCurrentPage("landingPage")}
+          onClick={() => navigate("/")}
         />
       </section>
       <section className="flex items-center space-x-3">
