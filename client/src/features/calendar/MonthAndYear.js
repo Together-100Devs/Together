@@ -25,7 +25,7 @@ const MonthAndYear = ({
             />
           </svg>
         </button>
-        <button onClick={handleNextMonth}>
+        <button data-cy="next-month" onClick={handleNextMonth}>
           <svg
             className="w-6 h-6"
             xmlns="http://www.w3.org/2000/svg"

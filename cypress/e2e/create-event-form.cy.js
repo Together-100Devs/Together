@@ -242,7 +242,7 @@ describe("Event Creation Form", () => {
 
     const dateString = dateToYYYYMMDD(createOffsetDate(now, "Date", 2));
     const startTimeString = dateToHHMM(now);
-    const endDateString = dateToYYYYMMDD(createOffsetDate(now, "Date", 9));
+    const endDateString = dateToYYYYMMDD(createOffsetDate(now, "Date", 31));
     const endTimeString = dateToHHMM(new Date(now.getTime() + 60 * 60 * 1000));
 
     tgt.createForm.input.endDate().should("have.value", "");
@@ -266,6 +266,15 @@ describe("Event Creation Form", () => {
       }
     );
 
+    //checks that there is only one event on a specific day
+    cy.get('[data-cy="next-month"]').click();
+    cy.contains("button", "Test Title")
+      .parent()
+      .within(() => {
+        cy.get("button").should("have.length", 1);
+      });
+
+    //checks that theere are at least 2 events added to the calendar
     cy.get('button:contains("Test Title")').should(
       "have.length.of.at.least",
       2
