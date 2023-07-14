@@ -21,7 +21,7 @@ describe("Landing", () => {
 
   it("Admin Dashboard displays admin dashboard", () => {
     cy.visit("/admindashboard");
-    cy.get("h1").contains("You have made it to admin dashboard");
+    cy.get("h1").contains("Admin Dashboard");
   });
 
   it("Hamburger Menu", () => {
