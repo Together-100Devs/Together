@@ -9,8 +9,10 @@ import togetherLogo from "../.././assets/images/togetherLogo.svg";
 import { useModalContext } from "contexts/ModalContext";
 import dataService from "../../services/dataService";
 import { useAuthContext } from "contexts/AuthContext";
+import { useEventsContext } from "contexts/EventsContext";
 
 const EventModal = () => {
+  const { events, setEvents, cache } = useEventsContext();
   const modal = useModalContext();
   //grabs user compares user from context and event author
   //displays delete buttons if true
@@ -32,6 +34,13 @@ const EventModal = () => {
             dataService
               .deleteEvent(modal.activeEvent._id)
               .then(modal.handleClose)
+              .then(
+                // eslint-disable-next-line
+                () =>
+                  setEvents(prev =>
+                    prev.filter(el => el._id !== modal.activeEvent._id)
+                  )
+              )
           }
         >
           Delete Specific Event
@@ -44,6 +53,13 @@ const EventModal = () => {
             dataService
               .deleteAllEvents(modal.activeEvent.groupId)
               .then(modal.handleClose)
+              .then(
+                // eslint-disable-next-line
+                () =>
+                  setEvents(prev =>
+                    prev.filter(el => el.groupId !== modal.activeEvent.groupId)
+                  )
+              )
           }
         >
           Delete All Events

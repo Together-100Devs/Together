@@ -158,6 +158,10 @@ describe("View Event Modal", () => {
     tgt.landing.button.calendar().click();
     cy.contains("button", "Test Recurring Title #1").first().click();
     cy.contains("button", "Delete Specific Event").click();
+
+    cy.contains("button", "Test Recurring Title #1").should("not.exist");
+    tgt.modal.get().should("not.exist");
+
     cy.get("Test Recurring Title #1").should("not.exist");
     cy.contains("button", "Test Recurring Title #2").should("exist");
     cy.contains("button", "Test Recurring Title #3").should("exist");
