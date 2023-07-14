@@ -98,6 +98,7 @@ describe("Calendar", () => {
     const monthAndYear = getMonthAndYear(now);
     const nextMonthAndYear = getMonthAndYear(nextMonth);
     tgt.modal.close();
+    tgt.landing.button.calendar().click();
     tgt.calendar.currentMonthAndYear().contains(monthAndYear);
     cy.contains("Test Title").should("not.exist");
 
