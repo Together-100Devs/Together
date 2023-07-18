@@ -27,7 +27,10 @@ module.exports = function (passport) {
         passReqToCallback: true,
       },
       async function (currentReq, accessToken, refreshToken, profile, cb) {
-        const displayName = `${profile.username}#${profile.discriminator}`;
+        const displayName =
+          profile.discriminator.length === 4
+            ? `${profile.username}#${profile.discriminator}`
+            : profile.username;
         const is100Dever = profile.guilds.some(
           server => server.id === "735923219315425401"
         );
