@@ -13,18 +13,18 @@ const BottomCard = ({ heading, title, description, img }) => (
         <span className="font-semibold text-center">
           Interested in collaborating with us?
         </span>
-        <div className="flex border-2 border-slate-400 bg-white rounded-2xl">
-          <div className="py-3 px-8 m-3 bg-accent rounded-lg font-bold">
-            <a
-              href="https://github.com/Caleb-Cohen/Together"
-              className="flex items-center justify-center tracking-widest gap-3"
-              type="submit"
-            >
+        <a
+          href="https://github.com/Caleb-Cohen/Together"
+          className="flex items-center justify-center tracking-widest gap-3"
+          type="submit"
+        >
+          <div className="flex border-2 border-slate-400 bg-white rounded-2xl">
+            <div className="flex flex-row space-x-3 py-3 px-8 m-3 bg-accent rounded-lg font-bold">
               <FaGithub className="w-7 h-7" />
-              Together GitHub
-            </a>
+              <span>Together GitHub</span>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
     <div className="flex items-center justify-center">

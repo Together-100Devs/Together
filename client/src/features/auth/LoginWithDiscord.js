@@ -12,8 +12,12 @@ const LoginWithDiscord = ({ DiscordIcon }) => {
           className="flex items-center justify-center tracking-widest gap-3"
           type="submit"
         >
-          <DiscordIcon className="w-7 h-7" />
-          <span>Login with Discord</span>
+          <div className="flex border-2 border-slate-400 bg-white rounded-2xl">
+            <div className="flex flex-row space-x-3 py-3 px-8 m-3 bg-discordBtn rounded-lg font-bold">
+              <DiscordIcon className="w-7 h-7" />
+              <span>Login with Discord</span>
+            </div>
+          </div>
         </button>
       </form>
     );
@@ -25,7 +29,11 @@ const LoginWithDiscord = ({ DiscordIcon }) => {
         onClick={auth.logout}
         className="flex items-center justify-center tracking-widest gap-3"
       >
-        Logout
+        <div className="flex border-2 border-slate-400 bg-white rounded-2xl">
+          <div className="py-3 px-8 m-3 bg-discordBtn rounded-lg font-bold">
+            Logout
+          </div>
+        </div>
       </button>
     </div>
   );
