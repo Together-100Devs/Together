@@ -242,7 +242,7 @@ describe("Event Creation Form", () => {
 
     const dateString = dateToYYYYMMDD(createOffsetDate(now, "Date", 2));
     const startTimeString = dateToHHMM(now);
-    const endDateString = dateToYYYYMMDD(createOffsetDate(now, "Date", 31));
+    const endDateString = dateToYYYYMMDD(createOffsetDate(now, "Date", 60));
     const endTimeString = dateToHHMM(new Date(now.getTime() + 60 * 60 * 1000));
 
     tgt.createForm.input.endDate().should("have.value", "");
