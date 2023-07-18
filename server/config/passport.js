@@ -28,7 +28,7 @@ module.exports = function (passport) {
       },
       async function (currentReq, accessToken, refreshToken, profile, cb) {
         const displayName =
-          `${profile.discriminator}`.length === 4
+          profile.discriminator.length === 4
             ? `${profile.username}#${profile.discriminator}`
             : profile.username;
         const is100Dever = profile.guilds.some(
