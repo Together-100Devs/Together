@@ -25,24 +25,24 @@ export const AdminDashboard = () => {
     <div className="flex flex-col h-100 min-h-screen w-full p-4 bg-primary">
       <div className="border-b-2 border-mainOrange border-dotted flex justify-between py-2">
         <h1 className="font-bold font-inconsolata text-3xl md:text-4xl lg:text-5xl text-mainOrange">
-          Admin Dashboard ({eventStatus})
+          Admin Dashboard (<span className="event-count">{eventStatus}</span>)
         </h1>
         {/* Button to trigger refresh of event list after initial page load */}
         <button
           onClick={handleGetAllEvents}
-          className="bg-white border-2 border-black flex flex-col justify-center items-center px-4"
+          className="refresh-btn bg-white border-2 border-black flex flex-col justify-center items-center px-4"
         >
           🗘 Refresh Events
         </button>
       </div>
-      <div className="h-full mt-2">
+      <div id="events" className="h-full mt-2">
         {/* Display all events in an unordered list when the data is finished loading */}
         {loading ||
           Object.keys(allEvents).map(key => {
             return (
               <div
                 key={allEvents[key].id}
-                className="bg-primary my-4 p-4 rounded-xl"
+                className="event bg-primary my-4 p-4 rounded-xl"
               >
                 <ul className="font-inconsolata">
                   <li className="text-2xl md:text-3xl lg:text-4xl font-bold">
