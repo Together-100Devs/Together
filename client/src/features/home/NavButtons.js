@@ -17,7 +17,7 @@ const NavButtons = ({ HomeIcon, LoginIcon, CalendarIcon }) => {
       {/* Home Button */}
       <button
         onClick={() => routing.setCurrentPage("landingPage")}
-        className="bg-white border-2 border-black rounded-2xl flex flex-col justify-center items-center p-1 w-24 h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32"
+        className="bg-white border-2 border-black rounded-2xl flex flex-col justify-center items-center p-1 w-24 h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 focus:ring-4 focus:ring-black"
       >
         <div className="flex justify-center">
           <HomeIcon className="text-mainBlue w-7 h-7 lg:w-10 lg:h-10" />
@@ -28,7 +28,7 @@ const NavButtons = ({ HomeIcon, LoginIcon, CalendarIcon }) => {
       </button>
       {/* Log In & Log Out Button */}
       <button
-        className="bg-white border-2 border-black rounded-2xl flex flex-col justify-center items-center p-1 w-24 h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32"
+        className="bg-white border-2 border-black rounded-2xl flex flex-col justify-center items-center p-1 w-24 h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 focus:ring-4 focus:ring-black"
         onClick={isAuthenticated() ? logout : handleLogin}
       >
         <div className="flex justify-center">
@@ -42,7 +42,7 @@ const NavButtons = ({ HomeIcon, LoginIcon, CalendarIcon }) => {
 
       <button
         onClick={() => navigate("calendar")}
-        className="bg-white border-2 border-black rounded-2xl flex flex-col justify-center items-center p-1 w-24 h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32"
+        className="bg-white border-2 border-black rounded-2xl flex flex-col justify-center items-center p-1 w-24 h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 focus:ring-4 focus:ring-black"
       >
         <div className="flex justify-center">
           <CalendarIcon className="text-mainOrange w-7 h-7 lg:w-10 lg:h-10" />
