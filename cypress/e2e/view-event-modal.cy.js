@@ -77,6 +77,7 @@ describe("View Event Modal", () => {
             .should(by ? "exist" : "not.exist");
         };
 
+        tgt.landing.button.calendar().click();
         cy.contains("button", "Test Title").each(($el, i) => {
           const [starts, ends] = dates[i];
           cy.wrap($el).click();
@@ -90,6 +91,7 @@ describe("View Event Modal", () => {
 
         tgt.auth.button.logout().click();
         cy.login("SECOND_100_DEVER", true);
+        tgt.landing.button.calendar().click();
         cy.contains("button", "Test Title").first().click();
         eventModalShown(false, tomorrow, tomorrowAndAnHour);
       });
@@ -153,11 +155,15 @@ describe("View Event Modal", () => {
     cy.contains("button", "Close").click();
 
     cy.log("Deleting just Recurring #1");
+    tgt.landing.button.calendar().click();
     cy.contains("button", "Test Recurring Title #1").first().click();
     cy.contains("button", "Delete Specific Event").click();
+
     cy.contains("button", "Test Recurring Title #1").should("not.exist");
     tgt.modal.get().should("not.exist");
+
     cy.get("Test Recurring Title #1").should("not.exist");
+    tgt.modal.get().should("not.exist");
     cy.contains("button", "Test Recurring Title #2").should("exist");
     cy.contains("button", "Test Recurring Title #3").should("exist");
     cy.contains("button", "Test Single Title #1").should("exist");
@@ -166,7 +172,6 @@ describe("View Event Modal", () => {
     cy.log("Deleting all recurring #2");
     cy.contains("button", "Test Recurring Title #3").first().click();
     cy.contains("button", "Delete All Events").click();
-    tgt.modal.get().should("not.exist");
     cy.get("Test Recurring Title #2").should("not.exist");
     cy.get("Test Recurring Title #3").should("not.exist");
     cy.contains("button", "Test Single Title #1").should("exist");

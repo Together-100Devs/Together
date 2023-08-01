@@ -34,3 +34,11 @@ Cypress.Commands.add("createOwnEvents", (userCode, ...events) => {
   });
   cy.reload();
 });
+
+Cypress.Commands.add("deleteOwnGroupEvents", (userCode, groupId) => {
+  if (groupId) {
+    cy.request("DELETE", `/events/deleteAllEvents/${groupId}`);
+  }
+
+  cy.reload();
+});

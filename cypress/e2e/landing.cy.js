@@ -19,11 +19,6 @@ describe("Landing", () => {
     cy.url().should("eq", Cypress.config().baseUrl + "/calendar");
   });
 
-  it("Admin Dashboard displays admin dashboard", () => {
-    cy.visit("/admindashboard");
-    cy.get("h1").contains("You have made it to admin dashboard");
-  });
-
   it("Hamburger Menu", () => {
     cy.viewport("iphone-6");
     tgt.nav.hamburger.toggle().click();

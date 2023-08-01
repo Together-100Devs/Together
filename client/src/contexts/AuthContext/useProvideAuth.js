@@ -15,9 +15,6 @@ const useProvideAuth = () => {
     DataService.getCurrentUser().then(response => {
       console.log(response.data);
       setUser(response.data);
-      if (response.data instanceof Object) {
-        navigate("/calendar");
-      }
     });
   }, []);
 

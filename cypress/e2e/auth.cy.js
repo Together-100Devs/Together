@@ -7,12 +7,14 @@ describe("Discord OAuth works", () => {
   it("100Dever is allowed in & back", () => {
     cy.login("100_DEVER", true);
     tgt.auth.button.login().should("not.exist");
+    tgt.landing.button.calendar().click();
     tgt.calendar.currentMonthAndYear().contains(getMonthAndYear());
 
     tgt.auth.button.logout().click();
     cy.login("100_DEVER");
 
     tgt.auth.button.login().should("not.exist");
+    tgt.landing.button.calendar().click();
     tgt.calendar.currentMonthAndYear().contains(getMonthAndYear());
   });
 

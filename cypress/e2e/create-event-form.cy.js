@@ -132,6 +132,7 @@ describe("Event Creation Form", () => {
     cy.visit("/");
 
     cy.login("100_DEVER", true);
+    tgt.landing.button.calendar().click();
     tgt.calendar.button.addEvent().click();
 
     fillOutFirstPage();
@@ -209,6 +210,7 @@ describe("Event Creation Form", () => {
     cy.visit("/");
 
     cy.login("100_DEVER", true);
+    tgt.landing.button.calendar().click();
     tgt.calendar.button.addEvent().click();
 
     fillOutFirstPage();
