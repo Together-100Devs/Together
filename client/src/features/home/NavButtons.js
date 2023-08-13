@@ -3,7 +3,7 @@ import { useRoutingContext } from "contexts/RoutingContext";
 import { useAuthContext } from "contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-const NavButtons = ({ HomeIcon, LoginIcon, CalendarIcon }) => {
+const NavButtons = ({ AdminIcon, HomeIcon, LoginIcon, CalendarIcon }) => {
   const routing = useRoutingContext();
   const navigate = useNavigate();
   const { isAuthenticated, logout } = useAuthContext();
@@ -14,6 +14,18 @@ const NavButtons = ({ HomeIcon, LoginIcon, CalendarIcon }) => {
 
   return (
     <div className="flex flex-row gap-2">
+      {/* Admin Button */}
+      <button
+        onClick={() => navigate("adminDashboard")}
+        className="bg-white border-2 border-black rounded-2xl flex flex-col justify-center items-center p-1 w-24 h-24 lg:w-28 lg:h-28 xl:w-32 xl:h-32 focus:ring-4 focus:ring-black"
+      >
+        <div className="flex justify-center">
+          <AdminIcon className="text-mainBlue w-7 h-7 lg:w-10 lg:h-10" />
+        </div>
+        <div className="text-mainBlue font-black text-lg lg:text-xl xl:text-2xl">
+          <span>Admin</span>
+        </div>
+      </button>
       {/* Home Button */}
       <button
         onClick={() => routing.setCurrentPage("landingPage")}

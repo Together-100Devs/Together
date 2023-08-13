@@ -1,6 +1,7 @@
 import LogoContainer from "./LogoContainer";
 import NavButtons from "./NavButtons";
 import {
+  FaUserShield,
   FaHome,
   FaChevronCircleLeft,
   FaChevronCircleRight,
@@ -15,6 +16,7 @@ const NavContainer = () => {
     <nav className="hidden md:flex justify-between w-full">
       <LogoContainer logo={"./logoicon.png"} logotext={"./logotext.png"} />
       <NavButtons
+        AdminIcon={FaUserShield}
         HomeIcon={FaHome}
         LoginIcon={
           isAuthenticated() ? FaChevronCircleLeft : FaChevronCircleRight

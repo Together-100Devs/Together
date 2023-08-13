@@ -8,6 +8,7 @@ function HamburgerNav({ logo, logotext }) {
   const { isAuthenticated, logout } = useAuthContext();
 
   let Links = [
+    { name: "ADMIN", link: "/adminDashboard", type: "button" },
     { name: "HOME", link: "/", type: "button" },
     { name: "CALENDAR", link: "calendar", type: "button" },
   ];
