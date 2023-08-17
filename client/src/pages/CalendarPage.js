@@ -1,7 +1,7 @@
 import useDate from "hooks/useDate";
 import Calendar from "../features/calendar/Calendar";
 import CalendarHeader from "../features/calendarHeader";
-import FormProvider from "contexts/FormContext";
+import { useFormContext } from "contexts/FormContext";
 import Modal from "features/modal/Modal";
 import UserForm from "features/form/UserForm";
 import { useAuthContext } from "contexts/AuthContext";
@@ -16,6 +16,7 @@ function CalendarPage() {
   const date = useDate();
   const formModal = useFormModalContext();
   const modal = useModalContext();
+  const { resetForm } = useFormContext();
   const canScrollMonthRef = useRef(true);
 
   const handleWheelScroll = e => {
@@ -33,7 +34,7 @@ function CalendarPage() {
   };
 
   return (
-    <FormProvider>
+    <>
       <main
         onWheel={handleWheelScroll}
         className="flex flex-col gap-3 p-3 shadow-sm min-h-screen max-w-[1920px] mx-auto"
@@ -45,7 +46,7 @@ function CalendarPage() {
         <Modal context={modal}>
           <EventModal />
         </Modal>
-        <Modal context={formModal}>
+        <Modal context={formModal} onBackdropClick={resetForm}>
           {auth?.user ? (
             <UserForm />
           ) : (
@@ -53,7 +54,7 @@ function CalendarPage() {
           )}
         </Modal>
       </div>
-    </FormProvider>
+    </>
   );
 }
 export default CalendarPage;

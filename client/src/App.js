@@ -3,10 +3,11 @@ import Modal from "features/modal/Modal";
 import RejectionModal from "features/modal/RejectionModal";
 import WelcomeUserModal from "features/modal/WelcomeUserModal";
 import { useAuthContext } from "contexts/AuthContext";
+import FormProvider from "contexts/FormContext";
 import LandingPage from "pages/LandingPage";
 import CalendarPage from "pages/CalendarPage";
 import { AdminDashboard } from "pages/AdminDashboard";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const auth = useAuthContext();
@@ -38,7 +39,14 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/calendar" element={<CalendarPage />} />
+        <Route
+          path="/calendar"
+          element={
+            <FormProvider>
+              <CalendarPage />
+            </FormProvider>
+          }
+        />
         <Route path="/adminDashboard" element={<AdminDashboard />} />
       </Routes>
       {isAuthenticated && (

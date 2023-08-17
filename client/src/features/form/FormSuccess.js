@@ -3,7 +3,7 @@
 import { useFormContext } from "contexts/FormContext";
 
 export default function FormSuccess() {
-  const form = useFormContext();
+  const { resetForm } = useFormContext();
   return (
     <div className="container md:mt-10">
       <div className="flex flex-col items-center">
@@ -14,12 +14,7 @@ export default function FormSuccess() {
 
         {/* A button to add another event if so desired */}
         <button
-          onClick={() => {
-            form.setFormData({
-              recurring: { rate: "noRecurr", days: [] },
-            });
-            form.setCurrentStep(1);
-          }}
+          onClick={resetForm}
           className="h-10 mt-10 px-5 font-semibold text-green-700 transition-colors duration-150 border border-gray-300 rounded-lg focus:shadow-outline hover:bg-green-500 hover:text-green-100"
         >
           New Event
