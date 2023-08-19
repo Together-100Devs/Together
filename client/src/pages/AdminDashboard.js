@@ -59,7 +59,12 @@ export const AdminDashboard = () => {
           🗘 Refresh Events
         </button>
       </div>
-      <section id="events" className="h-full mt-2">
+      <section id="events" className="h-full mt-2 bg-teal-light rounded-lg p-4">
+        <h2 className="font-bold font-inconsolata text-2xl md:text-3xl lg:text-4xl text-teal">
+          Singular Events (
+          <span className="event-count">{Object.keys(groupEvents).length}</span>
+          )
+        </h2>
         <section id="single-events">
           {/* Display all events in an unordered list when the data is finished loading */}
           {loading ||
@@ -72,9 +77,15 @@ export const AdminDashboard = () => {
               );
             })}
         </section>
-        <h2>RECURRING EVENTS ({Object.keys(groupEvents).length})</h2>
-        <hr />
         <section id="group-events">
+          <h2 className="font-bold font-inconsolata text-2xl md:text-3xl lg:text-4xl text-teal">
+            Recurring Events (
+            <span className="event-count">
+              {Object.keys(groupEvents).length}
+            </span>
+            )
+          </h2>
+          <hr />
           {loading ||
             Object.keys(groupEvents).map(key => {
               return (
