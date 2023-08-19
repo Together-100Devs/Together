@@ -98,8 +98,9 @@ const EventModal = () => {
             <span>{Intl.DateTimeFormat().resolvedOptions().timeZone}</span>
           </section>
         </div>
-        <div className="description break-words w-auto min-h-20 my-2 p-2 border-solid border-black border-2 font-semibold rounded-xl bg-neutral-200/50">
-          <p>Description: {modal.activeEvent.description}</p>
+        <span className="mb-0">Description:</span>{" "}
+        <div className="description break-words w-auto min-h-20 mb-2 p-2 border-solid border-black border-2 font-semibold rounded-xl bg-neutral-200/50">
+          <p>{modal.activeEvent.description}</p>
         </div>
         <div>
           {/* <section className="flex m-3 gap-1 font-semibold">
