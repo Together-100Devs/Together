@@ -42,3 +42,14 @@ Cypress.Commands.add("deleteOwnGroupEvents", (userCode, groupId) => {
 
   cy.reload();
 });
+
+Cypress.Commands.add("deleteOwnEvent", id => {
+  if (id) {
+    cy.request("DELETE", `/events/${id}`);
+  }
+});
+
+Cypress.Commands.add("getAllEvents", userCode => {
+  // cy.login(userCode)
+  return cy.request("GET", "/events");
+});
