@@ -52,6 +52,7 @@ module.exports = function (passport) {
               socials: [],
               bio: "",
               needsToBeWelcome: true,
+              admin: 0,
             });
 
             return cb(null, user);

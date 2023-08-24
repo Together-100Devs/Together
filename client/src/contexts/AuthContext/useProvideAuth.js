@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 const useProvideAuth = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
 
   // Check if there is already a user session
   useEffect(() => {
@@ -15,6 +16,7 @@ const useProvideAuth = () => {
     DataService.getCurrentUser().then(response => {
       console.log(response.data);
       setUser(response.data);
+      setLoading(false); // set loading to false after fetching user data
     });
   }, []);
 
@@ -48,13 +50,21 @@ const useProvideAuth = () => {
     DataService.deleteNeedsToBeWelcome();
   };
 
+  // Check if user is not null and admin property is true.
+  // admin property is typed as Number as of initial declaration
+  const isAdmin = () => {
+    return user ? user.admin === 1 : false;
+  };
+
   return {
     user,
     logout,
     isAuthenticated,
+    isAdmin,
     isNot100Dever,
     needsToBeWelcome,
     deleteNeedsToBeWelcome,
+    loading,
   };
 };
 

@@ -7,6 +7,7 @@ const UserSchema = new mongoose.Schema({
   socials: [{ type: String }],
   bio: { type: String },
   needsToBeWelcome: { type: String },
+  admin: { type: Number, default: 0 },
 });
 
 UserSchema.virtual("avatarURL").get(function () {
