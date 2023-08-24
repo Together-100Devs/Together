@@ -14,10 +14,12 @@ function App() {
   const isAuthenticated = auth.isAuthenticated();
   const isNot100Dever = auth.isNot100Dever();
   const deleteNeedsToBeWelcome = auth.deleteNeedsToBeWelcome;
-  const isAdmin = auth.isAdmin;
-  const isLoading = auth.loading; // Destructure loading from auth
+  /*  implementation of testing needed before isAdmin and isLoading can be used
+  const isAdmin = auth.isAdmin; 
+  const isLoading = auth.loading; // Destructure loading from auth 
+  */
   //Sets rejection modal to true because updating state is a pain
-  //Line 49 will prevent the modal from rendering unless user is not 100Dever
+  //Line 63 will prevent the modal from rendering unless user is not 100Dever
   const [rejectionModalOpen, setRejectionModalOpen] = useState(true);
   const rejectionModalContext = {
     isOpen: rejectionModalOpen,
@@ -37,18 +39,21 @@ function App() {
     if (auth.user) setWelcomeUserModalOpen(auth.needsToBeWelcome());
   }, [auth]);
 
-  if (isLoading) {
-    return <div>Loading...</div>; // Render a loading indicator while fetching user data
-  }
+  /* implementation of testing for user that has admin priveleges needed before use.
+    if (isLoading) {
+      return <div>Loading...</div>; // Render a loading indicator while fetching user data
+    }
+  */
 
   return (
     <>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/calendar" element={<CalendarPage />} />
-        {isAdmin() && (
-          <Route path="/adminDashboard" element={<AdminDashboard />} />
-        )}
+        {/* Not included now because testing needs to be implemented that logs in a user with admin property */}
+        {/* {isAdmin() && ( */}
+        <Route path="/adminDashboard" element={<AdminDashboard />} />
+        {/* )} */}
       </Routes>
       {isAuthenticated && (
         <Modal context={welcomeUserModalContext}>
