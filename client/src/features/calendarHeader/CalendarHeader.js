@@ -30,8 +30,8 @@ function CalendarHeader({ date }) {
   };
 
   return (
-    <header className="flex items-center px-5 py-3 bg-white justify-between">
-      <section className="flex space-x-3">
+    <header className="flex items-center max-[440px]:px-2 px-5 py-3 bg-white lg:justify-between w-full justify-center lg:flex-nowrap flex-wrap  max-[440px]:gap-x-2 gap-x-6 lg:gap-x-4 overflow-hidden">
+      <section className="flex max-[440px]:gap-x-2 gap-x-6 lg:gap-x-4">
         <HeaderButton
           Icon={BsCalendarPlusFill}
           tooltipText="Add Event"
@@ -49,8 +49,8 @@ function CalendarHeader({ date }) {
           onClick={() => navigate("/")}
         />
       </section>
-      <section className="flex items-center space-x-3">
-        <img src={Logo} className="max-w-none" alt="Logo" />
+      <section className="flex items-center w-full order-first lg:w-min lg:space-x-3 lg:order-none justify-between mb-4 lg:mb-0">
+        <img src={Logo} className="max-w-none max-[380px]:w-9" alt="Logo" />
         <MonthAndYear
           month={date?.month}
           year={date?.year}
@@ -63,7 +63,7 @@ function CalendarHeader({ date }) {
           onClick={() => date.getCurrentMonth()}
         />
       </section>
-      <section className="flex space-x-3">
+      <section className="flex max-[440px]:gap-x-2 gap-x-6 lg:gap-x-4">
         <HeaderButton
           Icon={IoChatbubblesOutline}
           tooltipText="Feedback"
