@@ -12,7 +12,7 @@ function EventCard({ event }) {
         </li>
         <li className="text-mainBlue">{event.description}</li>
         <hr className="border-teal-light" />
-        <li>Scheduled by: {event.user.displayName}</li>
+        <li>Scheduled by: {event.user?.displayName || "UNKNOWN"}</li>
       </ul>
     </section>
   );
