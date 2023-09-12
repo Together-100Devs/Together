@@ -2,15 +2,39 @@ import React from "react";
 import { useEffect, useState } from "react";
 import "index.css";
 import DataService from "services/dataService";
+import EventCard from "features/adminDashboard/EventCard";
+import GroupEventCard from "features/adminDashboard/GroupEventCard";
 
 export const AdminDashboard = () => {
-  const [allEvents, setAllEvents] = useState({});
+  const [singleEvents, setSingleEvents] = useState({});
+  const [groupEvents, setGroupEvents] = useState({});
   const [loading, setLoading] = useState(false);
 
   const handleGetAllEvents = async () => {
     setLoading(true);
     const response = await DataService.getAll();
-    setAllEvents(response.data);
+
+    // Filter only single events
+    setSingleEvents(response.data.filter(e => e.groupId === null));
+
+    // Group remaining events by groupId
+    let gEvents = response.data.reduce((map, event) => {
+      // Ignore events without a groupId
+      if (event.groupId === null) {
+        return map;
+      }
+
+      // Collect events with a groupId
+      if (event.groupId in map) {
+        map[event.groupId].push(event);
+      } else {
+        map[event.groupId] = [event];
+      }
+
+      return map;
+    }, {});
+
+    setGroupEvents(gEvents);
     setLoading(false);
   };
 
@@ -20,7 +44,15 @@ export const AdminDashboard = () => {
     fetch();
   }, []);
 
-  let eventStatus = loading ? "LOADING..." : Object.keys(allEvents).length;
+  const singleEventCount = loading
+    ? "LOADING..."
+    : Object.keys(singleEvents).length;
+  const groupEventCount = loading
+    ? "LOADING..."
+    : Object.keys(groupEvents).length;
+  const eventStatus = loading
+    ? "LOADING..."
+    : singleEventCount + groupEventCount;
   return (
     <div className="flex flex-col h-100 min-h-screen w-full p-4 bg-primary">
       <div className="border-b-2 border-mainOrange border-dotted flex justify-between py-2">
@@ -35,29 +67,41 @@ export const AdminDashboard = () => {
           🗘 Refresh Events
         </button>
       </div>
-      <div id="events" className="h-full mt-2">
-        {/* Display all events in an unordered list when the data is finished loading */}
-        {loading ||
-          Object.keys(allEvents).map(key => {
-            return (
-              <div
-                key={allEvents[key].id}
-                className="event bg-primary my-4 p-4 rounded-xl"
-              >
-                <ul className="font-inconsolata">
-                  <li className="text-2xl md:text-3xl lg:text-4xl font-bold">
-                    {allEvents[key].title}
-                  </li>
-                  <li className="text-mainBlue">
-                    {allEvents[key].description}
-                  </li>
-                  <hr className="border-teal-light" />
-                  <li>Scheduled by: {allEvents[key].user.displayName}</li>
-                </ul>
-              </div>
-            );
-          })}
-      </div>
+      <section id="events" className="h-full my-2 bg-teal-light rounded-lg p-4">
+        <h2 className="font-bold font-inconsolata text-2xl md:text-3xl lg:text-4xl text-teal">
+          Singular Events (
+          <span className="event-count">{singleEventCount}</span>)
+        </h2>
+        <hr />
+        <section id="single-events">
+          {/* Display all events in an unordered list when the data is finished loading */}
+          {loading ||
+            Object.keys(singleEvents).map(key => {
+              return (
+                <EventCard
+                  key={singleEvents[key]._id}
+                  event={singleEvents[key]}
+                />
+              );
+            })}
+        </section>
+        <section id="group-events">
+          <h2 className="font-bold font-inconsolata text-2xl md:text-3xl lg:text-4xl text-teal">
+            Recurring Events (
+            <span className="event-count">{groupEventCount}</span>)
+          </h2>
+          <hr />
+          {loading ||
+            Object.keys(groupEvents).map(key => {
+              return (
+                <GroupEventCard
+                  key={groupEvents[key]._id}
+                  events={groupEvents[key]}
+                />
+              );
+            })}
+        </section>
+      </section>
     </div>
   );
 };

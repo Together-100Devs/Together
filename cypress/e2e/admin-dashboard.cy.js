@@ -2,33 +2,64 @@
 
 import tgt from "../support/tgt";
 
-// Generate test event
 const TEST_EVENT_AUTHOR = "100_DEVER";
 const TEST_EVENT_GROUP_ID = "admin_text_event_id";
-const TEST_EVENTS = [
+
+// Generate singular test events
+const SINGULAR_TEST_EVENTS = [
   {
-    title: "1st EVENT",
-    description: "1st Description",
+    title: "1st SINGULAR EVENT",
+    description: "1st Singular Description",
     location: "1st Location",
-    groupId: TEST_EVENT_GROUP_ID,
+    groupId: null,
     startAt: Date.now(),
-    endAt: Date.now() + 3600,
+    endAt: Date.now() + 60 * 60,
   },
   {
-    title: "2nd EVENT",
-    description: "2nd Description",
+    title: "2nd SINGULAR EVENT",
+    description: "2nd Singular Description",
     location: "2nd Location",
-    groupId: TEST_EVENT_GROUP_ID,
-    startAt: Date.now(),
-    endAt: Date.now() + 3600,
+    groupId: null,
+    startAt: Date.now() + 60 * 60,
+    endAt: Date.now() + 60 * 60 * 2,
   },
 ];
 
-const addTestEvents = (test_events = TEST_EVENTS) => {
-  cy.url().then(return_url => {
-    cy.visit("/");
+// Generate group (recurring) test events
+const GROUP_TEST_EVENTS = [
+  {
+    title: "1st GROUP EVENT",
+    description: "1st Group Description",
+    location: "1st Location",
+    groupId: TEST_EVENT_GROUP_ID,
+    startAt: Date.now(),
+    endAt: Date.now() + 60 * 60,
+  },
+  {
+    title: "1st GROUP EVENT",
+    description: "1st Group Description",
+    location: "1st Location",
+    groupId: TEST_EVENT_GROUP_ID,
+    startAt: Date.now() + 60 * 60 * 24,
+    endAt: Date.now() + 60 * 60 * 24 + 3600,
+  },
+];
 
+// Calculate group event counts (how many times a group event recurs)
+// indexed by its groupId property
+const GROUP_EVENT_COUNTS_BY_GROUP_ID = GROUP_TEST_EVENTS.reduce(
+  (acc, event) => {
+    acc[event.groupId] = acc[event.groupId] || 0;
+    return { [event.groupId]: acc[event.groupId] + 1, ...acc };
+  },
+  {}
+);
+
+// Utility function to add test events consistently before each test
+const addTestEvents = test_events => {
+  cy.url().then(return_url => {
     // Generate test events
+    cy.visit("/");
     cy.createOwnEvents(TEST_EVENT_AUTHOR, ...test_events);
 
     // Close event creation modal
@@ -53,68 +84,81 @@ describe("Admin Dashboard", () => {
     cy.get("h1").contains("Admin Dashboard");
   });
 
-  describe("Add Events", () => {
-    before(() => {
-      // Navigate to admin dashboard
-      cy.visit("/admindashboard");
-      cy.get("#events").should("exist");
+  describe("Page updates when events change", () => {
+    describe("Add events", () => {
+      before(() => {
+        // Navigate to admin dashboard
+        cy.visit("/admindashboard");
+        cy.get("#events").should("exist");
 
-      // Create alias for initial event count
-      aliasHeaderEventCount("initialEventCount");
-    });
-    beforeEach(() => {
-      // Add test events
-      addTestEvents(TEST_EVENTS);
+        // Create alias for initial event count
+        aliasHeaderEventCount("initialEventCount");
+      });
+      beforeEach(() => {
+        // Add test events
+        addTestEvents([...SINGULAR_TEST_EVENTS, ...GROUP_TEST_EVENTS]);
 
-      // Navigate to admin dashboard
-      cy.visit("/admindashboard");
-    });
+        // Navigate to admin dashboard
+        cy.visit("/admindashboard");
+      });
 
-    it("Event titles and descriptions", () => {
-      TEST_EVENTS.forEach((test_event, i) => {
-        // Ensure test events rendered with correct title
-        cy.get("#events")
-          .find(`.event:nth-of-type(${i + 1}) li:nth-of-type(1)`)
-          .invoke("text")
-          .should("contain", test_event.title);
+      it("Single event titles and descriptions", () => {
+        SINGULAR_TEST_EVENTS.forEach((test_event, i) => {
+          // Ensure test events rendered with correct title
+          cy.get("#events")
+            .find(`.single-event:nth-of-type(${i + 1}) li:nth-of-type(1)`)
+            .invoke("text")
+            .should("contain", test_event.title);
 
-        // Ensure test event rendered with correct description
-        cy.get("#events")
-          .find(`.event:nth-of-type(${i + 1}) li:nth-of-type(2)`)
-          .invoke("text")
-          .should("contain", test_event.description);
+          // Ensure test event rendered with correct description
+          cy.get("#events")
+            .find(`.single-event:nth-of-type(${i + 1}) li:nth-of-type(2)`)
+            .invoke("text")
+            .should("contain", test_event.description);
+        });
+      });
+
+      it("Group event titles and descriptions", () => {
+        GROUP_TEST_EVENTS.forEach((test_event, i) => {
+          // Ensure test events rendered with correct title and description
+          cy.get("#events")
+            .find(`.group-event`)
+            .invoke("text")
+            .should("contain", test_event.title)
+            .should("contain", test_event.description);
+        });
+      });
+
+      it("Total event counts", () => {
+        // TODO: there should be a better way to wait for a React re-render to update the
+        // event counts, but a manual wait works currently. This applies to other similar
+        // manual waits in other admin dashboard tests.
+        cy.wait(100);
+
+        // Create alias for updated event count
+        aliasHeaderEventCount("newEventCount");
+
+        cy.get("h1")
+          .should("be.visible")
+          .should("not.contain", "LOADING")
+          .then(function () {
+            // Ensure updated event count is 1 greater then initial event count
+            expect(this.newEventCount).to.eq(
+              this.initialEventCount +
+                SINGULAR_TEST_EVENTS.length +
+                Object.entries(GROUP_EVENT_COUNTS_BY_GROUP_ID).length
+            );
+          });
       });
     });
 
-    it("Event Counts", () => {
-      // TODO: there should be a better way to wait for a React re-render to update the
-      // event count, but a manual wait works currently
-      cy.wait(100);
-
-      // Create alias for updated event count
-      aliasHeaderEventCount("newEventCount");
-
-      cy.get("h1")
-        .should("be.visible")
-        .should("not.contain", "LOADING")
-        .then(function () {
-          // Ensure updated event count is 1 greater then initial event count
-          expect(this.newEventCount).to.eq(
-            this.initialEventCount + TEST_EVENTS.length
-          );
-        });
-    });
-  });
-
-  describe("Page updates when events change", () => {
     describe("Delete Events", () => {
       before(() => {});
       beforeEach(() => {
         // Add test events
-        addTestEvents(TEST_EVENTS);
+        addTestEvents([...SINGULAR_TEST_EVENTS, ...GROUP_TEST_EVENTS]);
 
         // Reload page and navigate to admin dashboard
-        // cy.reload();
         cy.visit("/admindashboard");
         cy.wait(100);
 
@@ -122,32 +166,75 @@ describe("Admin Dashboard", () => {
         aliasHeaderEventCount("initialEventCount");
       });
 
-      it("Event Counts", () => {
-        // TODO: there should be a better way to wait for a React re-render to update the
-        // event count, but a manual wait works currently
-        cy.wait(100);
+      it("Delete singular events", () => {
+        // Delete all singular events by id
+        cy.getAllEvents().then(({ body }) => {
+          body.forEach(event => {
+            if (!event.groupId) {
+              cy.deleteOwnEvent(event._id);
+            }
+          });
+        });
 
-        cy.deleteOwnGroupEvents(TEST_EVENT_AUTHOR, TEST_EVENT_GROUP_ID);
+        cy.visit("/admindashboard");
+        cy.wait(100);
 
         // Create alias for updated event count
         aliasHeaderEventCount("newEventCount");
 
-        cy.visit("/admindashboard");
         cy.get("h1")
           .should("be.visible")
           .should("not.contain", "LOADING")
           .then(function () {
             // Ensure updated event count matches initial count minus deleted events
             expect(this.newEventCount).to.eq(
-              this.initialEventCount - TEST_EVENTS.length
+              this.initialEventCount - SINGULAR_TEST_EVENTS.length
+            );
+          });
+      });
+
+      it("Delete group events", () => {
+        // Delete all group events
+        cy.deleteOwnGroupEvents(TEST_EVENT_AUTHOR, TEST_EVENT_GROUP_ID);
+
+        cy.visit("/admindashboard");
+        cy.wait(100);
+
+        // Create alias for updated event count
+        aliasHeaderEventCount("newEventCount");
+
+        cy.get("h1")
+          .should("be.visible")
+          .should("not.contain", "LOADING")
+          .then(function () {
+            // Ensure updated event count matches initial count minus deleted events
+            expect(this.newEventCount).to.eq(
+              this.initialEventCount -
+                Object.entries(GROUP_EVENT_COUNTS_BY_GROUP_ID).length
             );
           });
       });
 
       it("Event titles and descriptions no longer exist", () => {
+        // Delete all singular events by id
+        cy.getAllEvents().then(({ body }) => {
+          body.forEach(event => {
+            if (!event.groupId) {
+              cy.deleteOwnEvent(event._id);
+            }
+          });
+        });
+
+        // Delete all group events
         cy.deleteOwnGroupEvents(TEST_EVENT_AUTHOR, TEST_EVENT_GROUP_ID);
-        // Ensure all events were deleted
-        cy.get("#events").not("be.visible");
+
+        cy.wait(100);
+
+        // Ensure single events are no longer displayed
+        cy.get("#single-events .single-event").should("not.exist");
+
+        // Ensure group events are no longer displayed
+        cy.get("#group-events .group-event").should("not.exist");
       });
     });
   });
