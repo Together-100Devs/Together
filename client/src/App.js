@@ -21,7 +21,7 @@ function App() {
   */
 
   //Sets rejection modal to true because updating state is a pain
-  //Line 63 will prevent the modal from rendering unless user is not 100Dever
+  //Line 65 will prevent the modal from rendering unless user is not 100Dever
   const [rejectionModalOpen, setRejectionModalOpen] = useState(true);
   const rejectionModalContext = {
     isOpen: rejectionModalOpen,
