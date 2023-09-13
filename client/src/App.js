@@ -14,10 +14,12 @@ function App() {
   const isAuthenticated = auth.isAuthenticated();
   const isNot100Dever = auth.isNot100Dever();
   const deleteNeedsToBeWelcome = auth.deleteNeedsToBeWelcome;
-  /*  implementation of testing needed before isAdmin and isLoading can be used
+
+  /*  from feature-#441 implementation of testing needed before isAdmin and isLoading can be used
   const isAdmin = auth.isAdmin; 
   const isLoading = auth.loading; // Destructure loading from auth 
   */
+
   //Sets rejection modal to true because updating state is a pain
   //Line 63 will prevent the modal from rendering unless user is not 100Dever
   const [rejectionModalOpen, setRejectionModalOpen] = useState(true);
@@ -39,7 +41,7 @@ function App() {
     if (auth.user) setWelcomeUserModalOpen(auth.needsToBeWelcome());
   }, [auth]);
 
-  /* implementation of testing for user that has admin priveleges needed before use.
+  /* from featute-#441 implementation of testing for user that has admin role needed before use.
     if (isLoading) {
       return <div>Loading...</div>; // Render a loading indicator while fetching user data
     }
@@ -50,7 +52,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/calendar" element={<CalendarPage />} />
-        {/* Not included now because testing needs to be implemented that logs in a user with admin property */}
+        {/* From feature-#441 Not included now because testing needs to be implemented that logs in a user with admin role */}
         {/* {isAdmin() && ( */}
         <Route path="/adminDashboard" element={<AdminDashboard />} />
         {/* )} */}

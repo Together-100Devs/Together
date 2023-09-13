@@ -52,7 +52,7 @@ module.exports = function (passport) {
               socials: [],
               bio: "",
               needsToBeWelcome: true,
-              admin: 0,
+              role: "user",
             });
 
             return cb(null, user);

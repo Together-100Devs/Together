@@ -50,10 +50,9 @@ const useProvideAuth = () => {
     DataService.deleteNeedsToBeWelcome();
   };
 
-  // Check if user is not null and admin property is true.
-  // admin property is typed as Number as of initial declaration
+  // Check if user is not null and user has role of admin.
   const isAdmin = () => {
-    return user ? user.admin === 1 : false;
+    return user ? user.role === "admin" : false;
   };
 
   return {
