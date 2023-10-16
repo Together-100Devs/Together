@@ -11,7 +11,7 @@ const MonthAndYear = ({
       <div className="flex">
         <button onClick={handlePreviousMonth}>
           <svg
-            className="w-6 h-6"
+            className="w-6 h-6 max-[440px]:w-4 max-[440px]:h-4"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -27,7 +27,7 @@ const MonthAndYear = ({
         </button>
         <button data-cy="next-month" onClick={handleNextMonth}>
           <svg
-            className="w-6 h-6"
+            className="w-6 h-6 max-[440px]:w-4 max-[440px]:h-4"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -42,7 +42,7 @@ const MonthAndYear = ({
           </svg>
         </button>
       </div>
-      <h2 className="ml-2 w-[14ch] text-3xl font-bold leading-none">
+      <h2 className="max-[440px]:ml-1 ml-2 w-[14ch] max-[440px]:text-base max-[440px]:text-center sm:text-3xl text-xl font-bold leading-none">
         {month}, {year}
       </h2>
     </div>
