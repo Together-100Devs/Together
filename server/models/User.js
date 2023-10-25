@@ -7,6 +7,11 @@ const UserSchema = new mongoose.Schema({
   socials: [{ type: String }],
   bio: { type: String },
   needsToBeWelcome: { type: String },
+  role: {
+    type: String,
+    enum: ["user", "moderator", "admin", "superadmin"],
+    default: "user",
+  },
 });
 
 UserSchema.virtual("avatarURL").get(function () {
