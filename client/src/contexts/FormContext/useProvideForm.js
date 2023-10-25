@@ -15,6 +15,13 @@ const useProvideForm = () => {
   const [formCreateEventErrors, setFormCreateEventErrors] = useState([]);
   const [formScheduleEventErrors, setFormScheduleEventErrors] = useState([]);
 
+  const resetForm = () => {
+    if (currentStep === 4) {
+      setFormData({ recurring: { rate: "noRecurr", days: [] } });
+      setCurrentStep(1);
+    }
+  };
+
   const handleNewStep = async direction => {
     const newStep = direction === "next" ? currentStep + 1 : currentStep - 1;
 
@@ -62,6 +69,7 @@ const useProvideForm = () => {
     setFormCreateEventErrors,
     setFormScheduleEventErrors,
     setCurrentStep,
+    resetForm,
   };
 };
 

@@ -21,7 +21,7 @@ export default function FormCreateEvent() {
     <div className="flex flex-col">
       {formCreateEventErrors.map((error, index) => {
         return (
-          <div className="alert alert-error shadow-lg text-red-700" key="index">
+          <div className="alert alert-error shadow-lg text-red-700" key={index}>
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

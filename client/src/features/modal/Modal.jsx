@@ -2,7 +2,7 @@ import { AnimatePresence } from "framer-motion";
 import Backdrop from "./Backdrop";
 import { motion } from "framer-motion";
 
-const Modal = ({ children, context }) => {
+const Modal = ({ children, context, onBackdropClick }) => {
   const dropIn = {
     hidden: {
       y: "-100vh",
@@ -32,7 +32,12 @@ const Modal = ({ children, context }) => {
         onExitComplete={() => null}
       >
         {context.isOpen && (
-          <Backdrop onClick={context.handleClose}>
+          <Backdrop
+            onClick={() => {
+              context.handleClose();
+              if (typeof onBackdropClick === "function") onBackdropClick();
+            }}
+          >
             <motion.div
               className="modal overflow-y-auto"
               onClick={e => e.stopPropagation()}

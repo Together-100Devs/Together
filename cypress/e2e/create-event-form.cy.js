@@ -201,7 +201,6 @@ describe("Event Creation Form", () => {
     cy.contains("button", "Test Title");
 
     tgt.calendar.button.addEvent().click();
-    cy.contains("button", "New Event").click();
     tgt.createForm.input.title().should("exist");
   });
 
@@ -281,5 +280,8 @@ describe("Event Creation Form", () => {
       "have.length.of.at.least",
       2
     );
+
+    tgt.calendar.button.addEvent().click();
+    tgt.createForm.input.title().should("exist");
   });
 });
