@@ -49,7 +49,6 @@ Cypress.Commands.add("deleteOwnEvent", id => {
   }
 });
 
-Cypress.Commands.add("getAllEvents", userCode => {
-  // cy.login(userCode)
+Cypress.Commands.add("getAllEvents", () => {
   return cy.request("GET", "/events");
 });

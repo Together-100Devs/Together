@@ -80,7 +80,6 @@ export default function FormScheduleEvent() {
               className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
               required
               min={format(new Date(), "yyyy-MM-dd")}
-              max="2023-12-31"
             />
           </div>
         </div>
@@ -116,7 +115,6 @@ export default function FormScheduleEvent() {
               className="p-1 px-2 appearance-none outline-non w-full text-gray-800"
               required
               min={format(new Date(), "yyyy-MM-dd")}
-              max="2023-12-31"
             />
           </div>
         </div>

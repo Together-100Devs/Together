@@ -119,7 +119,7 @@ describe("Admin Dashboard", () => {
       });
 
       it("Group event titles and descriptions", () => {
-        GROUP_TEST_EVENTS.forEach((test_event, i) => {
+        GROUP_TEST_EVENTS.forEach(test_event => {
           // Ensure test events rendered with correct title and description
           cy.get("#events")
             .find(`.group-event`)

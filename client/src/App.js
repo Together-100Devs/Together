@@ -6,6 +6,7 @@ import { useAuthContext } from "contexts/AuthContext";
 import LandingPage from "pages/LandingPage";
 import CalendarPage from "pages/CalendarPage";
 import { AdminDashboard } from "pages/AdminDashboard";
+// eslint-disable-next-line
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {

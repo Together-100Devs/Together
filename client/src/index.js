@@ -7,6 +7,7 @@ import ModalProvider from "contexts/ModalContext";
 import EventsProvider from "contexts/EventsContext";
 import FormModalProvider from "contexts/FormModalContext";
 import { createRoot } from "react-dom/client";
+//eslint-disable-next-line
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const rootElement = document.getElementById("root");

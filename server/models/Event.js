@@ -6,7 +6,7 @@ const { Temporal } = require("@js-temporal/polyfill");
 
 const STRING_MAX_LENGTH = 280;
 // Event's starting date should be less than (strictly) EVENT_MAX_DATE
-const EVENT_MAX_DATE = "2024-01-01";
+const EVENT_MAX_DATE = "2030-01-01";
 // Recurring events should span no more than MAX_RECURRENCE_PERIOD number of days
 const MAX_RECURRENCE_PERIOD = 90;
 const DAYS_OF_WEEK = ["1", "2", "3", "4", "5", "6", "7"];
