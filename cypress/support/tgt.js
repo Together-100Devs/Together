@@ -59,6 +59,7 @@ export default {
   },
   landing: {
     button: {
+      admin: () => cy.contains("button", "Admin"),
       calendar: () => cy.contains("button", "Calendar"),
     },
   },
@@ -85,6 +86,7 @@ export default {
   },
   nav: {
     button: {
+      admin: () => cy.contains("button", "Admin"),
       home: () => cy.contains("button", "Home"),
       calendar: () => cy.contains("button", "Calendar"),
     },

@@ -3,6 +3,12 @@
 import tgt from "../support/tgt";
 
 describe("Landing", () => {
+  it("Admin links to adminDashboard", () => {
+    cy.visit("/");
+    tgt.nav.button.admin().click();
+    cy.url().should("eq", Cypress.config().baseUrl + "/adminDashboard");
+  });
+
   it("Home links to home", () => {
     cy.visit("/");
     tgt.nav.button.home().click();
