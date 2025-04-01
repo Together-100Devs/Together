@@ -20,7 +20,7 @@ Anyone is welcome to join Together. If you're a beginner, we ask that you review
 
 - [Git & GitHub Crash Course](https://www.youtube.com/watch?v=SWYqp7iY_Tc)
 - [Completed Microsoft Introduction to Github](https://www.microsoft.com/en-us/dev-community/Event/Register?eventId=LearnwithLeonstream_ggNxpTZxIzb_&ocid=aid3038567)
-- [Read the Contributing Documents](https://github.com/Caleb-Cohen/Together/blob/development/.github/CONTRIBUTING.md)
+- [Read the Contributing Documents](https://github.com/Together-100Devs/Together/blob/development/.github/CONTRIBUTING.md)
 - [React Scrimba Course](https://scrimba.com/learn/learnreact)
 
 ## Together GitFlow Structure
@@ -83,14 +83,14 @@ There are two ways to discover issues.
 ### Issues Tab
 
 ![Screenshot of Issues tab on GitHub with example issues representing various stages of a project](assets/contributing-issues-tab.jpg)
-The [Issues tab](https://github.com/Caleb-Cohen/Together/issues) contains all of the issues that are currently in progress, planned to be worked on, or need further review.
+The [Issues tab](https://github.com/Together-100Devs/Together/issues) contains all of the issues that are currently in progress, planned to be worked on, or need further review.
 
 ### Projects Tab
 
 ## ![Screenshot of Projects tab on GitHub](assets/contributing-projects-tab.jpg)
 
 ![Screenshot of Projects view on GitHub](assets/contributing-projects-view.jpg)
-A [project management board](https://github.com/users/Caleb-Cohen/projects/1) also exists for this project on GitHub. The project management board contains relevant issues to advance the project to the next milestone or release.
+A [project management board](https://github.com/users/Together-100Devs/projects/1) also exists for this project on GitHub. The project management board contains relevant issues to advance the project to the next milestone or release.
 
 > Issues will also be created for any bugs discovered in the project. (Minor fixes and typos do not typically require an issue and can be corrected directly in a pull request with a detailed description.)
 
@@ -102,7 +102,7 @@ Use the following process to make changes after an issue has been assigned to yo
 
 #### Forking
 
-1. Navigate to the Together project at https://github.com/Caleb-Cohen/Together.
+1. Navigate to the Together project at https://github.com/Together-100Devs/Together.
 2. Click Fork. [Difference between forking and cloning a repo](https://www.youtube.com/watch?v=6YQxkxw8nhE)
    ![Screenshot of fork button on GitHub](assets/contributing-fork-button.jpg)
 3. Click Create fork.  
@@ -137,7 +137,7 @@ Now that you have a personal fork of the project on GitHub, you will be able to 
 Now that you have the copy, you will need access to the feature branch related to your issue to create a local working branch to write your code.
 
 1. Set upstream to track the remote repository containing the original repo. (Not just your fork.)  
-   `git remote add upstream https://github.com/Caleb-Cohen/Together.git`
+   `git remote add upstream https://github.com/Together-100Devs/Together.git`
 
 2. Use this command to fetch the list of remote branches.  
    `git fetch upstream`
