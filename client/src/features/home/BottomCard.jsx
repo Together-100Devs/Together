@@ -14,7 +14,7 @@ const BottomCard = ({ heading, title, description, img }) => (
           Interested in collaborating with us?
         </span>
         <a
-          href="https://github.com/Caleb-Cohen/Together"
+          href="https://github.com/Together-100Devs/Together"
           className="flex items-center justify-center tracking-widest gap-3"
           type="submit"
         >

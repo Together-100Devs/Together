@@ -19,7 +19,7 @@ function CalendarHeader({ date }) {
   const DISCORD_THREAD_URL =
     "discord://discord.com/channels/735923219315425401/1038482732633825442";
 
-  const GH_ISSUES_URL = "https://github.com/Caleb-Cohen/Together/issues";
+  const GH_ISSUES_URL = "https://github.com/Together-100Devs/Together/issues";
 
   const linkToUrl = (url) => {
     window.open(url, "_blank");
