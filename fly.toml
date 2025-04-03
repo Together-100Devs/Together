@@ -1,0 +1,22 @@
+# fly.toml app configuration file generated for together-old-river-8736 on 2025-04-01T21:05:05+01:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'together-rocks' # Change this to the name of your app
+primary_region = 'fra' # Change this to a region
+
+[build]
+
+[http_service]
+internal_port = 3000
+force_https = true
+auto_stop_machines = 'stop'
+auto_start_machines = true
+min_machines_running = 0
+processes = ['app']
+
+[[vm]]
+memory = '512mb'
+cpu_kind = 'shared'
+cpus = 1
