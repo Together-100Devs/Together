@@ -84,7 +84,7 @@ const createEventsArray = ({
   const groupId = rate === "noRecurr" ? null : nanoid();
 
   // Create dates array with events information
-  const events = eventStartDates.map(date => {
+  const events = eventStartDates.map((date) => {
     const startAt = date.epochMilliseconds;
     const endAt = date.add(duration).epochMilliseconds;
     return { title, description, location, groupId, startAt, endAt, rsvp: [] };

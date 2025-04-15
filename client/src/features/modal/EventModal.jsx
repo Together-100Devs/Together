@@ -37,8 +37,8 @@ const EventModal = () => {
               .then(
                 // eslint-disable-next-line
                 () =>
-                  setEvents(prev =>
-                    prev.filter(el => el._id !== modal.activeEvent._id)
+                  setEvents((prev) =>
+                    prev.filter((el) => el._id !== modal.activeEvent._id)
                   )
               )
           }
@@ -56,8 +56,10 @@ const EventModal = () => {
               .then(
                 // eslint-disable-next-line
                 () =>
-                  setEvents(prev =>
-                    prev.filter(el => el.groupId !== modal.activeEvent.groupId)
+                  setEvents((prev) =>
+                    prev.filter(
+                      (el) => el.groupId !== modal.activeEvent.groupId
+                    )
                   )
               )
           }

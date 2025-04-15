@@ -18,7 +18,7 @@ function CalendarPage() {
   const modal = useModalContext();
   const canScrollMonthRef = useRef(true);
 
-  const handleWheelScroll = e => {
+  const handleWheelScroll = (e) => {
     if (!canScrollMonthRef.current) return;
     canScrollMonthRef.current = false;
 

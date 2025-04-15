@@ -35,7 +35,7 @@ const Modal = ({ children, context }) => {
           <Backdrop onClick={context.handleClose}>
             <motion.div
               className="modal overflow-y-auto"
-              onClick={e => e.stopPropagation()}
+              onClick={(e) => e.stopPropagation()}
               variants={dropIn}
               initial="hidden"
               animate="visible"

@@ -9,7 +9,7 @@ import {
 import tgt from "../support/tgt";
 
 describe("Event Creation Form", () => {
-  const dayCheckboxesExist = should => {
+  const dayCheckboxesExist = (should) => {
     for (const day of [
       "Monday",
       "Tuesday",
@@ -35,7 +35,7 @@ describe("Event Creation Form", () => {
 
     tgt.createForm
       .alerts()
-      .each($alert => {
+      .each(($alert) => {
         const text = $alert.text().split("Error: ")[1];
         console.log("expectingErrors", expectingErrors);
         expect(expectingErrors).to.include(text);
@@ -71,7 +71,7 @@ describe("Event Creation Form", () => {
     cy.get('input[name="discordName"]')
       .should("have.value", "100Dever#0001")
       .should("be.disabled");
-    cy.contains("button", "Back").then($button =>
+    cy.contains("button", "Back").then(($button) =>
       expect($button.css("cursor")).to.equal("not-allowed")
     );
     tgt.createForm.button.next().click();

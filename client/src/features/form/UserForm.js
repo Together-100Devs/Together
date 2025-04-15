@@ -15,7 +15,7 @@ const UserForm = () => {
   const modal = useFormModalContext();
 
   // Called to display different parts of the form based on the latest step.
-  const displayStep = step => {
+  const displayStep = (step) => {
     switch (step) {
       case 1:
         // Fields: Title, Description, Start Date, Final Date, Discord Username

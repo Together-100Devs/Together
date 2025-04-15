@@ -7,7 +7,7 @@ const get = async () => {
 };
 
 // Post request
-const create = async userData => {
+const create = async (userData) => {
   const response = await axios.post("/events", userData);
   return response.data;
 };
@@ -19,7 +19,7 @@ const update = async (id, newUserData) => {
 };
 
 // Delete request
-const remove = async id => {
+const remove = async (id) => {
   try {
     const response = await axios.delete(`/events/${id}/`);
     return response.data;

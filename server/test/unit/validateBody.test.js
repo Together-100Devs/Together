@@ -8,7 +8,7 @@ const {
 } = require("../../models/Event");
 const sample = require("./validateBodyMockData");
 
-const mockRequest = body => ({ body });
+const mockRequest = (body) => ({ body });
 const mockNext = () => jest.fn();
 
 describe("validateBody", () => {

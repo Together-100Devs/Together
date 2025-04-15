@@ -11,7 +11,7 @@ Cypress.Commands.add(
         url: "https://discord.com/oauth2/authorize*",
         times: 1,
       },
-      req =>
+      (req) =>
         req.redirect(
           Cypress.config().baseUrl + "/auth/discord/callback?code=" + userCode
         )
@@ -43,7 +43,7 @@ Cypress.Commands.add("deleteOwnGroupEvents", (userCode, groupId) => {
   cy.reload();
 });
 
-Cypress.Commands.add("deleteOwnEvent", id => {
+Cypress.Commands.add("deleteOwnEvent", (id) => {
   if (id) {
     cy.request("DELETE", `/events/${id}`);
   }

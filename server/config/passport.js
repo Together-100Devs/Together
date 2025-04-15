@@ -32,7 +32,7 @@ module.exports = function (passport) {
             ? `${profile.username}#${profile.discriminator}`
             : profile.username;
         const is100Dever = profile.guilds.some(
-          server => server.id === "735923219315425401"
+          (server) => server.id === "735923219315425401"
         );
 
         if (!is100Dever) {

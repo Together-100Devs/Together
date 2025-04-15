@@ -7,10 +7,10 @@ export default function FormCreateEvent() {
   const { formData, setFormData, formCreateEventErrors } = useFormContext();
 
   // This updates the form data's in the context
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setFormData(prevFormData => ({
+    setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
       discordName: auth.user?.displayName,

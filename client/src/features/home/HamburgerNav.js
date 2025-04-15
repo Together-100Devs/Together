@@ -38,7 +38,7 @@ function HamburgerNav({ logo, logotext }) {
             open ? "top-20" : "top-[-480px]"
           }`}
         >
-          {Links.map(Link => {
+          {Links.map((Link) => {
             return (
               <li key={Link.name} className="text-xl my-7">
                 {Link.type === "button" && (
