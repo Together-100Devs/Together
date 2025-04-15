@@ -36,7 +36,7 @@ const FormMoverControl = () => {
     else {
       otherNameIGuess = fieldName;
     }
-    if (formData[input] === "" || formData[input] == null) {
+    if (formData[input] === "" || formData[input] === null) {
       errorArray.push("Error: " + otherNameIGuess + " field can't be empty");
     }
   }

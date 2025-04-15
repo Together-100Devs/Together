@@ -15,9 +15,6 @@ module.exports = {
     jest: true,
   },
   parserOptions: {
-    ecmaVersion: 12,
-  },
-  parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
