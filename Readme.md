@@ -5,14 +5,14 @@
 <a href="https://discord.com/channels/735923219315425401/1038482732633825442">
   <img height="28px" src="https://img.shields.io/badge/Discord-7289da?&logo=discord&logoColor=white" alt="Discord"/>
 </a>
-<a href="https://github.com/Caleb-Cohen/Together/network/members">
-  <img height="28px" src="https://img.shields.io/github/forks/Caleb-Cohen/Together?color=6ca4cc" alt="Forks"/>
+<a href="https://github.com/Together-100Devs/Together/network/members">
+  <img height="28px" src="https://img.shields.io/github/forks/Together-100Devs/Together?color=6ca4cc" alt="Forks"/>
 </a>
-<a href="https://github.com/Caleb-Cohen/Together/contributors">
-  <img height="28px" src="https://img.shields.io/github/contributors/Caleb-Cohen/Together?color=88bc10&logo=github&logoColor=white" alt="Contributors"/>
+<a href="https://github.com/Together-100Devs/Together/contributors">
+  <img height="28px" src="https://img.shields.io/github/contributors/Together-100Devs/Together?color=88bc10&logo=github&logoColor=white" alt="Contributors"/>
 </a>
-<a href="https://github.com/Caleb-Cohen/Together/issues">
-  <img height="28px" src="https://img.shields.io/github/issues/Caleb-Cohen/Together" alt="Issues"/>
+<a href="https://github.com/Together-100Devs/Together/issues">
+  <img height="28px" src="https://img.shields.io/github/issues/Together-100Devs/Together" alt="Issues"/>
 </a>
 </div>
 
@@ -31,13 +31,13 @@
   what's going on in the 100Devs community!
   <br/>
   <br/>
-  <a href="https://github.com/Caleb-Cohen/Together/wiki">Project Wiki</a>
+  <a href="https://github.com/Together-100Devs/Together/wiki">Project Wiki</a>
   ·
   <a href="https://github.com/Together-100Devs/Together/wiki/04-Contributing">Contributing guide</a>
   ·
   <a href="https://together.cyclic.app/"><strong>Link to project</strong></a>
   ·
-  <a href="https://github.com/Caleb-Cohen/Together/issues">Request an issue</a>
+  <a href="https://github.com/Together-100Devs/Together/issues">Request an issue</a>
   ·
   <a href="https://discord.com/channels/735923219315425401/1038482732633825442">Contact us!</a>
 </div>
@@ -119,10 +119,10 @@ Together is a new app designed for 100devs. Together is a group calendar for pub
 
 ## 💻 Install
 
-- Read up on our [New Developer Onboarding](https://github.com/Caleb-Cohen/Together/wiki/02---Onboarding) in the wiki.
+- Read up on our [New Developer Onboarding](https://github.com/Together-100Devs/Together/wiki/02---Onboarding) in the wiki.
 - Fork and clone the repository to your local computer.
 - Complete and store `.env` file in the `server/config` folder
-  - [(See .env template setup instructions)](https://github.com/Caleb-Cohen/Together/wiki/02---Onboarding#development-machine-setup)
+  - [(See .env template setup instructions)](https://github.com/Together-100Devs/Together/wiki/02---Onboarding#development-machine-setup)
 - `npm install` in the root folder. installs the required dependencies.
 - `npm run dev-concurrent` in the root folder. This starts the front-end and back-end in one terminal.
   - This runs a local instance of mongodb. You can connect to it by connecting to `mongodb://127.0.0.1:27017/` with any MongoDB client like [Compass](https://www.mongodb.com/products/compass).
@@ -146,8 +146,8 @@ We highly encourage you to ask questions and join the discussion in the [Togethe
  <br>
 
 <div align="center"
-  <a href="https://github.com/Caleb-Cohen/Together/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=Caleb-Cohen/Together&max=100"/>
+  <a href="https://github.com/Together-100Devs/Together/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=Together-100Devs/Together&max=100"/>
   </a> 
 </div>
 
@@ -163,8 +163,8 @@ If you're interested in contributing, you may:
 
 - Read our [Contributing guide.](https://github.com/Together-100Devs/Together/wiki/04-Contributing)
 - Join the [#Together thread](https://discord.com/channels/735923219315425401/1038482732633825442) within the 100Devs Discord to discuss your ideas.
-- Visit the [Issues tab](https://github.com/Caleb-Cohen/Together/issues) to request an issue or to open a new issue.
-- You can also convert a "draft todo" to an issue on the current [Project Board.](https://github.com/Caleb-Cohen/Together/projects?query=is%3Aopen)
+- Visit the [Issues tab](https://github.com/Together-100Devs/Together/issues) to request an issue or to open a new issue.
+- You can also convert a "draft todo" to an issue on the current [Project Board.](https://github.com/Together-100Devs/Together/projects?query=is%3Aopen)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
