@@ -1,3 +1,4 @@
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   env: {
     commonjs: true,
@@ -6,16 +7,9 @@ module.exports = {
     browser: true,
     "cypress/globals": true,
   },
-  extends: [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:prettier/recommended",
-  ],
+  extends: ["eslint:recommended", "plugin:react/recommended", "prettier"],
   globals: {
     jest: true,
-  },
-  parserOptions: {
-    ecmaVersion: 12,
   },
   parserOptions: {
     ecmaFeatures: {
@@ -24,28 +18,10 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "react-hooks", "prettier", "cypress"],
+  plugins: ["react", "react-hooks", "cypress"],
   rules: {
-    indent: [
-      "error",
-      2,
-      {
-        SwitchCase: 1,
-      },
-    ],
-    "linebreak-style": [
-      "error",
-      process.platform === "win32" ? "windows" : "unix",
-    ],
     eqeqeq: "error",
     "object-curly-spacing": ["error", "always"],
-    "arrow-spacing": [
-      "error",
-      {
-        before: true,
-        after: true,
-      },
-    ],
     "no-unused-vars": ["warn", { argsIgnorePattern: "(^_$)|(^index$)" }],
     "no-console": 0,
     "react/prop-types": 0,

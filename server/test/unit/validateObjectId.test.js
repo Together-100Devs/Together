@@ -1,7 +1,7 @@
 const validateObjectId = require("../../middleware/validateObjectId");
 
 // Request is an object that contains 'params' object
-const mockRequest = params => ({ params });
+const mockRequest = (params) => ({ params });
 // const mockResponse = () => {
 //   const res = {};
 //   res.status = jest.fn().mockReturnValue(res);

@@ -14,7 +14,7 @@ const useProvideFormModal = () => {
   };
 
   const handleToggle = () => {
-    setIsOpen(prevState => !prevState);
+    setIsOpen((prevState) => !prevState);
   };
 
   return {

@@ -12,7 +12,7 @@ module.exports = defineConfig({
       on("task", {
         clearDatabase() {
           require("dotenv").config({ path: "./server/config/.env" });
-          return require("./server/config/database")().then(async conn => {
+          return require("./server/config/database")().then(async (conn) => {
             for (const { name } of await conn.connection.db
               .listCollections()
               .toArray()) {

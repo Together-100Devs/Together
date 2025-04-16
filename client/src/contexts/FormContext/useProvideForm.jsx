@@ -15,7 +15,7 @@ const useProvideForm = () => {
   const [formCreateEventErrors, setFormCreateEventErrors] = useState([]);
   const [formScheduleEventErrors, setFormScheduleEventErrors] = useState([]);
 
-  const handleNewStep = async direction => {
+  const handleNewStep = async (direction) => {
     const newStep = direction === "next" ? currentStep + 1 : currentStep - 1;
 
     if (newStep > 0 && newStep <= totalSteps.length) {
@@ -41,7 +41,7 @@ const useProvideForm = () => {
 
       const events = response.data.events;
       addEvents(
-        events.filter(e => {
+        events.filter((e) => {
           const s = new Date(e.startAt);
           const month = s.getMonth();
           const year = s.getFullYear();

@@ -25,8 +25,9 @@ export default {
   modal,
   auth: {
     button: {
-      logout: text => cy.contains("button", text ?? /Logout|Log Out/),
-      login: text => cy.contains("button", text ?? /Login with Discord|Log In/),
+      logout: (text) => cy.contains("button", text ?? /Logout|Log Out/),
+      login: (text) =>
+        cy.contains("button", text ?? /Login with Discord|Log In/),
     },
   },
   calendar: {
