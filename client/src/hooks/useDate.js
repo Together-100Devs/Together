@@ -19,11 +19,11 @@ const useDate = () => {
   const firstDay = format(startOfMonth(date), "E");
 
   const getNextMonth = () => {
-    setDate(prevDate => new Date(getYear(prevDate), getMonth(prevDate) + 1));
+    setDate((prevDate) => new Date(getYear(prevDate), getMonth(prevDate) + 1));
   };
 
   const getPreviousMonth = () => {
-    setDate(prevDate => new Date(getYear(prevDate), getMonth(prevDate) - 1));
+    setDate((prevDate) => new Date(getYear(prevDate), getMonth(prevDate) - 1));
   };
   const getCurrentMonth = () => {
     setDate(() => new Date());

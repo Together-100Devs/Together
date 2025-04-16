@@ -12,7 +12,7 @@ router.get("/auth/logout", (req, res) => {
     /* istanbul ignore next  */
     if (process.env.NODE_ENV !== "test") console.log("User has logged out.");
   });
-  req.session.destroy(err => {
+  req.session.destroy((err) => {
     /* istanbul ignore next  */
     if (err && process.env.NODE_ENV !== "test")
       console.log("Error : Failed to destroy the session during logout.", err);

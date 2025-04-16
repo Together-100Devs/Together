@@ -15,7 +15,7 @@ export const AdminDashboard = () => {
     const response = await DataService.getAll();
 
     // Filter only single events
-    setSingleEvents(response.data.filter(e => e.groupId === null));
+    setSingleEvents(response.data.filter((e) => e.groupId === null));
 
     // Group remaining events by groupId
     let gEvents = response.data.reduce((map, event) => {
@@ -76,7 +76,7 @@ export const AdminDashboard = () => {
         <section id="single-events">
           {/* Display all events in an unordered list when the data is finished loading */}
           {loading ||
-            Object.keys(singleEvents).map(key => {
+            Object.keys(singleEvents).map((key) => {
               return (
                 <EventCard
                   key={singleEvents[key]._id}
@@ -92,7 +92,7 @@ export const AdminDashboard = () => {
           </h2>
           <hr />
           {loading ||
-            Object.keys(groupEvents).map(key => {
+            Object.keys(groupEvents).map((key) => {
               return (
                 <GroupEventCard
                   key={groupEvents[key]._id}

@@ -56,8 +56,8 @@ const GROUP_EVENT_COUNTS_BY_GROUP_ID = GROUP_TEST_EVENTS.reduce(
 );
 
 // Utility function to add test events consistently before each test
-const addTestEvents = test_events => {
-  cy.url().then(return_url => {
+const addTestEvents = (test_events) => {
+  cy.url().then((return_url) => {
     // Generate test events
     cy.visit("/");
     cy.createOwnEvents(TEST_EVENT_AUTHOR, ...test_events);
@@ -71,7 +71,7 @@ const addTestEvents = test_events => {
 };
 
 describe("Admin Dashboard", () => {
-  const aliasHeaderEventCount = alias_name => {
+  const aliasHeaderEventCount = (alias_name) => {
     cy.get("h1 .event-count")
       .invoke("text")
       .should("not.contain", "LOADING")
@@ -119,7 +119,7 @@ describe("Admin Dashboard", () => {
       });
 
       it("Group event titles and descriptions", () => {
-        GROUP_TEST_EVENTS.forEach(test_event => {
+        GROUP_TEST_EVENTS.forEach((test_event) => {
           // Ensure test events rendered with correct title and description
           cy.get("#events")
             .find(`.group-event`)
@@ -169,7 +169,7 @@ describe("Admin Dashboard", () => {
       it("Delete singular events", () => {
         // Delete all singular events by id
         cy.getAllEvents().then(({ body }) => {
-          body.forEach(event => {
+          body.forEach((event) => {
             if (!event.groupId) {
               cy.deleteOwnEvent(event._id);
             }
@@ -218,7 +218,7 @@ describe("Admin Dashboard", () => {
       it("Event titles and descriptions no longer exist", () => {
         // Delete all singular events by id
         cy.getAllEvents().then(({ body }) => {
-          body.forEach(event => {
+          body.forEach((event) => {
             if (!event.groupId) {
               cy.deleteOwnEvent(event._id);
             }

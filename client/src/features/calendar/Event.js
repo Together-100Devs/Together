@@ -2,7 +2,7 @@ import React from "react";
 import { formatToLocalTime } from "utilities/calendar";
 import { useModalContext } from "contexts/ModalContext";
 
-const Event = props => {
+const Event = (props) => {
   const modal = useModalContext();
   const confirmedCss = "bg-gray-500";
   const unconfirmedCSss = "border border-gray-500";

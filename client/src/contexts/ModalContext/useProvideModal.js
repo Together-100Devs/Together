@@ -15,7 +15,7 @@ const useProvideModal = () => {
   };
 
   const handleToggle = () => {
-    setIsOpen(prevState => !prevState);
+    setIsOpen((prevState) => !prevState);
   };
 
   return {

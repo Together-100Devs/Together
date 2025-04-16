@@ -56,11 +56,11 @@ const Calendar = ({ date }) => {
       setStatus(Status.LOADING);
       cache.current.push(date.monthStart);
       fetch()
-        .then(data => {
-          setEvents(prev => [...prev, ...data]);
+        .then((data) => {
+          setEvents((prev) => [...prev, ...data]);
           setStatus(Status.RESOLVED);
         })
-        .catch(error => {
+        .catch((error) => {
           setError(error.message);
           setStatus(Status.REJECTED);
         });

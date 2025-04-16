@@ -1,6 +1,6 @@
 "use strict";
 
-const generateTestCases = obj => {
+const generateTestCases = (obj) => {
   const arrOfTests = [];
   for (const time of obj.times()) {
     const description = `${obj.dates} ${time[0][0]} - ${time[0][1]}`;
@@ -19,7 +19,7 @@ const generateTestCases = obj => {
         endTime: time[0][1],
         timeZone: obj.timeZone,
       },
-      output: time.map(e => ({
+      output: time.map((e) => ({
         title: "test",
         description: "test",
         location: "test",

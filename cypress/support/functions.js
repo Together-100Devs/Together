@@ -22,7 +22,7 @@ export const getMonthAndYear = (date = new Date()) => {
   })}, ${date.getFullYear()}`;
 };
 
-export const getHoursAndMinutes = date => {
+export const getHoursAndMinutes = (date) => {
   return date
     .toLocaleString("default", {
       hour: "numeric",
@@ -37,14 +37,14 @@ export const createOffsetDate = (date, what, amount) => {
   return newDate;
 };
 
-export const dateToHHMM = date => {
+export const dateToHHMM = (date) => {
   return `${date.getHours().toString().padStart(2, "0")}:${date
     .getMinutes()
     .toString()
     .padStart(2, "0")}`;
 };
 
-export const dateToYYYYMMDD = date => {
+export const dateToYYYYMMDD = (date) => {
   return `${date.getFullYear()}-${(date.getMonth() + 1)
     .toString()
     .padStart(2, "0")}-${date.getDate().toString().padStart(2, "0")}`;

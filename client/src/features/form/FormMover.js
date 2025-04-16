@@ -44,7 +44,7 @@ const FormMover = () => {
     const updateStepStatus = () => {
       const stepNumber = currentStep - 1;
       // Update newStep object's status
-      setNewStep(prevNewStep =>
+      setNewStep((prevNewStep) =>
         prevNewStep.map((stepObject, count) => {
           // Current step
           if (count === stepNumber) {

@@ -6,7 +6,7 @@ const useProvideEvents = () => {
   // cache to store api call arguments
   const cache = useRef([]);
 
-  const addEvents = newEvents => {
+  const addEvents = (newEvents) => {
     setEvents([...events, ...newEvents]);
   };
 

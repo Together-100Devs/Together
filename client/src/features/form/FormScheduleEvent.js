@@ -7,12 +7,12 @@ import { format } from "date-fns";
 export default function FormScheduleEvent() {
   const { formData, setFormData, formScheduleEventErrors } = useFormContext();
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
 
     // Set the value of the end date equal to start date's value when the start date's value is change, but NOT vice versa.
     if (name === "initialDate" && formData.recurring.rate === "noRecurr") {
-      setFormData(prevFormData => ({
+      setFormData((prevFormData) => ({
         ...prevFormData,
         initialDate: value,
         finalDate: value,
@@ -20,7 +20,7 @@ export default function FormScheduleEvent() {
       return;
     }
 
-    setFormData(prevFormData => ({ ...prevFormData, [name]: value }));
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
 
   return (

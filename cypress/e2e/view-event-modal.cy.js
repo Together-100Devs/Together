@@ -17,7 +17,7 @@ describe("View Event Modal", () => {
         const overmorrow = createOffsetDate(tomorrow, "Date", 1);
         const overmorrowAndAnHour = createOffsetDate(overmorrow, "Hours", 1);
 
-        cy.task("generateObjectId").then(groupId =>
+        cy.task("generateObjectId").then((groupId) =>
           cy.createOwnEvents(
             "100_DEVER",
             ...[
@@ -29,7 +29,7 @@ describe("View Event Modal", () => {
                 startAt: overmorrow,
                 endAt: overmorrowAndAnHour,
               },
-            ].map(info => ({
+            ].map((info) => ({
               ...info,
               title: "Test Title",
               description: "Test Description",
@@ -111,7 +111,7 @@ describe("View Event Modal", () => {
       1
     );
 
-    cy.task("generateObjectId").then(groupId =>
+    cy.task("generateObjectId").then((groupId) =>
       cy.createOwnEvents(
         "100_DEVER",
         ...[
@@ -145,7 +145,7 @@ describe("View Event Modal", () => {
             endAt: tomorrowAndAnHour,
             groupId: null,
           },
-        ].map(info => ({
+        ].map((info) => ({
           ...info,
           description: "Test Description",
           location: "Test Location",

@@ -21,7 +21,7 @@ function CalendarHeader({ date }) {
 
   const GH_ISSUES_URL = "https://github.com/Caleb-Cohen/Together/issues";
 
-  const linkToUrl = url => {
+  const linkToUrl = (url) => {
     window.open(url, "_blank");
   };
 

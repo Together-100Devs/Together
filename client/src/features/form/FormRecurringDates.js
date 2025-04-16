@@ -18,12 +18,12 @@ export default function FormRecurringDates() {
   }, [formData.recurring, formData.recurring.rate]);
 
   // This handles the value change when a recurrence rate checkbox is selected
-  const handleDaysOfWeekChange = e => {
+  const handleDaysOfWeekChange = (e) => {
     const { value } = e.target;
 
     //if day is already checked, uncheck it
     if (formData.recurring.days.includes(value)) {
-      formData.recurring.days = formData.recurring.days.filter(day => {
+      formData.recurring.days = formData.recurring.days.filter((day) => {
         return day !== value;
       });
     } else {
@@ -34,7 +34,7 @@ export default function FormRecurringDates() {
   };
 
   // This handles the value change when a day of the week for a weekly recurring event is selected
-  const handleRateChange = e => {
+  const handleRateChange = (e) => {
     const { name } = e.target;
 
     // Handle the rates of occurunces
