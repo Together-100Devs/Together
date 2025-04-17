@@ -22,7 +22,7 @@ module.exports = {
   rules: {
     eqeqeq: "error",
     "object-curly-spacing": ["error", "always"],
-    "no-unused-vars": ["warn", { argsIgnorePattern: "(^_$)|(^index$)" }],
+    "no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
     "no-console": 0,
     "react/prop-types": 0,
     "react/jsx-indent": [2, 2],
