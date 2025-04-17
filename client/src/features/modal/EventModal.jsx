@@ -12,7 +12,7 @@ import { useAuthContext } from "contexts/AuthContext";
 import { useEventsContext } from "contexts/EventsContext";
 
 const EventModal = () => {
-  const { events, setEvents, cache } = useEventsContext();
+  const { setEvents } = useEventsContext();
   const modal = useModalContext();
   //grabs user compares user from context and event author
   //displays delete buttons if true
@@ -34,12 +34,10 @@ const EventModal = () => {
             dataService
               .deleteEvent(modal.activeEvent._id)
               .then(modal.handleClose)
-              .then(
-                // eslint-disable-next-line
-                () =>
-                  setEvents((prev) =>
-                    prev.filter((el) => el._id !== modal.activeEvent._id)
-                  )
+              .then(() =>
+                setEvents((prev) =>
+                  prev.filter((el) => el._id !== modal.activeEvent._id)
+                )
               )
           }
         >
@@ -53,14 +51,10 @@ const EventModal = () => {
             dataService
               .deleteAllEvents(modal.activeEvent.groupId)
               .then(modal.handleClose)
-              .then(
-                // eslint-disable-next-line
-                () =>
-                  setEvents((prev) =>
-                    prev.filter(
-                      (el) => el.groupId !== modal.activeEvent.groupId
-                    )
-                  )
+              .then(() =>
+                setEvents((prev) =>
+                  prev.filter((el) => el.groupId !== modal.activeEvent.groupId)
+                )
               )
           }
         >
