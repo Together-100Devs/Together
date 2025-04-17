@@ -71,7 +71,7 @@
     "jsbi": "^4.3.0",
     "json-server": "^0.17.1",
     "lint-staged": "^13.1.2",
-    "mongodb-memory-server": "^8.10.1",
+    "mongodb-memory-server": "^10.1.4",
     "nock": "^13.2.9",
     "nodemon": "^2.0.20",
     "nyc": "^15.1.0",
