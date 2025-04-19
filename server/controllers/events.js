@@ -1,7 +1,6 @@
 const { Event } = require("../models/Event");
 const httpError = require("../utilities/httpError");
 const { createEventsArray } = require("../utilities/createEventsArray");
-require("express-async-errors");
 
 module.exports = {
   create: async (req, res) => {
