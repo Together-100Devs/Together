@@ -65,7 +65,6 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "formidable": "^2.1.2",
     "framer-motion": "^8.5.0",
-    "http-proxy-middleware": "^2.0.6",
     "husky": "^8.0.3",
     "jest": "^27.5.1",
     "jsbi": "^4.3.0",
