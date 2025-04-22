@@ -1,9 +1,6 @@
-import { useRoutingContext } from "contexts/RoutingContext";
-
 import { useNavigate } from "react-router-dom";
 
 export default function NavButtons404({ HomeIcon, CalendarIcon }) {
-  const routing = useRoutingContext();
   const navigate = useNavigate();
   return (
     <>
