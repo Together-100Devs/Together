@@ -21,7 +21,7 @@ This issue has been opened specifically to give 100Devs members a chance to get 
 - Fork the Together repository.
 - Navigate to the development branch using `git checkout development`.
 - Create a new branch using `git checkout -b your-branch-name-here`.
-- If you have questions, more instructions about this can be found in our [contributing document.](https://github.com/CalebCohen/Together/blob/development/.github/CONTRIBUTING.md)
+- If you have questions, more instructions about this can be found in our [contributing document.](https://github.com/Together-100Devs/Together/blob/development/.github/CONTRIBUTING.md)
 
 ### Setting up a local server
 
@@ -29,7 +29,7 @@ This issue has been opened specifically to give 100Devs members a chance to get 
 - Execute `npm run dev-concurrent` in a vscode terminal.
 - If you get errors, you may have to do one of the following:
 - Delete your node_modules folder and then run `npm i`
-- Make sure you have a .env file with the [necessary secrets](https://github.com/Caleb-Cohen/Together/wiki/02---Onboarding)
+- Make sure you have a .env file with the [necessary secrets](https://github.com/Together-100Devs/Together/wiki/02---Onboarding)
 
 ### What you need to do
 
