@@ -20,7 +20,7 @@
 <br>
 
 <h1 align="center">
-  <a href="https://together.cyclic.app/">
+  <a href="https://together.rocks/">
     <img src="docs/images/logo.png" alt="Together logo" width="140">
   </a>
 </h1>
@@ -35,7 +35,7 @@
   ·
   <a href="https://github.com/Together-100Devs/Together/wiki/04-Contributing">Contributing guide</a>
   ·
-  <a href="https://together.cyclic.app/"><strong>Link to project</strong></a>
+  <a href="https://together.rocks/"><strong>Link to project</strong></a>
   ·
   <a href="https://github.com/Together-100Devs/Together/issues">Request an issue</a>
   ·
