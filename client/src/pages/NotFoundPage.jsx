@@ -13,9 +13,9 @@ export default function NotFoundPage() {
         </div>
         <div className="border-solid border-2 border-black rounded-2xl bg-secondary   flex flex-col lg:flex-row w-full min-h-48  p-6">
           <div className=" h-full w-full flex flex-col gap-4 items-center">
-            <h2 className="text-2xl font-bold">
+            <h1 className="text-2xl font-bold">
               Oops, looks like you are lost ...
-            </h2>
+            </h1>
             {/* Home Button */}
             <button
               onClick={() => navigate("/")}
