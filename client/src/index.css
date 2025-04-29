@@ -24,9 +24,3 @@
     --color-accent: 255 132 53;
   }
 }
-
-.modal {
-  width: clamp(10%, 500px, 50%);
-  min-height: 400px;
-  max-height: 100%;
-}
