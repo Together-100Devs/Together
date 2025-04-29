@@ -25,28 +25,26 @@ const Modal = ({ children, context }) => {
   };
 
   return (
-    <div>
-      <AnimatePresence
-        initial={false}
-        exitBeforeEnter={true}
-        onExitComplete={() => null}
-      >
-        {context.isOpen && (
-          <Backdrop onClick={context.handleClose}>
-            <motion.div
-              className="modal overflow-y-auto"
-              onClick={(e) => e.stopPropagation()}
-              variants={dropIn}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-            >
-              {children}
-            </motion.div>
-          </Backdrop>
-        )}
-      </AnimatePresence>
-    </div>
+    <AnimatePresence
+      initial={false}
+      exitBeforeEnter={true}
+      onExitComplete={() => null}
+    >
+      {context.isOpen && (
+        <Backdrop onClick={context.handleClose}>
+          <motion.div
+            className="overflow-y-auto max-h-svh w-[clamp(50%,500px,90%)] md:w-[clamp(10%,500px,50%)] md:min-h-96 md:max-h-full"
+            onClick={(e) => e.stopPropagation()}
+            variants={dropIn}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          >
+            {children}
+          </motion.div>
+        </Backdrop>
+      )}
+    </AnimatePresence>
   );
 };
 
