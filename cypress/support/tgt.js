@@ -7,7 +7,7 @@ const modal = {
    */
   get(delay = this.ANIMATION_DELAY) {
     if (delay) cy.wait(this.ANIMATION_DELAY);
-    return cy.get(".modal");
+    return cy.get('[role="dialog"]');
   },
   /**
    * @param {boolean} backdrop If to close by clicking the backdrop

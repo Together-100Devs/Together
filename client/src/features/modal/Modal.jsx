@@ -39,6 +39,7 @@ const Modal = ({ children, context }) => {
             initial="hidden"
             animate="visible"
             exit="exit"
+            role="dialog"
           >
             {children}
           </motion.div>
