@@ -20,11 +20,11 @@ const WelcomeUserModal = ({ handleClose }) => {
           <img className="w-12 pr-2" src={togetherLogo} alt="" />
         </div>
         <div>
-          <h3>
+          <h2>
             Hello, {auth.user.displayName}, We are happy to welcome you in
             Together. Looks, like you are all set! Cant wait for you to begin
             your journey with us!
-          </h3>
+          </h2>
         </div>
       </div>
     </div>
