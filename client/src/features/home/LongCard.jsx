@@ -1,6 +1,5 @@
-import "../../index.css";
 import DiscordButton from "./DiscordButton";
-import { useAuthContext } from "contexts/AuthContext";
+import { useAuthContext } from "../../contexts/AuthContext";
 
 const LongCard = ({ heading, title, description, img }) => {
   // Access authentication context

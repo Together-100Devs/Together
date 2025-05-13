@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-// components
+import { useState, useEffect } from "react";
 import AllDays from "./AllDays";
 import DayCardList from "./DayCardList";
-// Utility functions
-// For getting real data
-import DataService from "services/dataService";
-import { getMatchMonthAndYear, getEventsByDayNumber } from "utilities/calendar";
+import DataService from "../../services/dataService";
+import {
+  getMatchMonthAndYear,
+  getEventsByDayNumber,
+} from "../../utilities/calendar";
 import { parse } from "date-fns";
-import { useEventsContext } from "contexts/EventsContext";
+import { useEventsContext } from "../../contexts/EventsContext";
 
 const Status = {
   IDLE: "idle",

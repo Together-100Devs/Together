@@ -13,7 +13,9 @@ Cypress.Commands.add(
       },
       (req) =>
         req.redirect(
-          Cypress.config().baseUrl + "/auth/discord/callback?code=" + userCode
+          Cypress.config().baseUrl +
+            "/api/auth/discord/callback?code=" +
+            userCode
         )
     ).as("discordAuthorize");
     cy.contains("button", loginButtonText).click();
@@ -24,7 +26,7 @@ Cypress.Commands.add(
 
 Cypress.Commands.add("createOwnEvents", (userCode, ...events) => {
   cy.login(userCode);
-  cy.request("GET", "/getDisplayName").then(({ body }) => {
+  cy.request("GET", "api/getDisplayName").then(({ body }) => {
     for (const event of events) {
       cy.task("createEvent", {
         ...event,
@@ -37,7 +39,7 @@ Cypress.Commands.add("createOwnEvents", (userCode, ...events) => {
 
 Cypress.Commands.add("deleteOwnGroupEvents", (userCode, groupId) => {
   if (groupId) {
-    cy.request("DELETE", `/events/deleteAllEvents/${groupId}`);
+    cy.request("DELETE", `api/events/deleteAllEvents/${groupId}`);
   }
 
   cy.reload();
@@ -45,10 +47,10 @@ Cypress.Commands.add("deleteOwnGroupEvents", (userCode, groupId) => {
 
 Cypress.Commands.add("deleteOwnEvent", (id) => {
   if (id) {
-    cy.request("DELETE", `/events/${id}`);
+    cy.request("DELETE", `api/events/${id}`);
   }
 });
 
 Cypress.Commands.add("getAllEvents", () => {
-  return cy.request("GET", "/events");
+  return cy.request("GET", "api/events");
 });

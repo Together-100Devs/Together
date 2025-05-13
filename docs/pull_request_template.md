@@ -19,7 +19,7 @@ Please select everything applicable. Please, do not delete any lines.
 # Checklist:
 
 - [ ] This PR is up to date with the main branch, and merge conflicts have been resolved
-- [ ] I have executed `npm run test` and all tests have passed successfully or I have included details within my PR on the failure.
+- [ ] I have executed `npm run test` and `npm run test:e2e` and all tests have passed successfully or I have included details within my PR on the failure.
 - [ ] I have executed `npm run lint` and resolved any outstanding errors. Most issues can be solved by executing `npm run format`
 - [ ] My code follows the style guidelines of this project
 - [ ] I have performed a self-review of my own code
