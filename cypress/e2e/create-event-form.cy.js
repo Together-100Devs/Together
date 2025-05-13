@@ -60,7 +60,10 @@ describe("Event Creation Form", () => {
     tgt.createForm.input.location().type("Test Location");
 
     const maxCharDescription = "a".repeat(281);
-    tgt.createForm.input.description().clear().type(maxCharDescription);
+    tgt.createForm.input
+      .description()
+      .clear()
+      .type(maxCharDescription, { delay: 0 });
     tgt.createForm.button.next().click();
     expectFormErrors(
       "Description must be less than 280 characters. Current character count: 281."
@@ -101,7 +104,7 @@ describe("Event Creation Form", () => {
       tgt.createForm.get(0).contains(string);
     }
 
-    cy.intercept("POST", "/events").as("createEvent");
+    cy.intercept("POST", "api/events").as("createEvent");
 
     tgt.createForm.button.submit().click();
 

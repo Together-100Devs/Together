@@ -21,7 +21,7 @@ module.exports = function (passport) {
         //Get client ID and Secret from discord developer portal
         clientID: process.env.DISCORD_CLIENT_ID,
         clientSecret: process.env.DISCORD_CLIENT_SECRET,
-        callbackURL: "/auth/discord/callback",
+        callbackURL: "api/auth/discord/callback",
         // pulls discord username without email, and returns basic information about all the user's current guilds / servers.
         scope: ["identify", "guilds"],
         passReqToCallback: true,

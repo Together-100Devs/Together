@@ -1,15 +1,13 @@
-import React from "react";
 import { GrCalendar, GrLanguage } from "react-icons/gr";
 import { FaRegClock } from "react-icons/fa";
-// import { IoIosRepeat } from "react-icons/io";
 import { IoLocationOutline, IoPersonOutline } from "react-icons/io5";
 import { format, parseISO } from "date-fns";
-import { formatToLocalTime } from "utilities/calendar";
+import { formatToLocalTime } from "../../utilities/calendar";
 import togetherLogo from "../.././assets/images/togetherLogo.svg";
-import { useModalContext } from "contexts/ModalContext";
+import { useModalContext } from "../../contexts/ModalContext";
 import dataService from "../../services/dataService";
-import { useAuthContext } from "contexts/AuthContext";
-import { useEventsContext } from "contexts/EventsContext";
+import { useAuthContext } from "../../contexts/AuthContext";
+import { useEventsContext } from "../../contexts/EventsContext";
 
 const EventModal = () => {
   const { setEvents } = useEventsContext();
