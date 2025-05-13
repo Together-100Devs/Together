@@ -1,5 +1,4 @@
-import React from "react";
-import EventCard from "features/adminDashboard/EventCard";
+import EventCard from "../adminDashboard/EventCard";
 
 function GroupEventCard({ events }) {
   return (

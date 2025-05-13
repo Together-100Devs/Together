@@ -1,6 +1,6 @@
 import { useState } from "react";
-import DataService from "services/dataService";
-import { useEventsContext } from "contexts/EventsContext";
+import DataService from "../../services/dataService.js";
+import { useEventsContext } from "../EventsContext";
 
 const useProvideForm = () => {
   const { addEvents, cache } = useEventsContext();

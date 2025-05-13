@@ -1,6 +1,5 @@
-import React from "react";
-import { useFormContext } from "contexts/FormContext";
-import { useAuthContext } from "contexts/AuthContext";
+import { useFormContext } from "../../contexts/FormContext";
+import { useAuthContext } from "../../contexts/AuthContext";
 
 export default function FormCreateEvent() {
   const auth = useAuthContext();

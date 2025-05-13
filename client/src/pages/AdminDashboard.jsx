@@ -1,9 +1,7 @@
-import React from "react";
 import { useEffect, useState } from "react";
-import "index.css";
-import DataService from "services/dataService";
-import EventCard from "features/adminDashboard/EventCard";
-import GroupEventCard from "features/adminDashboard/GroupEventCard";
+import DataService from "../services/dataService";
+import EventCard from "../features/adminDashboard/EventCard";
+import GroupEventCard from "../features/adminDashboard/GroupEventCard";
 
 export const AdminDashboard = () => {
   const [singleEvents, setSingleEvents] = useState({});

@@ -1,14 +1,14 @@
-import useDate from "hooks/useDate";
+import useDate from "../hooks/useDate";
 import Calendar from "../features/calendar/Calendar";
 import CalendarHeader from "../features/calendarHeader";
-import FormProvider from "contexts/FormContext";
-import Modal from "features/modal/Modal";
-import UserForm from "features/form/UserForm";
-import { useAuthContext } from "contexts/AuthContext";
-import { useFormModalContext } from "contexts/FormModalContext";
-import EventModal from "features/modal/EventModal";
-import { useModalContext } from "contexts/ModalContext";
-import RejectionModal from "features/modal/RejectionModal";
+import FormProvider from "../contexts/FormContext";
+import Modal from "../features/modal/Modal";
+import UserForm from "../features/form/UserForm";
+import { useAuthContext } from "../contexts/AuthContext";
+import { useFormModalContext } from "../contexts/FormModalContext";
+import EventModal from "../features/modal/EventModal";
+import { useModalContext } from "../contexts/ModalContext";
+import RejectionModal from "../features/modal/RejectionModal";
 import { useRef } from "react";
 
 function CalendarPage() {

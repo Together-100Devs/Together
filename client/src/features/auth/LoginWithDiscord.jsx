@@ -1,5 +1,4 @@
-import React from "react";
-import { useAuthContext } from "contexts/AuthContext";
+import { useAuthContext } from "../../contexts/AuthContext";
 
 const LoginWithDiscord = ({ DiscordIcon }) => {
   const auth = useAuthContext();
@@ -7,7 +6,7 @@ const LoginWithDiscord = ({ DiscordIcon }) => {
   // If user is not authenticated; Render login button
   if (!auth.isAuthenticated()) {
     return (
-      <form action="/auth/discord">
+      <form action="/api/auth/discord">
         <button
           className="flex items-center justify-center tracking-widest gap-3"
           type="submit"

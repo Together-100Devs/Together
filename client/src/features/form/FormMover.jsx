@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useFormContext } from "contexts/FormContext";
+import { useEffect, useState } from "react";
+import { useFormContext } from "../../contexts/FormContext";
 
 // newStep (state) initial data example (fig: 1):
 // {

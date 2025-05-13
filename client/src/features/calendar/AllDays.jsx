@@ -1,5 +1,3 @@
-import React from "react";
-
 const AllDays = () => {
   return (
     <div className="grid grid-cols-7 mt-4">

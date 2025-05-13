@@ -46,7 +46,7 @@ async function asGuest(callback, agent = null) {
     process.env.MOCK_USER = "false";
 
     if (agent) {
-      await request.agent(app).get("/auth/logout");
+      await request.agent(app).get("api/auth/logout");
     }
 
     return await callback();

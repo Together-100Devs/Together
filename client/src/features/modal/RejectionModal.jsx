@@ -1,5 +1,3 @@
-import React from "react";
-//import { Context } from "contexts/Context";
 import togetherLogo from "../.././assets/images/togetherLogo.svg";
 
 const RejectionModal = ({ handleClose }) => {
