@@ -17,9 +17,11 @@ function CalendarPage() {
   const formModal = useFormModalContext();
   const modal = useModalContext();
   const canScrollMonthRef = useRef(true);
+  const scrollEndTimeoutRef = useRef(null);
 
   const handleWheelScroll = (e) => {
     if (!canScrollMonthRef.current) return;
+
     canScrollMonthRef.current = false;
 
     if (e.deltaY > 0) {
@@ -27,9 +29,14 @@ function CalendarPage() {
     } else {
       date.getPreviousMonth();
     }
-    setTimeout(() => {
+
+    if (scrollEndTimeoutRef.current) {
+      clearTimeout(scrollEndTimeoutRef.current);
+    }
+
+    scrollEndTimeoutRef.current = setTimeout(() => {
       canScrollMonthRef.current = true;
-    }, 200);
+    }, 800);
   };
 
   return (
