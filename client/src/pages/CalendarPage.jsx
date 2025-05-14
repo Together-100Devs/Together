@@ -22,6 +22,7 @@ function CalendarPage() {
   const handleWheelScroll = (e) => {
     if (!canScrollMonthRef.current) return;
 
+    // Immediately lock further scrolling to prevent multiple month changes
     canScrollMonthRef.current = false;
 
     if (e.deltaY > 0) {
@@ -30,10 +31,12 @@ function CalendarPage() {
       date.getPreviousMonth();
     }
 
+    // This ensures we only have one active timeout at any time
     if (scrollEndTimeoutRef.current) {
       clearTimeout(scrollEndTimeoutRef.current);
     }
 
+    // This creates a "cooldown" period between scroll actions
     scrollEndTimeoutRef.current = setTimeout(() => {
       canScrollMonthRef.current = true;
     }, 800);
