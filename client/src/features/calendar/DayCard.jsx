@@ -1,9 +1,7 @@
-import { isSameDay, format, compareAsc } from "date-fns";
-import React from "react";
 import Event from "./Event";
-import { useFormModalContext } from "contexts/FormModalContext";
-import { useFormContext } from "contexts/FormContext";
-import startOfDay from "date-fns/startOfDay";
+import { useFormModalContext } from "../../contexts/FormModalContext";
+import { useFormContext } from "../../contexts/FormContext";
+import { isSameDay, format, compareAsc, startOfDay } from "date-fns";
 
 const DayCard = ({ date, events }) => {
   const { setFormData } = useFormContext();

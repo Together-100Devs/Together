@@ -63,7 +63,7 @@ const addTestEvents = (test_events) => {
     cy.createOwnEvents(TEST_EVENT_AUTHOR, ...test_events);
 
     // Close event creation modal
-    tgt.modal.close();
+    tgt.modal.close(0);
 
     // Return to original URL
     cy.visit(return_url);

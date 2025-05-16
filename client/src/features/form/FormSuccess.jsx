@@ -1,7 +1,8 @@
-// This component is meant to be shown when the event is successfully been added to the calendar.
-//Import form context
-import { useFormContext } from "contexts/FormContext";
+import { useFormContext } from "../../contexts/FormContext";
 
+/**
+ * This component is displayed when the event has been successfully added to the calendar.
+ */
 export default function FormSuccess() {
   const form = useFormContext();
   return (

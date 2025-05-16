@@ -7,7 +7,12 @@ module.exports = {
     browser: true,
     "cypress/globals": true,
   },
-  extends: ["eslint:recommended", "plugin:react/recommended", "prettier"],
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier", // Leave this at the end - See https://github.com/prettier/eslint-config-prettier?tab=readme-ov-file#installation
+  ],
   globals: {
     jest: true,
   },
@@ -18,11 +23,11 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "react-hooks", "cypress"],
+  plugins: ["react", "react-hooks", "react-refresh", "cypress"],
   rules: {
     eqeqeq: "error",
     "object-curly-spacing": ["error", "always"],
-    "no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+    "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
     "no-console": 0,
     "react/prop-types": 0,
     "react/jsx-indent": [2, 2],
