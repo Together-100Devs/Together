@@ -9,7 +9,7 @@ updates:
       interval: 'weekly'
 
   - package-ecosystem: 'npm'
-    directories: '/', '/client', '/server'
+    directory: '/'
     schedule:
       interval: 'weekly'
 
