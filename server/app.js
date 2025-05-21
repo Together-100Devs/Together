@@ -67,8 +67,8 @@ if (["development", "test"].includes(process.env.NODE_ENV)) {
 app.use(flash());
 
 //Setup Routes For Which The Server Is Listening
-app.use("/", mainRoutes);
-app.use("/events", eventsRoutes);
+app.use("/api/", mainRoutes);
+app.use("/api/events", eventsRoutes);
 app.get("/{*splat}", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
 });

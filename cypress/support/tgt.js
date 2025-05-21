@@ -1,23 +1,15 @@
 /// <reference types="cypress" />
 
 const modal = {
-  ANIMATION_DELAY: Cypress.env("CYPRESS_NO_DELAYS") ? 0 : 1000,
-  /**
-   * @param {number} delay Delay while waiting for animation, none if 0
-   */
-  get(delay = this.ANIMATION_DELAY) {
-    if (delay) cy.wait(this.ANIMATION_DELAY);
+  get() {
     return cy.get('[role="dialog"]');
   },
   /**
    * @param {boolean} backdrop If to close by clicking the backdrop
-   * @param {number} delay Delay while waiting for animation, none if 0
    */
-  close(backdrop, delay = this.ANIMATION_DELAY) {
+  close(backdrop) {
     if (backdrop) this.get().parent().click("right");
     else this.get().contains("button", "Close").click();
-
-    if (delay) cy.wait(delay);
   },
 };
 

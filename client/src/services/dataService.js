@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const URL = axios.create({
+  baseURL: "/api",
   withCredentials: true,
 });
 

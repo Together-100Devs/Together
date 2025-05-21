@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import Modal from "features/modal/Modal";
-import RejectionModal from "features/modal/RejectionModal";
-import WelcomeUserModal from "features/modal/WelcomeUserModal";
-import { useAuthContext } from "contexts/AuthContext";
-import LandingPage from "pages/LandingPage";
-import CalendarPage from "pages/CalendarPage";
-import NotFoundPage from "pages/NotFoundPage";
-import { AdminDashboard } from "pages/AdminDashboard";
+import { useEffect, useState } from "react";
+import Modal from "./features/modal/Modal";
+import RejectionModal from "./features/modal/RejectionModal";
+import WelcomeUserModal from "./features/modal/WelcomeUserModal";
+import { useAuthContext } from "./contexts/AuthContext";
+import LandingPage from "./pages/LandingPage";
+import CalendarPage from "./pages/CalendarPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import { AdminDashboard } from "./pages/AdminDashboard";
 import { Routes, Route } from "react-router-dom";
 
 function App() {

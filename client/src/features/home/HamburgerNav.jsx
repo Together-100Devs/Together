@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { useAuthContext } from "contexts/AuthContext";
+import { useAuthContext } from "../../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 function HamburgerNav({ logo, logotext }) {
@@ -13,7 +13,7 @@ function HamburgerNav({ logo, logotext }) {
   ];
 
   if (!isAuthenticated()) {
-    Links.push({ name: "LOG IN", link: "/auth/discord", type: "a" });
+    Links.push({ name: "LOG IN", link: "api/auth/discord", type: "a" });
   } else {
     Links.push({ name: "LOG OUT", onClick: logout, type: "button" });
   }

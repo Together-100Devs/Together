@@ -1,6 +1,4 @@
-import React from "react";
-//import { Context } from "contexts/Context";
-import { useAuthContext } from "contexts/AuthContext";
+import { useAuthContext } from "../../contexts/AuthContext";
 import togetherLogo from "../.././assets/images/togetherLogo.svg";
 
 const WelcomeUserModal = ({ handleClose }) => {

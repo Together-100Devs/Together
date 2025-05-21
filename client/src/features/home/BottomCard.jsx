@@ -1,14 +1,13 @@
-import "../../index.css";
 import { FaGithub } from "react-icons/fa";
 
 const BottomCard = ({ heading, title, description, img }) => (
   <section className="border-solid border-2 border-black rounded-2xl bg-secondary flex justify-center py-6 flex-col lg:flex-row xl:gap-10 w-full">
     <div className="flex flex-col items-center gap-8 text-center w-full lg:max-w-xl">
       <h2 className="text-2xl font-bold lg:text-3xl xl:text-4xl">{heading}</h2>
-      <p className="px-10 font-medium">
+      <div className="px-10">
+        <span className="font-medium">{description}</span>
         <span className="font-bold">{title}</span>
-        {description}
-      </p>
+      </div>
       <div className="flex flex-col items-center gap-1">
         <span className="font-semibold text-center">
           Interested in collaborating with us?
