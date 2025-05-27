@@ -26,8 +26,19 @@ const LandingPage = () => {
     },
     {
       heading: "Contributing to Together",
-      description:
-        "We are currently working on video resources for individuals that would like to learn more about how to contribute to Together and how Together works. Follow along on our Youtube when it is ready!",
+      description: (
+        <>
+          Join our community on Discord, and read through our Contributing
+          Guidelines{" "}
+          <a
+            className="underline font-bold"
+            href="https://github.com/Together-100Devs/Together/wiki/04-Contributing"
+          >
+            (link to the wiki)
+          </a>{" "}
+          to begin contributing to the app.
+        </>
+      ),
     },
     {
       heading: "Community Taught",
