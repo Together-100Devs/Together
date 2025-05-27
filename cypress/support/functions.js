@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+import { format } from "date-fns";
 
 export const ensureInMiddleOfMonthAndDay = () => {
   let now = new Date();
@@ -23,12 +24,7 @@ export const getMonthAndYear = (date = new Date()) => {
 };
 
 export const getHoursAndMinutes = (date) => {
-  return date
-    .toLocaleString("default", {
-      hour: "numeric",
-      minute: "2-digit",
-    })
-    .replace(/\s/gi, " ");
+  return format(date, "p");
 };
 
 export const createOffsetDate = (date, what, amount) => {

@@ -1,5 +1,3 @@
-import React from "react";
-import "index.css";
 import LongCard from "../features/home/LongCard";
 import BottomCard from "../features/home/BottomCard";
 import NavContainer from "../features/home/NavContainer";
