@@ -148,7 +148,7 @@ describe("event routes", () => {
     });
 
     it("should allow moderator to delete any event", async () => {
-      // create regular (non moderator) user
+      // create regular (non moderator) user to create event
       const regularUser = await testDb.createUser({ isModerator: false });
       const eventRes = await request(app)
         .post("/events")
@@ -163,16 +163,21 @@ describe("event routes", () => {
         .set("user", moderator);
 
       expect(resDel.statusCode).toBe(204);
+
+      // verify event was deleted
+      const resGet = await request(app).get("/events");
+      expect(resGet.body).toHaveLength(0);
     });
 
     it("should prevent non-moderator from deleting other's events", async () => {
+      // create an event as a regular user
       const user1 = await testDb.createUser();
       const eventRes = await request(app)
         .post("/events")
         .set("user", user1)
         .send(validFormDataNonRecurr);
 
-      // try to delete as second user
+      // try to delete the event as second non-moderator user
       const user2 = await testDb.createUser();
       const { _id } = eventRes.body.events[0];
       const resDel = await request(app)
