@@ -58,8 +58,17 @@ module.exports = {
   deleteEvent: async (req, res) => {
     const { id } = req.params;
 
-    // Prevent users that are authenticated from deleting events they do not author.
-    const event = await Event.findOne({ _id: id, user: req.user._id });
+    let event;
+
+    if (req.user.isModerator) {
+      event = await Event.findById(id);
+    } else {
+      // Prevent users that are authenticated from deleting events they do not author.
+      event = await Event.findOne({ _id: id, user: req.user._id });
+    }
+
+    // if user has the ismoderator flag, allow them to delete any event
+
     if (!event) {
       throw httpError(404);
     }
