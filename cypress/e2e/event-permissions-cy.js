@@ -8,6 +8,8 @@ import tgt from "../support/tgt";
 
 describe("Event Permissions", () => {
   beforeEach(() => {
+    cy.task("clearDb");
+
     const now = ensureInMiddleOfMonthAndDay();
     const tomorrow = createOffsetDate(now, "Date", 1);
     const tomorrowAndAnHour = createOffsetDate(tomorrow, "Hours", 1);
