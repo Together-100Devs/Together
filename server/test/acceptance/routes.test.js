@@ -146,6 +146,41 @@ describe("event routes", () => {
       const resDel = await request(app).delete(`/events/${_id}`);
       expect(resDel.statusCode).toBe(404);
     });
+
+    it("should allow moderator to delete any event", async () => {
+      // create regular (non moderator) user
+      const regularUser = await testDb.createUser({ isModerator: false });
+      const eventRes = await request(app)
+        .post("/events")
+        .set("user", regularUser)
+        .send(validFormDataNonRecurr);
+
+      // delete as moderator
+      const moderator = await testDb.createUser({ isModerator: true });
+      const { _id } = eventRes.body.events[0];
+      const resDel = await request(app)
+        .delete(`/events/${_id}`)
+        .set("user", moderator);
+
+      expect(resDel.statusCode).toBe(204);
+    });
+
+    it("should prevent non-moderator from deleting other's events", async () => {
+      const user1 = await testDb.createUser();
+      const eventRes = await request(app)
+        .post("/events")
+        .set("user", user1)
+        .send(validFormDataNonRecurr);
+
+      // try to delete as second user
+      const user2 = await testDb.createUser();
+      const { _id } = eventRes.body.events[0];
+      const resDel = await request(app)
+        .delete(`/events/${_id}`)
+        .set("user", user2);
+
+      expect(resDel.statusCode).toBe(404);
+    });
   });
 
   describe("DELETE /events/deleteAllEvents/:groupId", () => {
