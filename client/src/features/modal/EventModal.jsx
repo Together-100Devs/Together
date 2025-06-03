@@ -12,10 +12,10 @@ import { useEventsContext } from "../../contexts/EventsContext";
 const EventModal = () => {
   const { setEvents } = useEventsContext();
   const modal = useModalContext();
-  //grabs user compares user from context and event author
-  //displays delete buttons if true
   const { user } = useAuthContext();
-  const authorCheck = user && user?._id === modal.activeEvent.user?._id;
+  const canDelete =
+    // if user is author of event, or user is moderator, they can delete an event
+    (user && user?._id === modal.activeEvent.user?._id) || user?.isModerator;
 
   return (
     <div className="flex flex-col items-center py-0 px-2rem rounded-xl bg-white pb-4">
@@ -25,7 +25,7 @@ const EventModal = () => {
       >
         Close
       </button>
-      {authorCheck && (
+      {canDelete && (
         <button
           className="w-auto h-12 mt-5 px-2 border-solid border-2 border-gray outline-hidden rounded-sm font-semibold text-xl hover:bg-teal-600 active:bg-teal-700 focus:outline-hidden focus:ring-3 focus:ring-teal-300"
           onClick={() =>
@@ -42,7 +42,7 @@ const EventModal = () => {
           Delete Specific Event
         </button>
       )}
-      {authorCheck && modal.activeEvent.groupId && (
+      {canDelete && modal.activeEvent.groupId && (
         <button
           className="w-auto h-10 mt-5 px-2 border-solid border-2 border-gray outline-hidden rounded-sm font-semibold text-xl hover:bg-teal-600 active:bg-teal-700 focus:outline-hidden focus:ring-3 focus:ring-teal-300 inline-block"
           onClick={() =>
