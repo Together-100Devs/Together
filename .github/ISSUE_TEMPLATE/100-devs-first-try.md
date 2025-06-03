@@ -26,10 +26,10 @@ This issue has been opened specifically to give 100Devs members a chance to get 
 ### Setting up a local server
 
 - Execute `npm install`
-- Execute `npm run dev-concurrent` in a vscode terminal.
+- Execute `npm run dev` in a terminal.
 - If you get errors, you may have to do one of the following:
-- Delete your node_modules folder and then run `npm i`
-- Make sure you have a .env file with the [necessary secrets](https://github.com/Together-100Devs/Together/wiki/02---Onboarding)
+  - Run `npm ci`
+  - Make sure you have a .env file with the [necessary secrets](https://github.com/Together-100Devs/Together/wiki/02---Onboarding)
 
 ### What you need to do
 

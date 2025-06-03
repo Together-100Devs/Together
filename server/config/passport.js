@@ -21,7 +21,7 @@ module.exports = function (passport) {
         //Get client ID and Secret from discord developer portal
         clientID: process.env.DISCORD_CLIENT_ID,
         clientSecret: process.env.DISCORD_CLIENT_SECRET,
-        callbackURL: "/auth/discord/callback",
+        callbackURL: "/api/auth/discord/callback",
         // pulls discord username without email, and returns basic information about all the user's current guilds / servers.
         scope: ["identify", "guilds"],
         passReqToCallback: true,
@@ -49,6 +49,7 @@ module.exports = function (passport) {
               displayName: displayName,
               discordId: profile.id,
               avatar: profile.avatar,
+              isModerator: false,
               socials: [],
               bio: "",
               needsToBeWelcome: true,
@@ -56,7 +57,7 @@ module.exports = function (passport) {
 
             return cb(null, user);
           } else {
-            // it user already exists, update display name and avatar
+            // if user already exists, update display name and avatar
             user.displayName = displayName;
             user.avatar = profile.avatar;
             const updatedUser = await user.save();

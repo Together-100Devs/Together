@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import DataService from "services/dataService";
+import DataService from "../../services/dataService.js";
 import { useNavigate } from "react-router-dom";
 
 // Everything related to the user context will be inside of here: (CRUD)
@@ -13,7 +13,6 @@ const useProvideAuth = () => {
   useEffect(() => {
     // If so, save user's information to the context
     DataService.getCurrentUser().then((response) => {
-      console.log(response.data);
       setUser(response.data);
     });
   }, []);

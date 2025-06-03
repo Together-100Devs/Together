@@ -1,23 +1,21 @@
-import React from "react";
 import { GrCalendar, GrLanguage } from "react-icons/gr";
 import { FaRegClock } from "react-icons/fa";
-// import { IoIosRepeat } from "react-icons/io";
 import { IoLocationOutline, IoPersonOutline } from "react-icons/io5";
 import { format, parseISO } from "date-fns";
-import { formatToLocalTime } from "utilities/calendar";
+import { formatToLocalTime } from "../../utilities/calendar";
 import togetherLogo from "../.././assets/images/togetherLogo.svg";
-import { useModalContext } from "contexts/ModalContext";
+import { useModalContext } from "../../contexts/ModalContext";
 import dataService from "../../services/dataService";
-import { useAuthContext } from "contexts/AuthContext";
-import { useEventsContext } from "contexts/EventsContext";
+import { useAuthContext } from "../../contexts/AuthContext";
+import { useEventsContext } from "../../contexts/EventsContext";
 
 const EventModal = () => {
   const { setEvents } = useEventsContext();
   const modal = useModalContext();
-  //grabs user compares user from context and event author
-  //displays delete buttons if true
   const { user } = useAuthContext();
-  const authorCheck = user && user?._id === modal.activeEvent.user?._id;
+  const canDelete =
+    // if user is author of event, or user is moderator, they can delete an event
+    (user && user?._id === modal.activeEvent.user?._id) || user?.isModerator;
 
   return (
     <div className="flex flex-col items-center py-0 px-2rem rounded-xl bg-white pb-4">
@@ -27,7 +25,7 @@ const EventModal = () => {
       >
         Close
       </button>
-      {authorCheck && (
+      {canDelete && (
         <button
           className="w-auto h-12 mt-5 px-2 border-solid border-2 border-gray outline-none rounded font-semibold text-xl hover:bg-teal-600 active:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-300"
           onClick={() =>
@@ -44,7 +42,7 @@ const EventModal = () => {
           Delete Specific Event
         </button>
       )}
-      {authorCheck && modal.activeEvent.groupId && (
+      {canDelete && modal.activeEvent.groupId && (
         <button
           className="w-auto h-10 mt-5 px-2 border-solid border-2 border-gray outline-none rounded font-semibold text-xl hover:bg-teal-600 active:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-300 inline-block"
           onClick={() =>
