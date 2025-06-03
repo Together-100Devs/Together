@@ -2,7 +2,6 @@
 
 const { deleteEvent } = require("../../controllers/events");
 const { Event } = require("../../models/Event");
-const httpError = require("../../utilities/httpError");
 
 jest.mock("../../models/Event");
 const mockedEvent = jest.mocked(Event);
@@ -32,6 +31,21 @@ describe("Event controller", () => {
       await deleteEvent(req, res);
 
       expect(mockedEvent.findById).toHaveBeenCalled("123");
+      expect(res.sendStatus).toHaveBeenCalledWith(204);
+    });
+
+    test("allows users to delete their own events", async () => {
+      req.user.isModerator = false;
+      const mockEvent = { _id: "123", user: "user123" };
+      mockedEvent.findOne.mockResolvedValue(mockEvent);
+      mockedEvent.findByIdAndDelete.mockResolvedValue({});
+
+      await deleteEvent(req, res);
+
+      expect(mockedEvent.findOne).toHaveBeenCalledWith({
+        _id: "123",
+        user: "user123",
+      });
       expect(res.sendStatus).toHaveBeenCalledWith(204);
     });
 
