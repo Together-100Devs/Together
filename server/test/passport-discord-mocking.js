@@ -76,6 +76,7 @@ const RESPONSES = {
       id: "4",
       username: "Moderator",
       discriminator: "0004",
+      isModerator: true,
     },
     "/users/@me/guilds": [
       {
