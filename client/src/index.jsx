@@ -1,11 +1,11 @@
-import React from "react";
 import "./index.css";
 import App from "./App";
-import AuthProvider from "contexts/AuthContext";
-import RoutingProvider from "contexts/RoutingContext";
-import ModalProvider from "contexts/ModalContext";
-import EventsProvider from "contexts/EventsContext";
-import FormModalProvider from "contexts/FormModalContext";
+import React from "react";
+import AuthProvider from "./contexts/AuthContext";
+import RoutingProvider from "./contexts/RoutingContext";
+import ModalProvider from "./contexts/ModalContext";
+import EventsProvider from "./contexts/EventsContext";
+import FormModalProvider from "./contexts/FormModalContext";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
 

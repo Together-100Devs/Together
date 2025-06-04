@@ -1,11 +1,11 @@
-import { useFormContext } from "contexts/FormContext";
+import { useFormContext } from "../../contexts/FormContext";
 import FormMover from "./FormMover";
 import FormMoverControl from "./FormMoverControl";
 import FormCreateEvent from "./FormCreateEvent";
 import FormScheduleEvent from "./FormScheduleEvent";
 import FormConfirm from "./FormConfirm";
 import FormSuccess from "./FormSuccess";
-import { useFormModalContext } from "contexts/FormModalContext";
+import { useFormModalContext } from "../../contexts/FormModalContext";
 
 // This is the code for the form where you add events to the calendar
 const UserForm = () => {

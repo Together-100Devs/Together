@@ -1,7 +1,6 @@
-import "index.css";
 import { useNavigate } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
-import LogoContainer from "features/home/LogoContainer";
+import LogoContainer from "../features/home/LogoContainer";
 
 export default function NotFoundPage() {
   const navigate = useNavigate();

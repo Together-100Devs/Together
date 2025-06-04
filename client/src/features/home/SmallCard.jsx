@@ -1,5 +1,3 @@
-import "../../index.css";
-
 const SmallCard = ({ heading, description, index }) => {
   let cardColors = ["bg-[#3EA6D7]", "bg-[#5ABABE]", "bg-[#E0835D]"];
   let colorIndex = (index + 1) % cardColors.length;
