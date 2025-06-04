@@ -30,7 +30,7 @@ describe("Event controller", () => {
 
       await deleteEvent(req, res);
 
-      expect(mockedEvent.findById).toHaveBeenCalled("123");
+      expect(mockedEvent.findById).toHaveBeenCalledWith("123");
       expect(res.sendStatus).toHaveBeenCalledWith(204);
     });
 
