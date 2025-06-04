@@ -1,5 +1,6 @@
 const request = require("supertest");
 const app = require("../../app");
+const mockDiscordResponses = require("../passport-discord-mocking");
 const {
   validFormDataNonRecurr,
   validFormDataRecurr,
@@ -13,6 +14,7 @@ describe("event routes", () => {
 
   beforeEach(async () => {
     await testDb.setUp();
+    mockDiscordResponses();
   });
 
   afterEach(async () => {
@@ -153,18 +155,15 @@ describe("event routes", () => {
 
     it("should allow moderator to delete any event", async () => {
       // create regular (non moderator) user to create event
-      const regularUser = await testDb.createUser({ isModerator: false });
       const eventRes = await request(app)
-        .post("/events")
-        .set("user", regularUser)
+        .post("/api/events")
+        .set("Authorization", "100_DEVER")
         .send(validFormDataNonRecurr);
 
       // delete as moderator
-      const moderator = await testDb.createUser({ isModerator: true });
-      const { _id } = eventRes.body.events[0];
       const resDel = await request(app)
-        .delete(`/events/${_id}`)
-        .set("user", moderator);
+        .delete(`/api/events/${eventRes.body.events[0]._id}`)
+        .set("Authorization", "MODERATOR_USER");
 
       expect(resDel.statusCode).toBe(204);
 

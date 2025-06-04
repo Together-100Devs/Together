@@ -51,7 +51,7 @@ describe("Event controller", () => {
 
     test("returns 404 when event is not found", async () => {
       req.user.isModerator = false;
-      mockedEvent.findOne.mockRejectedValue(null);
+      mockedEvent.findOne.mockResolvedValue(null);
 
       await expect(deleteEvent(req, res)).rejects.toThrow();
     });
