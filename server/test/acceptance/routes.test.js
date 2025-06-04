@@ -167,25 +167,22 @@ describe("event routes", () => {
 
       expect(resDel.statusCode).toBe(204);
 
-      // verify event was deleted
-      const resGet = await request(app).get("/events");
+      // verify deletion
+      const resGet = await request(app).get("/api/events");
       expect(resGet.body).toHaveLength(0);
     });
 
     it("should prevent non-moderator from deleting other's events", async () => {
       // create an event as a regular user
-      const user1 = await testDb.createUser();
       const eventRes = await request(app)
-        .post("/events")
-        .set("user", user1)
+        .post("/api/events")
+        .set("Authorization", "100_DEVER")
         .send(validFormDataNonRecurr);
 
       // try to delete the event as second non-moderator user
-      const user2 = await testDb.createUser();
-      const { _id } = eventRes.body.events[0];
       const resDel = await request(app)
-        .delete(`/events/${_id}`)
-        .set("user", user2);
+        .delete(`/api/events/${eventRes.body.events[0]._id}`)
+        .set("Authorization", "SECOND_100_DEVER");
 
       expect(resDel.statusCode).toBe(404);
     });
