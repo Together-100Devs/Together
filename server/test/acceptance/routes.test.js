@@ -155,46 +155,46 @@ describe("event routes", () => {
 
     it("should allow moderator to delete any event", async () => {
       // create regular (non moderator) user to create event
-      const eventRes = await request(app)
+      const createEventRes = await request(app)
         .post("/api/events")
         .set("Authorization", "100_DEVER")
         .send(validFormDataNonRecurr);
+      const event = createEventRes.body.events[0];
 
       // delete as moderator
       const resDel = await request(app)
-        .delete(`/api/events/${eventRes.body.events[0]._id}`)
+        .delete(`/api/events/${event._id}`)
         .set("Authorization", "MODERATOR_USER");
-
       expect(resDel.statusCode).toBe(204);
 
       // verify deletion
-      const resGet = await request(app).get("/api/events");
-      expect(resGet.body).toHaveLength(0);
+      const getRes = await request(app).get("/api/events");
+      expect(getRes.body).toHaveLength(0);
     });
 
     it("should prevent non-moderator from deleting other's events", async () => {
       // create an event as a regular user
-      const eventRes = await request(app)
+      const createEventRes = await request(app)
         .post("/api/events")
         .set("Authorization", "100_DEVER")
         .send(validFormDataNonRecurr);
+      const event = createEventRes.body.events[0];
 
       // try to delete the event as second non-moderator user
-      const resDel = await request(app)
-        .delete(`/api/events/${eventRes.body.events[0]._id}`)
+      const deleteRes = await request(app)
+        .delete(`/api/events/${event._id}`)
         .set("Authorization", "SECOND_100_DEVER");
-
-      expect(resDel.statusCode).toBe(404);
+      expect(deleteRes.statusCode).toBe(404);
     });
   });
 
   describe("DELETE /api/events/deleteAllEvents/:groupId", () => {
     it("should return 404 if no events found", async () => {
       const groupId = "1234";
-      const resDel = await request(app).delete(
-        `/api/events/deleteAllEvents/${groupId}`
-      );
-      expect(resDel.statusCode).toBe(404);
+      const deleteRes = await request(app)
+        .delete(`/api/events/deleteAllEvents/${groupId}`)
+        .set("Authorization", "100_DEVER");
+      expect(deleteRes.statusCode).toBe(404);
     });
 
     it("should delete events if they exist and return 204 on success", async () => {
