@@ -58,16 +58,24 @@ module.exports = {
   deleteEvent: async (req, res) => {
     const { id } = req.params;
 
-    let event;
-
-    if (req.user.isModerator) {
-      event = await Event.findById(id);
-    } else {
-      // Prevent users that are authenticated from deleting events they do not author.
-      event = await Event.findOne({ _id: id, user: req.user._id });
+    /* istanbul ignore next */
+    if (process.env.NODE_ENV === "test") {
+      console.log("Delete event request:", {
+        userId: req.user._id,
+        isModerator: req.user.isModerator,
+        eventId: id,
+      });
     }
 
-    // if user has the ismoderator flag, allow them to delete any event
+    let event;
+
+    if (!req.user.isModerator) {
+      // Prevent users that are authenticated from deleting events they do not author.
+      event = await Event.findOne({ _id: id, user: req.user._id });
+    } else {
+      // Moderators can delete any event
+      event = await Event.findById(id);
+    }
 
     if (!event) {
       throw httpError(404);
