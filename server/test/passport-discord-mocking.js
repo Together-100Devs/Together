@@ -13,6 +13,7 @@ const RESPONSES = {
       id: "1",
       username: "100Dever",
       discriminator: "0001",
+      isModerator: false,
     },
     "/users/@me/guilds": [
       {
@@ -41,6 +42,7 @@ const RESPONSES = {
       id: "2",
       username: "100Dever2",
       discriminator: "0002",
+      isModerator: false,
     },
     "/users/@me/guilds": [
       {
@@ -61,6 +63,7 @@ const RESPONSES = {
       id: "3",
       username: "John Doe",
       discriminator: "0003",
+      isModerator: false,
     },
     "/users/@me/guilds": [],
   },
