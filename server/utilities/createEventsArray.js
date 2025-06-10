@@ -1,6 +1,5 @@
 "use strict";
-
-const { nanoid } = require("nanoid");
+const crypto = require("node:crypto");
 const { Temporal } = require("@js-temporal/polyfill");
 
 /**
@@ -81,7 +80,7 @@ const createEventsArray = ({
   }
 
   // Recurring events have the same group id. This allows deleting them all at once by this id.
-  const groupId = rate === "noRecurr" ? null : nanoid();
+  const groupId = rate === "noRecurr" ? null : crypto.randomUUID();
 
   // Create dates array with events information
   const events = eventStartDates.map((date) => {
