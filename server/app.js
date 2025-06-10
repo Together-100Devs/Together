@@ -38,7 +38,7 @@ app.use(express.static(path.join(__dirname, "..", "client", "build")));
 
 // Passport middleware
 app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.session({ cookie: { secure: true, maxAge: 3600000 } }));
 
 // Allows to use a mock user in development and testing environments
 /* istanbul ignore next  */
