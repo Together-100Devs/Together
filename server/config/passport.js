@@ -49,6 +49,7 @@ module.exports = function (passport) {
               displayName: displayName,
               discordId: profile.id,
               avatar: profile.avatar,
+              isModerator: profile.isModerator || false,
               socials: [],
               bio: "",
               needsToBeWelcome: true,
@@ -56,6 +57,14 @@ module.exports = function (passport) {
 
             return cb(null, user);
           } else {
+            // Update isModerator status if it changes
+            if (
+              profile.isModerator !== undefined &&
+              user.isModerator !== profile.isModerator
+            ) {
+              user.isModerator = profile.isModerator;
+              await user.save();
+            }
             // it user already exists, update display name and avatar
             user.displayName = displayName;
             user.avatar = profile.avatar;
