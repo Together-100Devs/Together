@@ -1,6 +1,6 @@
 "use strict";
 
-const { nanoid } = require("nanoid");
+const crypto = require("node:crypto");
 const { createEventsArray } = require("../../utilities/createEventsArray");
 const {
   generateTestCases,
@@ -18,8 +18,10 @@ const {
   PDTtoPSTrecurring,
 } = require("./createEventsArrayMockData");
 
-jest.mock("nanoid");
-const mockedNanoid = jest.mocked(nanoid);
+jest.mock("node:crypto", () => ({
+  randomUUID: jest.fn(),
+}));
+const mockedCrypto = jest.mocked(crypto);
 
 describe("Events created in Western European Time (WET) and Western European Summer Time (WEST)", () => {
   describe("WET - WEST non recurring", () => {
@@ -41,7 +43,7 @@ describe("Events created in Western European Time (WET) and Western European Sum
       ...generateTestCases(WETtoWESTrecurring),
       ...generateTestCases(WESTtoWETrecurring),
     ])("$description", ({ input, output }) => {
-      mockedNanoid.mockReturnValueOnce("1234");
+      mockedCrypto.randomUUID.mockReturnValueOnce("1234");
       const res = createEventsArray(input);
       expect(res).toBeInstanceOf(Array);
       expect(res).toHaveLength(3);
@@ -70,7 +72,7 @@ describe("Events created in Pacific Standard Time (PST) and Pacific Daylight Tim
       ...generateTestCases(PSTtoPDTrecurring),
       ...generateTestCases(PDTtoPSTrecurring),
     ])("$description", ({ input, output }) => {
-      mockedNanoid.mockReturnValueOnce("1234");
+      mockedCrypto.randomUUID.mockReturnValueOnce("1234");
       const res = createEventsArray(input);
       expect(res).toBeInstanceOf(Array);
       expect(res).toHaveLength(3);
