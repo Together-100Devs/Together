@@ -12,7 +12,7 @@ module.exports = function (passport) {
 
   // Conditionally require & execute the mocking module as `nock` is not installed in production
   if (process.env.NODE_ENV === "test")
-    require("../test/passport-discord-mocking")();
+    require("../test/passport-discord-mocking").mockDiscordResponses();
 
   //Discord authentication
   passport.use(
