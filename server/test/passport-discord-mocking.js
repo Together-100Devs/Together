@@ -90,37 +90,40 @@ const RESPONSES = {
   },
 };
 
-module.exports = function mockDiscordResponses() {
-  return nock("https://discord.com/api")
-    .post("/oauth2/token")
-    .reply(200, (_, requestBody) => {
-      const code = requestBody.match(/code=(.*)$/)[1];
-      return (
-        RESPONSES[code]?.["/oauth2/token"] || {
-          message: "OAuth Failed",
-          code: 0,
-        }
-      );
-    })
-    .get("/users/@me")
-    .reply(200, function () {
-      const token = this.req.headers.authorization.split(" ")[1];
-      return (
-        RESPONSES[token]?.["/users/@me"] || {
-          message: "401: Unauthorized",
-          code: 0,
-        }
-      );
-    })
-    .get("/users/@me/guilds")
-    .reply(200, function () {
-      const token = this.req.headers.authorization.split(" ")[1];
-      return (
-        RESPONSES[token]?.["/users/@me/guilds"] || {
-          message: "401: Unauthorized",
-          code: 0,
-        }
-      );
-    })
-    .persist();
+module.exports = {
+  mockDiscordResponses: function () {
+    return nock("https://discord.com/api")
+      .post("/oauth2/token")
+      .reply(200, (_, requestBody) => {
+        const code = requestBody.match(/code=(.*)$/)[1];
+        return (
+          RESPONSES[code]?.["/oauth2/token"] || {
+            message: "OAuth Failed",
+            code: 0,
+          }
+        );
+      })
+      .get("/users/@me")
+      .reply(200, function () {
+        const token = this.req.headers.authorization.split(" ")[1];
+        return (
+          RESPONSES[token]?.["/users/@me"] || {
+            message: "401: Unauthorized",
+            code: 0,
+          }
+        );
+      })
+      .get("/users/@me/guilds")
+      .reply(200, function () {
+        const token = this.req.headers.authorization.split(" ")[1];
+        return (
+          RESPONSES[token]?.["/users/@me/guilds"] || {
+            message: "401: Unauthorized",
+            code: 0,
+          }
+        );
+      })
+      .persist();
+  },
+  RESPONSES,
 };
