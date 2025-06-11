@@ -58,15 +58,6 @@ module.exports = {
   deleteEvent: async (req, res) => {
     const { id } = req.params;
 
-    /* istanbul ignore next */
-    if (process.env.NODE_ENV === "test") {
-      console.log("Delete event request:", {
-        userId: req.user._id,
-        isModerator: req.user.isModerator,
-        eventId: id,
-      });
-    }
-
     let event;
 
     if (!req.user.isModerator) {
