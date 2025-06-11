@@ -13,7 +13,6 @@ const RESPONSES = {
       id: "1",
       username: "100Dever",
       discriminator: "0001",
-      isModerator: false,
     },
     "/users/@me/guilds": [
       {
@@ -42,7 +41,6 @@ const RESPONSES = {
       id: "2",
       username: "100Dever2",
       discriminator: "0002",
-      isModerator: false,
     },
     "/users/@me/guilds": [
       {
@@ -63,7 +61,6 @@ const RESPONSES = {
       id: "3",
       username: "John Doe",
       discriminator: "0003",
-      isModerator: false,
     },
     "/users/@me/guilds": [],
   },
@@ -79,7 +76,6 @@ const RESPONSES = {
       id: "4",
       username: "Moderator",
       discriminator: "0004",
-      isModerator: true,
     },
     "/users/@me/guilds": [
       {
@@ -90,40 +86,40 @@ const RESPONSES = {
   },
 };
 
-module.exports = {
-  mockDiscordResponses: function () {
-    return nock("https://discord.com/api")
-      .post("/oauth2/token")
-      .reply(200, (_, requestBody) => {
-        const code = requestBody.match(/code=(.*)$/)[1];
-        return (
-          RESPONSES[code]?.["/oauth2/token"] || {
-            message: "OAuth Failed",
-            code: 0,
-          }
-        );
-      })
-      .get("/users/@me")
-      .reply(200, function () {
-        const token = this.req.headers.authorization.split(" ")[1];
-        return (
-          RESPONSES[token]?.["/users/@me"] || {
-            message: "401: Unauthorized",
-            code: 0,
-          }
-        );
-      })
-      .get("/users/@me/guilds")
-      .reply(200, function () {
-        const token = this.req.headers.authorization.split(" ")[1];
-        return (
-          RESPONSES[token]?.["/users/@me/guilds"] || {
-            message: "401: Unauthorized",
-            code: 0,
-          }
-        );
-      })
-      .persist();
-  },
-  RESPONSES,
-};
+function mockDiscordResponses() {
+  return nock("https://discord.com/api")
+    .post("/oauth2/token")
+    .reply(200, (_, requestBody) => {
+      const code = requestBody.match(/code=(.*)$/)[1];
+      return (
+        RESPONSES[code]?.["/oauth2/token"] || {
+          message: "OAuth Failed",
+          code: 0,
+        }
+      );
+    })
+    .get("/users/@me")
+    .reply(200, function () {
+      const token = this.req.headers.authorization.split(" ")[1];
+      return (
+        RESPONSES[token]?.["/users/@me"] || {
+          message: "401: Unauthorized",
+          code: 0,
+        }
+      );
+    })
+    .get("/users/@me/guilds")
+    .reply(200, function () {
+      const token = this.req.headers.authorization.split(" ")[1];
+      return (
+        RESPONSES[token]?.["/users/@me/guilds"] || {
+          message: "401: Unauthorized",
+          code: 0,
+        }
+      );
+    })
+    .persist();
+}
+
+module.exports = mockDiscordResponses;
+module.exports.RESPONSES = RESPONSES;
