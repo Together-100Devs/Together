@@ -15,6 +15,51 @@ describe("event routes", () => {
   beforeEach(async () => {
     await testDb.setUp();
     mockDiscordResponses();
+
+    // create test users
+    const User = require("../../models/User");
+    await User.create([
+      {
+        discordId: "1",
+        displayName: "100Dever#0001",
+        discriminator: "0001",
+        avatar: null,
+        isModerator: false,
+        socials: [],
+        bio: "",
+        needsToBeWelcome: false,
+      },
+      {
+        discordId: "2",
+        displayName: "100Dever2#0002",
+        discriminator: "0002",
+        avatar: null,
+        isModerator: false,
+        socials: [],
+        bio: "",
+        needsToBeWelcome: false,
+      },
+      {
+        discordId: "3",
+        displayName: "John Doe#0003",
+        discriminator: "0003",
+        avatar: null,
+        isModerator: false,
+        socials: [],
+        bio: "",
+        needsToBeWelcome: false,
+      },
+      {
+        discordId: "4",
+        displayName: "Moderator#0004",
+        discriminator: "0004",
+        avatar: null,
+        isModerator: true,
+        socials: [],
+        bio: "",
+        needsToBeWelcome: false,
+      },
+    ]);
   });
 
   afterEach(async () => {
