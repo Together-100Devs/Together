@@ -121,7 +121,7 @@ Together is a new app designed for 100devs. Together is a group calendar for pub
 
 - Read up on our [New Developer Onboarding](https://github.com/Together-100Devs/Together/wiki/02---Onboarding) in the wiki.
 - Fork and clone the repository to your local computer.
-- Complete and store `.env` file in the `server/config` folder
+- Complete and store `.env` file in the `server/` folder
   - [(See .env template setup instructions)](https://github.com/Together-100Devs/Together/wiki/02---Onboarding#development-machine-setup)
 - `npm install` in the root folder. installs the required dependencies.
 - `npm run dev` in the root folder. This starts the front-end and back-end in one terminal.
