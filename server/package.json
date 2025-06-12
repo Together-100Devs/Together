@@ -4,10 +4,11 @@
   "main": "server.js",
   "author": "100devs",
   "scripts": {
-    "start": "node server.js",
+    "start": "node --env-file=.env server.js",
     "start:coverage": "nyc --silent node server.js",
-    "dev": "concurrently \"npm run dev:mongo\" \"node --watch server.js\"",
-    "dev:mongo": "node dev-mongo"
+    "dev": "concurrently \"npm run dev:mongo:local\" \"node --watch --env-file=.env server.js\"",
+    "dev:mongo": "node dev-mongo.js",
+    "dev:mongo:local": "node --env-file=.env dev-mongo.js"
   },
   "dependencies": {
     "@js-temporal/polyfill": "^0.5.1",
