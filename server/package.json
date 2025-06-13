@@ -20,8 +20,9 @@
     "mongodb": "^3.7.3",
     "mongoose": "^5.12.3",
     "morgan": "^1.10.0",
-    "multer": "^2.0.1",
-    "passport": "^0.7.0",
+
+
+    "passport": "^0.6.0",
     "passport-discord": "^0.1.4",
     "validator": "^13.15.15"
   },
