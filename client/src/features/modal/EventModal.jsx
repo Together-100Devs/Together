@@ -15,7 +15,8 @@ const EventModal = () => {
   //grabs user compares user from context and event author
   //displays delete buttons if true
   const { user } = useAuthContext();
-  const authorCheck = user && user?._id === modal.activeEvent.user?._id;
+  const authorCheck =
+    (user && user?._id === modal.activeEvent.user?._id) || user?.isModerator;
 
   return (
     <div className="flex flex-col items-center py-0 px-2rem rounded-xl bg-white pb-4">
