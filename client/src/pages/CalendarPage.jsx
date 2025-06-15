@@ -36,7 +36,7 @@ function CalendarPage() {
     <FormProvider>
       <main
         onWheel={handleWheelScroll}
-        className="flex flex-col gap-3 p-3 shadow-sm min-h-screen max-w-[1920px] mx-auto"
+        className="flex flex-col gap-3 p-3 shadow-xs min-h-screen max-w-[1920px] mx-auto"
       >
         <CalendarHeader date={date} />
         <Calendar date={date} />

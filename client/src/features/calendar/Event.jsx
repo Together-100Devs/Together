@@ -12,10 +12,10 @@ const Event = (props) => {
         modal.handleOpen();
       }}
       key={props.event.title}
-      className="flex items-center flex-shrink-0 h-5 px-1 text-sm hover:bg-gray-200"
+      className="flex items-center shrink-0 h-5 px-1 text-sm hover:bg-gray-200"
     >
       <span
-        className={`flex-shrink-0 w-2 h-2 ${
+        className={`shrink-0 w-2 h-2 ${
           props.event.confirmed ? confirmedCss : unconfirmedCSss
         } rounded-full`}
       ></span>

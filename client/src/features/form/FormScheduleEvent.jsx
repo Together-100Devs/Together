@@ -30,7 +30,7 @@ export default function FormScheduleEvent() {
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="stroke-current flex-shrink-0 h-6 w-6"
+                className="stroke-current shrink-0 h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
               >
@@ -69,7 +69,7 @@ export default function FormScheduleEvent() {
           <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
             Start Date
           </div>
-          <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
+          <div className="bg-white my-2 p-1 flex border border-gray-200 rounded-sm">
             <input
               type="date" // Date input type
               onChange={handleChange}
@@ -88,7 +88,7 @@ export default function FormScheduleEvent() {
           <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
             Start Time
           </div>
-          <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
+          <div className="bg-white my-2 p-1 flex border border-gray-200 rounded-sm">
             <input
               type="time"
               onChange={handleChange}
@@ -104,7 +104,7 @@ export default function FormScheduleEvent() {
           <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
             End Date
           </div>
-          <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
+          <div className="bg-white my-2 p-1 flex border border-gray-200 rounded-sm">
             <input
               type="date"
               onChange={handleChange}
@@ -122,7 +122,7 @@ export default function FormScheduleEvent() {
           <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
             End Time
           </div>
-          <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
+          <div className="bg-white my-2 p-1 flex border border-gray-200 rounded-sm">
             <input
               type="time"
               onChange={handleChange}
