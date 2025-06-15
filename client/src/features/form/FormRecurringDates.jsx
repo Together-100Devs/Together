@@ -48,9 +48,9 @@ export default function FormRecurringDates() {
       <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
         Recurring
       </div>
-      <div className="bg-white py-4 p-1 my-2 flex border border-gray-200 rounded">
+      <div className="bg-white py-4 p-1 my-2 flex border border-gray-200 rounded-sm">
         {/* WEEKLY */}
-        <div className="border-r pr-6">
+        <div className="border-r border-gray-200 pr-6">
           <div className="flex space-x-4 items-center">
             <input
               type="checkbox"

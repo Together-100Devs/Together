@@ -46,7 +46,7 @@ const DayCard = ({ date, events }) => {
       </div>
       {isFutureOrToday && ( // Only render the button if the date is >= current day
         <button
-          className="absolute bottom-0 right-0 items-center justify-center hidden w-6 h-6 mb-2 mr-2 text-white bg-gray-400 rounded group-hover:flex hover:bg-gray-500"
+          className="absolute bottom-0 right-0 items-center justify-center hidden w-6 h-6 mb-2 mr-2 text-white bg-gray-400 rounded-sm group-hover:flex hover:bg-gray-500"
           onClick={() => {
             let chosenDate = `${date.getFullYear()}-${(date.getMonth() + 1)
               .toString()

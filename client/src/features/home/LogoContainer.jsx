@@ -7,7 +7,7 @@ const LogoContainer = ({ logo, logotext }) => {
         alt="logo icon"
       />
       <img
-        className="h-10 lg:h-14 xl:h-16 border-b-4 border-mainOrange"
+        className="h-10 lg:h-14 xl:h-16 border-b-4 border-main-orange"
         src={logotext}
         alt="logo text"
       />

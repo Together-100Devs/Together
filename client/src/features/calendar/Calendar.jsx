@@ -69,14 +69,14 @@ const Calendar = ({ date }) => {
 
   // while we are loading events, add the "animate-pulse" class to show skeleteon loading effect
   let classNames =
-    "flex flex-grow h-full w-full overflow-auto text-gray-700 bg-white";
+    "flex grow h-full w-full overflow-auto text-gray-700 bg-white";
   if (status === Status.LOADING) {
     classNames += " animate-pulse";
   }
 
   return (
     <div className={classNames}>
-      <div className="flex flex-col flex-grow">
+      <div className="flex flex-col grow">
         {/* render error message if there was an error fetching data */}
         {status === Status.REJECTED && <div>{error}</div>}
         <AllDays />
