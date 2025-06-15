@@ -24,7 +24,7 @@ export default function FormCreateEvent() {
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="stroke-current flex-shrink-0 h-6 w-6"
+                className="stroke-current shrink-0 h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
               >
@@ -45,7 +45,7 @@ export default function FormCreateEvent() {
         <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
           Title
         </div>
-        <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
+        <div className="bg-white my-2 p-1 flex border border-gray-200 rounded-sm">
           <input
             type="text"
             onChange={handleChange}
@@ -61,7 +61,7 @@ export default function FormCreateEvent() {
         <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
           Description
         </div>
-        <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
+        <div className="bg-white my-2 p-1 flex border border-gray-200 rounded-sm">
           <textarea
             type="text"
             onChange={handleChange}
@@ -79,7 +79,7 @@ export default function FormCreateEvent() {
         <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
           Location
         </div>
-        <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
+        <div className="bg-white my-2 p-1 flex border border-gray-200 rounded-sm">
           <input
             type="text"
             onChange={handleChange}
@@ -95,7 +95,7 @@ export default function FormCreateEvent() {
         <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
           Discord Name
         </div>
-        <div className="bg-white my-2 p-1 flex border border-gray-200 rounded">
+        <div className="bg-white my-2 p-1 flex border border-gray-200 rounded-sm">
           <input
             type="text"
             onChange={handleChange}
