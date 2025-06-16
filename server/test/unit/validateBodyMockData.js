@@ -20,10 +20,9 @@ const dateAfterMax = Temporal.PlainDate.from(EVENT_MAX_DATE).add({
   days: 2,
 });
 
-const timeNow = Temporal.Now.plainTimeISO().round({
-  smallestUnit: "minute",
-  roundingMode: "ceil",
-});
+const timeNow = Temporal.Now.plainTimeISO()
+  .add({ minutes: 5 })
+  .round({ smallestUnit: "minute", roundingMode: "ceil" });
 const timeIn1hour = timeNow.add({ hours: 1 });
 
 const validFormDataNonRecurr = {
