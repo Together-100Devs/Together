@@ -11,33 +11,24 @@
   --font-*: initial;
   --font-inconsolata: Inconsolata, monospace;
 
-  --color-primary: #f4f1f1;
-  --color-secondary: #e1e9ed;
-  --color-main-orange: rgb(var(--color-mainOrange) / 0.85);
-  --color-main-green: rgb(var(--color-mainGreen) / 0.85);
-  --color-main-blue: rgb(var(--color-mainBlue) / 0.85);
-  --color-discord-btn: rgb(var(--color-discordBtn) / 0.7);
-  --color-nav-btn: #009ba0;
-  --color-nav-btn-light: #66c3c6;
+  --color-primary: oklch(96% 0.003 17.2);
+  --color-secondary: oklch(92.9% 0.01 228.9);
+  --color-main-orange: oklch(70.2% 0.126 42.6 / 0.85);
+  --color-main-green: oklch(73.3% 0.091 199 / 0.85);
+  --color-main-blue: oklch(68.6% 0.118 232.8 / 0.85);
+  --color-discord-btn: oklch(76.5% 0.083 198.5 / 0.7);
+  --color-nav-btn: oklch(62.6% 0.106 198.8);
+  --color-nav-btn-light: oklch(76.1% 0.089 198.2);
 
-  --color-teal: #009ba0;
-  --color-teal-light: #bfd0d8;
-  --color-teal-lightest: #e0e8ec;
+  --color-teal: oklch(62.6% 0.106 198.8);
+  --color-teal-light: oklch(84.7% 0.022 227.6);
+  --color-teal-lightest: oklch(92.6% 0.01 228.9);
 
-  --color-accent: rgb(var(--color-accent-base) / 0.6);
+  --color-accent: oklch(74% 0.173 49.3 / 0.6);
 }
 
 @layer base {
   body {
     @apply bg-teal-light;
-  }
-
-  :root {
-    --color-mainOrange: 224 131 93;
-    --color-mainGreen: 90 186 190;
-    --color-mainBlue: 62 166 215;
-    --color-discordBtn: 110 195 198;
-
-    --color-accent-base: 255 132 53;
   }
 }
