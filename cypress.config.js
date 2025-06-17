@@ -9,7 +9,6 @@ module.exports = defineConfig({
       require("@cypress/code-coverage/task")(on, config);
       on("task", {
         clearDatabase() {
-          require("dotenv").config({ path: "./server/config/.env" });
           return require("./server/config/database")().then(async (conn) => {
             for (const { name } of await conn.connection.db
               .listCollections()
@@ -28,7 +27,6 @@ module.exports = defineConfig({
           user,
           groupId,
         }) {
-          require("dotenv").config({ path: "./server/config/.env" });
           return require("./server/config/database")().then(async () => {
             const { Event } = require("./server/models/Event");
             const event = await Event.create({
