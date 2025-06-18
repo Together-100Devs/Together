@@ -8,6 +8,7 @@
   },
   "scripts": {
     "client:build": "npm run build --workspace=client",
+    "client:storybook": "npm run storybook --workspace=client",
     "client:dev": "npm start --workspace=client",
     "client:start": "npm start --workspace=client",
     "dev": "concurrently \"npm:client:dev\" \"npm:server:dev\"",
