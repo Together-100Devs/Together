@@ -4,7 +4,7 @@ const RejectionModal = ({ handleClose }) => {
   return (
     <div className="flex flex-col items-center py-0 px-2rem rounded-xl bg-white pb-4">
       <button
-        className="w-auto h-8 mt-5 px-2 border-solid border-2 border-gray outline-none rounded font-semibold text-lg hover:bg-teal-600 active:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-300"
+        className="w-auto h-8 mt-5 px-2 border-solid border-2 border-gray outline-hidden rounded-sm font-semibold text-lg hover:bg-teal-600 active:bg-teal-700 focus:outline-hidden focus:ring-3 focus:ring-teal-300"
         onClick={handleClose}
       >
         Close
@@ -18,7 +18,7 @@ const RejectionModal = ({ handleClose }) => {
             below!
           </p>
         </div>
-        <button className="w-auto h-8 mt-5 px-2 border-solid border-2 border-gray outline-none rounded font-semibold text-lg hover:bg-teal-600 active:bg-teal-700 focus:outline-none focus:ring focus:ring-teal-300">
+        <button className="w-auto h-8 mt-5 px-2 border-solid border-2 border-gray outline-hidden rounded-sm font-semibold text-lg hover:bg-teal-600 active:bg-teal-700 focus:outline-hidden focus:ring-3 focus:ring-teal-300">
           <a href="https://discord.gg/100devs">Join 100 Devs</a>
         </button>
       </div>

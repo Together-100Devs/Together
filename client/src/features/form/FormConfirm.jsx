@@ -10,7 +10,7 @@ export default function FormConfirm() {
         <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
           Title
         </div>
-        <div className="bg-white my-2 p-1 flex text-slate-400 border border-gray-200 rounded">
+        <div className="bg-white my-2 p-1 flex text-slate-400 border border-gray-200 rounded-sm">
           <p>{formData["title"]}</p>
         </div>
       </div>
@@ -19,7 +19,7 @@ export default function FormConfirm() {
         <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
           Description
         </div>
-        <div className="bg-white my-2 p-1 flex text-slate-400 border border-gray-200 rounded">
+        <div className="bg-white my-2 p-1 flex text-slate-400 border border-gray-200 rounded-sm">
           <p>{formData["description"]}</p>
         </div>
       </div>
@@ -29,7 +29,7 @@ export default function FormConfirm() {
           <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
             Initial Date
           </div>
-          <div className="bg-white my-2 p-1 flex text-slate-400 border border-gray-200 rounded">
+          <div className="bg-white my-2 p-1 flex text-slate-400 border border-gray-200 rounded-sm">
             <p>{formData["initialDate"]}</p>
           </div>
         </div>
@@ -38,7 +38,7 @@ export default function FormConfirm() {
           <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
             End Date
           </div>
-          <div className="bg-white my-2 p-1 flex text-slate-400 border border-gray-200 rounded">
+          <div className="bg-white my-2 p-1 flex text-slate-400 border border-gray-200 rounded-sm">
             <p>{formData["finalDate"]}</p>
           </div>
         </div>
@@ -48,7 +48,7 @@ export default function FormConfirm() {
         <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
           Discord Name
         </div>
-        <div className="bg-white my-2 p-1 flex text-slate-400 border border-gray-200 rounded">
+        <div className="bg-white my-2 p-1 flex text-slate-400 border border-gray-200 rounded-sm">
           <p>{formData["discordName"] || ""}</p>
         </div>
       </div>
@@ -57,7 +57,7 @@ export default function FormConfirm() {
         <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
           Location
         </div>
-        <div className="bg-white my-2 p-1 flex text-slate-400 border border-gray-200 rounded">
+        <div className="bg-white my-2 p-1 flex text-slate-400 border border-gray-200 rounded-sm">
           <p>{formData["location"]}</p>
         </div>
       </div>
@@ -67,7 +67,7 @@ export default function FormConfirm() {
           <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
             Start Time
           </div>
-          <div className="bg-white my-2 p-1 flex text-slate-400 border border-gray-200 rounded">
+          <div className="bg-white my-2 p-1 flex text-slate-400 border border-gray-200 rounded-sm">
             <p>{formData["startTime"]}</p>
           </div>
         </div>
@@ -76,7 +76,7 @@ export default function FormConfirm() {
           <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
             End Time
           </div>
-          <div className="bg-white my-2 p-1 flex text-slate-400 border border-gray-200 rounded">
+          <div className="bg-white my-2 p-1 flex text-slate-400 border border-gray-200 rounded-sm">
             <p>{formData["endTime"]}</p>
           </div>
         </div>
@@ -86,7 +86,7 @@ export default function FormConfirm() {
         <div className="font-bold h-6 mt-3 text-grey-500 text-xs leading-8 uppercase">
           Recurring
         </div>
-        <div className="bg-white py-4 p-1 my-2 flex border border-gray-200 rounded">
+        <div className="bg-white py-4 p-1 my-2 flex border border-gray-200 rounded-sm">
           <div className="border-r pr-6">
             <div className="flex space-x-4 items-center">
               <input
