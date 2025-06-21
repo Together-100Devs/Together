@@ -93,4 +93,50 @@ NODE_ENV=development
 | [Accounts](./04-accounts.md) | Accounts you will need access to |
 -->
 
+To run the app locally with Discord authentication, you'll need your own Discord OAuth credentials. Follow the steps below to create a Discord app and configure it for local development. **You do not need to message an admin for a client secret.**
+
+Test: Discord setup instructions in progress
+
+### 1. Create a New Discord Application
+
+- Visit the [Discord Developer Portal](https://discord.com/developers/applications).
+- Click **"New Application"**.
+- Name your application (e.g., `Together Local`) and click **"Create"**.
+
+![Create new Discord app](./docs/images/discord-new-app.png)
+
+### 2. Configure OAuth2
+
+- In your newly created app, go to the **OAuth2** tab.
+- Scroll down to **Redirects** and add this URL:
+
+- Click **Save Changes**.
+
+![Set redirect URI](./docs/images/discord-redirect-uri.png)
+
+### 3. Retrieve Your Credentials
+
+- Go to the **General Information** tab.
+- Copy your **Client ID** and **Client Secret**.
+
+![Client ID and Secret](./docs/images/discord-client-credentials.png)
+
+### 4. Update Your `.env` File
+
+Create or update your `.env` file (in the root or `server/` folder):
+
+DISCORD_CLIENT_ID=your_client_id_here
+DISCORD_CLIENT_SECRET=your_client_secret_here
+
+
+
+> 💡 Make sure `.env` is listed in `.gitignore`.
+
+### 5. Run the App
+
+```bash
+npm run dev-concurrent
+
+Visit http://localhost:3000 to test Discord login locally!
+
 
