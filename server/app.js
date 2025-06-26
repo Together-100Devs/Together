@@ -17,6 +17,8 @@ const User = require("./models/User");
 // Passport config
 require("./config/passport")(passport);
 
+const MAXAGE = 87000000; // 24.16 hours
+
 //Body Parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -32,6 +34,12 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    cookie: {
+      path: "/",
+      httpOnly: false,
+      secure: false,
+      maxAge: MAXAGE,
+    },
   })
 );
 
@@ -40,7 +48,7 @@ app.use(express.static(path.join(__dirname, "..", "client", "build")));
 
 // Passport middleware
 app.use(passport.initialize());
-app.use(passport.session({ cookie: { secure: true, maxAge: 3600000 } }));
+app.use(passport.session());
 
 // Allows to use a mock user in development and testing environments
 /* istanbul ignore next  */
