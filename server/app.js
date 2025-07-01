@@ -15,6 +15,8 @@ const User = require("./models/User");
 // Passport config
 require("./config/passport")(passport);
 
+const MAXAGE = 87000000; // 24.16 hours
+
 //Body Parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -30,6 +32,12 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    cookie: {
+      path: "/",
+      httpOnly: false,
+      secure: false,
+      maxAge: MAXAGE,
+    },
   })
 );
 
