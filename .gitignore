@@ -10,3 +10,6 @@ coverage
 cypress/screenshots
 cypress/videos
 cypress/downloads/downloads.htm
+
+*storybook.log
+storybook-static

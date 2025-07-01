@@ -54,7 +54,7 @@ function CalendarHeader({ date }) {
           aria-label="Home"
         />
       </section>
-      <section className="flex items-center w-full order-first lg:w-min lg:space-x-3 lg:order-none justify-between mb-4 lg:mb-0">
+      <section className="flex items-center w-full order-first lg:w-min lg:space-x-3 lg:order-0 justify-between mb-4 lg:mb-0">
         <img src={Logo} className="max-w-none max-[380px]:w-9" alt="Logo" />
         <MonthAndYear
           month={date?.month}

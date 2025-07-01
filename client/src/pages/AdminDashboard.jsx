@@ -53,8 +53,8 @@ export const AdminDashboard = () => {
     : singleEventCount + groupEventCount;
   return (
     <div className="flex flex-col h-100 min-h-screen w-full p-4 bg-primary">
-      <div className="border-b-2 border-mainOrange border-dotted flex justify-between py-2">
-        <h1 className="font-bold font-inconsolata text-3xl md:text-4xl lg:text-5xl text-mainOrange">
+      <div className="border-b-2 border-main-orange border-dotted flex justify-between py-2">
+        <h1 className="font-bold font-inconsolata text-3xl md:text-4xl lg:text-5xl text-main-orange">
           Admin Dashboard (<span className="event-count">{eventStatus}</span>)
         </h1>
         {/* Button to trigger refresh of event list after initial page load */}

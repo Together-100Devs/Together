@@ -1,26 +1,26 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --font-inconsolata: Inconsolata, monospace;
+
+  --color-primary: oklch(96% 0.003 17.2);
+  --color-secondary: oklch(92.9% 0.01 228.9);
+  --color-main-orange: oklch(70.2% 0.126 42.6 / 0.85);
+  --color-main-green: oklch(73.3% 0.091 199 / 0.85);
+  --color-main-blue: oklch(68.6% 0.118 232.8 / 0.85);
+  --color-discord-btn: oklch(76.5% 0.083 198.5 / 0.7);
+  --color-nav-btn: oklch(62.6% 0.106 198.8);
+  --color-nav-btn-light: oklch(76.1% 0.089 198.2);
+
+  --color-teal: oklch(62.6% 0.106 198.8);
+  --color-teal-light: oklch(84.7% 0.022 227.6);
+  --color-teal-lightest: oklch(92.6% 0.01 228.9);
+
+  --color-accent: oklch(74% 0.173 49.3 / 0.6);
+}
 
 @layer base {
   body {
     @apply bg-teal-light;
-  }
-  /* color values stored as variables -> used for customization of color opacity in tailwind.config.js  */
-  :root {
-    /* --color-primary: #F4F1F1; */
-    /* --color-secondary: #E1E9ED; */
-    --color-mainOrange: 224 131 93;
-    --color-mainGreen: 90 186 190;
-    --color-mainBlue: 62 166 215;
-    --color-discordBtn: 110 195 198;
-    /* --color-navBtn: #009BA0;
-    --color-navBtnLight: #66C3C6;
-    --color-teal: {
-      --color-teal-DEFAULT: #009BA0;
-      --color-teal-light: #BFD0D8;
-      --color-teal-lightest: #E0E8EC;
-    }; */
-    --color-accent: 255 132 53;
   }
 }
