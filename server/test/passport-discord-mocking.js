@@ -64,9 +64,29 @@ const RESPONSES = {
     },
     "/users/@me/guilds": [],
   },
+  MODERATOR_USER: {
+    "/oauth2/token": {
+      access_token: "MODERATOR_USER",
+      token_type: "Bearer",
+      expires_in: 604800,
+      refresh_token: "MODERATOR_USER",
+      scope: "identify",
+    },
+    "/users/@me": {
+      id: "4",
+      username: "Moderator",
+      discriminator: "0004",
+    },
+    "/users/@me/guilds": [
+      {
+        id: "735923219315425401",
+        name: "Learn w/ Leon and Friends",
+      },
+    ],
+  },
 };
 
-module.exports = function mockDiscordResponses() {
+function mockDiscordResponses() {
   return nock("https://discord.com/api")
     .post("/oauth2/token")
     .reply(200, (_, requestBody) => {
@@ -99,4 +119,7 @@ module.exports = function mockDiscordResponses() {
       );
     })
     .persist();
-};
+}
+
+module.exports = mockDiscordResponses;
+module.exports.RESPONSES = RESPONSES;
