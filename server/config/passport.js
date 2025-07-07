@@ -33,36 +33,18 @@ module.exports = function (passport) {
           (server) => server.id === "735923219315425401"
         );
 
-        try {
-          const devMemberInfo = await fetch(
-            "https://discord.com/api/users/@me/guilds/735923219315425401/member",
-            {
-              headers: {
-                Authorization: `Bearer ${accessToken}`,
-              },
-            }
-          );
-          const devMemberData = await devMemberInfo.json();
-
-          if (devMemberData.nick) {
-            displayName = devMemberData.nick;
-          } else if (profile.discriminator.length === 4) {
-            displayName = `${profile.username}#${profile.discriminator}`;
-          } else {
-            displayName = user.global_name || user.username;
-          }
-        } catch (error) {
-          console.log(
-            `User guild name could not be found with the error: ${error}`
-          );
-        }
-
         if (!is100Dever) {
           currentReq.session.isNot100Dever = true;
           return cb(null, false);
         }
         // Check if user exists in DB
         let user = await User.findOne({ discordId: profile.id }).exec();
+
+        // check to see if there is a .nick property in the current user's guild
+        const serverName = await getServerName(accessToken);
+
+        //if there is a serverName, use that instead of username or global_name
+        if (serverName) displayName = serverName;
 
         try {
           // Create user if it doesn't exist
@@ -94,3 +76,29 @@ module.exports = function (passport) {
     )
   );
 };
+/**
+ * a function that gets a user's server name.
+ * @param {string} accessToken a string representing the current access token of the auth instance
+ */
+
+async function getServerName(accessToken) {
+  let serverName;
+  try {
+    const devMemberInfo = await fetch(
+      "https://discord.com/api/users/@me/guilds/735923219315425401/member",
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
+    const devMemberData = await devMemberInfo.json();
+
+    if (devMemberData.nick) {
+      serverName = devMemberData.nick;
+    }
+  } catch (error) {
+    console.log(`User guild name could not be found with the error: ${error}`);
+  }
+  return serverName;
+}
