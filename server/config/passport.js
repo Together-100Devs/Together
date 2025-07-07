@@ -27,8 +27,6 @@ module.exports = function (passport) {
         passReqToCallback: true,
       },
       async function (currentReq, accessToken, refreshToken, profile, cb) {
-        // console.log('Scopes:', currentReq);
-
         let displayName = profile.global_name ?? profile.username;
 
         const is100Dever = profile.guilds.some(
@@ -45,7 +43,7 @@ module.exports = function (passport) {
             }
           );
           const devMemberData = await devMemberInfo.json();
-          // console.log(devMemberData.nick, devMemberData.user)
+
           if (devMemberData.nick) {
             displayName = devMemberData.nick;
           } else if (profile.discriminator.length === 4) {
@@ -54,16 +52,10 @@ module.exports = function (passport) {
             displayName = user.global_name || user.username;
           }
         } catch (error) {
-          console.log(error);
-          console.log("User guild name could not be found.");
+          console.log(
+            `User guild name could not be found with the error: ${error}`
+          );
         }
-
-        const guildMember = profile.guilds.find(
-          (g) => g.id === "735923219315425401"
-        );
-        const guildDisplayName = guildMember?.nick || profile.username;
-
-        console.log(guildDisplayName);
 
         if (!is100Dever) {
           currentReq.session.isNot100Dever = true;
