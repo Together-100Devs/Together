@@ -61,23 +61,32 @@ const createEventsArray = ({
 
   // Array of start times
   const eventStartDates = [];
+  const MAX_RECURRENCE_COUNT = 730;
 
   let i = 0;
-  while (
-    Temporal.ZonedDateTime.compare(
-      zonedFirstEventStart.add({ days: i }),
-      zonedLastEventStart
-    ) <= 0
-  ) {
-    if (
-      days.includes(
-        zonedFirstEventStart.add({ days: i }).dayOfWeek.toString()
-      ) ||
-      rate === "noRecurr"
-    ) {
-      eventStartDates.push(zonedFirstEventStart.add({ days: i }));
+  let recurrenceCount = 0;
+
+  while (i <= 10000) {
+    const nextDate = zonedFirstEventStart.add({ days: i });
+
+    if (Temporal.ZonedDateTime.compare(nextDate, zonedLastEventStart) > 0) {
+      break;
     }
-    i += 1;
+
+    if (rate === "noRecurr") {
+      eventStartDates.push(nextDate);
+      break;
+    }
+
+    const dayOfWeek = nextDate.dayOfWeek.toString();
+
+    if (days.includes(dayOfWeek)) {
+      if (recurrenceCount >= MAX_RECURRENCE_COUNT) break;
+      eventStartDates.push(nextDate);
+      recurrenceCount++;
+    }
+
+    i++;
   }
 
   // Recurring events have the same group id. This allows deleting them all at once by this id.

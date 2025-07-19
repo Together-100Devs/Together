@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useFormContext } from "../../contexts/FormContext";
-import { parseISO, sub, isAfter, isSameDay } from "date-fns";
+import { parseISO, addDays, isAfter, isSameDay } from "date-fns";
 
 const FormMoverControl = () => {
   const {
@@ -41,6 +41,25 @@ const FormMoverControl = () => {
     }
   }
 
+  function countWeeklyRecurrences(initialDate, finalDate, days) {
+    const start = parseISO(initialDate);
+    const end = parseISO(finalDate);
+
+    if (!days || days.length === 0) return 0;
+
+    let count = 0;
+    let currentDate = start;
+
+    while (!isAfter(currentDate, end)) {
+      if (days.includes(currentDate.getDay().toString())) {
+        count++;
+      }
+      currentDate = addDays(currentDate, 1);
+    }
+
+    return count;
+  }
+
   const handleNextButton = () => {
     // Run a bunch of tests for each form page.
     // For each test that returns an error, save a value.
@@ -73,30 +92,25 @@ const FormMoverControl = () => {
         checkForEmptyField("startTime");
         checkForEmptyField("endTime");
 
-        // Start Date & End Date Cannot be more than 730 days apart
-        // get date 730 days before final date
-        const RecurrenceLimitBeforeFinalDate = sub(
-          parseISO(formData["finalDate"]),
-          {
-            days: 730,
-          }
-        );
-        if (
-          parseISO(formData["initialDate"]) < RecurrenceLimitBeforeFinalDate
-        ) {
-          errorArray.push(
-            "Error: recurring events have a maximum of 730 recurrences"
+        // events can only occur max 730 times
+        if (formData["recurring"]["rate"] === "weekly") {
+          const recurrencesCount = countWeeklyRecurrences(
+            formData.initialDate,
+            formData.finalDate,
+            formData.recurring.days
           );
-        }
 
-        // "Weekly" Recurring Event MUST include at least on day of week
-        if (
-          formData["recurring"]["rate"] === "weekly" &&
-          formData["recurring"]["days"].length === 0
-        ) {
-          errorArray.push(
-            "Error: Weekly recurring event MUST include at least one day of the week"
-          );
+          if (recurrencesCount > 730) {
+            errorArray.push(
+              "Error: Weekly recurring events have a maximum of 730 recurrences."
+            );
+          }
+
+          if (formData["recurring"]["days"].length === 0) {
+            errorArray.push(
+              "Error: Weekly recurring event MUST include at least one day of the week"
+            );
+          }
         }
 
         // initialDate should be the same as or before the finalDate
