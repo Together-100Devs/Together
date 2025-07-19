@@ -73,14 +73,19 @@ const FormMoverControl = () => {
         checkForEmptyField("startTime");
         checkForEmptyField("endTime");
 
-        // Start Date & End Date Cannot be more than 90 days apart
-        // get date 90 days before final date
-        const NinetyDaysBeforeFinalDate = sub(parseISO(formData["finalDate"]), {
-          days: 90,
-        });
-        if (parseISO(formData["initialDate"]) < NinetyDaysBeforeFinalDate) {
+        // Start Date & End Date Cannot be more than 730 days apart
+        // get date 730 days before final date
+        const RecurrenceLimitBeforeFinalDate = sub(
+          parseISO(formData["finalDate"]),
+          {
+            days: 730,
+          }
+        );
+        if (
+          parseISO(formData["initialDate"]) < RecurrenceLimitBeforeFinalDate
+        ) {
           errorArray.push(
-            "Error: Start date and End date cannot be more than 90 days apart"
+            "Error: recurring events have a maximum of 730 recurrences"
           );
         }
 
