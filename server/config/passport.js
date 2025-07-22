@@ -77,13 +77,14 @@ module.exports = function (passport) {
     )
   );
 };
+
 /**
  * a function that gets a user's server name.
- * @param {string} accessToken a string representing the current access token of the auth instance
+ * @param {string} accessToken represents the current access token of the auth instance
  */
-
 async function getServerName(accessToken) {
-  let serverName;
+  //if in the parameters, can be reusable + testable
+  //test the happy path
   try {
     const devMemberInfo = await fetch(
       "https://discord.com/api/users/@me/guilds/735923219315425401/member",
@@ -94,12 +95,17 @@ async function getServerName(accessToken) {
       }
     );
     const devMemberData = await devMemberInfo.json();
-
+    //return a 200, something that is jsonable
+    //if .nick, that indicates a nickname
     if (devMemberData.nick) {
-      serverName = devMemberData.nick;
+      return devMemberData.nick;
     }
+    //if 500, return the response, server name
+    //if no .nick, return serverName
   } catch (error) {
     console.log(`User guild name could not be found with the error: ${error}`);
   }
-  return serverName;
+  return null;
 }
+
+module.exports.getServerName = getServerName;
