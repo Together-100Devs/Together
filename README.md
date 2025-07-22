@@ -31,9 +31,9 @@
   what's going on in the 100Devs community!
   <br/>
   <br/>
-  <a href="https://github.com/Together-100Devs/Together/wiki">Project Wiki</a>
+  <a href="https://github.com/Together-100Devs/Together/tree/main/docs/01-Team-Organization">Project Docs</a>
   ·
-  <a href="https://github.com/Together-100Devs/Together/wiki/04-Contributing">Contributing guide</a>
+  <a href="https://github.com/Together-100Devs/Together/tree/main/docs/04-Contributing">Contributing guide</a>
   ·
   <a href="https://together.rocks/"><strong>Link to project</strong></a>
   ·
@@ -119,10 +119,10 @@ Together is a new app designed for 100Devs. Together is a group calendar for pub
 
 ## 💻 Install
 
-- Read up on our [New Developer Onboarding](https://github.com/Together-100Devs/Together/wiki/02---Onboarding) in the wiki.
+- Read up on our [New Developer Onboarding](https://github.com/Together-100Devs/Together/tree/main/docs/02-Onboarding) in the docs.
 - Fork and clone the repository to your local computer.
 - Complete and store `.env` file in the `server/` folder
-  - [(See .env template setup instructions)](https://github.com/Together-100Devs/Together/wiki/02---Onboarding#development-machine-setup)
+  - [(See .env template setup instructions)](https://github.com/Together-100Devs/Together/tree/main/docs/02-Onboarding#development-machine-setup)
 - `npm install` in the root folder. installs the required dependencies.
 - `npm run dev` in the root folder. This starts the front-end and back-end in one terminal.
   - This runs a local instance of mongodb. You can connect to it by connecting to `mongodb://127.0.0.1:27017/` with any MongoDB client like [Compass](https://www.mongodb.com/products/compass).
@@ -161,7 +161,7 @@ We highly encourage you to ask questions and join the discussion in the [Togethe
 
 If you're interested in contributing, you may:
 
-- Read our [Contributing guide.](https://github.com/Together-100Devs/Together/wiki/04-Contributing)
+- Read our [Contributing guide.](https://github.com/Together-100Devs/Together/tree/main/docs/04-Contributing)
 - Join the [#Together thread](https://discord.com/channels/735923219315425401/1038482732633825442) within the 100Devs Discord to discuss your ideas.
 - Visit the [Issues tab](https://github.com/Together-100Devs/Together/issues) to request an issue or to open a new issue.
 - You can also convert a "draft todo" to an issue on the current [Project Board.](https://github.com/Together-100Devs/Together/projects?query=is%3Aopen)
