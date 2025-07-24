@@ -12,17 +12,17 @@ const Event = (props) => {
         modal.handleOpen();
       }}
       key={props.event.title}
-      className="flex items-center shrink-0 h-5 md:text-sm hover:bg-gray-200 cursor-pointer md:px-1"
+      className="flex items-center shrink-0 h-5 px-1  text-sm md:hover:bg-gray-200 cursor-pointer"
     >
       <span
-        className={`shrink-0 w-1 h-1 md:w-2 md:h-2 ${
+        className={`shrink-0 w-2 h-2 ${
           props.event.confirmed ? confirmedCss : unconfirmedCSss
-        } rounded-full`}
+        } rounded-full max-md:hidden`}
       ></span>
-      <span className="ml-0.5 md:ml-2 text-[8px] md:text-sm font-light leading-none whitespace-nowrap">
+      <span className="ml-2 text-xs font-light leading-none whitespace-nowrap max-md:hidden">
         {formatToLocalTime(props.event.startAt)}
       </span>
-      <span className="ml-0.5 md:ml-2 text-[8px] md:text-sm font-medium leading-none truncate">
+      <span className="md:ml-2 font-medium leading-none md:truncate ">
         {props.event.title}
       </span>
     </button>

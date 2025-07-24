@@ -39,7 +39,7 @@ const DayCard = ({ date, events }) => {
         {day} {day === 1 && month}
       </span>
 
-      <div className="flex flex-col px-0.5 py-0.5  md:px-1 md:py-1 overflow-auto">
+      <div className="flex flex-col px-1 py-1 overflow-x-clip md:overflow-auto">
         {sortedEvents.map((event, i) => (
           <Event event={event} key={i} />
         ))}
