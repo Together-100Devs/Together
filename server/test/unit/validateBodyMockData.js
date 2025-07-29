@@ -1,12 +1,8 @@
 "use strict";
 
 const { Temporal } = require("@js-temporal/polyfill");
-
-const {
-  STRING_MAX_LENGTH,
-  MAX_RECURRENCE_PERIOD,
-  EVENT_MAX_DATE,
-} = require("../../models/Event");
+const { STRING_MAX_LENGTH, EVENT_MAX_DATE } = require("../../models/Event");
+const { MAX_RECURRENCE_PERIOD } = require("../../constants/constants");
 
 const dateNow = Temporal.Now.plainDateISO();
 const dateYesterday = dateNow.subtract({ days: 1 });
