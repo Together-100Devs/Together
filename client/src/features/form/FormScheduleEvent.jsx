@@ -52,8 +52,7 @@ export default function FormScheduleEvent() {
       </div>
 
       <p className="text-xs mt-10 ">
-        Note: Start Date and End Date cannot be more than 90 days apart, and
-        both must be in 2023.
+        Note: recurring events have a maximum of 730 recurrences.
       </p>
 
       <div className="w-full mx-2 flex-1">
