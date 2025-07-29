@@ -76,11 +76,11 @@ const FormMoverControl = () => {
         // Start Date & End Date Cannot be more than 90 days apart
         // get date 90 days before final date
         const NinetyDaysBeforeFinalDate = sub(parseISO(formData["finalDate"]), {
-          days: 90,
+          days: 731,
         });
         if (parseISO(formData["initialDate"]) < NinetyDaysBeforeFinalDate) {
           errorArray.push(
-            "Error: Start date and End date cannot be more than 90 days apart"
+            "Error: Start date and End date cannot be more than 731 days apart"
           );
         }
 
