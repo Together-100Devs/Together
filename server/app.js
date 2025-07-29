@@ -12,6 +12,9 @@ const eventsRoutes = require("./routes/events");
 const mockUser = require("./config/mockUser.json");
 const User = require("./models/User");
 
+// Enables express to properly detect HTTPS requests
+app.set("trust proxy", true);
+
 // Passport config
 require("./config/passport")(passport);
 
