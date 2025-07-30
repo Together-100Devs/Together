@@ -2,7 +2,7 @@
   "name": "client",
   "description": "Client for Together App",
   "main": "src/index.jsx",
-  "author": "100devs",
+  "author": "100Devs",
   "type": "module",
   "scripts": {
     "start": "vite",
