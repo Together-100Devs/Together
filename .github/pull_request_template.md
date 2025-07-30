@@ -1,6 +1,10 @@
+
 # Description
 
-Moved the pull request template file to the `.github` folder and added a line for automatic issue linking (`Resolves #[issue]`). This change helps contributors properly link their PRs to issues and improves GitHub automation.
+Moved the pull request template file from `docs/pull_request_template.md` to `.github/pull_request_template.md`.  
+Additionally, updated the template content to include a proper issue reference using the `Resolves #[issue]` keyword, which enables automatic issue closing by GitHub when the PR is merged.
+
+This improves contributor guidance and ensures better integration with GitHub’s automation for issue tracking.
 
 ## Type of change
 
@@ -12,15 +16,15 @@ Moved the pull request template file to the `.github` folder and added a line fo
 
 ## Issue
 
-- [x] Is this related to a specific issue? If so, please specify:
+- [x] Is this related to a specific issue? If so, please specify:  
       Resolves #532
 
 # Checklist:
 
-- [x] This PR is up to date with the main branch, and merge conflicts have been resolved
-- [x] I have executed `npm run test` and `npm run test:e2e` and all tests have passed successfully or I have included details within my PR on the failure.
-- [x] I have executed `npm run lint` and resolved any outstanding errors. Most issues can be solved by executing `npm run format`
-- [x] My code follows the style guidelines of this project
-- [x] I have performed a self-review of my own code
-- [x] I have commented my code, particularly in hard-to-understand areas
+- [x] This PR is up to date with the main branch, and merge conflicts have been resolved  
+- [x] I have executed `npm run test` and `npm run test:e2e` and all tests have passed successfully or I have included details within my PR on the failure  
+- [x] I have executed `npm run lint` and resolved any outstanding errors. Most issues can be solved by executing `npm run format`  
+- [x] My code follows the style guidelines of this project  
+- [x] I have performed a self-review of my own code  
+- [x] I have commented my code, particularly in hard-to-understand areas  
 - [x] My changes generate no new warnings
