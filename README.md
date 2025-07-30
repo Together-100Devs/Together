@@ -75,7 +75,7 @@
 
 # 📢 About
 
-Together is a new app designed for 100devs. Together is a group calendar for public events, so you can see what's going on in your community. We're making it easier to find out about the events that are happening in Discord and let you know how much fun they'll be!
+Together is a new app designed for 100Devs. Together is a group calendar for public events, so you can see what's going on in your community. We're making it easier to find out about the events that are happening in Discord and let you know how much fun they'll be!
 
 <br/>
 
@@ -155,7 +155,7 @@ We highly encourage you to ask questions and join the discussion in the [Togethe
 
 ## Help us improve Together!
 
-<em>Together</em> is a community-driven open source project backed by 100devs students. Whether you are helping us fixing bugs, proposing new feature, improving our documentation or spreading the word - <strong>All contributions are welcome.</strong>
+<em>Together</em> is a community-driven open source project backed by 100Devs students. Whether you are helping us fixing bugs, proposing new feature, improving our documentation or spreading the word - <strong>All contributions are welcome.</strong>
 
 <br>
 

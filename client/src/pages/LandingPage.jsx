@@ -7,7 +7,7 @@ import HamburgerNav from "../features/home/HamburgerNav";
 const LandingPage = () => {
   const cards = [
     {
-      heading: "Join 100devs",
+      heading: "Join 100Devs",
       description: (
         <>
           <a
@@ -42,14 +42,14 @@ const LandingPage = () => {
       heading: "Community Taught",
       description: (
         <>
-          Keep track of your 100devs course progress using{" "}
+          Keep track of your 100Devs course progress using{" "}
           <a
             className="underline font-bold"
             href={`https://communitytaught.org/`}
           >
             Community Taught
           </a>{" "}
-          created by 100devs alumna, Laura Abro.
+          created by 100Devs alumna, Laura Abro.
           <br></br>
           <br></br>
           <a
@@ -96,8 +96,8 @@ const LandingPage = () => {
             <>
               <p>
                 Together is a community-driven open source project backed by
-                members of 100devs. Together is not only designed to be a
-                valuable tool to the 100devs community but also provides an
+                members of 100Devs. Together is not only designed to be a
+                valuable tool to the 100Devs community but also provides an
                 additional opportunity for students to learn in a group
                 environment. Together is open to all varying skill sets and
                 encourages peer programming.
