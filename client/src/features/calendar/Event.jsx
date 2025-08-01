@@ -12,7 +12,7 @@ const Event = (props) => {
         modal.handleOpen();
       }}
       key={props.event.title}
-      className="flex items-center shrink-0 h-5 px-1  text-sm md:hover:bg-gray-200 cursor-pointer"
+      className="flex items-center truncate text-clip md:text-ellipsis shrink-0 h-5 px-1 text-sm hover:bg-gray-200 cursor-pointer"
     >
       <span
         className={`shrink-0 w-2 h-2 ${
