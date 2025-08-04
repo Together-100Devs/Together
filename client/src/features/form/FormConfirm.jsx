@@ -117,7 +117,7 @@ export default function FormConfirm() {
             </div>
           </div>
           <div className=" mx-7 ">
-            <div className="  flex space-x-4 items-center">
+            <div className="flex space-x-4 items-center">
               <input
                 type="checkbox"
                 value="1"
