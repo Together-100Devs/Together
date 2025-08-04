@@ -1,0 +1,68 @@
+name: Deploy Review App
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, closed]
+
+env:
+  FLY_API_TOKEN: ${{ secrets.FLY_API_ORG_TOKEN }}
+  FLY_REGION: iad
+  FLY_ORG: personal
+  MONGODB_ATLAS_PUBLIC_API_KEY: ${{ secrets.MONGODB_ATLAS_PUBLIC_API_KEY }}
+  MONGODB_ATLAS_PRIVATE_API_KEY: ${{ secrets.MONGODB_ATLAS_PRIVATE_API_KEY }}
+
+jobs:
+  review_app:
+    runs-on: ubuntu-latest
+    outputs:
+      url: ${{ steps.deploy.outputs.url }}
+      mongodb_uri: ${{ steps.setup.outputs.connection-string }}
+    concurrency:
+      group: pr-${{ github.event.number }}
+
+    environment:
+      name: pr-${{ github.event.number }}
+      url: ${{ steps.deploy.outputs.url }}
+
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+
+      - name: Setup AtlasCLI and create a project
+        if: github.event.action != 'closed'
+        id: create-project
+        uses: mongodb/atlas-github-action@v0.2.0
+        with:
+          create-project-name: together-app-pr-${{ github.event.number }}
+
+      - name: Run setup
+        if: github.event.action != 'closed'
+        id: setup
+        uses: mongodb/atlas-github-action@v0.2.0
+        with:
+          run-setup: true
+          project-id: ${{ steps.create-project.outputs.create-project-id }}
+          cluster-name: together-app-pr-${{ github.event.number }}
+          username: ${{ secrets.MONGODB_USERNAME }}
+          password: ${{ secrets.MONGODB_PASSWORD }}
+
+      - name: Deploy PR app to Fly.io
+        id: deploy
+        if: github.event.action != 'closed'
+        uses: superfly/fly-pr-review-apps@1.3.0
+        with:
+          name: pr-${{ github.event.number }}-together-100devs
+          secrets: DB_STRING=${{ steps.setup.outputs.connection-string }} DISCORD_CLIENT_ID=1
+
+      - name: Cleanup MongoDB Atlas
+        if: github.event.action == 'closed'
+        uses: mongodb/atlas-github-action@v0.2.0
+        with:
+          delete-project-id: ${{ steps.setup.outputs.create-project-id }}
+          delete-cluster-name: together-app-pr-${{ github.event.number }}
+
+      - name: Clean up GitHub environment
+        uses: strumwolf/delete-deployment-environment@v2
+        if: ${{ github.event.action == 'closed' }}
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: pr-${{ github.event.number }}
