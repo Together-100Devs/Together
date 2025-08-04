@@ -12,7 +12,7 @@ const LoginWithDiscord = ({ DiscordIcon }) => {
           type="submit"
         >
           <div className="flex border-2 border-slate-400 bg-white rounded-2xl">
-            <div className="flex flex-row space-x-3 py-3 px-8 m-3 bg-discord-btn rounded-lg font-bold">
+            <div className="flex flex-row space-x-3 py-3 px-8 m-3 bg-discord-btn rounded-lg font-bold cursor-pointer">
               <DiscordIcon className="w-7 h-7" />
               <span>Login with Discord</span>
             </div>
