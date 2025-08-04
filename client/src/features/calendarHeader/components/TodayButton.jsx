@@ -1,7 +1,7 @@
 function TodayButton({ text, tooltipText, ...rest }) {
   return (
     <button
-      className="relative sm:p-2 sm:px-4 p-1 px-3 bg-teal-light shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] rounded-lg font-inconsolata font-bold"
+      className="relative sm:p-2 sm:px-4 p-1 px-3 bg-teal-light shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] rounded-lg font-inconsolata font-bold cursor-pointer"
       {...rest}
     >
       <span className="text-lg font-bold max-[440px]:text-sm">{text}</span>
