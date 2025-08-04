@@ -22,7 +22,7 @@ const NavButtons = ({ HomeIcon, LoginIcon, CalendarIcon }) => {
         <div className="flex justify-center">
           <HomeIcon className="text-main-blue w-7 h-7 lg:w-10 lg:h-10" />
         </div>
-        <div className="text-main-blue font-black text-lg lg:text-xl xl:text-2xl">
+        <div className="text-main-blue font-black text-lg lg:text-xl xl:text-2xl cursor-pointer">
           <span>Home</span>
         </div>
       </button>
@@ -34,7 +34,7 @@ const NavButtons = ({ HomeIcon, LoginIcon, CalendarIcon }) => {
         <div className="flex justify-center">
           <LoginIcon className="text-main-green w-7 h-7 lg:w-10 lg:h-10" />
         </div>
-        <div className="text-main-green font-black text-lg lg:text-xl xl:text-2xl">
+        <div className="text-main-green font-black text-lg lg:text-xl xl:text-2xl cursor-pointer">
           <span>{isAuthenticated() ? "Log Out" : "Log In"}</span>
         </div>
       </button>
@@ -47,7 +47,7 @@ const NavButtons = ({ HomeIcon, LoginIcon, CalendarIcon }) => {
         <div className="flex justify-center">
           <CalendarIcon className="text-main-orange w-7 h-7 lg:w-10 lg:h-10" />
         </div>
-        <div className="text-main-orange font-black text-lg lg:text-xl xl:text-2xl">
+        <div className="text-main-orange font-black text-lg lg:text-xl xl:text-2xl cursor-pointer">
           <span>Calendar</span>
         </div>
       </button>

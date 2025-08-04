@@ -40,7 +40,7 @@ function HamburgerNav({ logo, logotext }) {
         >
           {Links.map((Link) => {
             return (
-              <li key={Link.name} className="text-xl my-7">
+              <li key={Link.name} className="text-xl my-7 ">
                 {Link.type === "button" && (
                   <button onClick={() => navigate(Link.link)}>
                     {Link.name}
