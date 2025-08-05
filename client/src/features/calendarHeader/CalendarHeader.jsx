@@ -41,7 +41,7 @@ function CalendarHeader({ date }) {
         <HeaderButton
           Icon={MdGroupAdd}
           tooltipText="Join Team"
-          onClick={() => linkToUrl(DISCORD_THREAD_URL)}
+          onClick={() => linkToUrl(DISCORD_THREAD_URL)} 
         />
         <HeaderButton
           Icon={FaHome}

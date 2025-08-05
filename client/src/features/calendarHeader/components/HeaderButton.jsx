@@ -1,7 +1,7 @@
 function HeaderButton({ Icon, tooltipText, ...rest }) {
   return (
     <button
-      className="p-2 sm:p-3 relative bg-[#F5E7DE] shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] rounded-lg group font-inconsolata font-bold"
+      className="p-2 sm:p-3 relative bg-[#F5E7DE] shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] rounded-lg group font-inconsolata font-bold cursor-pointer"
       {...rest}
     >
       <Icon className="max-[380px]:w-4 max-[380px]:h-4 w-6 h-6 sm:w-8 sm:h-8 text-[#C57756]" />
