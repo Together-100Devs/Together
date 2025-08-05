@@ -155,6 +155,6 @@ module.exports = {
   Event,
   createEventSchema,
   STRING_MAX_LENGTH,
-  MAX_RECURRENCE_PERIOD,
+
   EVENT_MAX_DATE,
 };

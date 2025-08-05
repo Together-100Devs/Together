@@ -181,7 +181,7 @@ describe("Event Creation Form", () => {
       .type(dateToYYYYMMDD(createOffsetDate(now, "Date", 800)));
     tgt.createForm.button.next().click();
     expectFormErrors(
-      "Start date and End date cannot be more than 731 days apart",
+      "Start date and End date cannot be more than two years apart",
       "If event is not reoccuring start date and end date must be the same day"
     );
 

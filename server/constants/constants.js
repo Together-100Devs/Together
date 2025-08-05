@@ -1,3 +1,3 @@
 module.exports = {
-  MAX_RECURRENCE_PERIOD: 731,
+  MAX_RECURRENCE_PERIOD: 730,
 };
