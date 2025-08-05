@@ -29,7 +29,7 @@ const LoginWithDiscord = ({ DiscordIcon }) => {
         className="flex items-center justify-center tracking-widest gap-3"
       >
         <div className="flex border-2 border-slate-400 bg-white rounded-2xl">
-          <div className="py-3 px-8 m-3 bg-discord-btn rounded-lg font-bold">
+          <div className="py-3 px-8 m-3 bg-discord-btn rounded-lg font-bold cursor-pointer">
             Logout
           </div>
         </div>
