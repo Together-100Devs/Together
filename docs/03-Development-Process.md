@@ -19,7 +19,7 @@ Developers should follow the following steps :
 - create feature branch : `git checkout -b feature/issue-15469`
 - Develop the specified requirements
 - commit and Push the code
-- Raise a Pull request when the code meets **[Checklist](<(#pr-checklist)>)**
+- Raise a Pull request when the code meets **[Checklist](https://github.com/Together-100Devs/Together/blob/main/docs/pull_request_template.md)**
 - Ask one of the peers for the review
 - Address the required review comments
 - Merge will then be approved by a team member
