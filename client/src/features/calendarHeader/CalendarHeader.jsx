@@ -19,7 +19,9 @@ function CalendarHeader({ date }) {
   const DISCORD_THREAD_URL =
     "discord://discord.com/channels/735923219315425401/1038482732633825442";
 
-  const GH_ISSUES_URL = "https://github.com/Together-100Devs/Together/issues";
+  const GH_DISCUSSIONS_URL =
+    "https://github.com/Together-100Devs/Together/discussions";
+  const GH_WIKI_URL = "https://github.com/Together-100Devs/Together/wiki";
 
   const linkToUrl = (url) => {
     window.open(url, "_blank");
@@ -67,12 +69,12 @@ function CalendarHeader({ date }) {
         <HeaderButton
           Icon={IoChatbubblesOutline}
           tooltipText="Feedback"
-          onClick={() => linkToUrl(GH_ISSUES_URL)}
+          onClick={() => linkToUrl(GH_DISCUSSIONS_URL)}
         />
         <HeaderButton
           Icon={FaQuestion}
           tooltipText="Help"
-          onClick={() => linkToUrl(GH_ISSUES_URL)}
+          onClick={() => linkToUrl(GH_WIKI_URL)}
         />
         {isAuthenticated() ? (
           <HeaderButton
