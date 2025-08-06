@@ -8,7 +8,7 @@ const STRING_MAX_LENGTH = 280;
 // Event's starting date should be less than (strictly) EVENT_MAX_DATE
 const EVENT_MAX_DATE = "2030-01-01";
 // Recurring events should span no more than MAX_RECURRENCE_PERIOD number of days
-const MAX_RECURRENCE_PERIOD = 90;
+const { MAX_RECURRENCE_PERIOD } = require("../constants/constants");
 const DAYS_OF_WEEK = ["1", "2", "3", "4", "5", "6", "7"];
 
 const EventSchema = new mongoose.Schema(
@@ -155,6 +155,6 @@ module.exports = {
   Event,
   createEventSchema,
   STRING_MAX_LENGTH,
-  MAX_RECURRENCE_PERIOD,
+
   EVENT_MAX_DATE,
 };
