@@ -68,25 +68,39 @@ _`DISCORD_CLIENT_SECRET` is not required unless you need to test the discord log
 
 You can create your own `DISCORD_CLIENT_ID` and `DISCORD_CLIENT_SECRET` by going to [Discord Developer Portal](https://discord.com/developers/docs/intro).
 
-Under **OAuth2**
+Under **[OAuth2](https://discord.com/developers/docs/topics/oauth2)**
 
-- Set up Client Id and Client Secret
-- Set the Redirects to `http://localhost:2121/api/auth/discord/callback`.
+- Set up Client Id and Client Secret [here](https://discord.com/developers/applications).
+- Click on New Application in the top-right corner.
+
+  <p><img src="images/discord-oauth-new-application-button.JPG" alt="screenshot of discord new application button" width="100"></p>
+
+- After naming your app ("Together local", for example) navigate to 0Auth2 in the menu on the left.
+- Click "Add Redirect" and set to `http://localhost:2121/api/auth/discord/callback`.
+
+  <p><img src="images/discord-redirect-button.jpg" alt="screenshot of add discord add redirect button" width="500"></p>
+
+- Locate Client ID right above. Click "Reset Secret" button and enter your discord password to get secret. Make sure to copy both the `client id` and the `client secret`.
+
+  <p><img src="images/discord-client-secret.JPG" alt="screenshot of discord client secret section" width="500"></p>
+
 - Update .env to:
 
-```
-PORT=2121
-DB_STRING=mongodb://127.0.0.1:27017/
-DISCORD_CLIENT_ID=YOUR ID
-DISCORD_CLIENT_SECRET=YOUR SECRET
-OAUTH_REDIRECT_URL=http://localhost:3000/
-MOCK_USER=false
-NODE_ENV=development
-```
+  ```
+  PORT=2121
+  DB_STRING=mongodb://127.0.0.1:27017/
+  DISCORD_CLIENT_ID=YOUR ID
+  DISCORD_CLIENT_SECRET=YOUR SECRET
+  OAUTH_REDIRECT_URL=http://localhost:3000/
+  MOCK_USER=false
+  NODE_ENV=development
+  ```
 
-**To start the Test Event API, execute this command:**
+To start the Test Event API, execute this command:
 
 - `npm run dev`
+
+Then open [localhost:3000](http://localhost:3000) and try to log in through Discord!
 
 <!--
 | Doc | Overview |
