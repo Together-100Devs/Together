@@ -42,7 +42,10 @@ function HamburgerNav({ logo, logotext }) {
             return (
               <li key={Link.name} className="text-xl my-7">
                 {Link.type === "button" && (
-                  <button onClick={() => navigate(Link.link)}>
+                  <button
+                    onClick={() => navigate(Link.link)}
+                    className=" cursor-pointer"
+                  >
                     {Link.name}
                   </button>
                 )}
