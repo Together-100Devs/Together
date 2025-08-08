@@ -77,7 +77,7 @@ function CalendarHeader({ date }) {
         {isAuthenticated() ? (
           <HeaderButton
             Icon={RiArrowLeftCircleFill}
-            tooltipText=""
+            tooltipText="Logout"
             onClick={logout}
           />
         ) : (
