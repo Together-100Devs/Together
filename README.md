@@ -166,7 +166,6 @@ If you're interested in contributing, you may:
 - Visit the [Issues tab](https://github.com/Together-100Devs/Together/issues) to request an issue or to open a new issue.
 - You can also convert a "draft todo" to an issue on the current [Project Board.](https://github.com/Together-100Devs/Together/projects?query=is%3Aopen)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 Contributing Guidelines
 
@@ -175,6 +174,7 @@ Contributing Guidelines
 3. Once you are assigned, you are cleared to work on that issue.
 4. Proceed by following the [Contributing Guidelines](https://github.com/Together-100Devs/Together/tree/main/docs/04-Contributing.md)
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <div align='center'>
   <img src="docs/images/divider.png">
