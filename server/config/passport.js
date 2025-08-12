@@ -102,8 +102,9 @@ async function getServerName(accessToken) {
     }
     //if 500, return the response, server name
     //if no .nick, return serverName
+    console.log(`The nickname could not be found.`);
   } catch (error) {
-    console.log(`User guild name could not be found with the error: ${error}`);
+    console.log(`The member's guild info could not be found: ${error}`);
   }
   return null;
 }
