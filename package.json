@@ -25,7 +25,7 @@
     "start": "npm run client:build && npm run server:start",
     "start-client": "cd client && npm start",
     "test": "concurrently \"npm:test:backend\" \"npm:test:frontend\"",
-    "test:backend": "cross-env MOCK_USER=true jest --coverage --coverage-reporters=\"lcov\" && mkdir -p .nyc_output && mv coverage/coverage-final.json .nyc_output/coverage-final.json",
+    "test:backend": "cross-env MOCK_USER=true jest --coverage --coverage-reporters=\"text\" && mkdir -p .nyc_output && mv coverage/coverage-final.json .nyc_output/coverage-final.json",
     "test:e2e": "cross-env MOCK_USER=false NODE_ENV=test DB_STRING=mongodb://127.0.0.1:27017/ DISCORD_CLIENT_ID=1 DISCORD_CLIENT_SECRET=1 concurrently --success command-cypress --kill-others --names client,mongodb,server,cypress \"npm:client:start\" \"npm:server:dev:mongo\" \"wait-on http-get://localhost:27017/ && npm run --workspace=server start:coverage\" \"wait-on http://localhost:3000 && cypress run\"",
     "test:e2e:dev": "cross-env MOCK_USER=false NODE_ENV=test DB_STRING=mongodb://127.0.0.1:27017/ DISCORD_CLIENT_ID=1 DISCORD_CLIENT_SECRET=1 concurrently --success command-cypress --kill-others --names client,mongodb,server,cypress \"npm:client:start\" \"npm:server:dev:mongo\" \"wait-on http-get://localhost:27017/ && npm run --workspace=server start:coverage\" \"wait-on http://localhost:3000 && cypress open\"",
     "test:frontend": "echo \"No tests yet\" && exit 0"
