@@ -20,7 +20,7 @@ const WelcomeUserModal = ({ handleClose }) => {
         <div>
           <h2>
             Hello, {auth.user.displayName}, We are happy to welcome you in
-            Together. Looks, like you are all set! Cant wait for you to begin
+            Together. Looks, like you are all set! Can't wait for you to begin
             your journey with us!
           </h2>
         </div>
