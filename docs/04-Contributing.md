@@ -14,6 +14,14 @@ Welcome to this Beginner-friendly instructional guide for individual contributor
 
 > Guess what! If you are already a member of 100Devs, one of us can personally walk you through all the steps you will need to contribute code to this project. Please send a message on Discord in the [Together discussion thread (external link)](https://discord.com/channels/735923219315425401/1038482732633825442). We will help you no matter what stage of learning you are on with whatever we can. We can assist you in looking for an issue to address, and if no issue exists that fits, we will create one. 🤠
 
+
+Contributing Guidelines
+
+1. Comment on an <a href="https://github.com/Together-100Devs/Together/issues">issue</a> you'd like to work on.
+2. Wait to be assigned that issue on GitHub
+3. Once you are assigned, you are cleared to work on that issue.
+4. Proceed by following the [Contributing Guidelines](https://github.com/Together-100Devs/Together/tree/main/docs/04-Contributing.md)
+
 ## Prerequisites
 
 Anyone is welcome to join Together. If you're a beginner, we ask that you review the documents below before joining an issue. The React Scribma Course does not need to be completed, but having a basic understanding of React is heavily recommended.
