@@ -173,13 +173,39 @@ You now have the code and are in the correct feature branch, but before making c
 
    - Review [Testing Docs Page](https://github.com/Together-100Devs/Together/tree/main/docs/06-Testing) for more information on how testing works.
 
-7. Push the changes to your fork on GitHub
+7. Rebase your work before pushing.
 
-   Typing `git push` will not work by itself but will show you what command you need to enter. An example shorthand of that command is
+   `git fetch upstream main` : get the latest updates from the original repo's main branch.
+
+   `git rebase upstream/main` : rebase your feature branch on top of the latest upstream/main changes. Upstream is now the new "base" for your feature branch to sit on top of,
+
+8. Squash your commits into a single commit with interactive rebase:
+
+   `git log upstream/main..HEAD --reverse --oneline`: view all the commits in your current branch, since you branched off of upstream/main (oldest first).
+
+   - grab the commit of the very first commit you made
+
+     `git rebase -i ${your-commit-SHA}^`: interactive rebase just before that commit, ^ says start from the parent of that commit (your branch's creation).
+
+You want to change all but the first from pick to squash:
+
+> pick c32423434 first commit  
+> squash af243df second commit
+
+Save and close the editor, you'll be prompted to edit the final commit message (which starts off as all of the previous messages combined).
+
+optional: `git log --oneline`: if you want to double check that it merged into one commit. Or on upper left side of VSCode click on source control to see the history (the icon with 3 circles, connected by 2 lines)
+
+9. Push the changes to your fork on GitHub.
+
+   Typing `git push` will not work by itself but will show you what command you need to enter. An example shorthand of that command is:
    `git push -u origin a-descriptive-branch-name`
-   Which will push the code from your origin (your local device) to the correct branch upstream (your GitHub fork.)
+   `-u` is just shorthand for `--set-upstream`
+   Which will push the code from your local device to the correct branch origin (your GitHub fork.)
 
-8. You must head back to GitHub.com to create a pull request.
+   `git push --force-with-lease`: if you already pushed before, you'll need this command. This updates the branch on your fork to match your rebased history.
+
+10. You must head back to GitHub.com to create a pull request.
 
 #### Pull requests
 
