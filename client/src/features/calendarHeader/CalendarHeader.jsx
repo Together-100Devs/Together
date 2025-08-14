@@ -21,7 +21,8 @@ function CalendarHeader({ date }) {
 
   const GH_DISCUSSIONS_URL =
     "https://github.com/Together-100Devs/Together/discussions";
-  const GH_WIKI_URL = "https://github.com/Together-100Devs/Together/wiki";
+  const GH_WIKI_URL =
+    "https://github.com/Together-100Devs/Together/tree/main/docs";
 
   const linkToUrl = (url) => {
     window.open(url, "_blank");
