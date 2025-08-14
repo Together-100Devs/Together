@@ -2,7 +2,7 @@
   "name": "server",
   "description": "Server for Together App",
   "main": "server.js",
-  "author": "100devs",
+  "author": "100Devs",
   "scripts": {
     "start": "node --env-file=.env server.js",
     "start:coverage": "nyc --silent node server.js",

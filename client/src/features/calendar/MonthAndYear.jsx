@@ -7,7 +7,10 @@ const MonthAndYear = ({
   return (
     <div className="flex items-center">
       <div className="flex">
-        <button onClick={handlePreviousMonth}>
+        <button
+          onClick={handlePreviousMonth}
+          className="hover:scale-110 hover:text-blue-500 transition-transform duration-200 cursor-pointer"
+        >
           <svg
             className="w-6 h-6 max-[440px]:w-4 max-[440px]:h-4"
             xmlns="http://www.w3.org/2000/svg"
@@ -23,7 +26,11 @@ const MonthAndYear = ({
             />
           </svg>
         </button>
-        <button data-cy="next-month" onClick={handleNextMonth}>
+        <button
+          data-cy="next-month"
+          onClick={handleNextMonth}
+          className="hover:scale-110 hover:text-blue-500 transition-transform duration-200 cursor-pointer"
+        >
           <svg
             className="w-6 h-6 max-[440px]:w-4 max-[440px]:h-4"
             xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +47,7 @@ const MonthAndYear = ({
           </svg>
         </button>
       </div>
-      <h2 className="max-[440px]:ml-1 ml-2 w-[14ch] max-[440px]:text-base max-[440px]:text-center sm:text-3xl text-xl font-bold leading-none">
+      <h2 className="max-[440px]:ml-1 ml-2 w-[14ch] max-[440px]:text-base  sm:text-3xl text-xl font-bold leading-none text-center">
         {month}, {year}
       </h2>
     </div>
