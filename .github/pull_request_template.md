@@ -15,6 +15,7 @@ Please select everything applicable. Please, do not delete any lines.
 ## Issue
 
 - [ ] Is this related to a specific issue? If so, please specify:
+  Related to issue #532
 
 # Checklist:
 
