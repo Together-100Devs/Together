@@ -35,23 +35,23 @@ function CalendarHeader({ date }) {
           Icon={BsCalendarPlusFill}
           tooltipText="Add Event"
           onClick={formModal.handleOpen}
-          title="Add Event"
           aria-label="Add Event"
+          title="Add Event"
         />
 
         <HeaderButton
           Icon={MdGroupAdd}
           tooltipText="Join Team"
           onClick={() => linkToUrl(DISCORD_THREAD_URL)}
-          title="Join Team"
           aria-label="Join Team"
+          title="Join Team"
         />
         <HeaderButton
           Icon={FaHome}
           tooltipText={"Home"}
           onClick={() => navigate("/")}
-          title="Home"
           aria-label="Home"
+          title="Home"
         />
       </section>
       <section className="flex items-center w-full order-first lg:w-min lg:space-x-3 lg:order-0 justify-between mb-4 lg:mb-0">
@@ -66,8 +66,8 @@ function CalendarHeader({ date }) {
           text={"Today"}
           tooltipText={"Jump to current month"}
           onClick={() => date.getCurrentMonth()}
-          title="Today"
           aria-label="Today"
+          title="Today"
         />
       </section>
       <section className="flex max-[440px]:gap-x-2 gap-x-6 lg:gap-x-4">
@@ -75,31 +75,31 @@ function CalendarHeader({ date }) {
           Icon={IoChatbubblesOutline}
           tooltipText="Feedback"
           onClick={() => linkToUrl(GH_ISSUES_URL)}
-          title="Feedback"
           aria-label="Feedback"
+          title="Feedback"
         />
         <HeaderButton
           Icon={FaQuestion}
           tooltipText="Help"
           onClick={() => linkToUrl(GH_ISSUES_URL)}
-          title="Help"
           aria-label="Help"
+          title="Help"
         />
         {isAuthenticated() ? (
           <HeaderButton
             Icon={RiArrowLeftCircleFill}
             tooltipText="Logout"
             onClick={logout}
-            title="Logout"
             aria-label="Logout"
+            title="Logout"
           />
         ) : (
           <HeaderButton
             Icon={RiArrowRightCircleFill}
             tooltipText="Login"
             onClick={handleLogin}
-            title="Login"
             aria-label="Login"
+            title="Login"
           />
         )}
       </section>
