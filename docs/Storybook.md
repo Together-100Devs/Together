@@ -12,13 +12,13 @@ Storybook is a tool for viewing and developing UI components in isolation. It's 
    `npm install`
 3. Start Storybook:
    `npm run storybook`
-4. Open [ http://localhost:6006](http://localhost:6006)/ in your browser.
+4. Open [ http://localhost:6006](http://localhost:6006) in your browser.
 
 Storybook will launch and show a list of available components and their stories (examples of different states and uses).
 
 ## How to Write a Story
 
-This guide will only focus on creating a `Primary` story for a component. Storybook has the [ability to create and edit stories](https://storybook.js.org/docs/essentials/controls#creating-and-editing-stories-from-controls) from existing stories.
+This guide will only focus on creating a `Default` story for a component. Storybook has the [ability to create and edit stories](https://storybook.js.org/docs/essentials/controls#creating-and-editing-stories-from-controls) from existing stories.
 
 ### 1. Create a story next to the component.
 
@@ -43,12 +43,10 @@ export default {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
   },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ["autodocs"],
   argTypes: {},
 };
 
-export const Primary = {
+export const Default = {
   args: {},
 };
 ```
@@ -71,11 +69,10 @@ export default {
   parameters: {
     layout: "centered",
   },
-  tags: ["autodocs"],
   argTypes: {},
 };
 
-export const Primary = {
+export const Default = {
   args: {},
 };
 ```
@@ -91,11 +88,10 @@ export default {
   parameters: {
     layout: "centered",
   },
-  tags: ["autodocs"],
   argTypes: {},
 };
 
-export const Primary = {
+export const Default = {
   args: {},
 };
 ```
@@ -157,9 +153,8 @@ export default {
   parameters: {
     layout: "centered",
   },
-  tags: ["autodocs"],
   argTypes: {
-    // The tooltipText prop of HeaderButton is a string, so we'll use a text input.th
+    // The tooltipText prop of HeaderButton is a string, so we'll use a text input.
     tooltipText: {
       control: "text",
       description: "Tooltip text",
@@ -175,17 +170,15 @@ export default {
   },
 };
 
-export const Primary = {
-  primary: true,
+export const Default = {
   args: {},
 };
 ```
 
-Then update the `args` for the `Primary` story with some default values.
+Then update the `args` for the `Default` story with some default values.
 
 ```jsx
-export const Primary = {
-  primary: true,
+export const Default = {
   args: {
     Icon: ICONS.calendar,
     tooltipText: "Add Event",
