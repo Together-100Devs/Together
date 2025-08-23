@@ -36,8 +36,7 @@ export default {
   },
 };
 
-export const Primary = {
-  primary: true,
+export const Default = {
   args: {
     Icon: ICONS.calendar,
     tooltipText: "Add Event",
