@@ -22,7 +22,6 @@ export default {
   parameters: {
     layout: "centered",
   },
-  tags: ["autodocs"],
   argTypes: {
     tooltipText: {
       control: "text",
