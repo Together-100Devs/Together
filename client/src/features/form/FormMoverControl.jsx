@@ -73,14 +73,14 @@ const FormMoverControl = () => {
         checkForEmptyField("startTime");
         checkForEmptyField("endTime");
 
-        // Start Date & End Date Cannot be more than 90 days apart
-        // get date 90 days before final date
-        const NinetyDaysBeforeFinalDate = sub(parseISO(formData["finalDate"]), {
-          days: 90,
+        // Start Date & End Date Cannot be more than 730 (2 years) days apart
+        // get date 730 days before final date
+        const twoYearsBeforeFinalDate = sub(parseISO(formData["finalDate"]), {
+          days: 2 * 365,
         });
-        if (parseISO(formData["initialDate"]) < NinetyDaysBeforeFinalDate) {
+        if (parseISO(formData["initialDate"]) < twoYearsBeforeFinalDate) {
           errorArray.push(
-            "Error: Start date and End date cannot be more than 90 days apart"
+            "Error: Start date and End date cannot be more than two years apart"
           );
         }
 
