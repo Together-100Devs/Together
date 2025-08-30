@@ -9,6 +9,36 @@ import dataService from "../../services/dataService";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { useEventsContext } from "../../contexts/EventsContext";
 
+const URLRegex = /(https?:\/\/[^\s]+|www\.[^\s]+)/g;
+
+const LinkText = ({ children }) => {
+  if (typeof children !== "string")
+    throw new Error("LinkText can only accept a string as children");
+
+  const separated = children.split(URLRegex);
+
+  return separated.map((res, index) => {
+    if (URLRegex.test(res)) {
+      // Prepend http:// if it starts with www. to make a valid href
+      const href = res.startsWith("www.")
+        ? `http://${res}`
+        : new URL(res).toString();
+      return (
+        <a
+          key={index}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 underline hover:text-blue-800"
+        >
+          {res}
+        </a>
+      );
+    }
+    return res;
+  });
+};
+
 const EventModal = () => {
   const { setEvents } = useEventsContext();
   const modal = useModalContext();
@@ -94,7 +124,9 @@ const EventModal = () => {
         </div>
         <h3 className="mb-0">Description:</h3>{" "}
         <div className="description break-words w-auto min-h-20 mb-2 p-2 border-solid border-black border-2 font-semibold rounded-xl bg-neutral-200/50">
-          <p>{modal.activeEvent.description}</p>
+          <p>
+            <LinkText>{modal.activeEvent.description}</LinkText>
+          </p>
         </div>
         <div>
           {/* <section className="flex m-3 gap-1 font-semibold">
@@ -106,7 +138,17 @@ const EventModal = () => {
           </section> */}
           <section className="flex m-3 gap-1 font-semibold">
             <IoLocationOutline className="mt-1" />{" "}
-            <span>Location: {modal.activeEvent.location}</span>
+            <span>
+              Location:{" "}
+              <a
+                href={modal.activeEvent.location}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 underline hover:text-blue-800"
+              >
+                {modal.activeEvent.location}
+              </a>
+            </span>
           </section>
           {user ? (
             <>
