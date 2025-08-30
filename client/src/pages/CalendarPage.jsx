@@ -9,7 +9,8 @@ import { useFormModalContext } from "../contexts/FormModalContext";
 import EventModal from "../features/modal/EventModal";
 import { useModalContext } from "../contexts/ModalContext";
 import RejectionModal from "../features/modal/RejectionModal";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import CalendarSubscriptionModal from "../features/modal/CalendarSubscriptionModal";
 
 function CalendarPage() {
   const auth = useAuthContext();
@@ -17,6 +18,12 @@ function CalendarPage() {
   const formModal = useFormModalContext();
   const modal = useModalContext();
   const canScrollMonthRef = useRef(true);
+  const [showSubscribeModal, setShowSubscribeModal] = useState(false);
+
+  const subscribeModalContext = {
+    isOpen: showSubscribeModal,
+    handleClose: () => setShowSubscribeModal(false),
+  };
 
   const handleWheelScroll = (e) => {
     if (!canScrollMonthRef.current) return;
@@ -38,7 +45,10 @@ function CalendarPage() {
         onWheel={handleWheelScroll}
         className="flex flex-col gap-3 p-3 shadow-xs min-h-screen max-w-[1920px] mx-auto"
       >
-        <CalendarHeader date={date} />
+        <CalendarHeader
+          date={date}
+          setShowSubscribeModal={setShowSubscribeModal}
+        />
         <Calendar date={date} />
       </main>
       <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">
@@ -51,6 +61,12 @@ function CalendarPage() {
           ) : (
             <RejectionModal handleClose={formModal.handleClose} />
           )}
+        </Modal>
+        {/* Calendar Subscription Modal */}
+        <Modal context={subscribeModalContext}>
+          <CalendarSubscriptionModal
+            onClose={subscribeModalContext.handleClose}
+          />
         </Modal>
       </div>
     </FormProvider>

@@ -13,9 +13,12 @@
   "dependencies": {
     "@js-temporal/polyfill": "^0.4.3",
     "connect-mongo": "^3.2.0",
+    "date-fns": "^3.6.0",
+    "date-fns-tz": "^3.2.0",
     "express": "^5.1.0",
     "express-flash": "^0.0.2",
     "express-session": "^1.18.1",
+    "ics": "^3.8.1",
     "joi": "^17.7.0",
     "mongodb": "^3.7.3",
     "mongoose": "^5.12.3",
@@ -26,9 +29,14 @@
     "validator": "^13.15.15"
   },
   "devDependencies": {
-    "date-fns": "^2.30.0",
     "mongodb-memory-server": "^10.1.4",
     "nock": "^13.2.9",
     "nyc": "^17.1.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "transformIgnorePatterns": [
+      "/node_modules/(?!(?:date-fns|date-fns-tz)).*\\.js$"
+    ]
   }
 }
