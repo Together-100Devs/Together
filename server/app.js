@@ -9,6 +9,7 @@ const flash = require("express-flash");
 const logger = require("morgan");
 const mainRoutes = require("./routes/main");
 const eventsRoutes = require("./routes/events");
+const { router: calendarICSRoutes } = require("./routes/calendar-ics.js");
 const mockUser = require("./config/mockUser.json");
 const User = require("./models/User");
 
@@ -74,6 +75,7 @@ app.use(flash());
 //Setup Routes For Which The Server Is Listening
 app.use("/api/", mainRoutes);
 app.use("/api/events", eventsRoutes);
+app.use("/", calendarICSRoutes);
 app.get("/{*splat}", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
 });
