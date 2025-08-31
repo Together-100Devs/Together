@@ -39,6 +39,17 @@ function CalendarPage() {
         className="flex flex-col gap-3 p-3 shadow-xs min-h-screen max-w-[1920px] mx-auto"
       >
         <CalendarHeader date={date} />
+
+        {/* Calendar subscription button here */}
+        <div className="text-center mt-4">
+          <a
+            href="webcal://together.rocks/calendar.ics"
+            className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+          >
+            Subscribe to Together Calendar
+          </a>
+        </div>
+
         <Calendar date={date} />
       </main>
       <div className="md:w-1/2 mx-auto shadow-xl rounded-2xl pb-2 bg-white">

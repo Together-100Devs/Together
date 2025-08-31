@@ -16,6 +16,7 @@
     "express": "^5.1.0",
     "express-flash": "^0.0.2",
     "express-session": "^1.18.1",
+    "ics": "^3.8.1",
     "joi": "^17.7.0",
     "mongodb": "^3.7.3",
     "mongoose": "^5.12.3",
