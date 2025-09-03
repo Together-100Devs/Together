@@ -1,24 +1,47 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useAuthContext } from "../../contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useFormModalContext } from "../../contexts/FormModalContext";
 
-function HamburgerNav({ logo, logotext }) {
+function HamburgerNav({ logo, logotext, links }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const { isAuthenticated, logout } = useAuthContext();
+  const formModal = useFormModalContext();
 
-  let Links = [
-    { name: "HOME", link: "/", type: "button" },
-    { name: "CALENDAR", link: "calendar", type: "button" },
-  ];
+  const getDefaultLinks = () => {
+    const defaultLinks = [{ name: "HOME", link: "/", type: "button" }];
+    if (location.pathname.includes("calendar")) {
+      defaultLinks.push({
+        name: "ADD EVENT",
+        action: formModal.handleOpen,
+        type: "function",
+      });
+    } else {
+      defaultLinks.push({
+        name: "CALENDAR",
+        link: "/calendar",
+        type: "button",
+      });
+    }
 
-  if (!isAuthenticated()) {
-    Links.push({ name: "LOG IN", link: "api/auth/discord", type: "a" });
-  } else {
-    Links.push({ name: "LOG OUT", onClick: logout, type: "button" });
-  }
+    if (!isAuthenticated()) {
+      defaultLinks.push({
+        name: "LOG IN",
+        link: "api/auth/discord",
+        type: "a",
+      });
+    } else {
+      defaultLinks.push({ name: "LOG OUT", action: logout, type: "function" });
+    }
 
-  let [open, setOpen] = useState(false);
+    return defaultLinks;
+  };
+
+  const menuItems = links || getDefaultLinks();
+
+  const [open, setOpen] = useState(false);
 
   return (
     <nav className="shadow-md w-full fixed top-0 left-0 md:hidden">
@@ -38,7 +61,7 @@ function HamburgerNav({ logo, logotext }) {
             open ? "top-20" : "top-[-480px]"
           }`}
         >
-          {Links.map((Link) => {
+          {menuItems.map((Link) => {
             return (
               <li key={Link.name} className="text-xl my-7">
                 {Link.type === "button" && (
@@ -56,6 +79,9 @@ function HamburgerNav({ logo, logotext }) {
                   >
                     {Link.name}
                   </a>
+                )}
+                {Link.type === "function" && (
+                  <button onClick={Link.action}>{Link.name}</button>
                 )}
               </li>
             );
