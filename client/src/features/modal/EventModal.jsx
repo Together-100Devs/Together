@@ -106,7 +106,9 @@ const EventModal = () => {
           </section> */}
           <section className="flex m-3 gap-1 font-semibold">
             <IoLocationOutline className="mt-1" />{" "}
-            <span>Location: {modal.activeEvent.location}</span>
+            <span className="break-words w-full overflow-x-auto">
+              Location: {modal.activeEvent.location}
+            </span>
           </section>
           {user ? (
             <>
