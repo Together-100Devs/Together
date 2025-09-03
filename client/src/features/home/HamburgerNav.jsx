@@ -1,52 +1,63 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useAuthContext } from "../../contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useFormModalContext } from "../../contexts/FormModalContext";
 
-function HamburgerNav({ logo, logotext, links, isOpen, onToggle }) {
+function HamburgerNav({ logo, logotext, links }) {
   const navigate = useNavigate();
+  const location = useLocation();
   const { isAuthenticated, logout } = useAuthContext();
+  const formModal = useFormModalContext();
 
-  let Links = [
-    { name: "HOME", link: "/", type: "button" },
-    { name: "CALENDAR", link: "calendar", type: "button" },
-  ];
+  const getDefaultLinks = () => {
+    const defaultLinks = [{ name: "HOME", link: "/", type: "button" }];
+    if (location.pathname.includes("calendar")) {
+      defaultLinks.push({
+        name: "ADD EVENT",
+        action: formModal.handleOpen,
+        type: "function",
+      });
+    } else {
+      defaultLinks.push({
+        name: "CALENDAR",
+        link: "/calendar",
+        type: "button",
+      });
+    }
 
-  if (!isAuthenticated()) {
-    Links.push({ name: "LOG IN", link: "api/auth/discord", type: "a" });
-  } else {
-    Links.push({ name: "LOG OUT", action: logout, type: "function" });
-  }
+    if (!isAuthenticated()) {
+      defaultLinks.push({
+        name: "LOG IN",
+        link: "api/auth/discord",
+        type: "a",
+      });
+    } else {
+      defaultLinks.push({ name: "LOG OUT", action: logout, type: "function" });
+    }
 
-  // Use passed-in links OR fall back to Landingpage Links
-  const menuItems = links || Links;
+    return defaultLinks;
+  };
 
-  const [internalOpen, setInternalOpen] = useState(false);
+  const menuItems = links || getDefaultLinks();
 
-  const open = isOpen !== undefined ? isOpen : internalOpen;
-  const toggle = onToggle || (() => setInternalOpen(!internalOpen));
+  const [open, setOpen] = useState(false);
 
   return (
     <nav className="shadow-md w-full fixed top-0 left-0 md:hidden">
-      {open && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40"
-          onClick={toggle}
-        />
-      )}
       <div className="flex bg-white py-6 px-7">
         <div className="cursor-pointer flex items-center">
           <img className="mr-1 pt-2 w-7" src={logo} alt="logo icon" />
           <img className="mr-1 pt-2 w-20" src={logotext} alt="logo text" />
         </div>
         <div
-          onClick={toggle}
+          onClick={() => setOpen(!open)}
           className="text-3xl absolute right-8 top-6 cursor-pointer"
         >
           {open ? <FaTimes /> : <FaBars />}
         </div>
         <ul
-          className={`absolute z-50 left-0 w-full pl-9 transition-all duration-200 ease-in ${
+          className={`absolute bg-white z-[-1] left-0 w-full pl-9 transition-all duration-200 ease-in ${
             open ? "top-20" : "top-[-480px]"
           }`}
         >
