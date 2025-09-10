@@ -9,7 +9,13 @@ import dataService from "../../services/dataService";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { useEventsContext } from "../../contexts/EventsContext";
 
-const URLRegex = /(https?:\/\/[^\s]+|www\.[^\s]+)/g;
+// URLRegex matches strings that look like URLs, including:
+// 1. URLs starting with "http://" or "https://" (e.g., "https://example.com/path")
+// 2. URLs starting with "www." (e.g., "www.example.com")
+// 3. Bare domain names without protocol or www (e.g., "example.com")
+
+const URLRegex =
+  /(https?:\/\/[^\s]+|www\.[^\s]+|[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(?:[^\s]*))/g;
 
 const LinkText = ({ children }) => {
   if (typeof children !== "string")
@@ -19,10 +25,23 @@ const LinkText = ({ children }) => {
 
   return separated.map((res, index) => {
     if (URLRegex.test(res)) {
-      // Prepend http:// if it starts with www. to make a valid href
-      const href = res.startsWith("www.")
-        ? `http://${res}`
-        : new URL(res).toString();
+      // Determine the href: prepend https:// if missing
+      const href =
+        res.startsWith("http://") || res.startsWith("https://")
+          ? res
+          : res.startsWith("www.")
+          ? `https://${res}`
+          : `https://${res}`; // bare domains like google.com
+
+      // Convert Unicode domain to punycode for display
+      let displayURL;
+      try {
+        const urlObj = new URL(href);
+        displayURL = urlObj.toString(); // toString() converts hostname to punycode
+      } catch {
+        displayURL = href; // fallback if URL parsing fails
+      }
+
       return (
         <a
           key={index}
@@ -31,7 +50,7 @@ const LinkText = ({ children }) => {
           rel="noopener noreferrer"
           className="text-blue-600 underline hover:text-blue-800"
         >
-          {res}
+          {displayURL}
         </a>
       );
     }
