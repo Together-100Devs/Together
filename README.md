@@ -1,7 +1,4 @@
 <div align="center">
-<a href="https://deploy.cyclic.sh/GH_LOGIN/GH_REPO">
-    <img height="28px" src="https://deploy.cyclic.sh/button.svg" />
-</a>
 <a href="https://discord.com/channels/735923219315425401/1038482732633825442">
   <img height="28px" src="https://img.shields.io/badge/Discord-7289da?&logo=discord&logoColor=white" alt="Discord"/>
 </a>

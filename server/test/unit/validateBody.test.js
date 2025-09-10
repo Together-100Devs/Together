@@ -1,11 +1,9 @@
 "use strict";
 
 const validateBody = require("../../middleware/validateBody");
-const {
-  createEventSchema,
-  MAX_RECURRENCE_PERIOD,
-  EVENT_MAX_DATE,
-} = require("../../models/Event");
+const { createEventSchema, EVENT_MAX_DATE } = require("../../models/Event");
+const { MAX_RECURRENCE_PERIOD } = require("../../constants/constants");
+
 const sample = require("./validateBodyMockData");
 
 const mockRequest = (body) => ({ body });
