@@ -39,7 +39,7 @@ function CalendarPage() {
       <HamburgerNav logo={Logo} logotext="./logotext.png" />
       <main
         onWheel={handleWheelScroll}
-        className="flex flex-col gap-3 p-3 shadow-xs min-h-screen max-w-[1920px] mx-auto relative z-[-1] pt-24 md:pt-3"
+        className="flex flex-col gap-3 p-3 shadow-xs min-h-screen max-w-[1920px] mx-auto relative z-[-1] md:z-[100] pt-24 md:pt-3"
       >
         <CalendarHeader date={date} />
         <Calendar date={date} />
