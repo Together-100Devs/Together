@@ -1,6 +1,7 @@
 import useDate from "../hooks/useDate";
 import Calendar from "../features/calendar/Calendar";
 import CalendarHeader from "../features/calendarHeader";
+import HamburgerNav from "../features/home/HamburgerNav";
 import FormProvider from "../contexts/FormContext";
 import Modal from "../features/modal/Modal";
 import UserForm from "../features/form/UserForm";
@@ -10,6 +11,7 @@ import EventModal from "../features/modal/EventModal";
 import { useModalContext } from "../contexts/ModalContext";
 import RejectionModal from "../features/modal/RejectionModal";
 import { useRef } from "react";
+import Logo from "../assets/images/togetherLogo.svg";
 
 function CalendarPage() {
   const auth = useAuthContext();
@@ -34,9 +36,10 @@ function CalendarPage() {
 
   return (
     <FormProvider>
+      <HamburgerNav logo={Logo} logotext="./logotext.png" />
       <main
         onWheel={handleWheelScroll}
-        className="flex flex-col gap-3 p-3 shadow-xs min-h-screen max-w-[1920px] mx-auto"
+        className="flex flex-col gap-3 p-3 shadow-xs min-h-screen max-w-[1920px] mx-auto relative z-[-1] md:z-[100] pt-24 md:pt-3"
       >
         <CalendarHeader date={date} />
         <Calendar date={date} />
