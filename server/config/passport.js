@@ -27,8 +27,10 @@ module.exports = function (passport) {
         passReqToCallback: true,
       },
       async function (currentReq, accessToken, refreshToken, profile, cb) {
-        let displayName = profile.global_name ?? profile.username;
+        // Check if user exists in DB
+        let user = await User.findOne({ discordId: profile.id }).exec();
 
+        //if user is not in 100Devs, return (end the function)
         const is100Dever = profile.guilds.some(
           (server) => server.id === "735923219315425401"
         );
@@ -37,8 +39,9 @@ module.exports = function (passport) {
           currentReq.session.isNot100Dever = true;
           return cb(null, false);
         }
-        // Check if user exists in DB
-        let user = await User.findOne({ discordId: profile.id }).exec();
+
+        //check to see if a global name is set for the user. if not, fallback to username
+        let displayName = profile.global_name ?? profile.username;
 
         // check to see if there is a .nick property in the current user's guild
         const serverName = await getServerName(accessToken);
@@ -101,7 +104,7 @@ async function getServerName(accessToken) {
       return devMemberData.nick;
     }
     //if 500, return the response, server name
-    //if no .nick, return serverName
+    //if no .nick, return null (prior server name remains)
     console.log(`The nickname could not be found.`);
   } catch (error) {
     console.log(`The member's guild info could not be found: ${error}`);
