@@ -6,13 +6,14 @@ import { IoChatbubblesOutline } from "react-icons/io5";
 import { BsCalendarPlusFill } from "react-icons/bs";
 import { FaHome, FaQuestion } from "react-icons/fa";
 import { RiArrowLeftCircleFill, RiArrowRightCircleFill } from "react-icons/ri";
+import { BiCalendarHeart } from "react-icons/bi";
 import MonthAndYear from "../calendar/MonthAndYear";
 import Logo from "../../assets/images/togetherLogo.svg";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { useFormModalContext } from "../../contexts/FormModalContext";
 import { useNavigate } from "react-router-dom";
 
-function CalendarHeader({ date }) {
+function CalendarHeader({ date, setShowSubscribeModal }) {
   const navigate = useNavigate();
   const formModal = useFormModalContext();
   const { isAuthenticated, logout } = useAuthContext();
@@ -47,6 +48,12 @@ function CalendarHeader({ date }) {
           Icon={FaHome}
           tooltipText={"Home"}
           onClick={() => navigate("/")}
+        />
+        {/* Subscription Button */}
+        <HeaderButton
+          Icon={BiCalendarHeart}
+          tooltipText="Subscribe"
+          onClick={() => setShowSubscribeModal(true)}
         />
       </section>
       <section className="flex items-center w-full order-first lg:w-min lg:space-x-3 lg:order-0 justify-between mb-4 lg:mb-0">
