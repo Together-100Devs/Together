@@ -29,7 +29,7 @@ function CalendarHeader({ date }) {
     window.location = "api/auth/discord";
   };
   return (
-    <header className="flex items-center max-[440px]:px-2 px-5 py-3 bg-white lg:justify-between w-full justify-center lg:flex-nowrap flex-wrap  max-[440px]:gap-x-2 gap-x-6 lg:gap-x-4 overflow-hidden">
+    <header className="flex items-center max-[440px]:px-2 px-5 py-3 bg-white lg:justify-between w-full justify-center lg:flex-nowrap flex-wrap  max-[440px]:gap-x-2 gap-x-6 lg:gap-x-4">
       <section className="flex max-[440px]:gap-x-2 gap-x-6 lg:gap-x-4">
         <HeaderButton
           Icon={BsCalendarPlusFill}
