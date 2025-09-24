@@ -28,25 +28,30 @@ function CalendarHeader({ date }) {
   const handleLogin = () => {
     window.location = "api/auth/discord";
   };
-
   return (
-    <header className="flex items-center max-[440px]:px-2 px-5 py-3 bg-white lg:justify-between w-full justify-center lg:flex-nowrap flex-wrap  max-[440px]:gap-x-2 gap-x-6 lg:gap-x-4 overflow-hidden">
+    <header className="flex items-center max-[440px]:px-2 px-5 py-3 bg-white lg:justify-between w-full justify-center lg:flex-nowrap flex-wrap  max-[440px]:gap-x-2 gap-x-6 lg:gap-x-4">
       <section className="flex max-[440px]:gap-x-2 gap-x-6 lg:gap-x-4">
         <HeaderButton
           Icon={BsCalendarPlusFill}
           tooltipText="Add Event"
           onClick={formModal.handleOpen}
+          aria-label="Add Event"
+          title="Add Event"
         />
 
         <HeaderButton
           Icon={MdGroupAdd}
           tooltipText="Join Team"
           onClick={() => linkToUrl(DISCORD_THREAD_URL)}
+          aria-label="Join Team"
+          title="Join Team"
         />
         <HeaderButton
           Icon={FaHome}
           tooltipText={"Home"}
           onClick={() => navigate("/")}
+          aria-label="Home"
+          title="Home"
         />
       </section>
       <section className="flex items-center w-full order-first lg:w-min lg:space-x-3 lg:order-0 justify-between mb-4 lg:mb-0">
@@ -61,6 +66,8 @@ function CalendarHeader({ date }) {
           text={"Today"}
           tooltipText={"Jump to current month"}
           onClick={() => date.getCurrentMonth()}
+          aria-label="Today"
+          title="Today"
         />
       </section>
       <section className="flex max-[440px]:gap-x-2 gap-x-6 lg:gap-x-4">
@@ -68,23 +75,31 @@ function CalendarHeader({ date }) {
           Icon={IoChatbubblesOutline}
           tooltipText="Feedback"
           onClick={() => linkToUrl(GH_ISSUES_URL)}
+          aria-label="Feedback"
+          title="Feedback"
         />
         <HeaderButton
           Icon={FaQuestion}
           tooltipText="Help"
           onClick={() => linkToUrl(GH_ISSUES_URL)}
+          aria-label="Help"
+          title="Help"
         />
         {isAuthenticated() ? (
           <HeaderButton
             Icon={RiArrowLeftCircleFill}
             tooltipText="Logout"
             onClick={logout}
+            aria-label="Logout"
+            title="Logout"
           />
         ) : (
           <HeaderButton
             Icon={RiArrowRightCircleFill}
             tooltipText="Login"
             onClick={handleLogin}
+            aria-label="Login"
+            title="Login"
           />
         )}
       </section>
