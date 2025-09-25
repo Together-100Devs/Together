@@ -23,14 +23,14 @@ module.exports = function (passport) {
         clientSecret: process.env.DISCORD_CLIENT_SECRET,
         callbackURL: "/api/auth/discord/callback",
         // pulls discord username without email, and returns basic information about all the user's current guilds / servers.
-        scope: ["identify", "guilds"],
+        scope: ["identify", "guilds", "guilds.members.read"],
         passReqToCallback: true,
       },
       async function (currentReq, accessToken, refreshToken, profile, cb) {
-        const displayName =
-          profile.discriminator.length === 4
-            ? `${profile.username}#${profile.discriminator}`
-            : profile.username;
+        // Check if user exists in DB
+        let user = await User.findOne({ discordId: profile.id }).exec();
+
+        //if user is not in 100Devs, return (end the function)
         const is100Dever = profile.guilds.some(
           (server) => server.id === "735923219315425401"
         );
@@ -39,8 +39,15 @@ module.exports = function (passport) {
           currentReq.session.isNot100Dever = true;
           return cb(null, false);
         }
-        // Check if user exists in DB
-        let user = await User.findOne({ discordId: profile.id }).exec();
+
+        //check to see if a global name is set for the user. if not, fallback to username
+        let displayName = profile.global_name ?? profile.username;
+
+        // check to see if there is a .nick property in the current user's guild
+        const serverName = await getServerName(accessToken);
+
+        //if there is a serverName, use that instead of username or global_name
+        if (serverName) displayName = serverName;
 
         try {
           // Create user if it doesn't exist
@@ -73,3 +80,36 @@ module.exports = function (passport) {
     )
   );
 };
+
+/**
+ * a function that gets a user's server name.
+ * @param {string} accessToken represents the current access token of the auth instance
+ */
+async function getServerName(accessToken) {
+  //if in the parameters, can be reusable + testable
+  //test the happy path
+  try {
+    const devMemberInfo = await fetch(
+      "https://discord.com/api/users/@me/guilds/735923219315425401/member",
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
+    const devMemberData = await devMemberInfo.json();
+    //return a 200, something that is jsonable
+    //if .nick, that indicates a nickname
+    if (devMemberData.nick) {
+      return devMemberData.nick;
+    }
+    //if 500, return the response, server name
+    //if no .nick, return null (prior server name remains)
+    console.log(`The nickname could not be found.`);
+  } catch (error) {
+    console.log(`The member's guild info could not be found: ${error}`);
+  }
+  return null;
+}
+
+module.exports.getServerName = getServerName;
