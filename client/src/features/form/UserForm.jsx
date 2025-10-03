@@ -34,7 +34,7 @@ const UserForm = () => {
   };
 
   return (
-    <div className="md:w mx-auto shadow-xl rounded-2xl pb-2 bg-white">
+    <div className="md:w mx-auto shadow-xl rounded-2xl p-4 bg-white">
       <div className="container horizontal mt-5">
         <div className="flex flex-col items-center">
           <button
