@@ -21,16 +21,16 @@ describe("Discord OAuth works", () => {
   describe("Welcome Model", () => {
     it("Is shown until dismissed", () => {
       cy.login("100_DEVER");
-      tgt.modal.get().contains("Hello, 100Dever#0001");
+      tgt.modal.get().contains("Hello, 100Dever");
 
       cy.reload();
-      tgt.modal.get().contains("Hello, 100Dever#0001");
+      tgt.modal.get().contains("Hello, 100Dever");
     });
 
     for (const backdrop of [false, true]) {
       it(`Dismissible via ${backdrop ? "backdrop" : "close button"}`, () => {
         cy.login("100_DEVER");
-        tgt.modal.get().contains("Hello, 100Dever#0001");
+        tgt.modal.get().contains("Hello, 100Dever");
         tgt.modal.close(backdrop);
 
         cy.reload();
