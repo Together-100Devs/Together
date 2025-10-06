@@ -72,7 +72,7 @@ describe("Event Creation Form", () => {
     tgt.createForm.input.description().type("Test Description");
 
     cy.get('input[name="discordName"]')
-      .should("have.value", "100Dever#0001")
+      .should("have.value", "100Dever")
       .should("be.disabled");
     cy.contains("button", "Back").then(($button) =>
       expect($button.css("cursor")).to.equal("not-allowed")
@@ -95,7 +95,7 @@ describe("Event Creation Form", () => {
       "Test Title",
       "Test Description",
       "Test Location",
-      "100Dever#0001",
+      "100Dever",
       startDate,
       startTime,
       endDate,
@@ -115,7 +115,7 @@ describe("Event Creation Form", () => {
         title: "Test Title",
         description: "Test Description",
         location: "Test Location",
-        discordName: "100Dever#0001",
+        discordName: "100Dever",
         initialDate: startDate,
         finalDate: endDate,
         startTime,

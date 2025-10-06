@@ -73,7 +73,7 @@ describe("View Event Modal", () => {
           tgt.modal.get(0).contains("Location: Test Location");
           tgt.modal
             .get(0)
-            .contains("Event Author: 100Dever#0001")
+            .contains("Event Author: 100Dever")
             .should(by ? "exist" : "not.exist");
         };
 
