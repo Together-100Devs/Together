@@ -113,7 +113,7 @@ export default function FormConfirm() {
                 disabled={!!(formData.recurring.rate !== "noRecurr")}
                 className="  mx-1 outline-non text-gray-800"
               />
-              <p>No Recurring</p>
+              <p>Not recurring</p>
             </div>
           </div>
           <div className=" mx-7 ">
