@@ -1,10 +1,12 @@
 import { useFormContext } from "../../contexts/FormContext";
 import { useAuthContext } from "../../contexts/AuthContext";
+import { useState } from "react";
 
 export default function FormCreateEvent() {
   const auth = useAuthContext();
   const { formData, setFormData, formCreateEventErrors } = useFormContext();
-
+  const [charCount, setCharCount] = useState("");
+  const MAX_LENGTH = 280;
   // This updates the form data's in the context
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -15,10 +17,24 @@ export default function FormCreateEvent() {
       discordName: auth.user?.displayName,
     }));
   };
+  const handleTextChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+      discordName: auth.user?.displayName,
+    }));
+
+    if (value.length <= MAX_LENGTH) {
+      setCharCount(value);
+    }
+  };
 
   return (
     <div className="flex flex-col">
       {formCreateEventErrors.map((error, index) => {
+        console.log(formCreateEventErrors);
         return (
           <div className="alert alert-error shadow-lg text-red-700" key={index}>
             <div>
@@ -64,7 +80,8 @@ export default function FormCreateEvent() {
         <div className="bg-white my-2 p-1 flex border border-gray-200 rounded-sm">
           <textarea
             type="text"
-            onChange={handleChange}
+            maxLength={MAX_LENGTH}
+            onChange={handleTextChange}
             value={formData["description"] || ""}
             name="description"
             placeholder="Description"
@@ -72,6 +89,10 @@ export default function FormCreateEvent() {
             rows="8"
           ></textarea>
         </div>
+        <p>
+          {" "}
+          {MAX_LENGTH - charCount.length} of {MAX_LENGTH} characters left.
+        </p>
       </div>
 
       {/* LOCATION FIELD */}
