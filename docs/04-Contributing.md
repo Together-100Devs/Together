@@ -171,7 +171,7 @@ You now have the code and are in the correct feature branch, but before making c
 
    `npm run test-frontend` or `npm dev-frontend-tests`\*
 
-   - Review [Testing Docs Page](https://github.com/Together-100Devs/Together/tree/main/docs/06-Testing) for more information on how testing works.
+   - Review [Testing Docs Page](https://github.com/Together-100Devs/Together/tree/main/docs/06-Testing.md) for more information on how testing works.
 
 7. Rebase your work before pushing.
 
