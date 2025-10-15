@@ -9,6 +9,60 @@ import dataService from "../../services/dataService";
 import { useAuthContext } from "../../contexts/AuthContext";
 import { useEventsContext } from "../../contexts/EventsContext";
 
+// URLRegex matches strings that look like URLs, including:
+// 1. URLs starting with "http://" or "https://" (e.g., "https://example.com/path")
+// 2. URLs starting with "www." (e.g., "www.example.com")
+// 3. Bare domain names without protocol or www (e.g., "example.com")
+
+const URLRegex =
+  /(https?:\/\/[^\s]+|www\.[^\s]+|[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(?:[^\s]*))/g;
+
+const LinkText = ({ children }) => {
+  if (typeof children !== "string")
+    throw new Error("LinkText can only accept a string as children");
+
+  const separated = children.split(URLRegex);
+
+  return separated.map((res, index) => {
+    if (URLRegex.test(res)) {
+      let href;
+
+      // Determine href and always enforce HTTPS
+      if (res.startsWith("https://")) {
+        href = res;
+      } else if (res.startsWith("http://")) {
+        href = res.replace(/^http:\/\//, "https://");
+      } else if (res.startsWith("www.")) {
+        href = `https://${res}`;
+      } else {
+        href = `https://${res}`;
+      }
+
+      // Convert Unicode domain to punycode for display
+      let displayURL;
+      try {
+        const urlObj = new URL(href);
+        displayURL = urlObj.toString(); // toString() converts hostname to punycode
+      } catch {
+        displayURL = href; // fallback if URL parsing fails
+      }
+
+      return (
+        <a
+          key={`${res}-${index}`}
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+          className="text-blue-600 underline hover:text-blue-800"
+        >
+          {displayURL}
+        </a>
+      );
+    }
+    return res;
+  });
+};
+
 const EventModal = () => {
   const { setEvents } = useEventsContext();
   const modal = useModalContext();
@@ -94,7 +148,9 @@ const EventModal = () => {
         </div>
         <h3 className="mb-0">Description:</h3>{" "}
         <div className="description break-words w-auto min-h-20 mb-2 p-2 border-solid border-black border-2 font-semibold rounded-xl bg-neutral-200/50">
-          <p>{modal.activeEvent.description}</p>
+          <p>
+            <LinkText>{modal.activeEvent.description}</LinkText>
+          </p>
         </div>
         <div>
           {/* <section className="flex m-3 gap-1 font-semibold">
@@ -106,7 +162,17 @@ const EventModal = () => {
           </section> */}
           <section className="flex m-3 gap-1 font-semibold">
             <IoLocationOutline className="mt-1" />{" "}
-            <span>Location: {modal.activeEvent.location}</span>
+            <span>
+              Location:{" "}
+              <a
+                href={modal.activeEvent.location}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 underline hover:text-blue-800"
+              >
+                {modal.activeEvent.location}
+              </a>
+            </span>
           </section>
           {user ? (
             <>
