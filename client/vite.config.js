@@ -20,6 +20,11 @@ export default defineConfig({
     port: 3000,
     proxy: {
       "/api": "http://localhost:2121",
+      "/calendar.ics": {
+        target: "http://127.0.0.1:2121",
+        changeOrigin: true,
+        secure: false,
+      },
     },
   },
 });
