@@ -78,12 +78,13 @@ Together's progress and milestones are split into separate, distinct issues. You
 
 > 💡 Issues tagged with `Good 100Devs First Try` are beginner-level issues that are great for fellow 100Devs.
 
-Currently we have the way to discover issues using Issue Tab.
 
+Currently we have the way to discover issues using Issue Tab.
 ### Issues Tab
 
 ![Screenshot of Issues tab on GitHub with example issues representing various stages of a project](assets/contributing-issues-tab.jpg)
 The [Issues tab](https://github.com/Together-100Devs/Together/issues) contains all of the issues that are currently in progress, planned to be worked on, or need further review.
+
 
 ## Editing code and submitting a pull request
 
@@ -129,7 +130,7 @@ Now that you have the copy, you will need access to the feature branch related t
 
 1. Set upstream to track the remote repository containing the original repo. (Not just your fork.)
    `git remote add upstream https://github.com/Together-100Devs/Together.git`
-
+                     
 2. Use this command to fetch the list of remote branches.  
    `git fetch upstream`
 
