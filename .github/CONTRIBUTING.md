@@ -127,7 +127,8 @@ Now that you have a personal fork of the project on GitHub, you will be able to 
 
 Now that you have the copy, you will need access to the feature branch related to your issue to create a local working branch to write your code.
 
-1. Set upstream to track the remote repository containing the original repo. (Not just your fork.)  
+1. Set upstream to track the remote repository containing the original repo. (Not just your fork.)
+   `git remote add upstream https://github.com/Together-100Devs/Together.git`
 
 2. Use this command to fetch the list of remote branches.  
    `git fetch upstream`
